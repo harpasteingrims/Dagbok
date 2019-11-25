@@ -15,3 +15,6 @@ Nína Margrét:
   -Fer yfir kröfulistann og tékkar hvort það séu einhverjar kröfur sem er mögulega hægt að skipta upp í fleiri kröfur og byrjar á útlitshönnun, hún fer líka í use cases.
 Viktoría Inga:
   -Byrjar á use cases
+  
+  
+Samantekt: Kláruðum notendahópagreiningu, komumst áleiðis með kröfulista (kláruðum A-kröfur), use case og class diagram. Plönuðum hvernig fyrirkomulagið skyldi vera næstu daga, hvenær við ætlum að mæta og þ.h.
