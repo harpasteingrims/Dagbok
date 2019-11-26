@@ -3,7 +3,7 @@
 Vika 1: 25.11 - 29.11
 
 25.11.2019 
-    Áætlun: Dagurinn í dag fer í það að skipuleggja komandi viku, byrja á útlitshönnun, fara yfir kröfulistann og gera use cases
+    Áætlun: Dagurinn í dag fer í það að skipuleggja komandi viku, byrja á útlitshönnun, fara yfir kröfulistann og gera use cases.
 
     Hallmar Orri: 
         -Lærir á GitHub og gerir mögulegt "happy path". 
@@ -28,7 +28,7 @@ Vika 1: 25.11 - 29.11
         -Byrjuðum að gera wireframes í excel
         
 26.11.2019 
-    Áætlun: Dagurinn í dag fer í það að klára það sem var langt komið í gær, koma öllum hópnum í klasaritið og byrja á stöðuritinu
+    Áætlun: Dagurinn í dag fer í það að klára það sem var langt komið í gær, koma öllum hópnum í klasaritið og byrja á stöðuritinu.
 
     Hallmar Orri: 
         - 
