@@ -44,8 +44,10 @@ Vika 1: 25.11 - 29.11
         -Klárar use cases
 
     Samantekt: 
-        -
+        -Hallmar kynnti sér stöðurit, byrjaði aðeins á því en komst að því að það er ekki hægt að fullklára þau fyrr en wireframes eru tilbúnir.
+        -Harpa kláraði myndrænu notkunartilvikin og aðstoðaði Viktoríu með þau skriflegu. Setti líka texta í skýrsluna.
+        -Hildur komst að því að klasaritið er í raun síðasta skrefið í þessu holli. Tímasóun að setja of mikið púður í það á þessu stigi, bara til að vera að síbreyta því. Spáum í því síðar í vikunni. Hildur setti kjöt í skýrsluna.
+        -Nína hellti sér í wireframe-gerð sem reynist mjög yfirþyrmandi og því höfum við öll verið dugleg að málamiðla og koma með hugmyndir. Áhugaverð umræða skapaðist um hvað hugbúnaðurinn ætti að geta gert og hvað væri óþarft.
+        -Viktoría kláraði notkunartilvikin, þarf bara smá fínpússun.
         
-  
-
-
+        Samvinnan gengur vel og verkefnið eftir atvikum. Erum fimm hugbúnaðarverkfræðinemar saman í hóp, haltur leiðir blindan. Erum góðir vinir fyrir sem hjálpar auðvitað og sjáum ljósið smám saman. 
