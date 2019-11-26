@@ -31,12 +31,12 @@ Vika 1: 25.11 - 29.11
     Áætlun: Dagurinn í dag fer í það að klára það sem var langt komið í gær, koma öllum hópnum í klasaritið og byrja á stöðuritinu.
 
     Hallmar Orri: 
-        - 
+        -Kynnir sér hvernig stöðurit virkar og byrjar á því
     Harpa: 
         -Klárar use cases, gerir use cases á myndrænu formi
     Hildur: 
         -Heldur áfram með klasaritið
-        -Byrjar að kynna sér hvernig stöðurit virka
+        -Vinnur í skýrslunni
         -Skráir í dagbók
     Nína Margrét: 
         -Heldur áfram með wireframes.
