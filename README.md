@@ -51,3 +51,28 @@ Vika 1: 25.11 - 29.11
         -Viktoría kláraði notkunartilvikin, þarf bara smá fínpússun.
         
         Samvinnan gengur vel og verkefnið eftir atvikum. Erum fimm hugbúnaðarverkfræðinemar saman í hóp, haltur leiðir blindan. Erum góðir vinir fyrir sem hjálpar auðvitað og sjáum ljósið smám saman. 
+        
+        
+27.11.2019 
+    Áætlun: Dagurinn í dag fer í það að klára wireframes, gera notendaprófanir, vinna í skýrslunni og komast langleiðina með stöðuritin. Reynum að fá fund með kennurum, þurfum að athuga stöðuna, hvort við séum á réttri braut. Ætlum að lesa saman yfir notkunartilvikin og kröfurnar til að athuga hvort við séum að gleyma einhverju. Dagurinn í dag verður meira joint effort.
+
+    Hallmar Orri: 
+        -Les yfir kröfur og use cases
+        -Notendaprófanir
+        -Byrjar á stöðuritum
+    Harpa: 
+        -Les yfir kröfur og use cases
+        -Notendaprófanir
+    Hildur: 
+        -Les yfir kröfur og use cases
+        -Notendaprófanir
+        -Vinnur í skýrslunni
+    Nína Margrét: 
+        -Les yfir kröfur og use cases
+        -Notendaprófanir
+        -Klárar wireframes
+    Viktoría Inga: 
+        -Les yfir kröfur og use cases
+        -Notendaprófanir
+
+    Samantekt: 
