@@ -76,3 +76,8 @@ Vika 1: 25.11 - 29.11
         -Notendaprófanir
 
     Samantekt: 
+        -Hallmar fór í stöðuritið og náði ásamt Viktoríu að setja það upp á blað og koma því síðan í tölvu.
+        -Harpa fór yfir kröfurnar með Nínu og passaði að þær voru allar komnar og kláruðu alla skjái í wireframes og byrjaði á          happy path.
+        -Hildur hélt áfram með class diagram og fékk smá hjálp til að halda áfram með það en við ákvöðum saman sem hópur að             klára það saman í fyrramálið á morgun. Einnig fór hún yfir wireframes og skipulagði það vel og prentaði wireframes              fyrir notendaprófun sem verður gerð seinna í dag.
+        -Nína fór yfir kröfurnar með Hörpu og kláraði wireframes.
+        -Viktoría fór í stöðuritið með Hallmari og setti það upp í tölvu. Einnig fór hún yfir use cases og lagaði og breytti.
