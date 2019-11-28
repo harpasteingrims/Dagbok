@@ -109,4 +109,10 @@ Vika 1: 25.11 - 29.11
         -Fínpússa stöðuritið
         -Klasarit
         
-    Samantekt:
+    Samantekt: 
+        -Nína bjó til spurningalista fyrir notendaprófanirnar. Harpa sló inn athugasemdir notendaprófana en Nína og Hildur framkvæmdu prófanirnar.
+        -Föttuðum að það þurfti dáldið að laga wireframes og Hildur fór í það og prentaði út til prófunar. 
+        -Föttuðum að það eru nokkrir vankantar á útlitshönnuninni en til þess eru notendaprófanirnar gerðar. Við lögum það í næstu viku. Gleymdum að hafa möguleikann á því að sjá yfirlit yfir vinnuferðir yfir heila viku, erum bara búin að gera ráð fyrir að sjá vinnuferðir fyrir tiltekinn dag. Gleymdum líka að bæta við valmöguleika um að merkja ferð sem vinsæla. Héldum að algorithminn ætti bara að sjá um það. Skoða kröfur 27 og 28.
+        -Við fengum Friðrik til að útskýra betur fyrir okkur klasaritið, Viktoría og Hallmar tóku við því kefli og hafa sokkið sér rækilega í það. Harpa kláraði Happy path. Stöðuritið var fínpússað og er nú tilbúið. Hildur fínpússaði skýrsluna.
+        
+        Ef til vill hefur það unnið með okkur að okkur þótti verkefnið óyfirstíganlegt í fyrstu. Það gerði það að verkum að við höfum unnið gríðarlega hörðum höndum alla dagana og því er verkefnið á lokametrunum. Þegar við fórum heim úr skólanum í dag var allt tilbúið að undanskildum yfirlestrinum sem við gerum í sitthvoru lag heima fyrir og lagfærum ef þarf. Við höfum því unnið okkur inn frí á morgun.
