@@ -31,7 +31,7 @@ class CreateIO:
     def add_destination():                  '''Retrieves destinations and sends to Create LL'''
         pass
 
-    def add_voyage():                       '''Retrieves voyages and sends to Create LL
+    def add_voyage():                       '''Retrieves voyages and sends to Create LL'''
         pass
     
 class UpdateIO:
