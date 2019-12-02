@@ -1,7 +1,7 @@
 from EmployeeUI import EmployeesUI
 from VoyageUI import VoyagesUI
 from DestinationUI import DestinationsUI
-form AirplaneUI import AirplaneUI
+from AirplaneUI import AirplaneUI
 from Information_about_a_date import IAADUI
 
 class Main_menu():
