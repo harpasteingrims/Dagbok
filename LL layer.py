@@ -1,3 +1,72 @@
+class LLAPI():
+    '''Main logic layer that sends objects between the layers'''
+    def __init__(self):
+        pass
+
+    def call_create_LL():
+        pass
+    
+    def call_update_LL():
+        pass
+    
+    def call_get_LL():
+        pass
+
+class create_LL(LLAPI):
+    '''Subclass of LLAPI that is only designed to create something'''
+    def __init__(self):
+        pass
+
+    def create_pilot():
+        '''Method that creates a new pilot'''
+        new_pilot = {}
+        pass
+
+    def create_cabincrew():
+        '''Method that creates a new cabincrew member'''
+        new_cabincrew = {}
+        pass
+    
+    def create_voyage():
+        '''Method that creates a new voyage'''
+        new_voyage = {}
+        pass
+
+    def create_destination():
+        '''Method that creates a new destination'''
+        new_destination = {}
+        pass
+    
+    def create_airplanes():
+        '''Method that creates a new airplane'''
+        new_airplane = {}
+        pass
+    
+    def create_common_voyages():
+        '''Method that creates common voyages'''
+        common_voyages = []
+        pass
+
+class update_LL():
+    def __init__(self):
+        pass
+
+    def update_voyages():
+        '''Method that updates information about voyages'''
+        update_voyage = []
+        pass
+    
+    def update_employee():
+        '''Method that updates information about an employee'''
+        update_employee = {}
+        pass
+
+    def update_destcontact():
+        '''Method that updates information about the contact for a certain destination'''
+        update_destcontact = {}
+        pass
+    
+
 class get_LL():
 
     """ This class gets the command to go and get something """
