@@ -39,13 +39,7 @@ class create_LL(LLAPI):
     
     def create_airplanes():
         '''Method that creates a new airplane'''
-        airplane_id = input("Enter airplane id: ")
-        airplane_type = input("Enter airplane type: ")
-        airplane_manufacturer = input("Enter airplane manufacturer: ")
-        airplane_seat_amount = input("Enter airplane seat amount: ")
-        airplane = [airplane_type, airplane_manufacturer, airplane_seat_amount]
-        new_airplane = {}
-        new_airplane[airplane_id] = airplane
+        pass
     
     def create_common_voyages():
         '''Method that creates common voyages'''
