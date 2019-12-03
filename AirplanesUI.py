@@ -1,6 +1,6 @@
 class AirplanesUI():
     def __init__(self):
-        passs
+        pass
 
     @classmethod
     def show_airplane_menu(cls):
