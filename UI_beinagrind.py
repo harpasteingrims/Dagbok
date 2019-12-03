@@ -2,47 +2,6 @@ class UIAPI():
     def __init__(self):
         pass
 
-class EmployeesUI(UIAPI):
-    def __init__(self):
-        pass
-
-    def show_cabin_crew_menu(self):
-        """ This prints out the cabin crew menu """
-        pass
-
-    def show_cabin_crew_form(self):
-        """ This prints out the cabin crew format to put in the cabin crew information """
-        pass
-
-    def show_enter_name(self):
-        """ This prints out, put in name input """
-        pass 
-
-    def show_emp_edit_form(self):
-        """ This prints out the edit form for an employee """
-        pass 
-
-    def show_pilot_menu(self):
-        """ This prints out the pilot menu """
-        pass
-
-    def show_enter_date(self):
-        """ This prints out, put in date input """
-        pass 
-
-    def show_cabin_crew_list(self):
-        """ This prints the cabin crew list """
-        pass 
-
-    def show_pilot_list(self):
-        """ This prints out the pilot list """
-        pass 
-
-    def show_pilot_form(self):
-        """ This prints out the pilot format to put in the pilot information """
-        pass 
-
-
 class VoyagesUI(UIAPI):
     def __init__(self):
         pass
