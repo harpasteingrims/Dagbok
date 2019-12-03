@@ -1,28 +1,28 @@
+from EmployeesUI import EmployeesUI
 class CabincrewUI():
-
-    @classmethod
-    def show_cabin_crew_menu(cls):
+    LENGTH_STAR = 20
+    def show_cabin_crew_menu(self):
         """ This prints out the cabin crew menu """
+        print("*" * self.LENGTH_STAR)
         print("CABIN CREW MENU \n\n1 Search for a flight attendant \n2 Print overview of flight attendants \n3 Create a new flight attendant\nB Back\n")
 
         action = input("Choose action: ")
         print()
 
         if action == "1":
-            CabincrewUI.show_enter_name_to_search()
+            self.show_enter_name_to_search()
 
         elif action == "2": 
-            CabincrewUI.show_flight_attendants_overview()
+            self.show_flight_attendants_overview()
 
         elif action == "3": 
-            CabincrewUI.show_flight_attendant_create_form()
+            self.show_flight_attendant_create_form()
 
         elif action == "B":
-            from EmployeeUI import EmployeesUI
+            
             EmployeesUI.show_employee_menu()
     
-    @classmethod
-    def show_enter_name_to_search(cls):
+    def show_enter_name_to_search(self):
         print("Search for a flight attendant to get information")
         
         name = input("Enter name of flight attendant: ")
@@ -45,17 +45,16 @@ class CabincrewUI():
         print()
 
         if action == "1":
-            CabincrewUI.show_flight_schedule_of_flight_attendant(name)
+            self.show_flight_schedule_of_flight_attendant(name)
 
         elif action == "2": 
-            CabincrewUI.show_flight_attendant_edit_form(name)
+            self.show_flight_attendant_edit_form(name)
 
         elif action == "B":
-            from EmployeeUI import EmployeesUI
+
             EmployeesUI.show_cabin_crew_menu()
 
-    @classmethod
-    def show_flight_schedule_of_flight_attendant(cls, name):
+    def show_flight_schedule_of_flight_attendant(self, name):
         """ Calls a class that makes a list of his voyages """
         date_from = input("Enter date from: ")
         date_to = input("Enter date to: ")
@@ -68,11 +67,10 @@ class CabincrewUI():
         print()
 
         if action == "B":
-            from EmployeeUI import EmployeesUI
+
             EmployeesUI.show_cabin_crew_menu()
 
-    @classmethod
-    def show_flight_attendant_edit_form(cls, name):
+    def show_flight_attendant_edit_form(self, name):
         """ This prints out the edit form for an employee """
 
         # name, ssn, role.... = #calls the class to get the info of the flight attendant
@@ -95,15 +93,13 @@ class CabincrewUI():
             # calls the class that stores the info about the cabin crew to change it...
             print("flight attendant's information successfully changed")
             
-            from EmployeeUI import EmployeesUI
             EmployeesUI.show_cabin_crew_menu()
 
         elif action == "B":
-            from EmployeeUI import EmployeesUI
+
             EmployeesUI.show_cabin_crew_menu()
      
-    @classmethod
-    def show_flight_attendants_overview(cls):
+    def show_flight_attendants_overview(self):
         """ This prints out the flight attendant list """
 
         print("OVERVIEW OF FLIGHT ATTENDANTS\n")
@@ -115,11 +111,9 @@ class CabincrewUI():
         print()
 
         if action == "B":
-            from CabincrewUI import CabincrewUI
-            CabincrewUI.show_cabin_crew_menu()
+            self.show_cabin_crew_menu()
     
-    @classmethod
-    def show_flight_attendant_create_form(cls):
+    def show_flight_attendant_create_form(self):
         """ This prints out the flight attendant format to put in the flight attendant information """
 
         print("CREATE A NEW FLIGHT ATTENDANT\n")
@@ -141,9 +135,7 @@ class CabincrewUI():
             #calls the method that adds the info to a list of flight attendant
             
             print("Flight attendant successfully created\n")
-            from CabincrewUI import CabincrewUI
-            CabincrewUI.show_cabin_crew_menu()
+            self.show_cabin_crew_menu()
 
         elif action == "B":
-            from EmployeeUI import CabincrewUI
-            CabincrewUI.show_cabin_crew_menu()
+            self.show_cabin_crew_menu()
