@@ -120,7 +120,7 @@ class get_airplanes(get_LL):
         pass
 
     def get_all_airplanes(slef):
-        """ This method makes a list of all airplanes and returnes it """
+        """ This method makes a list of all airplanes and returns it """
         all_airplanes = []
         pass
 
