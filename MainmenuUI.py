@@ -4,10 +4,13 @@ from EmployeeUI import EmployeesUI
 #form AirplaneUI import Airplane_UI
 #from Information_about_a_date import IAAD_UI
 
-class Main_menu():
+class MainmenuUI():
+    lenght_star = 20
 
     @classmethod
     def show_main_menu(cls):
+
+        print("*"*cls.lenght_star)
         print("MAIN MENU\n\n1 Employees\n2 Voyages\n3 Destinations\n4 Airplanes\n5 Search a date\n")
         
         action = input("Choose action: ")
@@ -15,10 +18,9 @@ class Main_menu():
 
         if action == "1":
             EmployeesUI.show_employee_menu()
-            pass
 
         elif action == "2":
-            Voyages_UI.show_destination_menu()
+            Voyages_UI.show_voyage_menu()
             pass
 
         elif action == "3":
