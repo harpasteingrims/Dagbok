@@ -6,7 +6,6 @@ class IAADUI():
     def __init__(self):
         pass
 
-    @classmethod
     def show_enter_date(cls):
         print("\n")
         user_input_date = input("Enter a date: ")
@@ -14,7 +13,7 @@ class IAADUI():
         cls.show_IAAD_menu()
         """ This prints out, input date """
         pass
-    @classmethod
+
     def show_available_employees(cls):
         """ This prints out the available employees from a certain date """
         print("this is a list of available employees")
@@ -24,7 +23,7 @@ class IAADUI():
         if user_input == "b":
             IAADUI.show_IAAD_menu()
         pass
-    @classmethod
+
     def show_unavailable_employees(cls):
         """ This prints out the unavailable employees from a certain date """
         print("this is a list of unavailable employees")
@@ -34,7 +33,7 @@ class IAADUI():
         if user_input == "b":
             IAADUI.show_IAAD_menu()
         pass
-    @classmethod
+
     def show_airplane_status(cls):
         """ This prints out the status of a airplane from a certain date """
         print("this is a list of airplanes and their status")
@@ -44,7 +43,7 @@ class IAADUI():
         if user_input == "b":
             IAADUI.show_IAAD_menu()
         pass
-    @classmethod    
+   
     def show_voyages_status(cls):
         """ This prints out the status of a voyage from a certain date """
         print("this is a list of voyages and their status")
@@ -55,7 +54,7 @@ class IAADUI():
             IAADUI.show_IAAD_menu()
         pass
 
-    @classmethod
+
     def show_IAAD_menu(cls):
         """ This prints out the information about a date menu """
         print("IAAD")
@@ -74,7 +73,7 @@ class IAADUI():
             from main_menu import Main_menu
             Main_menu.show_main_menu()
             
-    @classmethod    
+  
     def choose_action(cls):
         print("\n")
         user_action = input("Choose action: ")

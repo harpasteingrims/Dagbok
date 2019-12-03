@@ -103,5 +103,3 @@ class VoyagesUI():
     def show_not_staffed_voyages(self):
         """ This prints out all the not fully staffed voyages that are available """
         #Vantar meira hér til þess að klára
-
-
