@@ -1,10 +1,12 @@
 class EmployeesUI():
+    lenght_star = 20
     
     def __init__(self):
         pass
 
     @classmethod
     def show_employee_menu(cls):
+        print(lenght_star*20)
         print("EMPLOYEES MENU \n\n1 Print overview of all employees \n2 Search for an employee \n3 Pilots \n4 Cabin Crew \nB Back \n")
         
         action = input("Choose action: ")
@@ -37,4 +39,3 @@ class EmployeesUI():
 
         if action == "B":
             cls.show_employee_menu()
-    
