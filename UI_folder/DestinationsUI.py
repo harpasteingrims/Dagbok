@@ -1,5 +1,5 @@
 
-class DestinationUI(UIAPI):
+class DestinationUI():
     Length_Star = 20
     def __init__(self):
         pass
@@ -48,7 +48,7 @@ class DestinationUI(UIAPI):
         action = input("Choose action: ") 
         #if action == "s" or action == "S":
             #from UI-layer import FALL SEM VINNUR MEÐ ÞETTA
-        elif action == "b" or "B":
+        if action == "b" or "B": #Á AÐ VERA ELIF HÉR 
             DestinationUI.show_destination_menu()
 
     def show_emerg_country_menu(self):
@@ -105,8 +105,10 @@ class DestinationUI(UIAPI):
         
         #if action == "s" or "S":
             #sendi dict í listann af dict contacts í LL-layer
-        elif action == "b" or "B":
+        if action == "b" or "B": #Á AÐ VERA ELIF HÉR
             DestinationUI.show_emergency_contact()
+
+
 
 
 
