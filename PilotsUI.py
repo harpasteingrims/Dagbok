@@ -1,12 +1,12 @@
 class PilotsUI():
 
     @classmethod
-    def show_cabin_crew_menu(cls):
+    def show_pilot_menu(cls):
         """ This prints out the cabin crew menu """
-        print("CABIN CREW MENU \n\n 1 Search for a flight attendant \n2 Print overview of flight attendants \n3 Create a new flight attendant\n")
-        print("B Back")
+        print("PILOT MENU \n\n1 Search for a pilot \n2 Print overview of pilots \n3 Create a new pilot\nB Back\n")
 
         action = input("Choose action: ")
+        print()
 
         if action == "1":
             PilotsUI.show_enter_name_to_search()
@@ -26,6 +26,7 @@ class PilotsUI():
         print("Search for a pilot to get information")
         
         name = input("Enter name of pilot: ")
+        print()
         
         # info_of_pilot = # Calls the class that holds the information of pilots and prints it
         """ Name 
@@ -41,6 +42,7 @@ class PilotsUI():
         print("2 Edit information about pilot \nB Back")
 
         action = input("Choose action: ")
+        print()
 
         if action == "1":
             PilotsUI.show_flight_schedule_of_pilot(name)
@@ -63,6 +65,7 @@ class PilotsUI():
         print("B Back")
 
         action = input("Choose action: ")
+        print()
 
         if action == "B":
             from EmployeeUI import EmployeesUI
@@ -105,14 +108,20 @@ class PilotsUI():
         """ This prints out the pilot list """
         print("OVERVIEW OF PILOTS\n")
         # Calls the class that makes a list of all pilots and prints it 
+        print("B Back\n")
 
-        pass 
+        action = input("Choose action: ")
+        print()
+        
+        if action == "B":
+            from EmployeeUI import EmployeesUI
+            EmployeesUI.show_pilot_menu()
     
     @classmethod
     def show_pilot_create_form(cls):
         """ This prints out the pilot format to put in the pilot information """
 
-        print("CREATE A NEW PILOT ")
+        print("CREATE A NEW PILOT \n")
         name = input("Enter full name: ")
         ssn = input("Enter social security number: ")
         address = input("Enter address: ")
@@ -121,18 +130,17 @@ class PilotsUI():
         email = input("Enter email: ")
         licence_type = input("Enter license type: ")
         
-        print("S Save \nB Back")
+        print("\nS Save \nB Back\n")
 
         action = input("Choose action: ")
+        print()
 
         if action == "S":
             """ Takes the info and adds it to the pilot list"""
             #calls the method that adds the info to a list of pilots
             
-            print("Pilot successfully created")
-            from EmployeeUI import EmployeesUI
-            EmployeesUI.show_pilot_menu()
+            print("Pilot successfully created\n")
+            PilotsUI.show_pilot_menu()
 
         elif action == "B":
-            from EmployeeUI import EmployeesUI
-            EmployeesUI.show_pilot_menu()
+            PilotsUI.show_pilot_menu()
