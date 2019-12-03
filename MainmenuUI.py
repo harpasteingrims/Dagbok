@@ -1,8 +1,8 @@
-from EmployeeUI import EmployeesUI
-#from VoyageUI import Voyages_UI
-#from DestinationUI import Destinations_UI
-#form AirplaneUI import Airplane_UI
-#from Information_about_a_date import IAAD_UI
+from EmployeesUI import EmployeesUI
+from VoyagesUI import VoyagesUI
+from DestinationsUI import DestinationsUI
+from AirplanesUI import AirplaneUI
+from IAADUI import IAADUI
 
 class MainmenuUI():
     lenght_star = 20
@@ -20,19 +20,19 @@ class MainmenuUI():
             EmployeesUI.show_employee_menu()
 
         elif action == "2":
-            Voyages_UI.show_voyage_menu()
+            VoyagesUI.show_voyage_menu()
             pass
 
         elif action == "3":
-            Destinations_UI.show_destination_menu()
+            DestinationsUI.show_destination_menu()
             pass
 
         elif action == "4":
-            Airplane_UI.show_airplane_menu()
+            AirplanesUI.show_airplane_menu()
             pass
 
         elif action == "5":
-            IAAD_UI.show_enter_date()
+            IAADUI.show_enter_date()
             pass
             
 def main():
