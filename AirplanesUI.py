@@ -51,7 +51,7 @@ class AirplanesUI():
             #calls the method that adds the info to a list of airplanes
             
             print("Airplane successfully created\n")
-            PilotsUI.show_pilot_menu()
+            AirplanesUI.show_airplane_menu()
 
         elif action == "B":
             AirplanesUI.show_airplane_menu()
