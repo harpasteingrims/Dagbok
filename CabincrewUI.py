@@ -3,10 +3,10 @@ class CabincrewUI():
     @classmethod
     def show_cabin_crew_menu(cls):
         """ This prints out the cabin crew menu """
-        print("CABIN CREW MENU \n\n 1 Search for a flight attendant \n2 Print overview of flight attendants \n3 Create a new flight attendant\n")
-        print("B Back")
+        print("CABIN CREW MENU \n\n1 Search for a flight attendant \n2 Print overview of flight attendants \n3 Create a new flight attendant\nB Back\n")
 
         action = input("Choose action: ")
+        print()
 
         if action == "1":
             CabincrewUI.show_enter_name_to_search()
@@ -26,6 +26,7 @@ class CabincrewUI():
         print("Search for a flight attendant to get information")
         
         name = input("Enter name of flight attendant: ")
+        print()
         
         # info_of_flight_attendant = # Calls the class that holds the information of flight attendant and prints it
         """ Name 
@@ -40,6 +41,7 @@ class CabincrewUI():
         print("2 Edit information about flight attendant \nB Back")
 
         action = input("Choose action: ")
+        print()
 
         if action == "1":
             CabincrewUI.show_flight_schedule_of_flight_attendant(name)
@@ -62,6 +64,7 @@ class CabincrewUI():
         print("B Back")
 
         action = input("Choose action: ")
+        print()
 
         if action == "B":
             from EmployeeUI import EmployeesUI
@@ -102,36 +105,43 @@ class CabincrewUI():
     def show_flight_attendants_overview(cls):
         """ This prints out the flight attendant list """
 
-        print("OVERVIEW OF flight attendants\n")
+        print("OVERVIEW OF FLIGHT ATTENDANTS\n")
         # Calls the class that makes a list of all flight attendants and prints it 
 
-        pass 
+        print("B Back\n")
+
+        action = input("Choose action: ")
+        print()
+
+        if action == "B":
+            from CabincrewUI import CabincrewUI
+            CabincrewUI.show_cabin_crew_menu()
     
     @classmethod
     def show_flight_attendant_create_form(cls):
         """ This prints out the flight attendant format to put in the flight attendant information """
 
-        print("CREATE A NEW FLIGHT ATTENDANT")
+        print("CREATE A NEW FLIGHT ATTENDANT\n")
         name = input("Enter full name: ")
         ssn = input("Enter social security number: ")
         address = input("Enter address: ")
         home_number = input("Enter home number: ")
         mobile_number = input("Enter mobile number: ")
         email = input("Enter email: ")
-        licence_type = input("Enter license type: ")
         
-        print("S Save \nB Back")
+        print("\nS Save \nB Back \n")
 
         action = input("Choose action: ")
+        print()
 
         if action == "S":
             """ Takes the info and adds it to the flight attendant list"""
             #calls the method that adds the info to a list of flight attendant
             
-            print("Flight attendant successfully created")
-            from EmployeeUI import EmployeesUI
-            EmployeesUI.show_cabin_crew_menu()
+            print("Flight attendant successfully created\n")
+            from CabincrewUI import CabincrewUI
+            CabincrewUI.show_cabin_crew_menu()
 
         elif action == "B":
-            from EmployeeUI import EmployeesUI
-            EmployeesUI.show_cabin_crew_menu()
+            from EmployeeUI import CabincrewUI
+            CabincrewUI.show_cabin_crew_menu()
