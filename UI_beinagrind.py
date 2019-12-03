@@ -11,23 +11,23 @@ class VoyagesUI(UIAPI):
         pass
 
     def show_assign_staff_form(self):
-        """ This prints out the form for assigning staff to a voyage """
+        """ This prints the form for assigning staff to a voyage """
         pass
     
     def show_add_menu(self):
-        """ This prints out the menu for add a voyage """
+        """ This prints the menu for add a voyage """
         pass 
 
     def show_see_common(self):
-        """ This prints out all the common voyages """
+        """ This prints all the common voyages """
         pass 
 
     def show_create_manually_form(self):
-        """ This prints out the form to add a voyage manually """
+        """ This prints the form to add a voyage manually """
         pass 
 
     def show_available_airplane(self):
-        """ This prints out all the available airplanes for a voyage """
+        """ This prints all the available airplanes for a voyage """
         pass
 
     def show_time_from_iceland(self):
@@ -39,7 +39,7 @@ class VoyagesUI(UIAPI):
         pass 
 
     def show_destinations(self):
-        """ This prints out all the destinations """
+        """ This prints all the destinations """
         pass 
 
 
@@ -48,27 +48,27 @@ class DestinationUI(UIAPI):
         pass
 
     def show_destination_menu(self):
-        """ This prints out the menu for destinations """
+        """ This prints the menu for destinations """
         pass 
 
     def show_destination_overview(self):
-        """ This prints out all the destination """
+        """ This prints all the destination """
         pass 
 
     def show_add_des_form(self):
-        """ This prints out the add a destination form """
+        """ This prints the add a destination form """
         pass 
 
     def show_emerg_country_menu(self):
-        """ This prints out the emergency contact menu """
+        """ This prints the emergency contact menu """
         pass 
 
     def show_emergency_contact(self):
-        """ This prints out the emergency contact for a specific country """
+        """ This prints the emergency contact for a specific country """
         pass
 
     def show_emergency_cont_form(self):
-        """ This prints out the emergency contact form """
+        """ This prints the emergency contact form """
         pass
 
 
@@ -77,15 +77,15 @@ class AirplaneUI(UIAPI):
         pass
 
     def show_airplane_menu(self):
-        """ This prints out the airplane menu """
+        """ This prints the airplane menu """
         pass
 
     def show_airplane_overview(self):
-        """ This prints out the overview of all airplanes """
+        """ This prints the overview of all airplanes """
         pass
 
     def show_add_airplane_form(self):
-        """ This prints out the add a airplane form """
+        """ This prints the add a airplane form """
         pass
 
 
@@ -94,25 +94,25 @@ class IAADUI(UIAPI):
         pass
 
     def show_enter_date(self):
-        """ This prints out, input date """
+        """ This prints, input date """
         pass
 
     def show_available_employees(self):
-        """ This prints out the available employees from a certain date """
+        """ This prints the available employees from a certain date """
         pass
 
     def show_unavailable_employees(self):
-        """ This prints out the unavailable employees from a certain date """
+        """ This prints the unavailable employees from a certain date """
         pass
 
     def show_airplane_status(self):
-        """ This prints out the status of a airplane from a certain date """
+        """ This prints the status of a airplane from a certain date """
         pass
 
     def show_voyages_status(self):
-        """ This prints out the status of a voyage from a certain date """
+        """ This prints the status of a voyage from a certain date """
         pass
 
     def show_IAAD_menu(self):
-        """ This prints out the information about a date menu """
+        """ This prints the information about a date menu """
         pass
