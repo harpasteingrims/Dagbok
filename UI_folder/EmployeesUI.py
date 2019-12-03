@@ -1,34 +1,37 @@
+#from CabincrewUI import CabincrewUI
+#from PilotUI import PilotsUI
+
+#from VoyageUI import Voyages_UI
+#from DestinationUI import Destinations_UI
+#form AirplaneUI import Airplane_UI
+#from Information_about_a_date import IAAD_UI
+
 class EmployeesUI():
-    lenght_star = 20
+    LENGTH_STAR = 20
     
     def __init__(self):
         pass
 
-    @classmethod
-    def show_employee_menu(cls):
-        print(lenght_star*20)
+    def show_employee_menu(self):
+        print(self.LENGTH_STAR * "*")
         print("EMPLOYEES MENU \n\n1 Print overview of all employees \n2 Search for an employee \n3 Pilots \n4 Cabin Crew \nB Back \n")
         
         action = input("Choose action: ")
         print()
 
         if action == "1":
-            cls.show_overview_of_all_employees()
+            self.show_overview_of_all_employees()
 
         elif action == "2":
-            from PilotUI import PilotsUI
             PilotsUI.show_pilot_menu()
 
         elif action == "3":
-            from CabincrewUI import CabincrewUI
             CabincrewUI.show_cabin_crew_menu()
 
         elif action == "B":
-            from MainmenuUI import MainmenuUI
             Main_menu.show_main_menu()
 
-    @classmethod
-    def show_overview_of_all_employees(cls):
+    def show_overview_of_all_employees(self):
         print("OVERVIEW OF EMPLOYEES")
 
         # calls the method that makes a list of all emps and prints it
@@ -38,4 +41,4 @@ class EmployeesUI():
         print()
 
         if action == "B":
-            cls.show_employee_menu()
+            self.show_employee_menu()
