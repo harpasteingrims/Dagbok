@@ -138,6 +138,10 @@ Vika 1: 25.11 - 29.11
     Allir:
         -Reyna að forrita!
         -Skipta upp í 3 lög
+        -Nína gerir UI fyrir employees
+        -Harpa gerir UI fyrir voyages
+        -Hildur gerir UI fyrir airplanes
+        -Hallmar gerir UI fyrir information about a day
         
     Samantekt:
         -
