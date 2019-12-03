@@ -121,13 +121,23 @@ Vika 1: 25.11 - 29.11
         Ef til vill hefur það unnið með okkur að okkur þótti verkefnið óyfirstíganlegt í fyrstu. Það gerði það að verkum að við höfum unnið gríðarlega hörðum höndum alla dagana og því er verkefnið á lokametrunum. Þegar við fórum heim úr skólanum í dag var allt tilbúið að undanskildum yfirlestrinum sem við gerum í sitthvoru lag heima fyrir og lagfærum ef þarf. Við höfum því unnið okkur inn frí á morgun.
 
 
-28.11.2019 
+02.12.2019 
     Áætlun: Í dag hefst forritunarhluti verkefnisins. Við erum í raun frekar lost og vonum að hlutirnir muni skýrast eftir því sem líður á vikuna. Lærum betur á GIT, reynum að gera beinagrind að forritinu eftir klasaritinu og mætum á fyrirlestur dagsins. 
 
     Allir:
         -Læra á GIT
         -Gera beinagrind að forritinu
         -Mæta á fyrirlestur dagsins
+        
+    Samantekt:
+        -Gerðum nokkra parta af beinagrind að forritinu og mættum á fyrirlesturinn. Fengum Arnar til að veita okkur aðstoð, hann fann stofu og reyndi að útskýra t.d. hvernig klasar kalla á aðra klasa og hvernig maður skiptir stóru kerfi upp í mörg minni forrit. Græddum á því. Unnum í sitt hvoru lagi þegar heim var komið, allir að reyna að finna lausnir sem við ræðum í fyrramálið.
+        
+03.12.2019 
+    Áætlun: Hefjum daginn á því að ræða hvernig hverjum tókst til heima fyrir. Vonumst til að öðlast dýpri skilning á verkefninu í dag.  
+
+    Allir:
+        -Reyna að forrita!
+        -Skipta upp í 3 lög
         
     Samantekt:
         -
