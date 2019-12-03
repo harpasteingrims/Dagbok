@@ -1,4 +1,4 @@
-from EmployeeUI import Employees_UI
+from EmployeeUI import EmployeesUI
 #from VoyageUI import Voyages_UI
 #from DestinationUI import Destinations_UI
 #form AirplaneUI import Airplane_UI
@@ -14,7 +14,7 @@ class Main_menu():
         print()
 
         if action == "1":
-            Employees_UI.show_employee_menu()
+            EmployeesUI.show_employee_menu()
             pass
 
         elif action == "2":
