@@ -12,9 +12,7 @@ class VoyagesUI():
     def show_voyage_menu(self):
         """ This prints out the voyage menu """
         print(self.LENGTH_STAR*"*")
-        print("VOYAGES")
-        print()
-        print("1 Print overview of voyages\n2 Create a voyage\n3 Assign crew to flights\nB Back")
+        print("VOYAGES \n\n1 Print overview of voyages\n2 Create a voyage\n3 Assign crew to flights\nB Back")
         print()
         action_str = input("Choose action: ")
         if action_str == "1":
@@ -40,9 +38,7 @@ class VoyagesUI():
     def show_create_voyage_menu(self):
         """ This prints out the menu for create a voyage """
         print("\n{}".format(self.LENGTH_STAR*"*"))
-        print("CREATE A VOYAGE")
-        print()
-        print("1 See common voyages\n2 Create a voyage manually\nB Back")
+        print("CREATE A VOYAGE \n\n1 See common voyages\n2 Create a voyage manually\nB Back")
         print()
         action_str = input("Choose action: ")
         if action_str == "1":

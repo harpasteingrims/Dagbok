@@ -10,6 +10,7 @@ class EmployeesUI():
     LENGTH_STAR = 20
     
     def __init__(self):
+        # self.__employee_service = LLAPI()
         pass
 
     def show_employee_menu(self):
@@ -35,6 +36,8 @@ class EmployeesUI():
         print("OVERVIEW OF EMPLOYEES")
 
         # calls the method that makes a list of all emps and prints it
+        # employees = self.__employee_service.get_employess()
+        # print(employees)
         print("B Back\n")
 
         action = input("Choose action: ")

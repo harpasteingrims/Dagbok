@@ -1,11 +1,15 @@
-from EmployeesUI import EmployeesUI
+#from EmployeesUI import EmployeesUI
 #from VoyageUI import Voyages_UI
 #from DestinationUI import Destinations_UI
 #form AirplaneUI import Airplane_UI
 #from Information_about_a_date import IAAD_UI
+#from LogicLayer_folder.LLAPI import LLAPI
 
 class MainmenuUI():
     LENGTH_STAR = 20
+
+    #def __init__(self):
+        #self.__employess_service = LLAPI()
 
     def show_main_menu(self):
 
