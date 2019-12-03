@@ -29,8 +29,9 @@ class PilotsUI():
         print()
         
         # info_of_pilot = # Calls the class that holds the information of pilots and prints it
-        """ Name 
-            Social security number
+        """ Name:
+            Role:
+            Social security number:
             Adress:
             Home number:
             Mobile number:
@@ -75,7 +76,7 @@ class PilotsUI():
     def show_pilot_edit_form(cls, name):
         """ This prints out the edit form for an employee """
 
-        # name, ssn, .... = #calls the class to get the info of the pilot 
+        # name, ssn, role.... = #calls the class to get the info of the pilot 
         
         print("You are changing the information for pilot: {}, {}".format(name, ssn))
        
@@ -123,6 +124,7 @@ class PilotsUI():
 
         print("CREATE A NEW PILOT \n")
         name = input("Enter full name: ")
+        role = input("Enter role: ")
         ssn = input("Enter social security number: ")
         address = input("Enter address: ")
         home_number = input("Enter home number: ")
