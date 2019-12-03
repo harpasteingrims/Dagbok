@@ -1,4 +1,4 @@
-class Employees_UI():
+class EmployeesUI():
     
     def __init__(self):
         pass
@@ -8,16 +8,17 @@ class Employees_UI():
         print("EMPLOYEES MENU \n\n1 Print overview of all employees \n2 Search for an employee \n3 Pilots \n4 Cabin Crew \nB Back \n")
         
         action = input("Choose action: ")
+        print()
 
         if action == "1":
-            Employees_UI.show_oveview_of_all_employees()
+            EmployeesUI.show_oveview_of_all_employees()
 
         elif action == "2":
-            Employees_UI.show_search_for_employee()
+            EmployeesUI.show_search_for_employee()
 
         elif action == "3":
             from PilotUI import PilotsUI
-            CabincrewUI.show_cabin_crew_menu()
+            PilotsUI.show_pilot_menu()
 
         elif action == "4":
             from CabincrewUI import CabincrewUI
@@ -38,7 +39,7 @@ class Employees_UI():
         print()
 
         if action == "B":
-            Employees_UI.show_employee_menu()
+            EmployeesUI.show_employee_menu()
 
 
     @classmethod
@@ -62,9 +63,10 @@ class Employees_UI():
         print("2 Edit information about flight attendant \nB Back")
 
         action = input("Choose action: ")
+        print()
 
         if action == "1":
-            Employees_UI.show_flight_schedule_of_employee(name)
+            EmployeesUI.show_flight_schedule_of_employee(name)
 
         elif action == "2": 
             Employees_UI.show_employee_edit_form(name)
@@ -86,6 +88,7 @@ class Employees_UI():
         print("B Back")
 
         action = input("Choose action: ")
+        print()
 
         if action == "B":
             from EmployeeUI import EmployeesUI
