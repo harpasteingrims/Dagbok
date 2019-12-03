@@ -134,14 +134,16 @@ Vika 1: 25.11 - 29.11
         
 03.12.2019 
     Áætlun: Hefjum daginn á því að ræða hvernig hverjum tókst til heima fyrir. Vonumst til að öðlast dýpri skilning á verkefninu í dag.  
-
-    Allir:
-        -Reyna að forrita!
-        -Skipta upp í 3 lög
-        -Nína gerir UI fyrir employees
-        -Harpa gerir UI fyrir voyages
-        -Hildur gerir UI fyrir airplanes
-        -Hallmar gerir UI fyrir information about a day
+    Hallmar Orri: 
+        -UI fyrir Information about a day
+    Harpa: 
+        -UI fyrir Voyages
+    Hildur: 
+        -UI fyrir Airplanes
+    Nína Margrét: 
+        -UI fyrir Employees
+    Viktoría Inga: 
+        -tba
         
     Samantekt:
         -
