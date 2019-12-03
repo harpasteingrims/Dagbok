@@ -30,7 +30,7 @@ class AirplanesUI():
         print()
 
         if action == "B":
-            EmployeesUI.show_employee_menu()
+            AirplanesUI.show_airplane_menu()
 
     @classmethod
     def show_create_airplane_form(cls):
