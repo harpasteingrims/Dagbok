@@ -121,6 +121,8 @@ Vika 1: 25.11 - 29.11
         Ef til vill hefur það unnið með okkur að okkur þótti verkefnið óyfirstíganlegt í fyrstu. Það gerði það að verkum að við höfum unnið gríðarlega hörðum höndum alla dagana og því er verkefnið á lokametrunum. Þegar við fórum heim úr skólanum í dag var allt tilbúið að undanskildum yfirlestrinum sem við gerum í sitthvoru lag heima fyrir og lagfærum ef þarf. Við höfum því unnið okkur inn frí á morgun.
 
 
+Vika 2: 02.12 - 06.12
+
 02.12.2019 
     Áætlun: Í dag hefst forritunarhluti verkefnisins. Við erum í raun frekar lost og vonum að hlutirnir muni skýrast eftir því sem líður á vikuna. Lærum betur á GIT, reynum að gera beinagrind að forritinu eftir klasaritinu og mætum á fyrirlestur dagsins. 
 
