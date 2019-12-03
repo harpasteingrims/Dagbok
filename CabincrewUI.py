@@ -29,8 +29,9 @@ class CabincrewUI():
         print()
         
         # info_of_flight_attendant = # Calls the class that holds the information of flight attendant and prints it
-        """ Name 
-            Social security number
+        """ Name:
+            Role:
+            Social security number:
             Adress:
             Home number:
             Mobile number:
@@ -74,7 +75,7 @@ class CabincrewUI():
     def show_flight_attendant_edit_form(cls, name):
         """ This prints out the edit form for an employee """
 
-        # name, ssn, .... = #calls the class to get the info of the flight attendant
+        # name, ssn, role.... = #calls the class to get the info of the flight attendant
         
         print("You are changing the information for flight attendant: {}, {}".format(name, ssn))
        
@@ -123,6 +124,7 @@ class CabincrewUI():
 
         print("CREATE A NEW FLIGHT ATTENDANT\n")
         name = input("Enter full name: ")
+        role = input("Enter role: ")
         ssn = input("Enter social security number: ")
         address = input("Enter address: ")
         home_number = input("Enter home number: ")
