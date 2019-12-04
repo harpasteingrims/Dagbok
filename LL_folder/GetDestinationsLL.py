@@ -1,0 +1,2 @@
+class GetDestinationsLL():
+    pass
