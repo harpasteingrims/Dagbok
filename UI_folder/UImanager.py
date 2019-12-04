@@ -2,7 +2,8 @@ import sys
 sys.path.insert(1, '~/VERKLEGT-1-verkefni/')
 
 from LL_folder.LLAPI import LLAPI
-class UIMNG():
+
+class UImanager():
     
     def __init__(self):
         self.llapi = LLAPI()
