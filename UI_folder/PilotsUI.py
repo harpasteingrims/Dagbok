@@ -120,10 +120,11 @@ class PilotsUI():
         role = input("Enter role: ")
         ssn = input("Enter social security number: ")
         address = input("Enter address: ")
-        home_number = input("Enter home number: ")
         mobile_number = input("Enter mobile number: ")
         email = input("Enter email: ")
         licence_type = input("Enter license type: ")
+        new_pilot = Pilot(name, role, ssn, address, )
+        self.
         
         print("\nS Save \nB Back\n")
 
