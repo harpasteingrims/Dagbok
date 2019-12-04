@@ -1,11 +1,11 @@
 import sys
 sys.path.insert(1, '~/VERKLEGT-1-verkefni/')
 
-from EmployeesUI import EmployeesUI
-from VoyagesUI import VoyagesUI
-from DestinationsUI import DestinationUI
-from AirplanesUI import AirplanesUI
-from IAADUI import IAADUI
+from UI_folder.EmployeesUI import EmployeesUI
+from UI_folder.VoyagesUI import VoyagesUI
+from UI_folder.DestinationsUI import DestinationsUI
+from UI_folder.AirplanesUI import AirplanesUI
+from UI_folder.IAADUI import IAADUI
 #from LogicLayer_folder.LLAPI import LLAPI
 
 class MainmenuUI():
@@ -30,20 +30,16 @@ class MainmenuUI():
                 EmployeesUI.show_employee_menu(self)
 
             elif action == "2":
-                Voyages_UI.show_voyage_menu()
-                pass
+                VoyagesUI.show_voyage_menu(self)
 
             elif action == "3":
-                Destinations_UI.show_destination_menu()
-                pass
+                DestinationsUI.show_destination_menu(self)
 
             elif action == "4":
-                Airplane_UI.show_airplane_menu()
-                pass
+                AirplanesUI.show_airplane_menu(self)
 
             elif action == "5":
-                IAAD_UI.show_enter_date()
-                pass
+                IAADUI.show_enter_date(self)
             
 def main():
     menu = MainmenuUI()
