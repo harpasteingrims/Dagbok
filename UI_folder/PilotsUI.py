@@ -122,9 +122,9 @@ class PilotsUI():
         address = input("Enter address: ")
         mobile_number = input("Enter mobile number: ")
         email = input("Enter email: ")
-        licence_type = input("Enter license type: ")
-        new_pilot = Pilot(name, role, ssn, address, )
-        self.
+        license_type = input("Enter license type: ")
+        new_pilot = Pilot(name, role, ssn, address, mobile_number, email, license_type)
+        self.??
         
         print("\nS Save \nB Back\n")
 
