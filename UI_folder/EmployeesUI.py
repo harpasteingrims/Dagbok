@@ -24,7 +24,7 @@ class EmployeesUI():
             print()
 
             if action == "1":
-                self.show_overview_of_all_employees(self)
+                self.show_overview_of_all_employees()
 
             elif action == "2":
                 PilotsUI.show_pilot_menu(self)
