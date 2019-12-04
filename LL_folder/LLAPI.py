@@ -1,10 +1,10 @@
 from IO_folder.IOAPI import IOAPI
-"""from LL_folder.GetDestinationsLL import GetDestinationsLL
+from LL_folder.GetDestinationsLL import GetDestinationsLL
 from LL_folder.GetAirplanesLL import GetAirplanesLL
 from LL_folder.GetEmployeesLL import GetEmployeesLL
 from LL_folder.GetVoyagesLL import GetVoyagesLL
 from LL_folder.UpdateLL import UpdateLL
-from LL_folder.CreateLL import CreateLL"""
+from LL_folder.CreateLL import CreateLL
 
 class LLAPI():
     def __init__(self):

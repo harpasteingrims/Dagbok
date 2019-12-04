@@ -42,7 +42,7 @@ class GetIO():
         return pilot_list
         
 
-    def get_airplane(self):
+    def get_all_airplanes(self):
         '''Retrieves airplanes and sends to Get LL'''
         airplane_file = open("Aircraft.csv")
 

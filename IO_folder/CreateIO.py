@@ -12,6 +12,8 @@ class CreateIO():
         
         #hér er ég að sækja listann af employees sem get er búinn að búa til
         #IOAPI.get_employee(self)
+
+        #vantar að setja kannski id number 
     
     def add_cabincrew(self):
         cabincrew_list = getIO.get_cabincrew()
@@ -19,14 +21,13 @@ class CreateIO():
         cabincrew_list.append(cabincrew)
         
 
-    def add_airplane(self, filename):
+    def add_airplane(self):
         airplane_list = DataLayer_folder.GetIO()
         airplane = models.AirplanesModel()
         airplane_list.append(airplane)
 
-
-    def add_destiantions(self, filename):
+    def add_destiantions(self):
         pass
 
-    def add_voyage(self, filename):
+    def add_voyage(self):
         pass
