@@ -172,11 +172,7 @@ Vika 2: 02.12 - 06.12
         -Bjó til instance af öllu model klösunum í UI
         -Fór á Git fundinn og hjálpaði hinum að koma sínu Git í lag
         -Lagfærði UI klasa
-<<<<<<< HEAD
         -Fór í atvinnuviðtal og fekk jobbið
-=======
-        -Fór í atvinnuviðtal
->>>>>>> 828088607af9d537b56018580b78242398015e86
     Nína Margrét: 
         -Reynir að leysa Git vesenið, fór á Git fund
         -Fór líka á hinn fundinn
