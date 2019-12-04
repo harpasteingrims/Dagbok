@@ -1,17 +1,19 @@
 from models.VoyagesModel import VoyagesModel
 from UI_folder.UIAPI import UIAPI
+from LL_folder.LLAPI import LLAPI
 
 class VoyagesUI():
     LENGTH_STAR = 20
     def __init__(self):
-        self.__voyages_service = UIAPI()
-        pass
+        self.voyages = UIAPI()
+        self.voyages = LLAPI()
     
     def show_overview_voyage(self):
         """ This prints the overview of all voyages """
         print("\n{}".format(self.LENGTH_STAR*"*"))
         print("OVERVIEW OF VOYAGES")
-        print("\nflugvel lala")
+        voyages = self.__voyages_service.get_voyages_overview()
+        print(voyages)
 
     def show_voyage_menu(self):
         """ This prints out the voyage menu """
@@ -70,6 +72,7 @@ class VoyagesUI():
         voyage_airplane = input("Enter airplane: ")
 
         new_voyage = VoyagesModel(voyage_date, voyage_time, voyage_destination, voyage_airplane)
+        #self.voyages.create_voyage(new_voyage)
 
         print("\n1 Assign crew to voyage\nS Save\nB Back")
         print()

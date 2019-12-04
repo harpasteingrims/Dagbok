@@ -1,24 +1,24 @@
-ssn,name,role,rank,licence
-1600904199,Sherry Walker,Cabincrew,Flight Service Manager,N/A
-0303758167,Margarita Fischer,Cabincrew,Flight Service Manager,N/A
-2200763823,Judith Aleshire,Cabincrew,Flight Service Manager,N/A
-1308941169,Jacob Blecha,Cabincrew,Flight Service Manager,N/A
-1405853585,Lula Stefani,Cabincrew,Flight Service Manager,N/A
-0909862878,Richard Sanders,Cabincrew,Flight Service Manager,N/A
-1811931544,John Kline,Cabincrew,Flight Service Manager,N/A
-0409858797,Evelyn Pickhardt,Cabincrew,Flight Service Manager,N/A
-3002688722,Stacey Henrickson,Cabincrew,Flight Attendant,N/A
-3003962187,Delores Whitfield,Cabincrew,Flight Attendant,N/A
-1311772221,Maribel Lucero,Cabincrew,Flight Attendant,N/A
-2509913418,Katherine Wernimont,Cabincrew,Flight Attendant,N/A
-1103647756,Wilma Horne,Cabincrew,Flight Attendant,N/A
-2807755841,Bernard Carr,Cabincrew,Flight Attendant,N/A
-0409907212,Sara Davis,Cabincrew,Flight Attendant,N/A
-1103912131,Robert Swope,Cabincrew,Flight Attendant,N/A
-2801645554,John Iversen,Cabincrew,Flight Attendant,N/A
-1501681497,Rhonda Forman,Cabincrew,Flight Attendant,N/A
-1811813379,Melissa Paquette,Cabincrew,Flight Attendant,N/A
-0505942924,Carlton Chan,Cabincrew,Flight Attendant,N/A
-1110732819,Arthur Karr,Cabincrew,Flight Attendant,N/A
-2602806942,Teresa Thruman,Cabincrew,Flight Attendant,N/A
-1107951952,Elizabeth Mcfadden,Cabincrew,Flight Attendant,N/A
+ssn,name,role,rank
+1600904199,Sherry Walker,Cabincrew,Flight Service Manager
+0303758167,Margarita Fischer,Cabincrew,Flight Service Manager
+2200763823,Judith Aleshire,Cabincrew,Flight Service Manager
+1308941169,Jacob Blecha,Cabincrew,Flight Service Manager
+1405853585,Lula Stefani,Cabincrew,Flight Service Manager
+0909862878,Richard Sanders,Cabincrew,Flight Service Manager
+1811931544,John Kline,Cabincrew,Flight Service Manager
+0409858797,Evelyn Pickhardt,Cabincrew,Flight Service Manager
+3002688722,Stacey Henrickson,Cabincrew,Flight Attendant
+3003962187,Delores Whitfield,Cabincrew,Flight Attendant
+1311772221,Maribel Lucero,Cabincrew,Flight Attendant
+2509913418,Katherine Wernimont,Cabincrew,Flight Attendant
+1103647756,Wilma Horne,Cabincrew,Flight Attendant
+2807755841,Bernard Carr,Cabincrew,Flight Attendant
+0409907212,Sara Davis,Cabincrew,Flight Attendant
+1103912131,Robert Swope,Cabincrew,Flight Attendant
+2801645554,John Iversen,Cabincrew,Flight Attendant
+1501681497,Rhonda Forman,Cabincrew,Flight Attendant
+1811813379,Melissa Paquette,Cabincrew,Flight Attendant
+0505942924,Carlton Chan,Cabincrew,Flight Attendant
+1110732819,Arthur Karr,Cabincrew,Flight Attendant
+2602806942,Teresa Thruman,Cabincrew,Flight Attendant
+1107951952,Elizabeth Mcfadden,Cabincrew,Flight Attendant

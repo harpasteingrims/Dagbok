@@ -112,9 +112,3 @@ class DestinationsUI():
             #sendi dict í listann af dict contacts í LL-layer
         if action == "b": #Á AÐ VERA ELIF HÉR
             return
-
-
-
-
-
-

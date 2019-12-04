@@ -1,4 +1,5 @@
 class LLAPI():
+
     def get_employee_name(self):
         pass
 
@@ -6,4 +7,7 @@ class LLAPI():
         pass
 
     def get_employee(self):
-        pass #Listar allar employeea
+        pass #Listar allar employees
+
+    def get_voyages(self):
+        pass
