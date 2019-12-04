@@ -1,3 +1,4 @@
+from models.AirplanesModel import AirplanesModel
 from LL_folder.LLAPI import LLAPI
 
 class AirplanesUI():

@@ -148,9 +148,9 @@ Vika 2: 02.12 - 06.12
         -UI fyrir destinations
         
     Samantekt:
-        -Kláruðum UI fyrir destinations
-        -Nína fékk aðstoð frá bróður sínum Goða. Hann kenndi henni @classmethod sem við innleiddum í verkefnið okkar, til þess eins að komast að því að sú aðferð er ekki leyfileg. Flott.
-        -Eyddum deginum í að finna nýja aðferð til að láta forrit kalla á önnur forrit. Þurfum að muna að setja import setningar alltaf efst í forritið. 
+        -Kláruðum UI fyrir destinations, hin UI-in eru á lokametrunum.
+        -Nína fékk aðstoð frá bróður sínum Goða. Hann kenndi henni @classmethod sem við innleiddum í verkefnið okkar, til þess eins að komast að því að sú aðferð er ekki leyfileg. Flott. Alveg frábært bara :).
+        -Eyddum deginum í að finna nýja aðferð til að láta forrit kalla á önnur forrit. Þurfum að muna að setja import setningar alltaf efst í forritið.
         -Ákváðum að hafa bara 1 klasa per skrá til að einfalda hlutina.
         -Mættum í kennslustund um Git kl. 14:00 sem hjálpaði takmarkað því kennarinn talaði svo hratt. Dágóður hluti af deginum fór því í að læra sjálf á Git enda fengum við aldrei almennilega kennslu á það í vetur. 
         -Fengum aftur hjálp frá Arnari og gáfum honum aðgang að git repositoryinu okkar. 
@@ -159,16 +159,30 @@ Vika 2: 02.12 - 06.12
     Áætlun: Vinnum úr kommentunum hans Arnars á forritin okkar (því hann fékk aðgang að repositoryinu), reynum að byrja í Logic layerinu og hugsa hvernig við ætlum að tengja það við UI layerið. Byrjum líka aðeins á Data layer. Erum enn í smá veseni með Git því Nína og Hallmar geta ekki pushað. Reynum að leysa það sem allra fyrst í dag.
 
     Hallmar Orri: 
-        -Fer í Data layer
+        -Fer í IO layer
         -Reynir að leysa Git vesenið.
+        -Lagaði textaskrár
     Harpa: 
         -Lagfærir UI
+        -Búin að vera mjög pirruð í dag
+        -Fór á báða fundina
+        -Vann í voyages (reyndi að finna út úr því hvernig maður tengir API klasana)
+        -Bjó til model klasana
     Hildur: 
-        -tba
+        -Bjó til instance af öllu model klösunum í UI
+        -Fór á Git fundinn og hjálpaði hinum að koma sínu Git í lag
+        -Lagfærði UI klasa
+        -Fór í atvinnuviðtal
     Nína Margrét: 
-        -Reynir að leysa Git vesenið
+        -Reynir að leysa Git vesenið, fór á Git fund
+        -Fór líka á hinn fundinn
+        -Sendi nokkur snöpp á hina kærastana sína
+        -Lét Hörpu gera allt
+        -Borðaði carb-free mat
     Viktoría Inga: 
-        -Fer í Logic layer
+        -Vann í API
+        -Gerði model klasa
+        -Vann í IO_layer
         
     Samantekt:
-        -
+        -Fengum fund með Friðriki til að aðstoða okkur með Git og kunnum aðeins betur að díla við það. Vesenuðumst í APA-dóteríinu. Harpa og Nína fengu fund með Gylfa til að læra betur á tengingu klasa, komumst að því að það er í lagi að tengja klasa úr einu layeri beint við APA-klasa í samliggjandi layer. Notuðum 3 layer design dæmið frá Arnari á Piazza sem skapalón. Erum bara svona 95% viss um að þetta sé eitt stórt klúður núna, major progress.
