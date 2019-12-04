@@ -1,5 +1,5 @@
-#from CabincrewUI import CabincrewUI
-#from PilotUI import PilotsUI
+from UI_folder.CabincrewUI import CabincrewUI
+from UI_folder.PilotsUI import PilotsUI
 
 #from VoyageUI import Voyages_UI
 #from DestinationUI import Destinations_UI
@@ -14,23 +14,26 @@ class EmployeesUI():
         pass
 
     def show_employee_menu(self):
-        print(self.LENGTH_STAR * "*")
-        print("EMPLOYEES MENU \n\n1 Print overview of all employees \n2 Search for an employee \n3 Pilots \n4 Cabin Crew \nB Back \n")
-        
-        action = input("Choose action: ")
-        print()
+        run = True
+        while run is True:
 
-        if action == "1":
-            self.show_overview_of_all_employees()
+            print(self.LENGTH_STAR * "*")
+            print("EMPLOYEES MENU \n\n1 Print overview of all employees \n2 Pilots \n3 Cabin Crew \nB Back \n")
+            
+            action = input("Choose action: ").lower()
+            print()
 
-        elif action == "2":
-            PilotsUI.show_pilot_menu()
+            if action == "1":
+                self.show_overview_of_all_employees(self)
 
-        elif action == "3":
-            CabincrewUI.show_cabin_crew_menu()
+            elif action == "2":
+                PilotsUI.show_pilot_menu(self)
 
-        elif action == "B":
-            return
+            elif action == "3":
+                CabincrewUI.show_cabin_crew_menu(self)
+
+            elif action == "b":
+                return
 
     def show_overview_of_all_employees(self):
         print("OVERVIEW OF EMPLOYEES")
