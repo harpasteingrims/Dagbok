@@ -65,7 +65,6 @@ class UpdateLL():
         '''Method that updates information about the contact for a certain destination'''
         update_destcontact = {}
         pass
-    
 
 class GetLL():
 
@@ -139,7 +138,6 @@ class GetDestinations(get_LL):
         """ This method gets a name of a country and returnes information about the emergency contact of that country"""
         contact_of_country = []
         pass
-
 
 class GetEmployees():
     def __init__(self):
