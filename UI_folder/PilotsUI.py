@@ -135,5 +135,5 @@ class PilotsUI():
             print("Pilot successfully created\n")
             self.show_pilot_menu()
 
-        elif action == "B":
+        elif action == "b":
             self.show_pilot_menu()
