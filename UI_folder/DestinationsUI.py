@@ -1,8 +1,9 @@
+from LL_folder.LLAPI import LLAPI
 
 class DestinationsUI():
     LENGTH_STAR = 20
     def __init__(self):
-        pass
+        self.destination = LLAPI()
     
     def show_destination_menu(self):
         """ This prints out the menu for destinations """
@@ -45,7 +46,7 @@ class DestinationsUI():
         contact = input("Enter name of contact: ")
         contact_phone = input("Enter emergency contact")
         new_destination = Destinations(country, airport, flight_duration, distance, contact, contact_phone)
-        self.??.create_destination(new_destination)
+        self.destination.create_destination(new_destination)
 
         new_dest = {}
         new_dest[country] = [airport, flight_duration, distance, contact, contact_phone]
