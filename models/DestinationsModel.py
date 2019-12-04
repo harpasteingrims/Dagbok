@@ -1,0 +1,1 @@
+class Destinations_Model():
