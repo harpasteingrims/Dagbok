@@ -1,8 +1,8 @@
-#Þetta er rótarskrain
+#Þetta er rotarskrain
 
 
-# Arnar: látið þessa skrá bara heita __main__.py og hafið hana 
-# ekki í sér möppu heldur í möppunni sem ER raunverulega rótin á verkefninu
+# Arnar: látið þessa skrá bara heita __main__.py og hafið hana ekki
+# í sér möppu heldur í möppunni sem ER raunverulega rótin á verkefninu
 # (þeas í möppunni  VERKLEGT-1-verkefni)
 
 
