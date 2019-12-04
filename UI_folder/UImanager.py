@@ -18,11 +18,13 @@ class UImanager():
         self.airplanes = AirplanesUI()
 
     def MainmenuUI(self):
+
+        LENGTH_STAR = 20
         #Just to start things up
         run = True
         
         while run is True:
-            print("*" * self.LENGTH_STAR)
+            print("*" * 20)
             print("MAIN MENU\n\n1 Employees\n2 Voyages\n3 Destinations\n4 Airplanes\n5 Search a date\n")
         
             #Hérna vantar input check, break ef >5 og setja run í false

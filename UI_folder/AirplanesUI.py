@@ -2,10 +2,12 @@ from models.AirplanesModel import AirplanesModel
 from LL_folder.LLAPI import LLAPI
 
 class AirplanesUI():
+    LENGTH_STAR = 20
     def __init__(self):
         self.airplane = LLAPI()
 
     def show_airplane_menu(self):
+        
         """ This prints the airplane menu """
         run = True
         while run is True:

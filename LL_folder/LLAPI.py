@@ -1,19 +1,19 @@
-from IOAPI import IOAPI
+from IO_folder.IOAPI import IOAPI
 
 class LLAPI():
     def __init__(self):
-        self.IOAPI = IOAPI()
+        self.ioapi = IOAPI()
         
-        self.createll = getcreatell #Þetta á að vera klasi
-        self.updatell = getupdatell
-        self.getvoyages = getvoyages
-        self.getairplanes = getairplanes
-        self.getdestinations = getdestinations
+        #self.createll = getcreatell #Þetta á að vera klasi
+        #self.updatell = getupdatell
+        #self.getvoyages = getvoyages
+        #self.getairplanes = getairplanes
+        #self.getdestinations = getdestinations
     
 
     """Setti þetta inn hér þetta var það sem ég var byrjuð á í UIAPI"""
     
-''' EMPLOYEES '''    
+#EMPLOYEES   
     def get_employee_overwiew(self):
         pass
         # employees = self.__employee_service.get_employee_overwiew()
@@ -27,7 +27,7 @@ class LLAPI():
     def get_info_about_pilot_by_name(self):
         pass
 
-    ''' DESTINATIONS '''
+    #DESTINATIONS
     def get_destination_overview(self):
         # fall fyrir show_destination_overview, í því falli á að prenta út overview af destinations
         #kalla á LL-layer klasann sem er með lista af destinations
@@ -38,7 +38,8 @@ class LLAPI():
         pass
 
     def get_voyages_overview(self):
-        return self.__voyage_repo.get_voyages()
+        #return self.__voyage_repo.get_voyages()
+        pass
 
     #__init__(self):
         #self.llayer = LLAPI()

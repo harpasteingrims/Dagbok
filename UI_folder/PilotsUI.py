@@ -1,4 +1,4 @@
-from UI_folder.UIAPI import UIAPI
+#from UI_folder.UImanager import UImanager
 from LL_folder.LLAPI import LLAPI
 
 class PilotsUI():
@@ -81,7 +81,7 @@ class PilotsUI():
 
         # name, ssn, role.... = #calls the class to get the info of the pilot 
         
-        print("You are changing the information for pilot: {}, {}".format(name, ssn))
+        #print("You are changing the information for pilot: {}, {}".format(name, ssn))
        
         new_address = input("Enter new address")
         new_mobile_number = input("Enter new mobile number: ")
@@ -126,7 +126,7 @@ class PilotsUI():
         mobile_number = input("Enter mobile number: ")
         email = input("Enter email: ")
         license_type = input("Enter license type: ")
-        new_pilot = PilotModel(name, role, ssn, address, mobile_number, email, license_type)
+        #new_pilot = PilotModel(name, role, ssn, address, mobile_number, email, license_type)
         #self.pilot.create_pilot(new_pilot)
 
         

@@ -1,21 +1,23 @@
 
 
 class IOAPI():
-    def __init__(self, filename):
-        self.filename = filename
+    def __init__(self):
+        #self.filename = filename
+        pass
     
 class GetIO:
     def __init__(self, filename):
-        IOAPI.__init__(self, filename)
-
-    def get_employee():                     '''Retrieves employees and sends to Get LL'''
+        #IOAPI.__init__(self, filename)
         pass
 
-    def get_airplane():                     '''Retrieves airplanes and sends to Get LL'''
+    def get_employee(self):                     #Retrieves employees and sends to Get LL
+        pass
+
+    def get_airplane(self):                     #Retrieves airplanes and sends to Get LL
         pass
         
-    def get_destinations():                 '''Retrieves destinations and sends to Get LL'''
+    def get_destinations(self):                 #Retrieves destinations and sends to Get LL
         pass
 
-    def get_voyage():                       '''Retrieves voyages and sends to Get LL'''
+    def get_voyage(self):                       #Retrieves voyages and sends to Get LL
         pass
