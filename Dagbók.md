@@ -169,7 +169,8 @@ Vika 2: 02.12 - 06.12
         -Vann í voyages (reyndi að finna út úr því hvernig maður tengir API klasana)
         -Bjó til model klasana
     Hildur: 
-        -Bjó til instance af öllu model klösunum í UI
+        -Bjó til instance af öllum model klösunum í UI
+        -Implementaði quit option í UI layerið
         -Fór á Git fundinn og hjálpaði hinum að koma sínu Git í lag
         -Lagfærði UI klasa
         -Fór í atvinnuviðtal og fekk jobbið
