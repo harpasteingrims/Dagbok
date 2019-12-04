@@ -29,9 +29,10 @@ class DestinationsUI():
         #HÉR ÞARF ÉG AÐ SÆKJA SKRÁ 
 
         print("B back\n")
-        action = input("Choose action: ") 
-        if action == "b" or action == "B":
-            self.show_destination_menu()
+        action = input("Choose action: ").lower() 
+        if action == "b":
+            return
+            #self.show_destination_menu()
 
     def show_create_des_form(self):
         """ This prints the create destination form"""
@@ -47,11 +48,11 @@ class DestinationsUI():
         new_dest = {}
         new_dest[country] = [airport, flight_duration, distance, contact, contact_phone]
 
-        action = input("Choose action: ") 
+        action = input("Choose action: ").lower() 
         #if action == "s" or action == "S":
             #from UI-layer import FALL SEM VINNUR MEÐ ÞETTA
-        if action == "b" or "B": #Á AÐ VERA ELIF HÉR 
-            self.show_destination_menu()
+        if action == "b": #Á AÐ VERA ELIF HÉR 
+            return
 
     def show_emerg_country_menu(self):
         """ This prints out the emergency contact menu """
@@ -68,10 +69,10 @@ class DestinationsUI():
             #country += 1
 
         print("B back")
-        action = input("Choose action: ")
+        action = input("Choose action: ").lower()
         
-        if action == "b" or action == "B":
-            self.show_destination_menu()
+        if action == "b":
+            return 
 
     def show_emergency_contact(self):
         """ This prints out the emergency contact for a specific country """
@@ -84,13 +85,15 @@ class DestinationsUI():
         # Name:
         # Phone:
         print("1 Edit contact \n2 B Back")
-        action = input("Choose action: ")
+        action = input("Choose action: ").lower()
 
         if action == "1":
             self.show_emerg_country_menu()
         elif action == "2":
             self.show_emergency_cont_form()
-
+        elif action == "b":
+            return
+            
     def show_emergency_cont_form(self):
         """ This prints out the emergency contact form """
         #ÞARF AÐ FINNA LANDIÐ MEÐ ÞVÍ AÐ SÆKJA LISTA AF CONTACTS Í LL-LAYER
@@ -103,12 +106,12 @@ class DestinationsUI():
         #ÉG HLÝT AÐ FÁ INN DICT HÉR ÚR LL-LAYER. ÉG ÞARF ÞÁ AÐ BREYTA HENNI EFTIR ÞVÍ HVAÐ NOTANDINN GERÐI
         #nafniðádict[land] = [name, phone]
         print("S save \nB Back")
-        action = input("Choose action: ")
+        action = input("Choose action: ").lower()
         
-        #if action == "s" or "S":
+        #if action == "s":
             #sendi dict í listann af dict contacts í LL-layer
-        if action == "b" or "B": #Á AÐ VERA ELIF HÉR
-            self.show_emergency_contact()
+        if action == "b": #Á AÐ VERA ELIF HÉR
+            return
 
 
 
