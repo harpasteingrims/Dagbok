@@ -57,6 +57,10 @@ class VoyagesUI():
         print("\n{}".format(self.LENGTH_STAR*"*"))
         print("SEE COMMON VOYAGES")
 
+    def create_a_common_voyage(self):
+        """ This creates a voyage from the common voyages but with a new date and a new id """
+        pass #Eftir að klára þetta :)
+
     def show_create_manually_form(self):
         """ This prints out the form to add a voyage manually """
         print("\n{}".format(self.LENGTH_STAR*"*"))
