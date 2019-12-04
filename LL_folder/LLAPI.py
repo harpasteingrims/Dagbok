@@ -9,8 +9,8 @@ from LL_folder.CreateLL import CreateLL"""
 class LLAPI():
     def __init__(self):
         self.ioapi = IOAPI()
-        self.createll = CreateLL
-        self.updatell = UpdateLL
+        self.createll = CreateLL()
+        self.updatell = UpdateLL()
         self.getvoyages = GetVoyagesLL()
         self.getairplanes = GetAirplanesLL()
         self.getdestinations = GetDestinationsLL()
