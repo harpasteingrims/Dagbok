@@ -13,10 +13,11 @@ class IOAPI():
 
     """ EMPLOYEES """
     def get_list_of_all_employees(self):
-            return
+        return self.employees.get_all_employees()
+    
+    def get_list_of_all_pilots(self):
+        get_all_pilots
 
     """ DESTINATIONS """
     def get_destination_list(self):
         return self.destination.get_all_destinations()
-    
-    
