@@ -15,7 +15,7 @@ class IAADUI():
         pass
 
     def show_available_employees(self):
-        """ This prints out the available employees from a certain date """
+        """ This prints the available employees from a certain date """
         print("this is a list of available employees")
         print("\n")
         print("B Back")
@@ -25,7 +25,7 @@ class IAADUI():
         pass
 
     def show_unavailable_employees(self):
-        """ This prints out the unavailable employees from a certain date """
+        """ This prints the unavailable employees from a certain date """
         print("this is a list of unavailable employees")
         print("\n")
         print("B Back")
@@ -35,7 +35,7 @@ class IAADUI():
         pass
 
     def show_airplane_status(self):
-        """ This prints out the status of a airplane from a certain date """
+        """ This prints the status of a airplane from a certain date """
         print("this is a list of airplanes and their status")
         print("\n")
         print("B Back")
@@ -45,7 +45,7 @@ class IAADUI():
         pass
    
     def show_voyages_status(self):
-        """ This prints out the status of a voyage from a certain date """
+        """ This prints the status of a voyage from a certain date """
         print("this is a list of voyages and their status")
         print("\n")
         print("B Back")
@@ -56,7 +56,7 @@ class IAADUI():
 
 
     def show_IAAD_menu(self):
-        """ This prints out the information about a date menu """
+        """ This prints the information about a date menu """
         print("IAAD")
         print("1 Available Employees","\n2 Unavailable Employees","\n3 Status of voyages","\n4 Status of Airplanes","\nB Back")
 
@@ -78,5 +78,3 @@ class IAADUI():
         print("\n")
         user_action = input("Choose action: ").lower()
         return user_action
-
-
