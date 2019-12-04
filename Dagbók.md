@@ -156,16 +156,17 @@ Vika 2: 02.12 - 06.12
         -Fengum aftur hjálp frá Arnari og gáfum honum aðgang að git repositoryinu okkar. 
 
 04.12.2019 
-    Áætlun: Vinnum úr kommentunum hans Arnars á forritin okkar (því hann fékk aðgang að repositoryinu), reynum að byrja í Logic layerinu og hugsa hvernig við ætlum að tengja það við UI layerið. Byrjum líka aðeins á Data layer
+    Áætlun: Vinnum úr kommentunum hans Arnars á forritin okkar (því hann fékk aðgang að repositoryinu), reynum að byrja í Logic layerinu og hugsa hvernig við ætlum að tengja það við UI layerið. Byrjum líka aðeins á Data layer. Erum enn í smá veseni með Git því Nína og Hallmar geta ekki pushað. Reynum að leysa það sem allra fyrst í dag.
 
     Hallmar Orri: 
         -Fer í Data layer
+        -Reynir að leysa Git vesenið.
     Harpa: 
         -Lagfærir UI
     Hildur: 
         -tba
     Nína Margrét: 
-        -tba
+        -Reynir að leysa Git vesenið
     Viktoría Inga: 
         -Fer í Logic layer
         
