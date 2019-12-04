@@ -15,13 +15,13 @@ class CabincrewUI():
         print()
 
         if action_str == "1":
-            pass
+            self.show_enter_name_to_search()
 
         elif action_str == "2":
-            pass
+            self.show_cabincrew_member_overview()
 
         elif action_str == "3":
-            pass
+            self.show_cabincrew_member_create_form()
 
         elif action_str == "b":
             return
@@ -32,20 +32,20 @@ class CabincrewUI():
         name = input("Enter name of cabincrew member: ")
         print()
 
-        #print("1 {}'s flight schedule").format(name))
+        print("1 {}'s flight schedule".format(name))
         print("2 Edit information about cabin crew member \nB Back")
 
         action_str = input("Choose action: ").lower()
         print()
 
         if action_str == "1":
-            pass
+            self.show_flight_schedule_of_cabincrew_member()
 
         elif action_str == "2":
-            pass
+            self.show_cabincrew_member_edit_form()
 
         elif action_str == "b":
-            pass
+            return
 
     def show_flight_schedule_of_cabincrew_member(self):
         data_from = input("Enter date from: ")
@@ -57,7 +57,7 @@ class CabincrewUI():
         print()
 
         if action_str == "b":
-            pass
+            return
     
     def show_cabincrew_member_edit_form(self):
         new_address = input("Enter new address")
@@ -71,9 +71,10 @@ class CabincrewUI():
 
         if action_str == "s":
             print("cabin crew member's information successfully changed")
+            return
 
         elif action_str == "b":
-            pass
+            return
 
     def show_cabincrew_member_overview(self):
         print("OVERVIEW OF CABIN VREW\n")
@@ -84,7 +85,7 @@ class CabincrewUI():
         print()
 
         if action_str == "b":
-            pass
+            return
 
     
     def show_cabincrew_member_create_form(self):
@@ -106,6 +107,7 @@ class CabincrewUI():
 
         if action_str == "s":
             print("Cabin crew member successfully created\n")
+            return
 
         elif action_str == "b":
-            pass
+            return
