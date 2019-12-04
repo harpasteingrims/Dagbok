@@ -2,27 +2,23 @@ class GetIO():
     def __init__(self):
         pass
 
-    def get_employee():
-        crew_file = open("crew.csv","r")
+    def get_pilots():
+        pilot_file = open("Pilots.csv","r")
         
-        crew_file_list = []
-        for line in crew_file:
+        pilot_file_list = []
+        for line in pilot_file:
             line = line.strip().split(",")
             SSN = line[0]
             Name = line[1]
             Role = line[2]
             Rank = line[3]
             licens = line[4]
-            employee = {}
-            employee[Name] = [SSN,Role,Rank,licens]
-            new_crew_list.append(employee)
-            employee.clear
-        crew_list = []
-        for obj in new_crew_list[1:]:
-            crew_list.append(obj)
-        print(crew_list)
+            
 
-        return crew_list
+        pilot_list = []
+        print(pilot_list)
+
+        return pilot_list
         
 
     def get_airplane():
@@ -71,6 +67,28 @@ class GetIO():
         destination_list = []
         for obj in dest_file_list[1:]:
             destination_list.append(obj)
+
+    def get_cabin_crew():
+        crew_file = open("CabinCrew.csv","r")
+        
+        crew_file_list = []
+        for line in crew_file:
+            line = line.strip().split(",")
+            SSN = line[0]
+            Name = line[1]
+            Role = line[2]
+            Rank = line[3]
+            
+
+        crew_list = []
+        print(crew_list)
+
+        return crew_list
+
+    def get_voyages():
+        voyages_file = open("Voyages.csv","r")
+
+        voyage_list = []
 
 
 
