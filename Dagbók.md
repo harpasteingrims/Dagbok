@@ -136,6 +136,7 @@ Vika 2: 02.12 - 06.12
         
 03.12.2019 
     Áætlun: Hefjum daginn á því að ræða hvernig hverjum tókst til heima fyrir. Vonumst til að öðlast dýpri skilning á verkefninu í dag.  
+    
     Hallmar Orri: 
         -UI fyrir Information about a day
     Harpa: 
