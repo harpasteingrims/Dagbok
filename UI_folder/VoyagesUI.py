@@ -22,8 +22,7 @@ class VoyagesUI():
         elif action_str == "3":
             self.show_not_staffed_voyages()
         elif action_str == "B" or action_str == "b":
-            from MainmenuUI import MainmenuUI
-            MainmenuUI.show_main_menu()
+            return
 
     def show_assign_staff_form(self):
         """ This prints out the form to assign a staff to a voyage """

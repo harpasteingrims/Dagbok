@@ -1,16 +1,16 @@
 
 class DestinationsUI():
-    Length_Star = 20
+    LENGTH_STAR = 20
     def __init__(self):
         pass
     
     def show_destination_menu(self):
         """ This prints out the menu for destinations """
-        print("*"*self.Length_Star)
+        print("*"*self.LENGTH_STAR)
         print("DESTINATIONS\n")
         print("1 Print overview of destinations \n2 Create a new destination \n3 Get emergency contact ")
         print("B back\n")
-        action = input("Choose action: ") 
+        action = input("Choose action: ").lower()
 
         if action == "1":
             self.show_destination_overview()
@@ -18,10 +18,12 @@ class DestinationsUI():
             self.show_create_des_form()
         elif action == "3":
             self.show_emerg_country_menu()
+        elif action == "b":
+            return
 
     def show_destination_overview(self):
         """ This prints out all the destination """
-        print("*"*self.Length_Star)
+        print("*"*self.LENGTH_STAR)
         print("OVERVIEW OF DESTINATIONS\n")
         #print(destinations)
         #HÉR ÞARF ÉG AÐ SÆKJA SKRÁ 
@@ -33,7 +35,7 @@ class DestinationsUI():
 
     def show_create_des_form(self):
         """ This prints the create destination form"""
-        print("*"*self.Length_Star)
+        print("*"*self.LENGTH_STAR)
         print("CREATE A NEW DESTINATION\n")
         country = input("Enter country: ")
         airport = input("Enter airport: ")
@@ -53,7 +55,7 @@ class DestinationsUI():
 
     def show_emerg_country_menu(self):
         """ This prints out the emergency contact menu """
-        print("*"*self.Length_Star)
+        print("*"*self.LENGTH_STAR)
         print("GET EMERGENCY CONTACT\n")
         #tekur inn countries_list
         #counter = 1
@@ -73,7 +75,7 @@ class DestinationsUI():
 
     def show_emergency_contact(self):
         """ This prints out the emergency contact for a specific country """
-        print("*"*self.Length_Star)
+        print("*"*self.LENGTH_STAR)
         print("EMERGENCY CONTACT OF", country,"\n")
         #ÞARF AÐ FINNA LANDIÐ MEÐ ÞVÍ AÐ SÆKJA LISTA AF CONTACTS Í LL-LAYER
         #CONTACTS ERU GEYMDIR Í DICT MEÐ LAND SEM KEY, FINN NAFN SEM 
@@ -94,7 +96,7 @@ class DestinationsUI():
         #ÞARF AÐ FINNA LANDIÐ MEÐ ÞVÍ AÐ SÆKJA LISTA AF CONTACTS Í LL-LAYER
         #CONTACTS ERU GEYMDIR Í DICT MEÐ LAND SEM KEY, FINN NAFN SEM 
         #ER SAMA NAFN OG VALUE 
-        print("*"*self.Length_Star)
+        print("*"*self.LENGTH_STAR)
         print("EDIT CONTACT \n")
         name = input("Name: ")
         phone = input("Phone: ")
