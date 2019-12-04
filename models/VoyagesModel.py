@@ -1,4 +1,4 @@
-import datetime
+
 class VoyagesModel():
     def __init__(self, time, destination, airplane, employees = []):
         self.time = time #hér erum við búin í LL-layer að nota datetime þar sem þetta formattast saman í year,month,day,hour,minute
