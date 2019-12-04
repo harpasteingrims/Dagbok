@@ -1,11 +1,10 @@
 from UI_folder.UImanager import UImanager
 from models.CabinCrewModel import CabinCrewModel
-from LL_folder.LLAPI import LLAPI
 
 class CabincrewUI():
     LENGTH_STAR = 20
-    def __init__(self):
-        self.cabincrew = LLAPI()
+    def __init__(self, llapi):
+        self.llapi = llapi
 
     def show_cabincrew_menu(self):
         print(self.LENGTH_STAR * "*")
@@ -78,7 +77,9 @@ class CabincrewUI():
 
     def show_cabincrew_member_overview(self):
         print("OVERVIEW OF CABIN VREW\n")
-
+        cabin_crew = self.llapi.get_cabin_crew_overview()
+        print(cabin_crew)
+        
         print("B Back\n")
 
         action_str = input("Choose action: ").lower()

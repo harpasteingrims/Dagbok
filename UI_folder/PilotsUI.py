@@ -1,12 +1,11 @@
 from UI_folder.UImanager import UImanager
 from models.PilotModel import PilotsModel
-from LL_folder.LLAPI import LLAPI
 
 class PilotsUI():
     LENGTH_STAR = 20
 
-    def __init__(self):
-        self.pilot = LLAPI()
+    def __init__(self, llapi):
+        self.llapi = llapi
 
     def show_pilot_menu(self):
         """ This prints out the cabin crew menu """
@@ -108,6 +107,9 @@ class PilotsUI():
         """ This prints out the pilot list """
         print("OVERVIEW OF PILOTS\n")
         # Calls the class that makes a list of all pilots and prints it 
+        pilots = self.llapi.get_pilot_overview()
+        print(pilots)
+        
         print("B Back\n")
 
         action = input("Choose action: ").lower()

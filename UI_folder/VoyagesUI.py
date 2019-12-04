@@ -70,9 +70,6 @@ class VoyagesUI():
         print("\nAirplane")
         voyage_airplane = input("Enter airplane: ")
 
-        new_voyage = VoyagesModel(voyage_date, voyage_time, voyage_destination, voyage_airplane)
-        #self.voyages.create_voyage(new_voyage)
-
         print("\n1 Assign crew to voyage\nS Save\nB Back")
         print()
         action_str = input("Choose action: ").lower()
@@ -80,8 +77,9 @@ class VoyagesUI():
             self.show_assign_staff_form()
         elif action_str == "s":
             print("\n*Voyage successfully created*")
+            new_voyage = VoyagesModel(voyage_date, voyage_time, voyage_destination, voyage_airplane)
             self.show_create_voyage_menu()
-            pass #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
+            #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
         elif action_str == "b":
             self.show_create_voyage_menu()
 
@@ -103,4 +101,5 @@ class VoyagesUI():
 
     def show_not_staffed_voyages(self):
         """ This prints out all the not fully staffed voyages that are available """
-        #Vantar meira hér til þess að klára
+        not_staffed = self.llapi.get_not_staffed_voyages()
+        print(not_staffed)

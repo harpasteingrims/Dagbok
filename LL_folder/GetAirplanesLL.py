@@ -1,4 +1,4 @@
 class GetAirplanesLL():
 
-    def make_list_of_airplanes(self):
+    def get_all_airplanes(self):
         pass

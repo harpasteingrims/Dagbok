@@ -5,3 +5,5 @@ class GetEmployeesLL():
         pass
     def get_available_employees(self):
         pass
+    def get_all_cabin_crew(self):
+        pass

@@ -23,10 +23,10 @@ class LLAPI():
         return self.getemployees.get_all_employees() #Þetta kallar á klasann getemployees og fallið þar inni sem nær í alla employees
 
     def get_pilot_overview(self):
-        pass
+        return self.getemployees.get_all_pilots()
 
     def get_cabin_crew_overview(self):
-        pass
+        return self.getemployees.get_all_cabin_crew()
     
     def get_info_about_pilot_by_name(self):
         pass
@@ -46,6 +46,15 @@ class LLAPI():
     """VOYAGES"""
     def get_voyages_overview(self):
         return self.getvoyages.get_all_voyages()
+
+    def get_not_staffed_voyages(self):
+        return self.getvoyages.get_not_staffed()
+
+
+    """AIRPLANES"""
+
+    def get_airplanes_overview(self):
+        return self.getairplanes.get_all_airplanes()
 
     #__init__(self):
         #self.llayer = LLAPI()
