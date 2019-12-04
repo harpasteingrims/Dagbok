@@ -1,5 +1,5 @@
-#import sys
-#sys.path.insert(1, '~/VERKLEGT-1-verkefni/')
+import sys
+sys.path.insert(1, '~/VERKLEGT-1-verkefni/')
 
 from LL_folder.LLAPI import LLAPI
 from UI_folder.DestinationsUI import DestinationsUI
@@ -23,7 +23,7 @@ class UImanager():
         self.airplanes = AirplanesUI()
         
 
-    def MainmenuUI(self):
+    def mainmenuUI(self):
         #Just to start things up
         run = True
         
