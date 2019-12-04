@@ -24,7 +24,7 @@ class MainmenuUI():
             print("MAIN MENU\n\n1 Employees\n2 Voyages\n3 Destinations\n4 Airplanes\n5 Search a date\n")
         
             #Hérna vantar input check, break ef >5 og setja run í false
-            action = input("Choose action: ")
+            action = input("Choose action: ").lower()
             print()
             if action == "1":
                 EmployeesUI.show_employee_menu(self)
@@ -40,6 +40,11 @@ class MainmenuUI():
 
             elif action == "5":
                 IAADUI.show_enter_date(self)
+            
+            elif action == "q" or action > 5:
+                run = False
+                break
+                
             
 def main():
     menu = MainmenuUI()
