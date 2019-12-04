@@ -6,11 +6,11 @@
 # (þeas í möppunni  VERKLEGT-1-verkefni)
 
 
-from UI_folder.MainmenuUI import MainmenuUI
+from UI_folder.UImanager import UImanager
 
 def main():
     ui = UImanager()
-    ui.run()
+    ui.MainmenuUI()
     #búum til eitt fall í mananger sem er þá run og þar verður self.
 
 if __name__ == '__main__':
