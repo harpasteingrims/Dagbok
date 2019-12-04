@@ -4,8 +4,6 @@ sys.path.insert(1, '~/VERKLEGT-1-verkefni/')
 class MainmenuUI():
     LENGTH_STAR = 20
 
-    
-
     def show_main_menu(self):
 
         #Just to start things up
