@@ -1,7 +1,7 @@
-id,destination
-LYR,Longyearbyean
-GOH,Nuuk
-KUS,Kulusuk
-FAE,Thorshavn
-LWK,Tingwall
-KEF,Keflavik
+country,airport,flightDurFromIce,DistFromIce,ContactName,ContactPhoneNR
+Svalbard,Longyearbyean,2klst47min,2096km,Eiríkur,5812345
+Greenland,Nuuk,2klst7min,1442km,Eyfi,5812345
+Greenland,Kulusuk,1klst29min,745km,Atli,5812345
+Faroe Islands,Thorshavn,1klst34min,795km,Fannar,5812345
+Scotland,Tingwall,5klst47min,4530km,Lárus,5812345
+Iceland,Keflavik,0klst0min,0km,N/A,N/A

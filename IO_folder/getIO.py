@@ -71,6 +71,7 @@ class GetIO():
                 contact_name = line[4]
                 contact_phone_number = line[5]
                 destination_list.append(country)
+        return destination_list
                 
             
             

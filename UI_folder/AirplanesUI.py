@@ -12,9 +12,9 @@ class AirplanesUI():
         run = True
         while run is True:
 
-            print(self.LENGTH_STAR * "*")
             action = ""
             while(action != "q"):
+                print(self.LENGTH_STAR * "*")
                 print("AIRPLANE MENU")
                 print("1 Print overview of all airplanes")
                 print("2 Create a new airplane")

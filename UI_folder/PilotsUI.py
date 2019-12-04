@@ -1,4 +1,5 @@
-#from UI_folder.UImanager import UImanager
+from UI_folder.UIAPI import UIAPI
+from models.PilotModel import PilotsModel
 from LL_folder.LLAPI import LLAPI
 
 class PilotsUI():

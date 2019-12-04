@@ -1,4 +1,5 @@
 from LL_folder.LLAPI import LLAPI
+from models.CabinCrewModel import CabinCrewModel
 
 class CabincrewUI():
     LENGTH_STAR = 20
@@ -125,7 +126,7 @@ class CabincrewUI():
         mobile_number = input("Enter mobile number: ")
         email = input("Enter email: ")
         new_cabincrew_member = CabincrewModel(name, role, ssn, address, mobile_number, email)
-        #self.??
+        #self.cabincrew.create_cabincrew_member(new_cabincrew_member)
         
         print("\nS Save \nB Back \n")
 
