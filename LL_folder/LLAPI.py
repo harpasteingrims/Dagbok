@@ -39,7 +39,7 @@ class LLAPI():
         #kalla á LL-layer klasann sem er með lista af destinations
         #return
         return self.getdestinations.get_all_destinations()
-        
+
     def new_destination(self):
         # fall fyrir show_create_des_form, þarf að senda nýja 
         pass
@@ -47,7 +47,7 @@ class LLAPI():
 
     #VOYAGES
     def get_voyages_overview(self):
-        pass
+        return self.getvoyages.get_all_voyages()
 
     #__init__(self):
         #self.llayer = LLAPI()

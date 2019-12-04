@@ -29,7 +29,7 @@ class DestinationsUI():
         print("*"*self.LENGTH_STAR)
         print("OVERVIEW OF DESTINATIONS\n")
         
-        destinations = self.llapi.get_destinations_overwiew() #Hérna kallar hann í fall í llapanum sem heitir get_employee_overview sem returnar lista yfir alla starfsmenn
+        destinations = self.llapi.get_destinations_overwiew() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
         print(destinations)
         
         print("B back\n")
