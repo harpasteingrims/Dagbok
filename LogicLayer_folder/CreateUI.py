@@ -1,3 +1,4 @@
+
 class create_LL(LLAPI):
     '''Subclass of LLAPI that is only designed to create something'''
     def __init__(self):
@@ -32,3 +33,4 @@ class create_LL(LLAPI):
         '''Method that creates common voyages'''
         common_voyages = []
         pass
+>>>>>>> 7c0cf6794fa2ab92b29a200e9a357a9e46efd8f1
