@@ -58,13 +58,11 @@ class GetIO():
                 Manufacturer = line[2]
                 Seat_amount = line[3]
                 
-            
-           
         
         print(airplane_list)
         
-
         return airplane_list
+
     def get_destinations(self):
         dest_file = open("destinations.csv")
         
@@ -85,8 +83,6 @@ class GetIO():
         return destination_list
                 
             
-            
-
             
         destination_list = []
         
@@ -116,6 +112,9 @@ class GetIO():
 
     def get_voyages(self):
         voyages_file = open("Voyages.csv","r")
+        
+        voyages_list = []
+
         counter = 1
         for line in voyages_file:
             if counter == 1:
@@ -131,7 +130,7 @@ class GetIO():
                 
             
 
-        voyage_list = []
+        
         
 
 

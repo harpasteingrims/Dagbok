@@ -10,16 +10,16 @@ class IOAPI():
     """ EMPLOYEES """
 
     def get_list_of_all_employees(self):
-        all_employee_list = self.get.load_all_employees()
+        all_employee_list = self.get.get_all_employees()
         return all_employee_list
 
     def get_list_of_all_pilots(self):
-        pilot_list = self.get.load_all_pilots()
+        pilot_list = self.get.get_all_pilots()
         return pilot_list
 
     def get_list_of_all_cabin_crew(self):
-        airplane_list = self.get.load_all_airplanes()
-        return airplane_list
+        cabin_crew_list = self.get.get_cabincrew()
+        return cabin_crew_list
     
     def create_pilot(self):
         return self.create.add_pilot()
@@ -40,13 +40,18 @@ class IOAPI():
     """ AIRPLAINS """
 
     def get_airplane_list(self):
-         
-        return
-        
+        airplane_list = self.get.get_all_airplanes()
+        return airplane_list
+
     def create_airlane(self):
         return self.create.add_airplane()
 
 
     """ VOYAGES """
+
+    def get_voyages(self):
+        voyages_listget_voyages
+
+
     def create_voyage(self):
         return self.create.add_voyage()
