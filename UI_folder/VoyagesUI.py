@@ -4,7 +4,7 @@ from UI_folder.UIAPI import UIAPI
 class VoyagesUI():
     LENGTH_STAR = 20
     def __init__(self):
-        self.__voyages_service = UIAPI()
+        self.voyages = UIAPI()
     
     def show_overview_voyage(self):
         """ This prints the overview of all voyages """
