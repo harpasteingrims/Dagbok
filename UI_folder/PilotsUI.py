@@ -1,8 +1,3 @@
-from EmployeesUI import EmployeesUI
-
-
-print("WASSSSSUUUUUUUP")
-
 class PilotsUI():
     LENGTH_STAR = 20
 
@@ -12,7 +7,7 @@ class PilotsUI():
         print(self.LENGTH_STAR* "*")
         print("PILOT MENU \n\n1 Search for a pilot \n2 Print overview of pilots \n3 Create a new pilot\nB Back\n")
 
-        action = input("Choose action: ")
+        action = input("Choose action: ").lower()
         print()
 
         if action == "1":
@@ -24,9 +19,9 @@ class PilotsUI():
         elif action == "3": 
             self.show_pilot_create_form()
 
-        elif action == "B":
-            EmployeesUI.show_employee_menu()
-            
+        elif action == "b":
+            return     
+
     def show_enter_name_to_search(self):
         print("Search for a pilot to get information")
         
