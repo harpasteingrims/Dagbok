@@ -22,7 +22,7 @@ class DestinationsUI():
             return
 
     def show_destination_overview(self):
-        """ This prints out all the destination """
+        """ This prints all the destination """
         print("*"*self.LENGTH_STAR)
         print("OVERVIEW OF DESTINATIONS\n")
         #print(destinations)
@@ -44,6 +44,8 @@ class DestinationsUI():
         distance = input("Enter distance from Iceland: ")
         contact = input("Enter name of contact: ")
         contact_phone = input("Enter emergency contact")
+        new_destination = Destinations(country, airport, flight_duration, distance, contact, contact_phone)
+        self.??.create_destination(new_destination)
 
         new_dest = {}
         new_dest[country] = [airport, flight_duration, distance, contact, contact_phone]
