@@ -30,7 +30,7 @@ class EmployeesUI():
             CabincrewUI.show_cabin_crew_menu()
 
         elif action == "B":
-            Main_menu.show_main_menu()
+            return
 
     def show_overview_of_all_employees(self):
         print("OVERVIEW OF EMPLOYEES")
