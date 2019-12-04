@@ -9,8 +9,9 @@
 from UI_folder.MainmenuUI import MainmenuUI
 
 def main():
-    ui = MainmenuUI()
-    ui.show_main_menu()
+    ui = UIMGR()
+    ui.run()
+    #búum til eitt fall í mananger sem er þá run og þar verður self.
 
 if __name__ == '__main__':
     main()
