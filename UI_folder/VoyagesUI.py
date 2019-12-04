@@ -1,11 +1,9 @@
 from models.VoyagesModel import VoyagesModel
-from UI_folder.UIAPI import UIAPI
 from LL_folder.LLAPI import LLAPI
 
 class VoyagesUI():
     LENGTH_STAR = 20
     def __init__(self):
-        self.voyages = UIAPI()
         self.voyages = LLAPI()
     
     def show_overview_voyage(self):
