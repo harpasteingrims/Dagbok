@@ -1,3 +1,4 @@
+from models.VoyagesModel import VoyagesModel
 class VoyagesUI():
     LENGTH_STAR = 20
     def __init__(self):
@@ -65,8 +66,8 @@ class VoyagesUI():
         print("\nAirplane")
         voyage_airplane = input("Enter airplane: ")
 
-        voyage_dict = {}
-        voyage_dict[voyage_destination] = [voyage_date, voyage_time, voyage_airplane]
+        new_voyage = VoyagesModel(voyage_date, voyage_time, voyage_destination, voyage_airplane)
+
         print("\n1 Assign crew to voyage\nS Save\nB Back")
         print()
         action_str = input("Choose action: ").lower()
