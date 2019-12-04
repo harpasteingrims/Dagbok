@@ -87,7 +87,7 @@ class VoyagesUI():
             self.show_create_voyage_menu()
 
     def show_available_airplane(self):
-        """ This prints out all the available airplanes for a voyage """
+        """ This prints all the available airplanes for a voyage """
         pass
     
     def show_time_from_iceland(self):
@@ -99,7 +99,7 @@ class VoyagesUI():
         pass 
 
     def show_destinations(self):
-        """ This prints out all the destinations """
+        """ This prints all the destinations """
         pass 
 
     def show_not_staffed_voyages(self):
