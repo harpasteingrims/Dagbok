@@ -33,7 +33,6 @@ class CabincrewUI():
             Role:
             Social security number:
             Adress:
-            Home number:
             Mobile number:
             Email: 
         """
@@ -78,7 +77,6 @@ class CabincrewUI():
         print("You are changing the information for flight attendant: {}, {}".format(name, ssn))
        
         new_address = input("Enter new address")
-        new_home_number = input("Enter new home number: ")
         new_mobile_number = input("Enter new mobile number: ")
         new_email = input("Enter new email: ")
         
@@ -121,7 +119,6 @@ class CabincrewUI():
         role = input("Enter role: ")
         ssn = input("Enter social security number: ")
         address = input("Enter address: ")
-        home_number = input("Enter home number: ")
         mobile_number = input("Enter mobile number: ")
         email = input("Enter email: ")
         
