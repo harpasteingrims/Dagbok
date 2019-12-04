@@ -189,4 +189,10 @@ Vika 2: 02.12 - 06.12
         -Fengum fund með Friðriki til að aðstoða okkur með Git og kunnum aðeins betur að díla við það. 
         -Vesenuðumst í APA-dóteríinu. Harpa og Nína fengu fund með Gylfa til að læra betur á tengingu klasa, komumst að því að það er í lagi að tengja klasa úr einu layeri beint við APA-klasa í samliggjandi layer. 
         -Notuðum 3 layer design dæmið frá Arnari á Piazza sem skapalón. 
+        -Úthlutuðum hverju okkar heimaverkefni.
+            -Viktoría: Model klasar
+            -Hildur: Quit option í UI
+            -Hallmar: Vinna IOLayer
+            -Nína: Vesenast í IOAPI
+            -Harpa: Gera föll í LLAPI og tengja við UI klasa
         -Erum bara svona 95% viss um að þetta sé eitt stórt klúður núna, major progress. :D
