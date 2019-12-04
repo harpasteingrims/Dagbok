@@ -39,6 +39,7 @@ class create_LL(LLAPI):
     
     def create_airplanes():
         '''Method that creates a new airplane'''
+        new_airplane = {}
         pass
     
     def create_common_voyages():
