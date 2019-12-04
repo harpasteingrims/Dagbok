@@ -9,7 +9,7 @@
 from UI_folder.MainmenuUI import MainmenuUI
 
 def main():
-    ui = UIMGR()
+    ui = UImanager()
     ui.run()
     #búum til eitt fall í mananger sem er þá run og þar verður self.
 
