@@ -21,7 +21,7 @@ class IAADUI():
         print("B Back")
         user_input = self.choose_action()
         if user_input == "b":
-            IAADUI.show_IAAD_menu()
+            self.show_IAAD_menu()
         pass
 
     def show_unavailable_employees(self):
@@ -31,7 +31,7 @@ class IAADUI():
         print("B Back")
         user_input = self.choose_action()
         if user_input == "b":
-            IAADUI.show_IAAD_menu()
+            self.show_IAAD_menu()
         pass
 
     def show_airplane_status(self):
@@ -41,7 +41,7 @@ class IAADUI():
         print("B Back")
         user_input = self.choose_action()
         if user_input == "b":
-            IAADUI.show_IAAD_menu()
+            self.show_IAAD_menu()
         pass
    
     def show_voyages_status(self):
@@ -51,7 +51,7 @@ class IAADUI():
         print("B Back")
         user_input = self.choose_action()
         if user_input == "b":
-            IAADUI.show_IAAD_menu()
+            self.show_IAAD_menu()
         pass
 
 
@@ -61,22 +61,22 @@ class IAADUI():
         print("1 Available Employees","\n2 Unavailable Employees","\n3 Status of voyages","\n4 Status of Airplanes","\nB Back")
 
         user_input = self.choose_action()
+
         if user_input == "1":
-            IAADUI.show_available_employees()
+            self.show_available_employees()
         elif user_input == "2":
-            IAADUI.show_unavailable_employees()
+            self.show_unavailable_employees()
         elif user_input == "3":
-            IAADUI.show_voyages_status()
+            self.show_voyages_status()
         elif user_input == "4":
-            IAADUI.show_airplane_status()
+            self.show_airplane_status()
         elif user_input == "b":
-            from main_menu import Main_menu
-            Main_menu.show_main_menu()
+            return
             
   
     def choose_action(self):
         print("\n")
-        user_action = input("Choose action: ")
+        user_action = input("Choose action: ").lower()
         return user_action
 
 
