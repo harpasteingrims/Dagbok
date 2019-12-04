@@ -5,6 +5,8 @@ from LL_folder.LLAPI import LLAPI
 
 class UIAPI():
     ''' EMPLOYEES '''
+    
+    @staticmethod
     def get_employee_overwiew(self):
 
         # employees = self.__employee_service.get_employee_overwiew()
