@@ -2,7 +2,7 @@ from LL_folder.LLAPI import LLAPI
 
 class AirplanesUI():
     def __init__(self):
-        self.airplanes = LLAPI()
+        self.airplane = LLAPI()
 
     def show_airplane_menu(self):
         """ This prints the airplane menu """
@@ -45,7 +45,7 @@ class AirplanesUI():
         manufacturer = input("Enter manufacturer: ")
         seat_amount = input("Enter seat amount: ")
         new_airplane = AirplanesModel(airplane_id, airplane_type, manufacturer, seat_amount)
-        self.airplanes.create_airplane(new_airplane)
+        #self.airplane.create_airplane(new_airplane)
         
         print("\nS Save \nB Back\n")
 
