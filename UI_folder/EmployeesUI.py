@@ -1,6 +1,6 @@
 from UI_folder.CabincrewUI import CabincrewUI
 from UI_folder.PilotsUI import PilotsUI
-from UI_folder.UIAPI import UIAPI
+
 class EmployeesUI():
     LENGTH_STAR = 20
     
@@ -34,6 +34,7 @@ class EmployeesUI():
     def show_overview_of_all_employees(self):
         print("OVERVIEW OF EMPLOYEES")
 
+        UIAPI.get_employee_overwiew()
         # calls the method that makes a list of all emps and prints it
         # employees = self.__employee_service.get_employee_overwiew()
         # print(employees)
