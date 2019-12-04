@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+class PilotsUI():
+=======
 class CabincrewUI():
+>>>>>>> f69b93684d4b0fc387b55f751b6cbae12ed1347c
     LENGTH_STAR = 20
     def show_cabin_crew_menu(self):
         """ This prints out the cabin crew menu """
