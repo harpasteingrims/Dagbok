@@ -4,9 +4,12 @@ sys.path.insert(1, '~/VERKLEGT-1-verkefni/')
 from LL_folder.LLAPI import LLAPI
 
 class UIAPI():
-    ''' EMPLOYEES '''
     
-    @staticmethod
+    def __init__(self):
+        self.__voyage_repo = LLAPI()
+
+        
+    ''' EMPLOYEES '''    
     def get_employee_overwiew(self):
         pass
         # employees = self.__employee_service.get_employee_overwiew()
@@ -31,7 +34,7 @@ class UIAPI():
         pass
 
     def get_voyages_overview(self):
-        pass
+        return self.__voyage_repo.get_voyages()
 
 
 
