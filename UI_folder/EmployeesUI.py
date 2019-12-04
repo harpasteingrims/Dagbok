@@ -1,6 +1,6 @@
 from UI_folder.CabincrewUI import CabincrewUI
 from UI_folder.PilotsUI import PilotsUI
-
+from UI_folder.UIAPI import UIAPI
 class EmployeesUI():
     LENGTH_STAR = 20
     
@@ -9,6 +9,7 @@ class EmployeesUI():
         pass
 
     def show_employee_menu(self):
+
         run = True
         while run is True:
 
@@ -34,12 +35,14 @@ class EmployeesUI():
         print("OVERVIEW OF EMPLOYEES")
 
         # calls the method that makes a list of all emps and prints it
-        # employees = self.__employee_service.get_employess()
+        # employees = self.__employee_service.get_employee_overwiew()
         # print(employees)
+        
+        print()
         print("B Back\n")
 
-        action = input("Choose action: ")
+        action = input("Choose action: ").lower()
         print()
 
-        if action == "B":
+        if action == "b":
             self.show_employee_menu()
