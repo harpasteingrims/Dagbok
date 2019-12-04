@@ -20,10 +20,10 @@ class CabincrewUI():
             self.show_enter_name_to_search()
 
         elif action == "2": 
-            self.show_cabincrew_overview()
+            self.show_cabincrew_member_overview()
 
         elif action == "3": 
-            self.show_cabincrew_create_form()
+            self.show_cabincrew_member_create_form()
 
         elif action == "b":
             return
@@ -56,7 +56,7 @@ class CabincrewUI():
             self.show_cabincrew_member_edit_form(name)
 
         elif action == "b":
-            self.show_cabin_crew_menu()
+            self.show_cabincrew_menu()
             
     def show_flight_schedule_of_cabincrew_member(self, name):
         """ Calls a class that makes a list of his voyages """
