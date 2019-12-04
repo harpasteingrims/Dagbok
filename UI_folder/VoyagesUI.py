@@ -10,7 +10,8 @@ class VoyagesUI():
         """ This prints the overview of all voyages """
         print("\n{}".format(self.LENGTH_STAR*"*"))
         print("OVERVIEW OF VOYAGES")
-        print("\nflugvel lala")
+        voyages = self.__voyages_service.get_voyages_overview()
+        print(voyages)
 
     def show_voyage_menu(self):
         """ This prints out the voyage menu """
