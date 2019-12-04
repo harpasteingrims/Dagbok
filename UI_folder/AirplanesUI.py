@@ -11,19 +11,24 @@ class AirplanesUI():
         while run is True:
 
             print(self.LENGTH_STAR * "*")
-            print("AIRPLANE MENU \n\n1 Print overview of all airplanes \n2 Create a new airplane \nB Back \n")
-            
-            action = input("Choose action: ").lower()
-            print()
+            action = ""
+            while(action != "q"):
+                print("AIRPLANE MENU")
+                print("1 Print overview of all airplanes")
+                print("2 Create a new airplane")
+                print("B Back")
+                print("press q to quit")
+                action = input("Choose action: ").lower()
+                print()
 
-            if action == "1":
-                self.show_airplane_overview()
+                if action == "1":
+                    self.show_airplane_overview()
 
-            elif action == "2":
-                self.show_create_airplane_form()
+                elif action == "2":
+                    self.show_create_airplane_form()
 
-            elif action == "b":
-                return
+                elif action == "b":
+                    return
 
     def show_airplane_overview(self):
         """ This prints the overview of all airplanes """
