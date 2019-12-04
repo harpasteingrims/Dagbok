@@ -1,12 +1,12 @@
-from EmployeesUI import EmployeesUI
 class CabincrewUI():
     LENGTH_STAR = 20
     def show_cabin_crew_menu(self):
+         
         """ This prints out the cabin crew menu """
         print("*" * self.LENGTH_STAR)
         print("CABIN CREW MENU \n\n1 Search for a cabin crew member \n2 Print overview of cabin crew \n3 Create a new cabin crew member\nB Back\n")
 
-        action = input("Choose action: ")
+        action = input("Choose action: ").lower()
         print()
 
         if action == "1":
@@ -18,9 +18,9 @@ class CabincrewUI():
         elif action == "3": 
             self.show_cabincrew_create_form()
 
-        elif action == "B":
+        elif action == "b":
             
-            EmployeesUI.show_employee_menu()
+            return
     
     def show_enter_name_to_search(self):
         print("Search for a cabin crew member to get information")

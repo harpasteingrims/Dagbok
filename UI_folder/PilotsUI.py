@@ -41,7 +41,7 @@ class PilotsUI():
         print("1 {}'s flight schedule").format(name)
         print("2 Edit information about pilot \nB Back")
 
-        action = input("Choose action: ")
+        action = input("Choose action: ").lower()
         print()
 
         if action == "1":
@@ -63,11 +63,11 @@ class PilotsUI():
 
         print("B Back")
 
-        action = input("Choose action: ")
+        action = input("Choose action: ").lower()
         print()
 
-        if action == "B":
-            EmployeesUI.show_pilot_menu()
+        if action == "b":
+            return
 
     
     def show_pilot_edit_form(self, name):
@@ -84,7 +84,7 @@ class PilotsUI():
         
         print("S Save \nB Back\n")
 
-        action = input("Choose action: ")
+        action = input("Choose action: ").lower()
         print()
 
         if action == "S":
@@ -93,11 +93,11 @@ class PilotsUI():
             # calls the class that stores the info about the pilot to change it...
             print("Pilot's information successfully changed")
             
-            EmployeesUI.show_pilot_menu()
+            return
 
-        elif action == "B":
+        elif action == "b":
 
-            EmployeesUI.show_pilot_menu()
+            return
      
     def show_pilots_overview(self):
         """ This prints out the pilot list """
@@ -105,12 +105,11 @@ class PilotsUI():
         # Calls the class that makes a list of all pilots and prints it 
         print("B Back\n")
 
-        action = input("Choose action: ")
+        action = input("Choose action: ").lower()
         print()
         
-        if action == "B":
-            
-            EmployeesUI.show_pilot_menu()
+        if action == "b":
+            return
     
     def show_pilot_create_form(self):
         """ This prints out the pilot format to put in the pilot information """
@@ -124,7 +123,7 @@ class PilotsUI():
         email = input("Enter email: ")
         license_type = input("Enter license type: ")
         new_pilot = PilotModel(name, role, ssn, address, mobile_number, email, license_type)
-        self.??.create_pilot(new_pilot)
+        #self.??.create_pilot(new_pilot)
         
         print("\nS Save \nB Back\n")
 
