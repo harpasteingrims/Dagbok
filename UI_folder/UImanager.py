@@ -14,8 +14,8 @@ class UImanager():
     LENGTH_STAR = 20
     def __init__(self):
         self.llapi = LLAPI()
-        self.cabincrew = CabincrewUI()
-        self.pilots = PilotsUI()
+        self.cabincrew = CabincrewUI(self.llapi)
+        self.pilots = PilotsUI(self.llapi)
         self.iaad = IAADUI()
         self.employees = EmployeesUI(self.cabincrew, self.pilots, self.llapi)
         self.voyages = VoyagesUI(self.llapi)

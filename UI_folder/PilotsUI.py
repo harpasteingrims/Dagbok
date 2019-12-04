@@ -66,7 +66,7 @@ class PilotsUI():
         date_from = input("Enter date from: ")
         date_to = input("Enter date to: ")
 
-        # calls the class that makes a list of the lfight schedule and prints it
+        # calls the class that makes a list of the flight schedule and prints it
 
         print("B Back")
 
@@ -109,7 +109,7 @@ class PilotsUI():
         # Calls the class that makes a list of all pilots and prints it 
         pilots = self.llapi.get_pilot_overview()
         print(pilots)
-        
+
         print("B Back\n")
 
         action = input("Choose action: ").lower()
