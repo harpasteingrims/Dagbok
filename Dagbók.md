@@ -192,7 +192,7 @@ Vika 2: 02.12 - 06.12
         -Úthlutuðum hverju okkar heimaverkefni.
             -Viktoría: Model klasar
             -Hildur: Quit option í UI
-            -Hallmar: Vinna IOLayer
+            -Hallmar: Vinna í update hluta í IO
             -Nína: Vesenast í IOAPI
             -Harpa: Gera föll í LLAPI og tengja við UI klasa
         -Erum bara svona 95% viss um að þetta sé eitt stórt klúður núna, major progress. :D
