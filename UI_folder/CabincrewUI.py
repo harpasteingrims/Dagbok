@@ -1,6 +1,9 @@
 class CabincrewUI():
     LENGTH_STAR = 20
-    def show_cabin_crew_menu(self):
+    def __init__(self):
+        self.cabincrew = LLAPI()
+
+    def show_cabincrew_menu(self):
          
         """ This prints out the cabin crew menu """
 

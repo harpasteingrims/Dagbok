@@ -8,8 +8,9 @@ class PilotsModel():
         self.email = email
         self.license_type = license_type
     
-    def add_pilot_to_file(self):
-        pass
+    def set_pilot(self):
+        pilot = {}
+        pilot[self.ssn] = [self.name, self.role, self.address, self.mobile_number, self.email] 
+        
+        return pilot
 
-    def __get__(self):
-        pass
