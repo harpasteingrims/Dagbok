@@ -1,17 +1,19 @@
 from models.VoyagesModel import VoyagesModel
+from UI_folder.UImanager import UImanager
 from LL_folder.LLAPI import LLAPI
 
 class VoyagesUI():
     LENGTH_STAR = 20
     def __init__(self):
+        self.voyages = UImanager()
         self.voyages = LLAPI()
     
     def show_overview_voyage(self):
         """ This prints the overview of all voyages """
         print("\n{}".format(self.LENGTH_STAR*"*"))
         print("OVERVIEW OF VOYAGES")
-        voyages = self.__voyages_service.get_voyages_overview()
-        print(voyages)
+        #voyages = self.__voyages_service.get_voyages_overview()
+        #print(voyages)
 
     def show_voyage_menu(self):
         """ This prints out the voyage menu """
