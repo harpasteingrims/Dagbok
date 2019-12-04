@@ -46,10 +46,7 @@ class DestinationsUI():
         contact = input("Enter name of contact: ")
         contact_phone = input("Enter emergency contact")
         new_destination = Destinations(country, airport, flight_duration, distance, contact, contact_phone)
-        self.destination.create_destination(new_destination)
-
-        new_dest = {}
-        new_dest[country] = [airport, flight_duration, distance, contact, contact_phone]
+        #self.destination.create_destination(new_destination)
 
         action = input("Choose action: ").lower() 
         #if action == "s" or action == "S":

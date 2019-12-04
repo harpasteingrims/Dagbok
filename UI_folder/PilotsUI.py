@@ -121,11 +121,9 @@ class PilotsUI():
         email = input("Enter email: ")
         license_type = input("Enter license type: ")
         new_pilot = PilotModel(name, role, ssn, address, mobile_number, email, license_type)
-<<<<<<< HEAD
-        self.??.create_pilot(new_pilot)
-=======
+
         #self.??.create_pilot(new_pilot)
->>>>>>> 97a729ebcfc67f9967f09766dcaa0a822f0ba06d
+
         
         print("\nS Save \nB Back\n")
 
