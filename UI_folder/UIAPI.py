@@ -37,6 +37,12 @@ class UIAPI():
         return self.__voyage_repo.get_voyages()
 
 
+    #__init__(self):
+        #self.llayer = LLAPI()
+        #self.mainmenu = MainmenuUI()
+        #...
+
+
 
 
     
