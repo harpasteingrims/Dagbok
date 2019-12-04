@@ -1,15 +1,16 @@
+import datetime
 class VoyagesModel():
-    def __init__(self, date, time, destination, airplane):
-        self.date = date
-        self.time = time
+    def __init__(self, time, destination, airplane, employees = []):
+        self.time = time #hér erum við búin í LL-layer að nota datetime þar sem þetta formattast saman í year,month,day,hour,minute
         self.destination = destination
         self.airplane = airplane
-
-    def get_voyages(self):
-        pass
+        self.employees = employees
 
     def set_voyages(self):
-        pass
+        voyage = {}
+        if len(self.employees) > 0:
+            voyage[self.time] = [self.destination, self.airplane, self.employees]
+        else:
+            voyage[self.time] = [self.destination, self.airplane]
 
-    def add_voyages(self):
-        pass
+        return voyage

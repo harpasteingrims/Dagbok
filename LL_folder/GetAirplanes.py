@@ -1,0 +1,2 @@
+class GetAirplanes():
+    pass
