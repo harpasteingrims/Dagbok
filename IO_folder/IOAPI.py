@@ -12,4 +12,5 @@ class IOAPI():
         self.airplanes.make_list_of_airplanes()
 
     def get_destination_list(self):
-        self.destination.
+        #self.destination.
+        pass

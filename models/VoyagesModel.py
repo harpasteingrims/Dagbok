@@ -6,11 +6,11 @@ class VoyagesModel():
         self.airplane = airplane
         self.employees = employees
 
-    def set_voyages(self):
-        voyage = {}
-        if len(self.employees) > 0:
-            voyage[self.time] = [self.destination, self.airplane, self.employees]
-        else:
-            voyage[self.time] = [self.destination, self.airplane]
+    #def set_voyages(self):
+    #    voyage = {}
+    #    if len(self.employees) > 0:
+    #        voyage[self.time] = [self.destination, self.airplane, self.employees]
+    #    else:
+    #        voyage[self.time] = [self.destination, self.airplane]
 
-        return voyage
+    #    return voyage

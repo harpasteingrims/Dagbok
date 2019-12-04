@@ -5,8 +5,8 @@ class AirplanesModel():
         self.manufacturer = manufacturer
         self.seat_amount = seat_amount
     
-    def set_airplane(self):
-        airplane = {}
-        airplane[self.ID] = [self.airplane_type, self.manufacturer, self.seat_amount]
+    #def set_airplane(self):
+        #airplane = {}
+        #airplane[self.ID] = [self.airplane_type, self.manufacturer, self.seat_amount]
 
-        return airplane
+        #return airplane

@@ -1,6 +1,4 @@
 
-
-
 class IAADUI():
     
     def __init__(self):

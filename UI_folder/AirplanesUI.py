@@ -3,8 +3,8 @@ from LL_folder.LLAPI import LLAPI
 
 class AirplanesUI():
     LENGTH_STAR = 20
-    def __init__(self):
-        self.airplane = LLAPI()
+    def __init__(self, llapi):
+        self.llapi = llapi
 
     def show_airplane_menu(self):
         
@@ -35,6 +35,9 @@ class AirplanesUI():
     def show_airplane_overview(self):
         """ This prints the overview of all airplanes """
         print("OVERVIEW OF AIRPLANES")
+
+        airplanes = self.llapi.get_airplanes_overwiew() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
+        print(airplanes)
 
         #calls the method that makes a list of all airplanes and prints it
         print("B Back\n")

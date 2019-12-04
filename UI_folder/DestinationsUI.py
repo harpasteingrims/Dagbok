@@ -3,8 +3,9 @@ from LL_folder.LLAPI import LLAPI
 
 class DestinationsUI():
     LENGTH_STAR = 20
-    def __init__(self):
-        self.destination = LLAPI()
+    def __init__(self, llapi):
+        #self.destination = LLAPI()
+        self.llapi = llapi
     
     def show_destination_menu(self):
         """ This prints out the menu for destinations """
@@ -27,9 +28,10 @@ class DestinationsUI():
         """ This prints all the destination """
         print("*"*self.LENGTH_STAR)
         print("OVERVIEW OF DESTINATIONS\n")
-        #print(destinations)
-        #HÉR ÞARF ÉG AÐ SÆKJA SKRÁ 
-
+        
+        destinations = self.llapi.get_destinations_overwiew() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
+        print(destinations)
+        
         print("B back\n")
         action = input("Choose action: ").lower() 
         if action == "b":
