@@ -4,7 +4,7 @@ class AirplanesUI():
 
     def show_airplane_menu(self):
         """ This prints the airplane menu """
-        action = input("Choose action: ")
+        action = input("Choose action: ").lower()
         print()
                 
         if action == "1":
@@ -13,9 +13,8 @@ class AirplanesUI():
         elif action == "2":
             self.show_create_airplane_form()
 
-        elif action == "B":
-            from MainmenuUI import MainmenuUI
-            main_menu.main_menu()
+        elif action == "b":
+            return
 
     def show_airplane_overview(self):
         """ This prints the overview of all airplanes """

@@ -14,14 +14,14 @@ class VoyagesUI():
         print(self.LENGTH_STAR*"*")
         print("VOYAGES \n\n1 Print overview of voyages\n2 Create a voyage\n3 Assign crew to flights\nB Back")
         print()
-        action_str = input("Choose action: ")
+        action_str = input("Choose action: ").lower()
         if action_str == "1":
             self.show_overview_voyage()
         elif action_str == "2":
             self.show_create_voyage_menu()
         elif action_str == "3":
             self.show_not_staffed_voyages()
-        elif action_str == "B" or action_str == "b":
+        elif action_str == "b":
             return
 
     def show_assign_staff_form(self):
@@ -39,12 +39,12 @@ class VoyagesUI():
         print("\n{}".format(self.LENGTH_STAR*"*"))
         print("CREATE A VOYAGE \n\n1 See common voyages\n2 Create a voyage manually\nB Back")
         print()
-        action_str = input("Choose action: ")
+        action_str = input("Choose action: ").lower()
         if action_str == "1":
             self.show_see_common()
         elif action_str == "2":
             self.show_create_manually_form()
-        elif action_str == "B" or action_str == "b":
+        elif action_str == "b":
             self.show_create_voyage_menu()
     
     def show_see_common(self):
@@ -69,14 +69,14 @@ class VoyagesUI():
         voyage_dict[voyage_destination] = [voyage_date, voyage_time, voyage_airplane]
         print("\n1 Assign crew to voyage\nS Save\nB Back")
         print()
-        action_str = input("Choose action: ")
+        action_str = input("Choose action: ").lower()
         if action_str == "1":
             self.show_assign_staff_form()
-        elif action_str == "S" or action_str == "s":
+        elif action_str == "s":
             print("\n*Voyage successfully created*")
             self.show_create_voyage_menu()
             pass #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
-        elif action_str == "B" or action_str == "b":
+        elif action_str == "b":
             self.show_create_voyage_menu()
 
     def show_available_airplane(self):
