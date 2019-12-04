@@ -10,5 +10,5 @@ class CabinCrewModel():
     def set_cabincrew(self):
         cabincrew = {}
         cabincrew[self.ssn] = [self.name, self.role, self.address, self.mobile_number, self.email]
-        
+        #rangt
         return cabincrew

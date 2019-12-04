@@ -1,18 +1,10 @@
 import sys
 sys.path.insert(1, '~/VERKLEGT-1-verkefni/')
 
-from UI_folder.EmployeesUI import EmployeesUI
-from UI_folder.VoyagesUI import VoyagesUI
-from UI_folder.DestinationsUI import DestinationsUI
-from UI_folder.AirplanesUI import AirplanesUI
-from UI_folder.IAADUI import IAADUI
-#from LogicLayer_folder.LLAPI import LLAPI
-
 class MainmenuUI():
     LENGTH_STAR = 20
 
-    #def __init__(self):
-        #self.__employess_service = LLAPI()
+    
 
     def show_main_menu(self):
 
