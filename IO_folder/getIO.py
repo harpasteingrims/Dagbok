@@ -7,7 +7,18 @@ class GetIO():
     def __init__(self):
         pass
 
-    def get_pilots():
+    def get_all_employees(self):
+        all_employee_list = []
+        
+        pilot_list = self.get_all_pilots()
+        crew_list = self.get_cabin_crew()
+
+        all_employee_list.extend(crew_list)
+        all_employee_list.extend(pilot_list)
+
+        return sorted(all_employee_list)
+
+    def get_all_pilots(self):
         pilot_file = open("Pilots.csv","r")
         
         pilot_list = []
@@ -31,7 +42,7 @@ class GetIO():
         return pilot_list
         
 
-    def get_airplane():
+    def get_airplane(self):
         '''Retrieves airplanes and sends to Get LL'''
         airplane_file = open("Aircraft.csv")
 
@@ -54,7 +65,7 @@ class GetIO():
         
 
         return airplane_list
-    def get_destinations():
+    def get_destinations(self):
         dest_file = open("destinations.csv")
         
         destination_list = []
@@ -80,7 +91,7 @@ class GetIO():
         destination_list = []
         
 
-    def get_cabin_crew():
+    def get_cabin_crew(self):
         crew_file = open("CabinCrew.csv","r")
         
         crew_file_list = []
@@ -103,7 +114,7 @@ class GetIO():
 
         return crew_list
 
-    def get_voyages():
+    def get_voyages(self):
         voyages_file = open("Voyages.csv","r")
         counter = 1
         for line in voyages_file:

@@ -1,22 +1,23 @@
 class IOAPI():
     def __init__(self):
-        self.airplanes = GetAirplanesLL()
-        self.employees = GetEmployeesLL()
-        self.destination = GetDestinationsLL()
-        self.voyages = GetVoyagesLL()
-        self.create_ll = CreateLL()
-        self.update_LL = UpdateLL()
+        self.getemployees = GetIO()
+        self.getpilots = GetIO()
+        self.getcabincrew = GetIO()
+        self.getpilots = GetIO()
+        self.create = CreateIO()
+        self.update = UpdateIO()
 
     """ AIRPLAINS """
     def get_airplane_list(self):
-        return self.airplanes.make_list_of_airplanes()
+        return self.get.get_pilots()
 
     """ EMPLOYEES """
     def get_list_of_all_employees(self):
-        return self.employees.get_all_employees()
-    
+        all_employee_list = self.getemployees.get_all_employees()
+        return all_employee_list
+
     def get_list_of_all_pilots(self):
-        get_all_pilots
+        return self.getpilots.get_all_pilots()
 
     """ DESTINATIONS """
     def get_destination_list(self):
