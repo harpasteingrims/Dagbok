@@ -1,5 +1,5 @@
 
-class DestinationUI():
+class DestinationsUI():
     Length_Star = 20
     def __init__(self):
         pass
@@ -13,23 +13,23 @@ class DestinationUI():
         action = input("Choose action: ") 
 
         if action == "1":
-            DestinationUI.show_destination_overview()
+            self.show_destination_overview()
         elif action == "2":
-            DestinationUI.show_create_des_form()
+            self.show_create_des_form()
         elif action == "3":
-            DestinationUI.show_emerg_country_menu()
+            self.show_emerg_country_menu()
 
     def show_destination_overview(self):
         """ This prints out all the destination """
         print("*"*self.Length_Star)
-        PRINT("OVERVIEW OF DESTINATIONS\n")
+        print("OVERVIEW OF DESTINATIONS\n")
         #print(destinations)
         #HÉR ÞARF ÉG AÐ SÆKJA SKRÁ 
 
         print("B back\n")
         action = input("Choose action: ") 
         if action == "b" or action == "B":
-            DestinationUI.show_destination_menu()
+            self.show_destination_menu()
 
     def show_create_des_form(self):
         """ This prints the create destination form"""
@@ -49,7 +49,7 @@ class DestinationUI():
         #if action == "s" or action == "S":
             #from UI-layer import FALL SEM VINNUR MEÐ ÞETTA
         if action == "b" or "B": #Á AÐ VERA ELIF HÉR 
-            DestinationUI.show_destination_menu()
+            self.show_destination_menu()
 
     def show_emerg_country_menu(self):
         """ This prints out the emergency contact menu """
@@ -69,7 +69,7 @@ class DestinationUI():
         action = input("Choose action: ")
         
         if action == "b" or action == "B":
-            DestinationUI.show_destination_menu()
+            self.show_destination_menu()
 
     def show_emergency_contact(self):
         """ This prints out the emergency contact for a specific country """
@@ -85,9 +85,9 @@ class DestinationUI():
         action = input("Choose action: ")
 
         if action == "1":
-            DestinationUI.show_emerg_country_menu()
+            self.show_emerg_country_menu()
         elif action == "2":
-            DestinationUI.show_emergency_cont_form()
+            self.show_emergency_cont_form()
 
     def show_emergency_cont_form(self):
         """ This prints out the emergency contact form """
@@ -106,7 +106,7 @@ class DestinationUI():
         #if action == "s" or "S":
             #sendi dict í listann af dict contacts í LL-layer
         if action == "b" or "B": #Á AÐ VERA ELIF HÉR
-            DestinationUI.show_emergency_contact()
+            self.show_emergency_contact()
 
 
 
