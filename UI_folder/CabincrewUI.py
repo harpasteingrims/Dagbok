@@ -122,6 +122,7 @@ class CabincrewUI():
         mobile_number = input("Enter mobile number: ")
         email = input("Enter email: ")
         new_cabincrew_member = CabincrewModel(name, role, ssn, address, mobile_number, email)
+        self.
         
         print("\nS Save \nB Back \n")
 
