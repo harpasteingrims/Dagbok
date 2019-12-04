@@ -2,21 +2,26 @@ class AirplanesUI():
     def __init__(self):
         pass
 
-    def show_airplane_menu(self):
+    pass
+
+    @classmethod
+    def show_airplane_menu(cls):
         """ This prints the airplane menu """
-        action = input("Choose action: ").lower()
+        action = input("Choose action: ")
         print()
                 
         if action == "1":
-            self.show_airplane_overview()
+            AirplanesUI.show_airplane_overview()
 
         elif action == "2":
-            self.show_create_airplane_form()
+            AirplanesUI.show_create_airplane_form()
 
-        elif action == "b":
-            return
+        elif action == "B":
+            from main_menu_UI import main_menu
+            main_menu.main_menu()
 
-    def show_airplane_overview(self):
+    @classmethod
+    def show_airplane_overview(cls):
         """ This prints the overview of all airplanes """
         print("OVERVIEW OF AIRPLANES")
 
@@ -27,9 +32,10 @@ class AirplanesUI():
         print()
 
         if action == "B":
-            self.show_airplane_menu()
+            EmployeesUI.show_employee_menu()
 
-    def show_create_airplane_form(self):
+    @classmethod
+    def show_create_airplane_form(cls):
         """ This prints the add a airplane form """
         print("CREATE A NEW AIRPLANE \n")
         airplane_id = input("Enter airplane ID: ")
@@ -47,7 +53,7 @@ class AirplanesUI():
             #calls the method that adds the info to a list of airplanes
             
             print("Airplane successfully created\n")
-            self.show_airplane_menu()
+            AirplanesUI.show_airplane_menu()
 
         elif action == "B":
-            self.show_airplane_menu()
+            AirplanesUI.show_airplane_menu()
