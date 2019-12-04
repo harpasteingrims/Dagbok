@@ -46,3 +46,9 @@ class UImanager():
                 run = False
                 break
     
+
+#def main():
+#    menu = MainmenuUI()
+#    menu.show_main_menu()
+
+#main()
