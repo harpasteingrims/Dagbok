@@ -1,3 +1,4 @@
+from models.DestinationsModel import DestinationsModel
 from LL_folder.LLAPI import LLAPI
 
 class DestinationsUI():
