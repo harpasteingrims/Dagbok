@@ -7,7 +7,6 @@ class IOAPI():
         self.create_ll = CreateLL()
         self.update_LL = UpdateLL()
 
-
     """ AIRPLAINS """
     def get_airplane_list(self):
         self.airplanes.make_list_of_airplanes()
