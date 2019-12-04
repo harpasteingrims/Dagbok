@@ -1,4 +1,3 @@
-
 class create_LL(LLAPI):
     '''Subclass of LLAPI that is only designed to create something'''
     def __init__(self):
