@@ -1,3 +1,5 @@
+from UI_folder.UIAPI import UIAPI
+
 class CabincrewUI():
     LENGTH_STAR = 20
     def __init__(self):

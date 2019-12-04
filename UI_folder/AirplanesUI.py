@@ -1,20 +1,28 @@
+from LL_folder.LLAPI import LLAPI
+
 class AirplanesUI():
     def __init__(self):
-        pass
+        self.airplane = LLAPI()
 
     def show_airplane_menu(self):
         """ This prints the airplane menu """
-        action = input("Choose action: ").lower()
-        print()
-                
-        if action == "1":
-            self.show_airplane_overview()
+        run = True
+        while run is True:
 
-        elif action == "2":
-            self.show_create_airplane_form()
+            print(self.LENGTH_STAR * "*")
+            print("AIRPLANE MENU \n\n1 Print overview of all airplanes \n2 Create a new airplane \nB Back \n")
+            
+            action = input("Choose action: ").lower()
+            print()
 
-        elif action == "b":
-            return
+            if action == "1":
+                self.show_airplane_overview()
+
+            elif action == "2":
+                self.show_create_airplane_form()
+
+            elif action == "b":
+                return
 
     def show_airplane_overview(self):
         """ This prints the overview of all airplanes """
@@ -36,6 +44,8 @@ class AirplanesUI():
         airplane_type = input("Enter airplane type: ")
         manufacturer = input("Enter manufacturer: ")
         seat_amount = input("Enter seat amount: ")
+        new_airplane = AirplanesModel(airplane_id, airplane_type, manufacturer, seat_amount)
+        #self.airplane.create_airplane(new_airplane)
         
         print("\nS Save \nB Back\n")
 

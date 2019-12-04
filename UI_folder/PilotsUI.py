@@ -1,5 +1,11 @@
+from UI_folder.UIAPI import UIAPI
+from LL_folder.LLAPI import LLAPI
+
 class PilotsUI():
     LENGTH_STAR = 20
+
+    def __init__(self):
+        self.pilot = LLAPI()
 
     def show_pilot_menu(self):
         """ This prints out the cabin crew menu """
@@ -121,8 +127,7 @@ class PilotsUI():
         email = input("Enter email: ")
         license_type = input("Enter license type: ")
         new_pilot = PilotModel(name, role, ssn, address, mobile_number, email, license_type)
-
-        #self.??.create_pilot(new_pilot)
+        #self.pilot.create_pilot(new_pilot)
 
         
         print("\nS Save \nB Back\n")

@@ -37,7 +37,7 @@ class CreateLL(LLAPI):
         new_destination = {}
         pass
     
-    def create_airplanes():
+    def create_airplane():
         '''Method that creates a new airplane'''
         new_airplane = {}
         pass
