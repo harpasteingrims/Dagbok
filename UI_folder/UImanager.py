@@ -2,6 +2,11 @@ import sys
 sys.path.insert(1, '~/VERKLEGT-1-verkefni/')
 
 from LL_folder.LLAPI import LLAPI
+from UI_folder.EmployeesUI import EmployeesUI
+from UI_folder.VoyagesUI import VoyagesUI
+from UI_folder.DestinationsUI import DestinationsUI
+from UI_folder.AirplanesUI import AirplanesUI
+from UI_folder.IAADUI import IAADUI
 
 class UImanager():
     
