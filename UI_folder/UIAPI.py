@@ -8,7 +8,6 @@ class UIAPI():
     def __init__(self):
         self.__voyage_repo = LLAPI()
 
-        
     ''' EMPLOYEES '''    
     def get_employee_overwiew(self):
         pass
