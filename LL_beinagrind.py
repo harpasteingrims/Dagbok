@@ -12,7 +12,7 @@ class LLAPI():
     def call_get_LL():
         pass
 
-class create_LL(LLAPI):
+class CreateLL(LLAPI):
     '''Subclass of LLAPI that is only designed to create something'''
     def __init__(self):
         pass
@@ -47,7 +47,7 @@ class create_LL(LLAPI):
         common_voyages = []
         pass
 
-class update_LL():
+class UpdateLL():
     def __init__(self):
         pass
 
@@ -67,7 +67,7 @@ class update_LL():
         pass
     
 
-class get_LL():
+class GetLL():
 
     """ This class gets the command to go and get something """
     
@@ -86,7 +86,7 @@ class get_LL():
         """ This method calls the get destinations class """
         pass
 
-class get_voyages(get_LL):
+class GetVoyages(get_LL):
     """ This class gets information about voyages """
 
     def __init__(self):
@@ -115,7 +115,7 @@ class get_voyages(get_LL):
     def get_voyages_by_date(self):
         """ This method gets a date and makes a list of voyages on that date"""
         
-class get_airplanes(get_LL):
+class GetAirplanes(get_LL):
 
     def __init__(self):
         pass
@@ -125,7 +125,7 @@ class get_airplanes(get_LL):
         all_airplanes = []
         pass
 
-class get_destinations(get_LL):
+class GetDestinations(get_LL):
 
     def __init__(self):
         pass
@@ -141,7 +141,7 @@ class get_destinations(get_LL):
         pass
 
 
-class get_employees():
+class GetEmployees():
     def __init__(self):
         pass
 
