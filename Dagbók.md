@@ -37,7 +37,7 @@ Vika 1: 25.11 - 29.11
     Hildur: 
         -Heldur áfram með klasaritið
         -Vinnur í skýrslunni
-        -Skráir í dagbók
+        -Skráir í dagbók. Mun sjá um það út verkefnið.
     Nína Margrét: 
         -Heldur áfram með wireframes.
     Viktoría Inga: 
@@ -145,7 +145,29 @@ Vika 2: 02.12 - 06.12
     Nína Margrét: 
         -UI fyrir Employees
     Viktoría Inga: 
+        -UI fyrir destinations
+        
+    Samantekt:
+        -Kláruðum UI fyrir destinations
+        -Nína fékk aðstoð frá bróður sínum Goða. Hann kenndi henni @classmethod sem við innleiddum í verkefnið okkar, til þess eins að komast að því að sú aðferð er ekki leyfileg. Flott.
+        -Eyddum deginum í að finna nýja aðferð til að láta forrit kalla á önnur forrit. Þurfum að muna að setja import setningar alltaf efst í forritið. 
+        -Ákváðum að hafa bara 1 klasa per skrá til að einfalda hlutina.
+        -Mættum í kennslustund um Git kl. 14:00 sem hjálpaði takmarkað því kennarinn talaði svo hratt. Dágóður hluti af deginum fór því í að læra sjálf á Git enda fengum við aldrei almennilega kennslu á það í vetur. 
+        -Fengum aftur hjálp frá Arnari og gáfum honum aðgang að git repositoryinu okkar. 
+
+04.12.2019 
+    Áætlun: Vinnum úr kommentunum hans Arnars á forritin okkar (því hann fékk aðgang að repositoryinu), reynum að byrja í Logic layerinu og hugsa hvernig við ætlum að tengja það við UI layerið. Byrjum líka aðeins á Data layer
+
+    Hallmar Orri: 
+        -Fer í Data layer
+    Harpa: 
+        -Lagfærir UI
+    Hildur: 
         -tba
+    Nína Margrét: 
+        -tba
+    Viktoría Inga: 
+        -Fer í Logic layer
         
     Samantekt:
         -
