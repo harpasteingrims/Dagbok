@@ -3,7 +3,8 @@ class PilotsUI():
 
     def show_pilot_menu(self):
         """ This prints out the cabin crew menu """
-        
+    
+
         print(self.LENGTH_STAR* "*")
         print("PILOT MENU \n\n1 Search for a pilot \n2 Print overview of pilots \n3 Create a new pilot\nB Back\n")
 
@@ -25,7 +26,7 @@ class PilotsUI():
     def show_enter_name_to_search(self):
         print("Search for a pilot to get information")
         
-        name = input("Enter name of pilot: ")
+        name = input("Enter name of pilot: ").lower()
         print()
         
         # info_of_pilot = # Calls the class that holds the information of pilots and prints it
@@ -50,7 +51,7 @@ class PilotsUI():
         elif action == "2": 
             self.show_pilot_edit_form(name)
 
-        elif action == "B":
+        elif action == "b":
             self.show_pilot_menu()
 
     
@@ -67,9 +68,8 @@ class PilotsUI():
         print()
 
         if action == "b":
-            return
+            self.show_pilot_menu()
 
-    
     def show_pilot_edit_form(self, name):
         """ This prints out the edit form for an employee """
 
@@ -87,17 +87,15 @@ class PilotsUI():
         action = input("Choose action: ").lower()
         print()
 
-        if action == "S":
+        if action == "s":
             """ Takes the new info, changes and adds it to the pilot list"""
             
             # calls the class that stores the info about the pilot to change it...
             print("Pilot's information successfully changed")
-            
-            return
+            self.show_pilot_menu()
 
         elif action == "b":
-
-            return
+            self.show_pilot_menu()
      
     def show_pilots_overview(self):
         """ This prints out the pilot list """
@@ -109,7 +107,7 @@ class PilotsUI():
         print()
         
         if action == "b":
-            return
+            self.show_pilot_menu()
     
     def show_pilot_create_form(self):
         """ This prints out the pilot format to put in the pilot information """
@@ -127,10 +125,10 @@ class PilotsUI():
         
         print("\nS Save \nB Back\n")
 
-        action = input("Choose action: ")
+        action = input("Choose action: ").lower()
         print()
 
-        if action == "S":
+        if action == "s":
             """ Takes the info and adds it to the pilot list"""
             #calls the method that adds the info to a list of pilots
             
