@@ -52,6 +52,5 @@ class IOAPI():
     def get_voyages(self):
         voyages_listget_voyages
 
-
     def create_voyage(self):
         return self.create.add_voyage()

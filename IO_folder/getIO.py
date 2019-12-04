@@ -112,7 +112,7 @@ class GetIO():
 
     def get_voyages(self):
         voyages_file = open("Voyages.csv","r")
-        
+
         voyages_list = []
 
         counter = 1
@@ -126,13 +126,6 @@ class GetIO():
                 Destination = line[2]
                 AirplaneID = line[3]
                 print(Date)
-
-                
-            
-
-        
-        
-
 
 
 def main():
