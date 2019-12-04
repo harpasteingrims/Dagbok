@@ -7,8 +7,8 @@ class UIAPI():
     ''' EMPLOYEES '''
 
     def __init__(self):
-        self.__voyage_repo = LLAPI()
-        
+        self.__voyage_logic = LLAPI()
+
     def get_employee_overwiew(self):
         pass
         # employees = self.__employee_service.get_employee_overwiew()
@@ -34,6 +34,12 @@ class UIAPI():
 
     def get_voyages_overview(self):
         return self.__voyage_repo.get_voyages()
+
+
+    #__init__(self):
+        #self.llayer = LLAPI()
+        #self.mainmenu = MainmenuUI()
+        #...
 
 
 
