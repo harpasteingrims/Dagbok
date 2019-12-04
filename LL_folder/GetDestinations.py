@@ -1,0 +1,2 @@
+class GetDestinations():
+    pass

@@ -2,6 +2,7 @@ from models.VoyagesModel import VoyagesModel
 class VoyagesUI():
     LENGTH_STAR = 20
     def __init__(self):
+        #self.__voyages_service = LLAPI()
         pass
     
     def show_overview_voyage(self):
