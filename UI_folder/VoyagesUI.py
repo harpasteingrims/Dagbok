@@ -1,5 +1,4 @@
 from models.VoyagesModel import VoyagesModel
-from UI_folder.UImanager import UImanager
 from LL_folder.LLAPI import LLAPI
 
 class VoyagesUI():
