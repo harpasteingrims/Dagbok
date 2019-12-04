@@ -38,13 +38,15 @@ class LLAPI():
         # fall fyrir show_destination_overview, í því falli á að prenta út overview af destinations
         #kalla á LL-layer klasann sem er með lista af destinations
         #return
-        pass
+        return self.getdestinations.get_all_destinations()
+        
     def new_destination(self):
         # fall fyrir show_create_des_form, þarf að senda nýja 
         pass
 
+
+    #VOYAGES
     def get_voyages_overview(self):
-        #return self.__voyage_repo.get_voyages()
         pass
 
     #__init__(self):

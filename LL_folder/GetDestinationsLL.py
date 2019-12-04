@@ -1,2 +1,3 @@
 class GetDestinationsLL():
-    pass
+    def get_all_destinations(self):
+        pass

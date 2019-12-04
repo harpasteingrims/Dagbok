@@ -18,9 +18,9 @@ class UImanager():
         self.pilots = PilotsUI()
         self.iaad = IAADUI()
         self.employees = EmployeesUI(self.cabincrew, self.pilots, self.llapi)
-        self.voyages = VoyagesUI()
-        self.destinations = DestinationsUI()
-        self.airplanes = AirplanesUI()
+        self.voyages = VoyagesUI(self.llapi)
+        self.destinations = DestinationsUI(self.llapi )
+        self.airplanes = AirplanesUI(self.llapi)
         
 
     def mainmenuUI(self):

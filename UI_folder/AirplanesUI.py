@@ -3,8 +3,8 @@ from LL_folder.LLAPI import LLAPI
 
 class AirplanesUI():
     LENGTH_STAR = 20
-    def __init__(self):
-        self.airplane = LLAPI()
+    def __init__(self, llapi):
+        self.llapi = llapi
 
     def show_airplane_menu(self):
         
