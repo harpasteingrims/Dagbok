@@ -1,4 +1,4 @@
-#Þetta er rotarskrain
+#Þetta er rótarskrain
 
 
 # Arnar: látið þessa skrá bara heita __main__.py og hafið hana 
