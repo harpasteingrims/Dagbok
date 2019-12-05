@@ -1,6 +1,6 @@
 from IO_folder.CreateIO import CreateIO
 from IO_folder.GetIO import GetIO
-from IO_folder.UpdateIO import UpdateIO
+from IO_folder.updateIO import UpdateIO
 
 class IOAPI():
     def __init__(self):

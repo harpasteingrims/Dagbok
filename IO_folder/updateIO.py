@@ -1,11 +1,7 @@
-from IO_folder.getIO import GetIO
-import csv
-
 class UpdateIO:
     def __init__(self):
         self.get = GetIO() # ef við viljum að update noti get til að updatea
         
-
     def update_emergency_contact(self, update_contact):               
         ''' Updates an emergency contact for a certain country'''
 
@@ -26,6 +22,3 @@ class UpdateIO:
     
     def update_cabincrew(self, update_cabincrew):
         pass
-
-
-    

@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(1, '~/VERKLEGT-1-verkefni/')
-import csv
+
 
 from models.CabinCrewModel import CabinCrewModel
 from models.AirplanesModel import AirplanesModel
@@ -129,10 +129,3 @@ class GetIO():
                 self.voyages_list.append(voyages)
 
             return self.voyages_list
-
-
-a = GetIO()
-a.load_all_pilots()
-                
-
-
