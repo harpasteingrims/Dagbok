@@ -8,24 +8,26 @@ class DestinationsUI():
         self.llapi = llapi
     
     def show_destination_menu(self):
-        """ This prints out the menu for destinations """
+        """This prints the destination menu"""
+
         print("*"*self.LENGTH_STAR)
         print("DESTINATIONS\n")
         print("1 Print overview of destinations \n2 Create a new destination \n3 Get emergency contact ")
         print("B back\n")
-        action = input("Choose action: ").lower()
+        action_str = input("Choose action: ").lower()
 
-        if action == "1":
+        if action_str == "1":
             self.show_destination_overview()
-        elif action == "2":
+        elif action_str == "2":
             self.show_create_des_form()
-        elif action == "3":
+        elif action_str == "3":
             self.show_emerg_country_menu()
-        elif action == "b":
+        elif action_str == "b":
             return
 
     def show_destination_overview(self):
-        """ This prints all the destination """
+        """This prints the overview of all destinations"""
+
         print("*"*self.LENGTH_STAR)
         print("OVERVIEW OF DESTINATIONS\n")
         
@@ -33,13 +35,14 @@ class DestinationsUI():
         print(destinations)
         
         print("B back\n")
-        action = input("Choose action: ").lower() 
-        if action == "b":
+        action_str = input("Choose action: ").lower() 
+        if action_str == "b":
             return
             #self.show_destination_menu()
 
     def show_create_des_form(self):
-        """ This prints the create destination form"""
+        """ This prints the create a destination form"""
+
         print("*"*self.LENGTH_STAR)
         print("CREATE A NEW DESTINATION\n")
         country = input("Enter country: ")
@@ -51,14 +54,15 @@ class DestinationsUI():
         new_destination = DestinationsModel(country, airport, flight_duration, distance, contact, contact_phone)
         #self.destination.create_destination(new_destination)
 
-        action = input("Choose action: ").lower() 
-        #if action == "s" or action == "S":
+        action_str = input("Choose action: ").lower() 
+        #if action_str == "s"
             #from UI-layer import FALL SEM VINNUR MEÐ ÞETTA
-        if action == "b": #Á AÐ VERA ELIF HÉR 
+        if action_str == "b": #Á AÐ VERA ELIF HÉR 
             return
 
     def show_emerg_country_menu(self):
-        """ This prints out the emergency contact menu """
+        """This prints the emergency contact menu"""
+
         print("*"*self.LENGTH_STAR)
         print("GET EMERGENCY CONTACT\n")
         #tekur inn countries_list
@@ -72,13 +76,14 @@ class DestinationsUI():
             #country += 1
 
         print("B back")
-        action = input("Choose action: ").lower()
+        action_str = input("Choose action: ").lower()
         
-        if action == "b":
+        if action_str == "b":
             return 
 
     def show_emergency_contact(self):
-        """ This prints out the emergency contact for a specific country """
+        """This prints the emergency contact for a specific country"""
+
         print("*"*self.LENGTH_STAR)
         print("EMERGENCY CONTACT OF\n") #Hérna vantar að setja inn country
         #ÞARF AÐ FINNA LANDIÐ MEÐ ÞVÍ AÐ SÆKJA LISTA AF CONTACTS Í LL-LAYER
@@ -88,17 +93,18 @@ class DestinationsUI():
         # Name:
         # Phone:
         print("1 Edit contact \n2 B Back")
-        action = input("Choose action: ").lower()
+        action_str = input("Choose action: ").lower()
 
-        if action == "1":
+        if action_str == "1":
             self.show_emerg_country_menu()
-        elif action == "2":
+        elif action_str == "2":
             self.show_emergency_cont_form()
-        elif action == "b":
+        elif action_str == "b":
             return
             
     def show_emergency_cont_form(self):
-        """ This prints out the emergency contact form """
+        """This prints the edit form for an emergency contact"""
+
         #ÞARF AÐ FINNA LANDIÐ MEÐ ÞVÍ AÐ SÆKJA LISTA AF CONTACTS Í LL-LAYER
         #CONTACTS ERU GEYMDIR Í DICT MEÐ LAND SEM KEY, FINN NAFN SEM 
         #ER SAMA NAFN OG VALUE 
@@ -109,9 +115,9 @@ class DestinationsUI():
         #ÉG HLÝT AÐ FÁ INN DICT HÉR ÚR LL-LAYER. ÉG ÞARF ÞÁ AÐ BREYTA HENNI EFTIR ÞVÍ HVAÐ NOTANDINN GERÐI
         #nafniðádict[land] = [name, phone]
         print("S save \nB Back")
-        action = input("Choose action: ").lower()
+        action_str = input("Choose action: ").lower()
         
-        #if action == "s":
+        #if action_str == "s":
             #sendi dict í listann af dict contacts í LL-layer
-        if action == "b": #Á AÐ VERA ELIF HÉR
+        if action_str == "b": #Á AÐ VERA ELIF HÉR
             return
