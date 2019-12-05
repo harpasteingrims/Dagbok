@@ -30,6 +30,7 @@ class AirplanesUI():
     def show_airplane_overview(self):
         """This prints the overview of all airplanes"""
 
+        print(self.LENGTH_STAR * "*")
         print("OVERVIEW OF AIRPLANES")
 
         airplanes = self.llapi.get_airplanes_overwiew() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
@@ -47,6 +48,7 @@ class AirplanesUI():
     def show_create_airplane_form(self):
         """This prints the create an airplane form"""
 
+        print(self.LENGTH_STAR * "*")
         print("CREATE A NEW AIRPLANE \n")
         airplane_id = input("Enter airplane ID: ")
         airplane_type = input("Enter airplane type: ")
