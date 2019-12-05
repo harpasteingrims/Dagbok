@@ -40,10 +40,7 @@ class LLAPI():
         pass
 
     """DESTINATIONS"""
-    def get_destination_overview(self):
-        # fall fyrir show_destination_overview, í því falli á að prenta út overview af destinations
-        #kalla á LL-layer klasann sem er með lista af destinations
-        #return
+    def get_destination_overview(self): #Þessi listi þarf að vera númeraður
         return self.getdestinations.get_all_destinations()
 
     def new_destination(self):
@@ -58,6 +55,12 @@ class LLAPI():
     def get_not_staffed_voyages(self):
         return self.getvoyages.get_not_staffed()
 
+    def get_common_voyages(self):
+        pass
+
+    def get_unavailable_time_for_voyage(self):
+        pass
+
 
     """AIRPLANES"""
 
@@ -70,7 +73,22 @@ class LLAPI():
     def get_employee(self):
         pass #Listar allar employees
 
-    def get_available_airplanes_by_date(self):
+    def get_available_airplanes_by_date(self): #Þessi listi þarf að vera númeraður
+        pass
+
+
+    """IAAD"""
+
+    def get_available_employess_by_date(self):
+        pass
+
+    def get_unavailable_employees_by_date(self):
+        pass
+
+    def get_airplane_status_by_date(self):
+        pass
+
+    def get_voyages_status_by_date(self):
         pass
 
 
