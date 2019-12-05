@@ -9,8 +9,8 @@ class CabincrewUI():
     def show_cabincrew_menu(self):
         """ This prints the cabin crew member menu """
 
-        action = ""
-        while(action != "q"):
+        action_str = ""
+        while(action_str != "q"):
             print(self.LENGTH_STAR * "*")
             print("CABIN CREW MENU")
             print("1 Search for a cabin crew member")
