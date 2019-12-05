@@ -5,24 +5,23 @@ from models.PilotModel import PilotsModel
 
 class GetIO():
     def __init__(self):
-        pass
+        self.all_employee_list = []
+        self.pilot_list = []
+
         
     def get_all_employees(self):
-        all_employee_list = []
-        
-        pilot_list = self.get_all_pilots()
-        crew_list = self.get_cabin_crew()
 
-        all_employee_list.extend(crew_list)
-        all_employee_list.extend(pilot_list)
+        self.pilot_list = self.get_all_pilots()
+        self.crew_list = self.get_cabin_crew()
 
-        return sorted(all_employee_list)
+        self.all_employee_list.extend(self.crew_list)
+        self.all_employee_list.extend(self.pilot_list)
+
+        return sorted(self.all_employee_list)
 
     def get_all_pilots(self):
         pilot_file = open("Pilots.csv","r")
         
-        pilot_list = []
-
         counter = 1
         for line in pilot_file:
             if counter == 1:
@@ -30,23 +29,20 @@ class GetIO():
             else:
                 line = line.strip().split(",")
                 SSN = line[0]
-                Name = line[1]
-                Role = line[2]
-                Rank = line[3]
-                licens = line[4]
-                Address = line[5]
-                Mobile_number = line[6]
+                name = line[1]
+                role = line[2]
+                rank = line[3]
+                plane_license = line[4]
+                address = line[5]
+                mobile_number = line[6]
                 email = line[7]
-                pilot = PilotsModel.set_pilot(self,Name,Role,SSN,Address,Mobile_number,email,licens)
-                pilot_list.append(pilot)
-            
+                pilot = {}
+                pilot[SSN] = [name, role, plane_license, address, mobile_number, email]
+                pilot = PilotsModel.set_pilot(SSN, name,  role, rank, plane_license, address, mobile_number, email)
+                self.pilot_list.append(pilot)
 
+        return self.pilot_list
         
-        print(pilot_list)
-
-        return pilot_list
-        
-
     def get_all_airplanes(self):
         '''Retrieves airplanes and sends to Get LL'''
         airplane_file = open("Aircraft.csv")
