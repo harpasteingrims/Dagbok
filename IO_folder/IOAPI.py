@@ -46,7 +46,7 @@ class IOAPI():
 
     def get_airplane_list(self):
         """ Calls the Get class to get a list of all airplanes """
-        return self.get.get_all_airplanes()
+        return self.get.load_all_airplanes()
          
     def create_airlane(self):
         return self.create.add_airplane()
@@ -55,7 +55,8 @@ class IOAPI():
     """ VOYAGES """
 
     def get_voyages(self):
-        pass
+        """ Calls the Get class to get a list of all airplanes """
+        return self.get.load_all_voyages()
         
         
     def create_voyage(self):

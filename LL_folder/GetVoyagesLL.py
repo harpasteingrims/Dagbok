@@ -1,8 +1,9 @@
 class GetVoyagesLL():
     def __init__(self, ioapi):
         self.ioapi = ioapi
+
     def get_all_voyages(self):
         pass
 
-    def get_not_staffed(self):
+    def get_not_staffed_voyages(self):
         pass
