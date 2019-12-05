@@ -17,39 +17,49 @@ class GetEmployeesLL():
         return sorted(self.ioapi.get_list_of_all_cabin_crew())
     
     def find_common_named_pilots(self, name):
-        common_names = []
+        common_pilot_names = []
         pilot_list = self.get_all_pilots()
         
         for pilot_object in pilot_list:
             if pilot_object.name == name:
                 
-                common_names.append(pilot_object)
+                common_pilot_names.append(pilot_object)
         
-        return common_names
+        if len(common_pilot_names) > 0:
+            return common_pilot_names
+        else:
+            return False
 
     def list_info_about_pilot_by_name(self, name):
         """  """
-        searched_pilot_info = []
+        pilot_list = self.list_all_pilots()
 
-        pilot_list = self.get_all_pilots()
-
-        for pilot in self.pilot_list:
+        for pilot_object in pilot_list:
             if pilot.name == name:
-                # TODO handle if found
-                pass
-        # TODO handle if none is found
+                return pilot_object
 
     def find_common_named_cabincrew(self,name):
-        return self.getemployees.find_common_named_pilots(name)
-
-
-    def list_info_about_cabincrew_by_name(self):
-        pass
+        common_crew_names = []
+        cabin_crew_list = self.list_all_cabin_crew()
         
+        for cabin_crew_object in cabin_crew_list:
+            if cabin_crew_object.name == name:
+                
+                common_crew_names.append(cabin_crew_object)
+        if len(common_crew_names) > 0:
+            return common_crew_names
+
+        else:
+            return False
 
     def list_info_about_cabincrew_by_name(self):
-        pass
 
+        cabin_crew_list = self.list_all_cabin_crew()
+
+        for cabin_crew_object in cabin_crew_list:
+            if cabin_crew_object.name == name:
+                return cabin_crew_object
+        
 
     def list_schedule_cabincrew_by_date(self):
         pass

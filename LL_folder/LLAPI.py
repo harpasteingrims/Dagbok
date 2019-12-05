@@ -31,20 +31,20 @@ class LLAPI():
 
     def find_common_named_pilots_by_name(self,name):
         return self.getemployees.find_common_named_pilots(name)
-
+    
+    def get_info_about_pilot_by_name(self, name):
+        return self.getemployees.list_info_about_pilot_by_name(name)
+    
     def find_common_named_cabincrew_by_name(self,name):
         return self.getemployees.find_common_named_cabincrew(name)
 
-    def get_info_about_pilot_by_name(self):
+    def get_info_about_cabincrew_by_name(self, name):
+        self.getemployees.list_info_about_cabincrew_by_name(name)
+
+    def get_schedule_cabincrew_by_date(self,date):
         pass
 
-    def get_info_about_cabincrew_by_name(self):
-        pass
-
-    def get_schedule_cabincrew_by_date(self):
-        pass
-
-    def get_schedule_pilot_by_date(self):
+    def get_schedule_pilot_by_date(self, name, date):
         pass
 
     """DESTINATIONS"""
