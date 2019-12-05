@@ -9,24 +9,30 @@ class PilotsUI():
 
     def show_pilot_menu(self):
         '''This prints the pilot menu'''
-    
-        print(self.LENGTH_STAR* "*")
-        print("PILOT MENU \n\n1 Search for a pilot \n2 Print overview of pilots \n3 Create a new pilot\nB Back\n")
 
-        action_str = input("Choose action: ").lower()
-        print()
+        action = ""
+        while(action != "q"):
+            print(self.LENGTH_STAR * "*")
+            print("PILOT MENU")
+            print("1 Search for a pilot")
+            print("2 Print overview of pilots")
+            print("3 Create a new pilot")
+            print("B Back")
+            print("Q Quit")
+            action_str = input("Choose action: ").lower()
+            print()
 
-        if action_str == "1":
-            self.show_enter_name_to_search()
+            if action_str == "1":
+                self.show_enter_name_to_search()
 
-        elif action_str == "2": 
-            self.show_pilots_overview()
+            elif action_str == "2": 
+                self.show_pilots_overview()
 
-        elif action_str == "3": 
-            self.show_pilot_create_form()
+            elif action_str == "3": 
+                self.show_pilot_create_form()
 
-        elif action_str == "b":
-            return     
+            elif action_str == "b":
+                return     
 
     def show_enter_name_to_search(self):
         """This prints the search for a pilot window"""
@@ -63,11 +69,12 @@ class PilotsUI():
 
     
     def show_flight_schedule_of_pilot(self, name):
-        """Calls a class that makes a list of his voyages"""
+        """Calls a class that makes a list of his voyages and prints it"""
 
         date_from = input("Enter date from: ")
         date_to = input("Enter date to: ")
 
+        #print("{}'S FLIGHT SCHEDULE").format(name.upper)
         # calls the class that makes a list of the flight schedule and prints it
 
         print("B Back")
@@ -80,9 +87,9 @@ class PilotsUI():
 
     def show_pilot_edit_form(self, name):
         """This prints the edit form for an employee"""
-
-        # name, ssn, role.... = #calls the class to get the info of the pilot 
         
+        print("EDIT PILOT")
+        # name, ssn, role.... = #calls the class to get the info of the pilot 
         #print("You are changing the information for pilot: {}, {}".format(name, ssn))
        
         new_address = input("Enter new address")
@@ -132,9 +139,6 @@ class PilotsUI():
         mobile_number = input("Enter mobile number: ")
         email = input("Enter email: ")
         license_type = input("Enter license type: ")
-        #new_pilot = PilotModel(name, role, ssn, address, mobile_number, email, license_type)
-        #self.pilot.create_pilot(new_pilot)
-
         
         print("\nS Save \nB Back\n")
 
@@ -142,10 +146,11 @@ class PilotsUI():
         print()
 
         if action_str == "s":
-            """ Takes the info and adds it to the pilot list"""
-            #calls the method that adds the info to a list of pilots
-            
+            #Takes the info and adds it to the pilot list
             print("Pilot successfully created\n")
+            #new_pilot = PilotModel(name, role, ssn, address, mobile_number, email, license_type)
+            #self.pilot.create_pilot(new_pilot)
+            #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá        
             self.show_pilot_menu()
 
         elif action_str == "b":
