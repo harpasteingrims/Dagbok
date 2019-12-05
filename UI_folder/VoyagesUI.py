@@ -33,6 +33,8 @@ class VoyagesUI():
         print("\n{}".format(self.LENGTH_STAR*"*"))
         print("ASSIGN CREW TO VOYAGES")
         self.show_not_staffed_voyages()
+        #Listi yfir alla lausa pilots og þar þarf IO og fá date til að sjá hverjir eru lausar þennan dag
+        #Listi yfir alla lausa cabincrew
         print("B Back")
         print()
         voyage_str = input("Choose a voyage")

@@ -43,10 +43,6 @@ class LLAPI():
     def get_destination_overview(self): #Þessi listi þarf að vera númeraður
         return self.getdestinations.get_all_destinations()
 
-    def new_destination(self):
-        # fall fyrir show_create_des_form, þarf að senda nýja 
-        pass
-
 
     """VOYAGES"""
     def get_voyages_overview(self):

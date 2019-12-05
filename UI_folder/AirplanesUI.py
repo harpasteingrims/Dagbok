@@ -37,7 +37,6 @@ class AirplanesUI():
         airplanes = self.llapi.get_airplanes_overwiew() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
         print(airplanes)
 
-        #calls the method that makes a list of all airplanes and prints it
         print("B Back\n")
 
         action = input("Choose action: ").lower()
