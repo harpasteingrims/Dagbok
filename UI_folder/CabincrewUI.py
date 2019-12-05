@@ -1,6 +1,4 @@
-from UI_folder.UImanager import UImanager
 from models.CabinCrewModel import CabinCrewModel
-
 class CabincrewUI():
     LENGTH_STAR = 20
     def __init__(self, llapi):

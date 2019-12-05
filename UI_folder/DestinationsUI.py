@@ -66,7 +66,7 @@ class DestinationsUI():
         action_str = input("Choose action: ").lower() 
         print()
 
-        if action_str == "s"
+        if action_str == "s":
             #Takes the info and adds it to the destination list
             print("Destination successfully created\n")
             new_destination = DestinationsModel(country, airport, flight_duration, distance, contact, contact_phone)
@@ -144,4 +144,4 @@ class DestinationsUI():
             self.show_destination_menu
 
         elif action_str == "b":
-            self.show_destination_menu
+            self.show_destination_menu()

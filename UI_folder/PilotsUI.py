@@ -1,6 +1,4 @@
-from UI_folder.UImanager import UImanager
 from models.PilotModel import PilotsModel
-
 class PilotsUI():
     LENGTH_STAR = 20
 

@@ -1,12 +1,12 @@
 from IO_folder.CreateIO import CreateIO
 from IO_folder.GetIO import GetIO
-from IO_folder.updateIO import UpdateIO
+from IO_folder.UpdateIO import UpdateIO
 
 class IOAPI():
     def __init__(self):
         self.get = GetIO()
-        self.create = CreateIO()
-        self.update = UpdateIO()
+        self.create = CreateIO(self.get)
+        self.update = UpdateIO(self.get)
 
     """ EMPLOYEES """
     def get_list_of_all_employees(self):
