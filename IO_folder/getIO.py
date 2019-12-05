@@ -7,6 +7,7 @@ class GetIO():
     def __init__(self):
         self.all_employee_list = []
         self.pilot_list = []
+        self.cabincrew_list = []
         self.airplane_list = []
         self.destination_list = []
 
@@ -16,7 +17,7 @@ class GetIO():
         self.pilot_list = self.get_all_pilots()
         self.crew_list = self.get_cabin_crew()
 
-        self.all_employee_list.extend(self.crew_list)
+        self.all_employee_list.extend(self.cabincrew_list)
         self.all_employee_list.extend(self.pilot_list)
 
         return sorted(self.all_employee_list)
@@ -78,8 +79,8 @@ class GetIO():
                 contact_name = line[4]
                 contact_phone_number = line[5]
                 country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number = line.split(",")
-                Destination = DestinationsModel(self,country,airport,flight_dur_from_Ice,dist_from_Ice,contact_name,contact_phone_number)
-                self.destination_list.append(Destination)
+                destination = DestinationsModel(country ,airport ,flight_dur_from_Ice ,dist_from_Ice ,contact_name ,contact_phone_number)
+                self.destination_list.append(destination)
 
         return self.destination_list
         
@@ -87,15 +88,11 @@ class GetIO():
     def get_cabin_crew(self):
         crew_file = open("CabinCrew.csv","r")
         
-        
-        crew_list = []
         counter = 1
-
         for line in crew_file:
             if counter == 1:
                 counter += 1
             else:
-                line = line.strip().split(",")
                 SSN = line[0]
                 Name = line[1]
                 Role = line[2]
@@ -103,10 +100,10 @@ class GetIO():
                 Address = line[4]
                 Mobile_number = line[5]
                 email = line[6]
-                Crew_employee = CabinCrewModel.set_cabincrew(self,Name,Role,SSN,Address,Mobile_number,email)
-                crew_list.append(Crew_employee)
+                cabincrew_employee = CabinCrewModel(self,Name,Role,SSN,Address,Mobile_number,email)
+                self.cabincrew_list.append(cabincrew_employee)
 
-        return crew_list
+        return self.cabincrew_list
     
     def get_voyages(self):
         voyages_file = open("Voyages.csv","r")
