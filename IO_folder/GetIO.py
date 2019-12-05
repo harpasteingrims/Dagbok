@@ -130,3 +130,29 @@ class GetIO():
                 self.voyages_list.append(voyages)
 
             return self.voyages_list
+
+
+    def load_all_voyages_with_crew(self):
+        voyages_file = open("Voyages.csv","r")
+
+        counter = 1
+        for line in voyages_file:
+            if counter == 1:
+                counter +=1
+            else:
+                date = line[0]
+                time = line[1]
+                destination = line[2]
+                airplaneID = line[3]
+                captain = line[4]
+                copilot = line[5]
+                fsm = line[6]
+                fa1 = line[7]
+                fa2 = line[8]
+                date, time, destination, airplaneID = line.split(",")
+                voyage = VoyagesModel(date, time, destination, airplaneID)
+                voyage_with_crew = Voyage_crewModel(voyage,captain,copilot,fsm,fa1,fa2)
+                
+                self.voyages_list.append()
+
+            return self.voyages_list

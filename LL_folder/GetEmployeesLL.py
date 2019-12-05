@@ -60,14 +60,15 @@ class GetEmployeesLL():
             if cabin_crew_object.name == name:
                 return cabin_crew_object
         
+    def list_schedule_cabincrew_by_date(self, name, date_from, date_to):
+        # unnið úr date og búið ti lista af voyages sem viðkamandi er á og á gefna tímabilinu 
+    
 
-    def list_schedule_cabincrew_by_date(self):
+    def list_schedule_pilot_by_date(self, name, date_from, date_to):
+        # unnið úr date og búið ti lista af voyages sem viðkamandi er á og á gefna tímabilinu
         pass
 
-    def list_schedule_pilot_by_date(self):
-        pass
-
-    def list_available_employees(self,date):
+    def list_available_employees(self,date_from, date_to):
         
         """ Calls the IOAPI to get a list of all employees """
         all_employee_list = self.get_all_employees()

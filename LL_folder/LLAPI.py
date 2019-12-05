@@ -41,10 +41,10 @@ class LLAPI():
     def get_info_about_cabincrew_by_name(self, name):
         self.getemployees.list_info_about_cabincrew_by_name(name)
 
-    def get_schedule_cabincrew_by_date(self,date):
+    def get_schedule_cabincrew_by_date(self, name, date_from, date_to):
         pass
 
-    def get_schedule_pilot_by_date(self, name, date):
+    def get_schedule_pilot_by_date(self, name, date_from, date_to):
         pass
 
     """DESTINATIONS"""
