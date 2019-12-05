@@ -1,7 +1,7 @@
 class CreateLL():
     '''Subclass of LLAPI that is only designed to create something'''
-    def __init__(self):
-        pass
+    def __init__(self, ioapi):
+        self.ioapi = ioapi
 
     def create_pilot(self):
         '''Method that creates a new pilot'''

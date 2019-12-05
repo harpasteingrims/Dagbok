@@ -9,12 +9,12 @@ from LL_folder.CreateLL import CreateLL
 class LLAPI():
     def __init__(self):
         self.ioapi = IOAPI()
-        self.createll = CreateLL()
-        self.updatell = UpdateLL()
-        self.getvoyages = GetVoyagesLL()
-        self.getairplanes = GetAirplanesLL()
-        self.getdestinations = GetDestinationsLL()
-        self.getemployees = GetEmployeesLL()
+        self.createll = CreateLL(self.ioapi)
+        self.updatell = UpdateLL(self.ioapi)
+        self.getvoyages = GetVoyagesLL(self.ioapi)
+        self.getairplanes = GetAirplanesLL(self.ioapi)
+        self.getdestinations = GetDestinationsLL(self.ioapi)
+        self.getemployees = GetEmployeesLL(self.ioapi)
     
 
     """EMPLOYEES"""

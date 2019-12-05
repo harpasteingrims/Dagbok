@@ -1,4 +1,7 @@
 class GetEmployeesLL():
+    def __init__(self, ioapi):
+        self.ioapi = ioapi
+        
     def get_all_employees(self):
         all_employee_list = self.ioapi.get_list_of_all_employees()
         return all_employee_list
