@@ -7,9 +7,6 @@ class CabinCrewModel():
         self.address = address
         self.mobile_number = mobile_number
         self.email = email
-
-    #def set_cabincrew(self):
-    #       cabincrew = {}
-    #       cabincrew[self.ssn] = [self.name, self.role, self.address, self.mobile_number, self.email]
-        #rangt
-       #return cabincrew
+    
+    def to_csv_string(self):
+        return f"{self.SSN},{self.name},{self.role},{self.rank},{self.address},{self.mobile_number},{self.email}"

@@ -1,7 +1,9 @@
-from IO_folder.GetIO import GetIO
+
 from models.CabinCrewModel import CabinCrewModel
 from models.PilotModel import PilotsModel
 from models.AirplanesModel import AirplanesModel
+from models.VoyagesModel import VoyagesModel
+from models.DestinationsModel import DestinationsModel
 import csv
 
 class CreateIO():
@@ -23,7 +25,6 @@ class CreateIO():
             writer = csv.writer(f)
             writer.writerow(new_airplane.to_csv_string())
 
-
     def add_destiantions(self, new_destination):
         with open(r'Destinations.csv', 'a') as f:
             writer = csv.writer(f)
@@ -33,3 +34,6 @@ class CreateIO():
         with open(r'Voyages.csv', 'a') as f:
             writer = csv.writer(f)
             writer.writerow(new_voyage.to_csv_string())
+
+p = CreateIO
+p.add_pilot()
