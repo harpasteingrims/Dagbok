@@ -1,11 +1,13 @@
-#from models.CabinCrewModel import CabinCrewModel
-#from models.AirplanesModel import AirplanesModel
-#from models.DestinationsModel import DestinationsModel
-#from models.PilotModel import PilotsModel
+from models.CabinCrewModel import CabinCrewModel
+from models.AirplanesModel import AirplanesModel
+from models.DestinationsModel import DestinationsModel
+from models.PilotModel import PilotsModel
 
 class GetIO():
     def __init__(self):
         pass
+        
+        
 
     def get_all_employees(self):
         all_employee_list = []
@@ -34,6 +36,11 @@ class GetIO():
                 Role = line[2]
                 Rank = line[3]
                 licens = line[4]
+                Address = line[5]
+                Mobile_number = line[6]
+                email = line[7]
+                pilot = PilotsModel.set_pilot(self,Name,Role,SSN,Address,Mobile_number,email,licens)
+                pilot_list.append(pilot)
             
 
         
@@ -58,8 +65,9 @@ class GetIO():
                 Manufacturer = line[2]
                 Seat_amount = line[3]
                 
+                
         
-        print(airplane_list)
+        
         
         return airplane_list
 
@@ -72,26 +80,25 @@ class GetIO():
             if counter == 1:
                 counter += 1
             else:
-                line = line.strip.split(",")
+                line = line.strip().split(",")
                 country = line[0]
                 airport = line[1]
                 flight_dur_from_Ice = line[2]
                 dist_from_Ice = line[3]
                 contact_name = line[4]
                 contact_phone_number = line[5]
-                destination_list.append(country)
+
+                Destination = DestinationsModel.set_destinations(self,country,airport,flight_dur_from_Ice,dist_from_Ice,contact_name,contact_phone_number)
+                destination_list.append(Destination)
+
         return destination_list
-                
-            
-            
-        destination_list = []
         
 
     def get_cabin_crew(self):
         crew_file = open("CabinCrew.csv","r")
         
-        crew_file_list = []
-
+        
+        crew_list = []
         counter = 1
 
         for line in crew_file:
@@ -103,13 +110,14 @@ class GetIO():
                 Name = line[1]
                 Role = line[2]
                 Rank = line[3]
-            
-
-        crew_list = []
-        print(crew_list)
+                Address = line[4]
+                Mobile_number = line[5]
+                email = line[6]
+                Crew_employee = CabinCrewModel.set_cabincrew(self,Name,Role,SSN,Address,Mobile_number,email)
+                crew_list.append(Crew_employee)
 
         return crew_list
-
+    
     def get_voyages(self):
         voyages_file = open("Voyages.csv","r")
 
@@ -128,7 +136,3 @@ class GetIO():
                 
 
 
-def main():
-    listi = GetIO.get_cabin_crew()
-    pass
-main()

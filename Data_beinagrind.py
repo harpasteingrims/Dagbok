@@ -34,15 +34,4 @@ class CreateIO:
     def add_voyage():                       '''Retrieves voyages and sends to Create LL'''
         pass
     
-class UpdateIO:
-    def __init__(self, filename):
-        IOAPI.__init__(self, filename)
 
-    def update_employee():                  '''Retrieves employees and sends to Update LL'''
-        pass
-
-    def update_destination():               '''Retrieves destinations and sends to Update LL'''
-        pass
-
-    def update_voyage():                    '''Retrieves voyages and sends to Update LL'''
-        pass
