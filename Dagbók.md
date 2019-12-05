@@ -203,7 +203,7 @@ Vika 2: 02.12 - 06.12
     Áætlun: Ræðum hvernig tókst til í heimaverkefnunum í morgunsárið. Þurfum að geta keyrt main til að geta athugað hvort quit option virkar. Eitthvað bras hjá Viktoríu með model klasana. Líka bras hjá Nínu með IOAPI því það vantaði að setja inn update. Önnur saga með hana Hörpu, gekk glimrandi vel með allt heimanámið sitt og jákvæðnin skín úr augum hennar. Sjáum til hvernig quit optionið virkar þegar við náum að laga main.
 
     Hallmar Orri: 
-        -tba
+        -Lagar smáatriði í skýrlunni
     Harpa: 
         -Heldur áfram með LLAPI föllin og reynir að tengja við UI klasana.
     Hildur: 
@@ -216,4 +216,13 @@ Vika 2: 02.12 - 06.12
         -Byrjar að kóða IO klasana
         
     Samantekt:
-        -Ákváðum að halda afmælið hennar Viktoríu annað hvort á laugardaginn eða sunnudaginn. Erum að hugsa spilakvöld og boraða saman kvöldmat. Sjáum til hvernig stemningin verður að fara niðr'í bæ. 
+        -Gekk ansi vel að kóða fyrir hádegi. 
+        -Fengum feedbackið á skýrsluna okkar í dag. Commentin voru heldur skrýtin. Hallmar var settur í að vinna úr því.
+        -Nína og Viktoría fóru á fund með kennara sem hefur ekki hjálpað okkur áður. Hann er frábær og gat sett sig beint inn í forritið okkar og gefið betri skýringar.
+        -Úthlutuðum hverju okkar heimaverkefni:
+            -Viktoría: Vinna í CreateIO
+            -Nína: Vinna í GetEmployeeLL og tengir við LLAPI í employee
+            -Harpa: Vinna í AirplaneLL og DestinationsLL
+            -Hildur: Reyna að vinna í createLL og tengja klasa í UI
+            -Hallmar: kúka
+        -Ákváðum að halda afmælið hennar Viktoríu annað hvort á laugardaginn eða sunnudaginn. Erum að hugsa spilakvöld og borða saman kvöldmat. Sjáum til hvernig stemningin verður að fara niðr'í bæ.
