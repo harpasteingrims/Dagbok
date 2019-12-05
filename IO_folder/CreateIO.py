@@ -34,6 +34,3 @@ class CreateIO():
         with open(r'Voyages.csv', 'a') as f:
             writer = csv.writer(f)
             writer.writerow(new_voyage.to_csv_string())
-
-p = CreateIO
-p.add_pilot()

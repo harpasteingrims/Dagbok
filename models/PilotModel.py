@@ -3,7 +3,7 @@ class PilotsModel():
         self.SSN = SSN 
         self.name = name
         self.role = role
-        self.rank = 
+        self.rank = rank
         self.license_type = license_type
         self.address = address
         self.mobile_number = mobile_number
