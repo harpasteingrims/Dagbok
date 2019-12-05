@@ -3,4 +3,4 @@ class GetAirplanesLL():
         self.ioapi = ioapi
 
     def get_all_airplanes(self):
-        pass
+        self.ioapi.get_airplane_list()
