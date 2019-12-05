@@ -7,6 +7,8 @@ class GetIO():
     def __init__(self):
         self.all_employee_list = []
         self.pilot_list = []
+        self.airplane_list = []
+        self.destination_list = []
 
         
     def get_all_employees(self):
@@ -27,7 +29,6 @@ class GetIO():
             if counter == 1:
                 counter += 1
             else:
-                line = line.strip().split(",")
                 SSN = line[0]
                 name = line[1]
                 role = line[2]
@@ -36,9 +37,10 @@ class GetIO():
                 address = line[5]
                 mobile_number = line[6]
                 email = line[7]
-                pilot = {}
-                pilot[SSN] = [name, role, plane_license, address, mobile_number, email]
-                pilot = PilotsModel.set_pilot(SSN, name,  role, rank, plane_license, address, mobile_number, email)
+                SSN, name, role, rank, plane_license, address, mobile_number, email = line.split(",")
+                #pilot = {}
+                #pilot[SSN] = [name, role, plane_license, address, mobile_number, email]
+                pilot = PilotsModel(SSN, name, role, rank, plane_license, address, mobile_number, email)
                 self.pilot_list.append(pilot)
 
         return self.pilot_list
@@ -47,45 +49,39 @@ class GetIO():
         '''Retrieves airplanes and sends to Get LL'''
         airplane_file = open("Aircraft.csv")
 
-        airplane_list = []
         counter = 1
         for line in airplane_file:
             if counter == 1:
                 counter += 1
             else:
-                line = line.strip().split(",")
-                PlaneID = line[0]
-                Type = line[1]
-                Manufacturer = line[2]
-                Seat_amount = line[3]
-                
-                
-        
-        
-        
-        return airplane_list
+                planeID = line[0]
+                airplane_type = line[1]
+                manufacturer = line[2]
+                seat_amount = line[3]
+                planeID, airplane_type, manufacturer, seat_amount = line.split(",")
+                airplane = AirplanesModel(planeID, airplane_type, manufacturer, seat_amount)
+                self.airplane_list.append(airplane)
+        return self.airplane_list
 
     def get_destinations(self):
         dest_file = open("destinations.csv")
-        
-        destination_list = []
+
         counter = 1
         for line in dest_file:
             if counter == 1:
                 counter += 1
             else:
-                line = line.strip().split(",")
                 country = line[0]
                 airport = line[1]
                 flight_dur_from_Ice = line[2]
                 dist_from_Ice = line[3]
                 contact_name = line[4]
                 contact_phone_number = line[5]
+                country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number = line.split(",")
+                Destination = DestinationsModel(self,country,airport,flight_dur_from_Ice,dist_from_Ice,contact_name,contact_phone_number)
+                self.destination_list.append(Destination)
 
-                Destination = DestinationsModel.set_destinations(self,country,airport,flight_dur_from_Ice,dist_from_Ice,contact_name,contact_phone_number)
-                destination_list.append(Destination)
-
-        return destination_list
+        return self.destination_list
         
 
     def get_cabin_crew(self):

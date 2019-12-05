@@ -1,6 +1,6 @@
 class AirplanesModel():
-    def __init__(self, ID, airplane_type, manufacturer, seat_amount):
-        self.ID = ID
+    def __init__(self, planeID, airplane_type, manufacturer, seat_amount)):
+        self.planeID = ID
         self.airplane_type = airplane_type
         self.manufacturer = manufacturer
         self.seat_amount = seat_amount
