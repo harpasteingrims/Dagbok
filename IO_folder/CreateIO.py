@@ -5,9 +5,10 @@ from models.AirplanesModel import AirplanesModel
 
 class CreateIO():
     def __init__(self):
-
+        pass
+    
     def add_pilot(self):
-        GetIO.get_pilots(self)
+        GetIO.get_all_pilots(self)
         
         #hér er ég að sækja listann af employees sem get er búinn að búa til
         #IOAPI.get_employee(self)

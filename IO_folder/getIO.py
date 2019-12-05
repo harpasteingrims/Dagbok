@@ -7,8 +7,6 @@ class GetIO():
     def __init__(self):
         pass
         
-        
-
     def get_all_employees(self):
         all_employee_list = []
         
