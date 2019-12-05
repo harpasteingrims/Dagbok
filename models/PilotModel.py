@@ -3,13 +3,12 @@ class PilotsModel():
         self.SSN = SSN 
         self.name = name
         self.role = role
-        self.rank = 
-        self.plane_license = plane_license
+        self.rank = rank
+        self.plane_licence = plane_license
         self.address = address
         self.mobile_number = mobile_number
         self.email = email
         
-    
     def to_csv_string(self):
         return f"{self.SSN},{self.name},..."
     #def set_pilot(self):
