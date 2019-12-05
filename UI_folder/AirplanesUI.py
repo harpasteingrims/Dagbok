@@ -30,7 +30,7 @@ class AirplanesUI():
                 return
 
     def show_airplane_overview(self):
-        """ This prints the overview of all airplanes """
+        """This prints the overview of all airplanes"""
 
         print("OVERVIEW OF AIRPLANES")
 
@@ -48,7 +48,7 @@ class AirplanesUI():
 
     def show_create_airplane_form(self):
         """ This prints the add a airplane form """
-        
+
         print("CREATE A NEW AIRPLANE \n")
         airplane_id = input("Enter airplane ID: ")
         airplane_type = input("Enter airplane type: ")
