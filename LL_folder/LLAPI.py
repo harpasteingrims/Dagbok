@@ -75,10 +75,10 @@ class LLAPI():
 
     """IAAD"""
 
-    def get_available_employess_by_date(self):
+    def get_available_emp_by_date(self):
         pass
 
-    def get_unavailable_employees_by_date(self):
+    def get_unavailable_emp_by_date(self):
         pass
 
     def get_airplane_status_by_date(self):
