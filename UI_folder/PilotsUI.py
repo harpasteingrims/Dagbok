@@ -10,8 +10,8 @@ class PilotsUI():
     def show_pilot_menu(self):
         '''This prints the pilot menu'''
 
-        action = ""
-        while(action != "q"):
+        action_str = ""
+        while action_str != "q":
             print(self.LENGTH_STAR * "*")
             print("PILOT MENU")
             print("1 Search for a pilot")
@@ -35,20 +35,20 @@ class PilotsUI():
         """This prints the search for a pilot window"""
 
         print(self.LENGTH_STAR * "*")
-        print("SEARCH FOR A PILOT"")
+        print("SEARCH FOR A PILOT")
         
         name = input("Enter name of pilot: ").lower()
         print()
         
-        # info_of_pilot = # Calls the class that holds the information of pilots and prints it
-        """ Name:
-            Role:
-            Social security number:
-            Adress:
-            Mobile number:
-            Email:
-            License type: 
-        """
+        pilot_info = self.llapi.get_info_about_pilot_by_name()
+        print(pilot_info)
+            #Name:
+            #Role:
+            #Social security number:
+            #Adress:
+            #Mobile number:
+            #Email:
+            #License type: 
 
         print("1 {}'s flight schedule").format(name)
         print("2 Edit information about pilot \nB Back")
@@ -72,9 +72,9 @@ class PilotsUI():
         date_to = input("Enter date to: ")
 
         print(self.LENGTH_STAR * "*")
-        #print("{}'S FLIGHT SCHEDULE").format(name.upper)
-        # calls the class that makes a list of the flight schedule and prints it
-
+        #print("{}'S FLIGHT SCHEDULE").format(name.upper())
+        flight_schedule = self.llapi.get_schedule_pilot_by_date()
+        #Herna þarf name ad fara inn
         print("B Back")
 
         action_str = input("Choose action: ").lower()

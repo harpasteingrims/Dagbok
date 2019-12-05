@@ -34,7 +34,7 @@ class CabincrewUI():
         """This prints the search for a cabin crew member window"""
 
         print(self.LENGTH_STAR * "*")
-        print("SEARCH FOR A CABIN CREW MEMBER"")
+        print("SEARCH FOR A CABIN CREW MEMBER")
 
         name = input("Enter name of cabin crew member: ")
         print()
