@@ -10,25 +10,26 @@ class UpdateIO:
         self.get = GetIO() # ef við viljum að update noti get til að updatea
         
 
-    def update_employee(self,update):                  '''Retrieves employees and sends to Update LL'''
-        GetIO.get_all_employees(self) = all_employee_list
-        
-        #skoða meir
-        return all_employee_list
+    def update_emergency_contact(self, update_contact):               
+        ''' Updates an emergency contact for a certain country'''
 
-    def update_destination_list():               '''Retrieves destinations and sends to Update LL'''
-        
-        return destination_list
+        destination_file = open("Destinations.csv", 'r+')
+        for line in destination_file:
+            if line[0] == update_contact[0]:
+                line[4:] = update_contact[4:]
+                    
+        destination_file.close()
+        #hverju á ég að returna?
 
-
-    def update_voyage_list():                    '''Retrieves voyages and sends to Update LL'''
+    def update_voyage(self, update_voyage):                    
+        '''Updates a voyage'''
         pass
-    def update_single_employee():
+    def update_pilot(self, update_pilot):
+        ''' Updates a pilot '''
         pass
     
-    def update_emerency_contact():
+    def update_cabincrew(self, update_cabincrew):
         pass
 
-    def update_voyage():
 
     
