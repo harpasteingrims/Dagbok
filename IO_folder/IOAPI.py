@@ -11,24 +11,24 @@ class IOAPI():
     """ EMPLOYEES """
 
     def get_list_of_all_employees(self):
-       
+       """ Calls the class get to get a list of all employees """
         return self.get.get_all_employees()
         
     def get_list_of_all_pilots(self):
-
+        """ Calls the class get to get a list of all pilots """
 
         return self.get.get_all_pilots()
 
     def get_list_of_all_cabin_crew(self):
-         
-        return self.get_cabincrew()
+        """ Calls the class to get a list of the whole cabin crew """
+        return self.get.get_cabincrew()
     
     def create_pilot(self):
-
+        
         return self.create.add_pilot()
 
     def create_cabincrew(self):
-        
+
         return self.create.add_cabincrew()
 
 
@@ -55,7 +55,8 @@ class IOAPI():
     """ VOYAGES """
 
     def get_voyages(self):
-        #voyages_listget_voyages
         pass
+        
+        
     def create_voyage(self):
         return self.create.add_voyage()
