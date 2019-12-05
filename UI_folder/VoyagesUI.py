@@ -61,9 +61,14 @@ class VoyagesUI():
         print("\n{}".format(self.LENGTH_STAR*"*"))
         print("SEE COMMON VOYAGES")
         self.llapi.get_common_voyages() #Þessi listi þarf að vera númeraður
+        common_voyage = input("Choose a common voyage: ") #Þetta fer inní create a common voyage fallið
 
     def create_a_common_voyage(self):
         """ This creates a voyage from the common voyages but with a new date and a new id """
+        print("\n{}".format(self.LENGTH_STAR*"*"))
+        print("INPUT DEPARTURE DATE AND ARIPLANE ID")
+        departure_date = input("Enter outbound departure date: dd/mm/yy: ")
+        airplane_id = input("Enter airplane ID: ")
         pass #Eftir að klára þetta :)
 
     def show_create_manually_form(self): #Lista upp alla áfangastaði allar tímasetningar sem eru uppteknar allar flugvélar sem eru lausar
@@ -73,11 +78,17 @@ class VoyagesUI():
         print("\nDate")
         voyage_date = input("Enter outbound departure date(dd/mm/yy): ")
         print("\nTime")
+        unavailable_time = self.llapi.get_unavailable_time_for_voyage() #Þetta prentar alla tímasetningar sem eru ekki í boði
+        print(unavailable_time)
         voyage_time = input("Enter outbound departure time(hh:mm): ")
         print("\nDestination")
-        voyage_destination = input("Enter destination: ")
+        destinations = self.llapi.get_destination_overview() #Þetta prentar alla áfangastaði, þetta þarf að vera númerað
+        print(destinations)
+        voyage_destination = input("Choose number of destination: ")
         print("\nAirplane")
-        voyage_airplane = input("Enter airplane: ")
+        available_airplanes = self.llapi.get_available_airplanes_by_date()
+        print(available_airplanes)
+        voyage_airplane = input("Choose number of airplane: ")
 
         print("\n1 Assign crew to voyage\nS Save\nB Back")
         print()
@@ -91,22 +102,6 @@ class VoyagesUI():
             #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
         elif action_str == "b":
             self.show_create_voyage_menu()
-
-    def show_available_airplane(self):
-        """ This prints all the available airplanes for a voyage """
-        pass
-    
-    def show_time_from_iceland(self):
-        """ This prints the flight time from Iceland for the flight """
-        pass 
-
-    def show_date_from_iceland(self):
-        """ This prints what date is for the flight """
-        pass 
-
-    def show_destinations(self):
-        """ This prints all the destinations """
-        pass 
 
     def show_not_staffed_voyages(self):
         """ This prints out all the not fully staffed voyages that are available """
