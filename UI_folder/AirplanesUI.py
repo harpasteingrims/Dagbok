@@ -57,7 +57,7 @@ class AirplanesUI():
         
         print("\nS Save \nB Back\n")
 
-        actio_str  = input("Choose action: ").lower()
+        action_str = input("Choose action: ").lower()
         print()
 
         if action_str == "s":
