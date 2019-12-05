@@ -1,5 +1,6 @@
 import sys
 sys.path.insert(1, '~/VERKLEGT-1-verkefni/')
+import csv
 
 from models.CabinCrewModel import CabinCrewModel
 from models.AirplanesModel import AirplanesModel
@@ -28,6 +29,7 @@ class GetIO():
 
     def load_all_pilots(self):
         pilot_file = open("Pilots.csv","r")
+        line = pilot_file.readlines()
         
         counter = 1
         for line in pilot_file:

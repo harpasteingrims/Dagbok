@@ -8,12 +8,11 @@ class CreateIO():
     def __init__(self):
         pass
     
-    def add_pilot(self, new_pilot_list):
-        with open(r'Piots.csv', 'a') as f:
-        writer = csv.writer(f)
-        writer.writerow(new_pilot_list)
+    def add_pilot(self, new_pilot):
+        with open(r'Pilots.csv', 'a') as f:
+            writer = csv.writer(f)
+            writer.writerow(new_pilot.to_csv_string())
 
-    
     def add_cabincrew(self):
 
         

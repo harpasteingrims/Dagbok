@@ -1,4 +1,5 @@
 from IO_folder.getIO import GetIO
+import csv
 # spurningar fyrir morgundaginn
 #á update að hafa tenginu við file eða getIO?
 #nota modelclasa?
