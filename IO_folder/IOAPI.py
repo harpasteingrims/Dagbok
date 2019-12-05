@@ -20,7 +20,7 @@ class IOAPI():
         return pilot_list
 
     def get_list_of_all_cabin_crew(self):
-        cabin_crew_list = self.get.get_cabincrew()
+        cabin_crew_list = self.get_cabincrew()
         return cabin_crew_list
     
     def create_pilot(self):
@@ -53,6 +53,6 @@ class IOAPI():
 
     def get_voyages(self):
         #voyages_listget_voyages
-
+        pass
     def create_voyage(self):
         return self.create.add_voyage()
