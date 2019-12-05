@@ -63,12 +63,6 @@ class LLAPI():
     def get_airplanes_overview(self):
         return self.getairplanes.get_all_airplanes()
 
-    def add_employee(self):
-        pass
-
-    def get_employee(self):
-        pass #Listar allar employees
-
     def get_available_airplanes_by_date(self): #Þessi listi þarf að vera númeraður
         pass
 
