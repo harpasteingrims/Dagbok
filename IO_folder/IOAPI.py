@@ -56,7 +56,7 @@ class IOAPI():
     """ VOYAGES """
 
     def get_all_voyages_list(self):
-        """ Calls the Get class to get a list of all airplanes """
+        """ Calls the Get class to get a list of all voyagess """
         return self.get.load_all_voyages()
         
         

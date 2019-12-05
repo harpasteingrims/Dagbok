@@ -7,6 +7,12 @@ class GetAirplanesLL():
         return sorted(self.ioapi.get_airplane_list())
 
     def list_available_airplanes_by_date(self, voyage_date):
+        airplane_list = self.ioapi.get_airplane_list()
+        voyage_list = self.ioapi.get_all_voyages_list()
+        for time_object in voyage_list:
+            airplane_list = []
+            if time_object.time == voyage_date:
+                pass #OMG þetta er alltof erfitt... Þarf ég að taka inn tímann hingað líka? Þarf ég að vita hvenær flugvélarnar eru almennt að lenda? Þarf ég að vita hvaða destination hann er að fara til upp á að flugvélin verði lent áður en hún þarf að fara aftur út? Hvernig geri ég þetta allt??
         pass
 
     #searched_pilot_info = []
