@@ -60,7 +60,7 @@ class VoyagesUI():
         """ This creates a voyage from the common voyages but with a new date and a new id """
         pass #Eftir að klára þetta :)
 
-    def show_create_manually_form(self):
+    def show_create_manually_form(self): #Lista upp alla áfangastaði allar tímasetningar sem eru uppteknar allar flugvélar sem eru lausar
         """ This prints out the form to add a voyage manually """
         print("\n{}".format(self.LENGTH_STAR*"*"))
         print("CREATE A VOYAGE MANUALLY")

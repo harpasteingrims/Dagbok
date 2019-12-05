@@ -8,9 +8,9 @@ class PilotsModel():
         self.email = email
         self.license_type = license_type
     
-    def set_pilot(self):
-        pilot = {}
-        pilot[self.ssn] = [self.name, self.role, self.address, self.mobile_number, self.email] 
+    #def set_pilot(self):
+    #    pilot = {}
+    #    pilot[self.ssn] = [self.name, self.role, self.address, self.mobile_number, self.email] 
         
-        return pilot
+    #    return pilot
 
