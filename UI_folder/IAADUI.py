@@ -1,6 +1,7 @@
 from LL_folder.LLAPI import LLAPI
 
 class IAADUI():
+    LENGTH_STAR = 20
     
     def __init__(self, llapi):
         self.llapi = llapi

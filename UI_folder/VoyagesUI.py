@@ -12,7 +12,7 @@ class VoyagesUI():
         action_str = ""
         while action_str != "q":
             print(self.LENGTH_STAR * "*")
-            print("VOYAGE MENU"
+            print("VOYAGE MENU")
             print("1 Print overview of voyages")
             print("2 Create a voyage")
             print("3 Assign crew to flights")
@@ -96,7 +96,7 @@ class VoyagesUI():
         print(destinations)
         voyage_destination = input("Choose number of destination: ")
         print("\nAirplane")
-        available_airplanes = self.llapi.get_available_airplanes_by_date()
+        available_airplanes = self.llapi.get_available_airplanes_by_date(voyage_date)
         print(available_airplanes)
         voyage_airplane = input("Choose number of airplane: ")
 

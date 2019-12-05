@@ -65,8 +65,8 @@ class LLAPI():
     def get_airplanes_overview(self):
         return self.getairplanes.list_all_airplanes()
 
-    def get_available_airplanes_by_date(self): #Þessi listi þarf að vera númeraður
-        return self.getairplanes.list_available_airplanes_by_date()
+    def get_available_airplanes_by_date(self, voyage_date): #Þessi listi þarf að vera númeraður
+        return self.getairplanes.list_available_airplanes_by_date(voyage_date)
 
 
     """IAAD"""
