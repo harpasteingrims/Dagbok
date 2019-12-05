@@ -33,6 +33,7 @@ class CabincrewUI():
     def show_enter_name_to_search(self):
         """This prints the search for a cabin crew member window"""
 
+        print(self.LENGTH_STAR * "*")
         print("SEARCH FOR A CABIN CREW MEMBER"")
 
         name = input("Enter name of cabin crew member: ")
@@ -65,6 +66,7 @@ class CabincrewUI():
     def show_flight_schedule_of_cabincrew_member(self):
         """Calls a class that makes a list of their voyages and prints it"""
 
+        print(self.LENGTH_STAR * "*")
         data_from = input("Enter date from: ")
         date_to = input("Enter date to: ")
 
@@ -82,6 +84,7 @@ class CabincrewUI():
     def show_cabincrew_member_edit_form(self):
         """This prints the edit form for a cabin crew member"""
         
+        print(self.LENGTH_STAR * "*")
         print("EDIT CABIN CREW MEMBER")
         # name, ssn, role.... = #calls the class to get the info of the cabin crew member 
         #print("You are changing the information for cabin crew member: {}, {}".format(name, ssn))
@@ -107,6 +110,7 @@ class CabincrewUI():
     def show_cabincrew_member_overview(self):
         """This prints the overview of all pilots"""
 
+        print(self.LENGTH_STAR * "*")
         print("OVERVIEW OF CABIN CREW\n")
         # Calls the class that makes a list of all cabin crew members and prints it 
         cabin_crew = self.llapi.get_cabin_crew_overview()
@@ -123,6 +127,7 @@ class CabincrewUI():
     def show_cabincrew_member_create_form(self):
         """This prints the create a cabin crew member form"""
 
+        print(self.LENGTH_STAR * "*")
         print("CREATE A NEW CABIN CREW MEMBER\n")
         name = input("Enter full name: ")
         role = input("Enter role: ")

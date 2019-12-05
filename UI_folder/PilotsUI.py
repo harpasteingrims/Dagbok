@@ -34,6 +34,7 @@ class PilotsUI():
     def show_enter_name_to_search(self):
         """This prints the search for a pilot window"""
 
+        print(self.LENGTH_STAR * "*")
         print("SEARCH FOR A PILOT"")
         
         name = input("Enter name of pilot: ").lower()
@@ -70,6 +71,7 @@ class PilotsUI():
         date_from = input("Enter date from: ")
         date_to = input("Enter date to: ")
 
+        print(self.LENGTH_STAR * "*")
         #print("{}'S FLIGHT SCHEDULE").format(name.upper)
         # calls the class that makes a list of the flight schedule and prints it
 
@@ -84,6 +86,7 @@ class PilotsUI():
     def show_pilot_edit_form(self, name):
         """This prints the edit form for an employee"""
         
+        print(self.LENGTH_STAR * "*")
         print("EDIT PILOT")
         # name, ssn, role.... = #calls the class to get the info of the pilot 
         #print("You are changing the information for pilot: {}, {}".format(name, ssn))
@@ -110,6 +113,7 @@ class PilotsUI():
     def show_pilots_overview(self):
         """This prints the overview of all pilots"""
 
+        print(self.LENGTH_STAR * "*")
         print("OVERVIEW OF PILOTS\n")
         # Calls the class that makes a list of all pilots and prints it 
         pilots = self.llapi.get_pilot_overview()
@@ -126,6 +130,7 @@ class PilotsUI():
     def show_pilot_create_form(self):
         """This prints the create a pilot form"""
 
+        print(self.LENGTH_STAR * "*")
         print("CREATE A NEW PILOT \n")
         name = input("Enter full name: ")
         role = input("Enter role: ")
