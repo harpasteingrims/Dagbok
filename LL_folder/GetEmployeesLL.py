@@ -3,7 +3,6 @@ class GetEmployeesLL():
         self.ioapi = ioapi
         self.avaliable_employees = []
         self.unavaliable_employees = []
-        self.pilot_list = []
         
     def list_all_employees(self):
         """ Calls the IOAPI to get a list of all employees """
@@ -27,11 +26,13 @@ class GetEmployeesLL():
         """  """
         searched_pilot_info = []
 
-        self.pilot_list = self.get_all_pilots()
+        pilot_list = self.get_all_pilots()
 
         for pilot in self.pilot_list:
             if pilot.name == name:
+                # TODO handle if found
                 pass
+        # TODO handle if none is found
 
     def list_info_about_cabincrew_by_name(self):
         pass
