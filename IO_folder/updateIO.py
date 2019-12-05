@@ -1,10 +1,6 @@
 from IO_folder.getIO import GetIO
 import csv
-# spurningar fyrir morgundaginn
-#á update að hafa tenginu við file eða getIO?
-#nota modelclasa?
-#hvaðan fær updateIO upplysingarnar um að breyta og hvað?
-#notum við dict? man ekki hvernig það virkar
+
 class UpdateIO:
     def __init__(self):
         self.get = GetIO() # ef við viljum að update noti get til að updatea
