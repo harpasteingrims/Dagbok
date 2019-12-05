@@ -10,7 +10,7 @@ from UI_folder.UImanager import UImanager
 
 def main():
     ui = UImanager()
-    ui.MainmenuUI()
+    ui.mainmenuUI()
     #búum til eitt fall í mananger sem er þá run og þar verður self.
 
 if __name__ == '__main__':

@@ -1,11 +1,11 @@
-from UI_folder.UIAPI import UIAPI
-from LL_folder.LLAPI import LLAPI
+from UI_folder.UImanager import UImanager
+from models.PilotModel import PilotsModel
 
 class PilotsUI():
     LENGTH_STAR = 20
 
-    def __init__(self):
-        self.pilot = LLAPI()
+    def __init__(self, llapi):
+        self.llapi = llapi
 
     def show_pilot_menu(self):
         """ This prints out the cabin crew menu """
@@ -66,7 +66,7 @@ class PilotsUI():
         date_from = input("Enter date from: ")
         date_to = input("Enter date to: ")
 
-        # calls the class that makes a list of the lfight schedule and prints it
+        # calls the class that makes a list of the flight schedule and prints it
 
         print("B Back")
 
@@ -81,7 +81,7 @@ class PilotsUI():
 
         # name, ssn, role.... = #calls the class to get the info of the pilot 
         
-        print("You are changing the information for pilot: {}, {}".format(name, ssn))
+        #print("You are changing the information for pilot: {}, {}".format(name, ssn))
        
         new_address = input("Enter new address")
         new_mobile_number = input("Enter new mobile number: ")
@@ -107,6 +107,9 @@ class PilotsUI():
         """ This prints out the pilot list """
         print("OVERVIEW OF PILOTS\n")
         # Calls the class that makes a list of all pilots and prints it 
+        pilots = self.llapi.get_pilot_overview()
+        print(pilots)
+
         print("B Back\n")
 
         action = input("Choose action: ").lower()
@@ -126,7 +129,7 @@ class PilotsUI():
         mobile_number = input("Enter mobile number: ")
         email = input("Enter email: ")
         license_type = input("Enter license type: ")
-        new_pilot = PilotModel(name, role, ssn, address, mobile_number, email, license_type)
+        #new_pilot = PilotModel(name, role, ssn, address, mobile_number, email, license_type)
         #self.pilot.create_pilot(new_pilot)
 
         

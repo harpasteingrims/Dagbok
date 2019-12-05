@@ -1,12 +1,14 @@
-from UI_folder.CabincrewUI import CabincrewUI
-from UI_folder.PilotsUI import PilotsUI
+#from UI_folder.CabincrewUI import CabincrewUI
+#from UI_folder.PilotsUI import PilotsUI
 
 class EmployeesUI():
     LENGTH_STAR = 20
     
-    def __init__(self):
+    def __init__(self, cabincrew, pilots, llapi):
         # self.__employee_service = LLAPI()
-        pass
+        self.cabincrew = cabincrew
+        self.pilots = pilots
+        self.llapi = llapi
 
     def show_employee_menu(self):
 
@@ -23,10 +25,10 @@ class EmployeesUI():
                 self.show_overview_of_all_employees()
 
             elif action == "2":
-                PilotsUI.show_pilot_menu(self)
+                self.pilots.show_pilot_menu()
 
             elif action == "3":
-                CabincrewUI.show_cabin_crew_menu(self)
+                self.cabincrew .show_cabincrew_menu()
 
             elif action == "b":
                 return
@@ -34,10 +36,8 @@ class EmployeesUI():
     def show_overview_of_all_employees(self):
         print("OVERVIEW OF EMPLOYEES")
 
-        UIAPI.get_employee_overwiew()
-        # calls the method that makes a list of all emps and prints it
-        # employees = self.__employee_service.get_employee_overwiew()
-        # print(employees)
+        employees = self.llapi.get_employee_overwiew() #Hérna kallar hann í fall í llapanum sem heitir get_employee_overview sem returnar lista yfir alla starfsmenn
+        print(employees)
         
         print()
         print("B Back\n")

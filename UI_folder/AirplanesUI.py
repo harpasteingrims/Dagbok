@@ -2,17 +2,19 @@ from models.AirplanesModel import AirplanesModel
 from LL_folder.LLAPI import LLAPI
 
 class AirplanesUI():
-    def __init__(self):
-        self.airplane = LLAPI()
+    LENGTH_STAR = 20
+    def __init__(self, llapi):
+        self.llapi = llapi
 
     def show_airplane_menu(self):
+        
         """ This prints the airplane menu """
         run = True
         while run is True:
 
-            print(self.LENGTH_STAR * "*")
             action = ""
             while(action != "q"):
+                print(self.LENGTH_STAR * "*")
                 print("AIRPLANE MENU")
                 print("1 Print overview of all airplanes")
                 print("2 Create a new airplane")
@@ -33,6 +35,9 @@ class AirplanesUI():
     def show_airplane_overview(self):
         """ This prints the overview of all airplanes """
         print("OVERVIEW OF AIRPLANES")
+
+        airplanes = self.llapi.get_airplanes_overwiew() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
+        print(airplanes)
 
         #calls the method that makes a list of all airplanes and prints it
         print("B Back\n")

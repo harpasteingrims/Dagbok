@@ -3,8 +3,9 @@ from LL_folder.LLAPI import LLAPI
 
 class DestinationsUI():
     LENGTH_STAR = 20
-    def __init__(self):
-        self.destination = LLAPI()
+    def __init__(self, llapi):
+        #self.destination = LLAPI()
+        self.llapi = llapi
     
     def show_destination_menu(self):
         """ This prints out the menu for destinations """
@@ -27,9 +28,10 @@ class DestinationsUI():
         """ This prints all the destination """
         print("*"*self.LENGTH_STAR)
         print("OVERVIEW OF DESTINATIONS\n")
-        #print(destinations)
-        #HÉR ÞARF ÉG AÐ SÆKJA SKRÁ 
-
+        
+        destinations = self.llapi.get_destinations_overwiew() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
+        print(destinations)
+        
         print("B back\n")
         action = input("Choose action: ").lower() 
         if action == "b":
@@ -46,7 +48,7 @@ class DestinationsUI():
         distance = input("Enter distance from Iceland: ")
         contact = input("Enter name of contact: ")
         contact_phone = input("Enter emergency contact")
-        new_destination = Destinations(country, airport, flight_duration, distance, contact, contact_phone)
+        new_destination = DestinationsModel(country, airport, flight_duration, distance, contact, contact_phone)
         #self.destination.create_destination(new_destination)
 
         action = input("Choose action: ").lower() 
@@ -78,7 +80,7 @@ class DestinationsUI():
     def show_emergency_contact(self):
         """ This prints out the emergency contact for a specific country """
         print("*"*self.LENGTH_STAR)
-        print("EMERGENCY CONTACT OF", country,"\n")
+        print("EMERGENCY CONTACT OF\n") #Hérna vantar að setja inn country
         #ÞARF AÐ FINNA LANDIÐ MEÐ ÞVÍ AÐ SÆKJA LISTA AF CONTACTS Í LL-LAYER
         #CONTACTS ERU GEYMDIR Í DICT MEÐ LAND SEM KEY, FINN NAFN SEM 
         #ER SAMA NAFN OG VALUE 

@@ -1,21 +1,56 @@
-
-
+from IO_folder.CreateIO import CreateIO
+from IO_folder.getIO import GetIO
 class IOAPI():
-    def __init__(self, filename):
-        self.filename = filename
+    def __init__(self):
+        self.get = GetIO()
+        self.create = CreateIO()
+        self.update = UpdateIO()
+
+
+    """ EMPLOYEES """
+
+    def get_list_of_all_employees(self):
+        all_employee_list = self.get.get_all_employees()
+        return all_employee_list
+
+    def get_list_of_all_pilots(self):
+        pilot_list = self.get.get_all_pilots()
+        return pilot_list
+
+    def get_list_of_all_cabin_crew(self):
+        cabin_crew_list = self.get.get_cabincrew()
+        return cabin_crew_list
     
-class GetIO:
-    def __init__(self, filename):
-        IOAPI.__init__(self, filename)
+    def create_pilot(self):
+        return self.create.add_pilot()
 
-    def get_employee():                     '''Retrieves employees and sends to Get LL'''
-        pass
+    def create_cabincrew(self):
+        return self.create.add_cabincrew()
 
-    def get_airplane():                     '''Retrieves airplanes and sends to Get LL'''
-        pass
-        
-    def get_destinations():                 '''Retrieves destinations and sends to Get LL'''
-        pass
 
-    def get_voyage():                       '''Retrieves voyages and sends to Get LL'''
-        pass
+    """ DESTINATIONS """
+
+    def get_destination_list(self):
+        return self.create.get_all_destinations()
+    
+    def create_destination(self):
+        return self.create.add_destiantions()
+
+
+    """ AIRPLAINS """
+
+    def get_airplane_list(self):
+        airplane_list = self.get.get_all_airplanes()
+        return airplane_list
+
+    def create_airlane(self):
+        return self.create.add_airplane()
+
+
+    """ VOYAGES """
+
+    def get_voyages(self):
+        voyages_listget_voyages
+
+    def create_voyage(self):
+        return self.create.add_voyage()

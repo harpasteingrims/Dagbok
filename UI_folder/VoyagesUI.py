@@ -1,18 +1,16 @@
 from models.VoyagesModel import VoyagesModel
-from UI_folder.UIAPI import UIAPI
 from LL_folder.LLAPI import LLAPI
 
 class VoyagesUI():
     LENGTH_STAR = 20
-    def __init__(self):
-        self.voyages = UIAPI()
-        self.voyages = LLAPI()
+    def __init__(self, llapi):
+        self.llapi = llapi
     
     def show_overview_voyage(self):
         """ This prints the overview of all voyages """
         print("\n{}".format(self.LENGTH_STAR*"*"))
         print("OVERVIEW OF VOYAGES")
-        voyages = self.__voyages_service.get_voyages_overview()
+        voyages = self.llapi.get_voyages_overview() #Kallar á fall i llapanum sem returnar öllum vinnuferðum
         print(voyages)
 
     def show_voyage_menu(self):
@@ -58,6 +56,10 @@ class VoyagesUI():
         print("\n{}".format(self.LENGTH_STAR*"*"))
         print("SEE COMMON VOYAGES")
 
+    def create_a_common_voyage(self):
+        """ This creates a voyage from the common voyages but with a new date and a new id """
+        pass #Eftir að klára þetta :)
+
     def show_create_manually_form(self):
         """ This prints out the form to add a voyage manually """
         print("\n{}".format(self.LENGTH_STAR*"*"))
@@ -71,9 +73,6 @@ class VoyagesUI():
         print("\nAirplane")
         voyage_airplane = input("Enter airplane: ")
 
-        new_voyage = VoyagesModel(voyage_date, voyage_time, voyage_destination, voyage_airplane)
-        #self.voyages.create_voyage(new_voyage)
-
         print("\n1 Assign crew to voyage\nS Save\nB Back")
         print()
         action_str = input("Choose action: ").lower()
@@ -81,8 +80,9 @@ class VoyagesUI():
             self.show_assign_staff_form()
         elif action_str == "s":
             print("\n*Voyage successfully created*")
+            new_voyage = VoyagesModel(voyage_date, voyage_time, voyage_destination, voyage_airplane)
             self.show_create_voyage_menu()
-            pass #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
+            #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
         elif action_str == "b":
             self.show_create_voyage_menu()
 
@@ -104,4 +104,5 @@ class VoyagesUI():
 
     def show_not_staffed_voyages(self):
         """ This prints out all the not fully staffed voyages that are available """
-        #Vantar meira hér til þess að klára
+        not_staffed = self.llapi.get_not_staffed_voyages()
+        print(not_staffed)

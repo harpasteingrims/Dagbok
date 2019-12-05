@@ -1,44 +1,59 @@
-from IOAPI import IOAPI
+from IO_folder.IOAPI import IOAPI
+from LL_folder.GetDestinationsLL import GetDestinationsLL
+from LL_folder.GetAirplanesLL import GetAirplanesLL
+from LL_folder.GetEmployeesLL import GetEmployeesLL
+from LL_folder.GetVoyagesLL import GetVoyagesLL
+from LL_folder.UpdateLL import UpdateLL
+from LL_folder.CreateLL import CreateLL
 
 class LLAPI():
     def __init__(self):
-        self.IOAPI = IOAPI()
-        
-        self.createll = getcreatell #Þetta á að vera klasi
-        self.updatell = getupdatell
-        self.getvoyages = getvoyages
-        self.getairplanes = getairplanes
-        self.getdestinations = getdestinations
+        self.ioapi = IOAPI()
+        self.createll = CreateLL()
+        self.updatell = UpdateLL()
+        self.getvoyages = GetVoyagesLL()
+        self.getairplanes = GetAirplanesLL()
+        self.getdestinations = GetDestinationsLL()
+        self.getemployees = GetEmployeesLL()
     
 
-    """Setti þetta inn hér þetta var það sem ég var byrjuð á í UIAPI"""
-    
-''' EMPLOYEES '''    
-    def get_employee_overwiew(self):
-        pass
-        # employees = self.__employee_service.get_employee_overwiew()
+    """EMPLOYEES"""
+    def get_employee_overview(self):
+        return self.getemployees.get_all_employees(self.ioapi) #Þetta kallar á klasann getemployees og fallið þar inni sem nær í alla employees
 
     def get_pilot_overview(self):
-        pass
+        return self.getemployees.get_all_pilots(self.ioapi)
 
-    def get_cabin_crew_overwiew(self):
-        pass
+    def get_cabin_crew_overview(self):
+        return self.getemployees.get_all_cabin_crew(self.ioapi)
     
     def get_info_about_pilot_by_name(self):
         pass
 
-    ''' DESTINATIONS '''
+    """DESTINATIONS"""
     def get_destination_overview(self):
         # fall fyrir show_destination_overview, í því falli á að prenta út overview af destinations
         #kalla á LL-layer klasann sem er með lista af destinations
         #return
-        pass
+        return self.getdestinations.get_all_destinations(self.ioapi)
+
     def new_destination(self):
         # fall fyrir show_create_des_form, þarf að senda nýja 
         pass
 
+
+    """VOYAGES"""
     def get_voyages_overview(self):
-        return self.__voyage_repo.get_voyages()
+        return self.getvoyages.get_all_voyages(self.ioapi)
+
+    def get_not_staffed_voyages(self):
+        return self.getvoyages.get_not_staffed(self.ioapi)
+
+
+    """AIRPLANES"""
+
+    def get_airplanes_overview(self):
+        return self.getairplanes.get_all_airplanes(self.ioapi)
 
     #__init__(self):
         #self.llayer = LLAPI()
@@ -50,4 +65,4 @@ class LLAPI():
         pass
 
     def get_employee(self):
-        pass #Listar allar employeea
+        pass #Listar allar employees
