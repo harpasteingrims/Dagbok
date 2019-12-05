@@ -4,8 +4,7 @@ from models.PilotModel import PilotsModel
 from models.AirplanesModel import AirplanesModel
 
 class CreateIO():
-    def __init__(self, filename):
-        self.filename = filename
+    def __init__(self):
 
     def add_pilot(self):
         GetIO.get_pilots(self)
