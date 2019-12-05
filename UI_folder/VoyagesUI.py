@@ -6,10 +6,14 @@ class VoyagesUI():
     def __init__(self, llapi):
         self.llapi = llapi
     
+    def choose_action(self):
+        action_str = input("Choose action: ").lower()
+        print()
+        return action_str
+    
     def show_voyage_menu(self):
         """This prints the voyage menu"""
 
-        action_str = ""
         while action_str != "q":
             print(self.LENGTH_STAR * "*")
             print("VOYAGE MENU")
@@ -18,8 +22,8 @@ class VoyagesUI():
             print("3 Assign crew to flights")
             print("B Back")
             print("Q Quit")
-            action_str = input("Choose action: ").lower()
-            print()
+            
+            action_str = self.choose_action()
 
             if action_str == "1":
                 self.show_voyage_overview()
@@ -29,6 +33,9 @@ class VoyagesUI():
                 self.show_not_staffed_voyages()
             elif action_str == "b":
                 return
+            else:
+                print("Invalid action!")
+                action_str = self.choose_action()
 
     def show_voyage_overview(self):
         """This prints the overview of all voyages"""
@@ -41,11 +48,14 @@ class VoyagesUI():
 
         print("B Back\n")
 
-        action_str = input("Choose action: ").lower()
-        print()
+        action_str = self.choose_action()
 
         if action_str == "b":
             self.show_voyage_menu
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
     
     def show_create_voyage_menu(self):
         """This prints the menu for create a voyage"""
@@ -54,13 +64,18 @@ class VoyagesUI():
         print("CREATE A VOYAGE \n\n1 See common voyages\n2 Create a voyage manually\nB Back")
         print()
 
-        action_str = input("Choose action: ").lower()
+        action_str = self.choose_action()
+
         if action_str == "1":
             self.show_see_common()
         elif action_str == "2":
             self.show_create_manually_form()
         elif action_str == "b":
             self.show_voyage_menu()
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
 
     def show_see_common(self):
         """This prints all the common voyages"""
@@ -102,8 +117,7 @@ class VoyagesUI():
 
         print("\n1 Assign crew to voyage\nS Save\nB Back\n")
 
-        action_str = input("Choose action: ").lower()
-        print()
+        action_str = self.choose_action()
 
         if action_str == "1":
             #Takes the info and adds it to the voyage list
@@ -123,6 +137,10 @@ class VoyagesUI():
 
         elif action_str == "b":
             self.show_create_voyage_menu()
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
 
     def show_assign_staff_form(self):
         """This prints the form to assign a staff to a voyage"""

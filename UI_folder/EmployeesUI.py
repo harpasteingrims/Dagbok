@@ -11,6 +11,7 @@ class EmployeesUI():
 
     def choose_action(self):
         action_str = input("Choose action: ").lower()
+        print()
         return action_str
 
     def show_employee_menu(self):
@@ -24,11 +25,8 @@ class EmployeesUI():
         print("B Back")
         print("Q Quit\n")
         action_str = self.choose_action()
-        print()
-
-        run = True
         
-        while run == True and action_str != "q":
+        while action_str != "q":
         
             if action_str == "1":
                 self.show_overview_of_all_employees()
@@ -44,21 +42,22 @@ class EmployeesUI():
             else:
                 print("Invalid action!")
                 action_str = self.choose_action()
-                print()
 
     def show_overview_of_all_employees(self):
         """This prints the overview of all employees"""
 
         print("OVERVIEW OF EMPLOYEES")
 
-        employees = self.llapi.get_employee_overwiew() #Hérna kallar hann í fall í llapanum sem heitir get_employee_overview sem returnar lista yfir alla starfsmenn
-        print(employees)
+        #employees = self.llapi.get_employee_overview() #Hérna kallar hann í fall í llapanum sem heitir get_employee_overview sem returnar lista yfir alla starfsmenn
+        #print(employees)
         
         print()
         print("B Back\n")
 
-        action_str = input("Choose action: ").lower()
-        print()
+        action_str = self.choose_action()
 
         if action_str == "b":
             self.show_employee_menu()
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()

@@ -8,6 +8,7 @@ class AirplanesUI():
 
     def choose_action(self):
         action_str = input("Choose action: ").lower()
+        print()
         return action_str
         
     def show_airplane_menu(self):
@@ -20,11 +21,8 @@ class AirplanesUI():
         print("B Back")
         print("Q Quit\n")
         action_str = self.choose_action()        
-        print()
         
-        run = True
-        
-        while run == True and action_str != "q":
+        while action_str != "q":
             if action_str  == "1":
                 self.show_airplane_overview()
             elif action_str == "2":
@@ -34,7 +32,6 @@ class AirplanesUI():
             else:
                 print("Invalid action!")
                 action_str = self.choose_action()
-                print()
 
     def show_airplane_overview(self):
         """This prints the overview of all airplanes"""
@@ -47,11 +44,14 @@ class AirplanesUI():
 
         print("B Back\n")
 
-        action_str = input("Choose action: ").lower()
-        print()
+        action_str = self.choose_action()
 
         if action_str == "b":
-            return
+            self.show_airplane_menu()
+            
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()   
 
     def show_create_airplane_form(self):
         """This prints the create an airplane form"""
@@ -65,8 +65,7 @@ class AirplanesUI():
         
         print("\nS Save \nB Back\n")
 
-        action_str = input("Choose action: ").lower()
-        print()
+        action_str = self.choose_action()
 
         if action_str == "s":
             #Takes the info and adds it to the airplane list
@@ -75,7 +74,11 @@ class AirplanesUI():
             #self.airplane.create_airplane(new_airplane)
             #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
             
-            return
+            self.show_airplane_menu()
 
         elif action_str == "b":
-            return
+            self.show_airplane_menu()
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()

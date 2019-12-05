@@ -6,6 +6,7 @@ class CabincrewUI():
 
     def choose_action(self):
         action_str = input("Choose action: ").lower()
+        print()
         return action_str
 
     def show_cabincrew_menu(self):
@@ -20,11 +21,8 @@ class CabincrewUI():
         print("Q Quit\n")
 
         action_str = self.choose_action()
-        print()
 
-        run = True
-
-        while run == True and action_str != "q":
+        while action_str != "q":
             if action_str == "1":
                 self.show_enter_name_to_search()
             elif action_str == "2":
@@ -36,7 +34,6 @@ class CabincrewUI():
             else:
                 print("Invalid action!")
                 action_str = self.choose_action()
-                print()
 
     def show_enter_name_to_search(self):
         """This prints the search for a cabin crew member window"""
@@ -59,8 +56,7 @@ class CabincrewUI():
         print("1 {}'s flight schedule".format(name))
         print("2 Edit information about cabin crew member \nB Back")
 
-        action_str = input("Choose action: ").lower()
-        print()
+        action_str = self.choose_action()
 
         if action_str == "1":
             self.show_flight_schedule_of_cabincrew_member()
@@ -69,7 +65,11 @@ class CabincrewUI():
             self.show_cabincrew_member_edit_form()
 
         elif action_str == "b":
-            return
+            self.show_cabincrew_menu()
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
 
     def show_flight_schedule_of_cabincrew_member(self):
         """Calls a class that makes a list of their voyages and prints it"""
@@ -84,11 +84,14 @@ class CabincrewUI():
 
         print("B Back")
 
-        action_str = input("Choose action: ").lower()
-        print()
+        action_str = self.choose_action()
 
         if action_str == "b":
-            return
+            self.show_cabincrew_menu()
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
     
     def show_cabincrew_member_edit_form(self):
         """This prints the edit form for a cabin crew member"""
@@ -104,17 +107,20 @@ class CabincrewUI():
 
         print("S Save \nB Back\n")
 
-        action_str = input("Choose action: ").lower()
-        print()
+        action_str = self.choose_action()
 
         if action_str == "s":
             #Takes the new info, changes and adds it to the cabin crew member list
             #Calls the class that stores the info about the cabin crew member to change it...
             print("Cabin crew member's information successfully changed")
-            return
+            self.show_cabincrew_menu()
 
         elif action_str == "b":
-            return
+            self.show_cabincrew_menu()
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
 
     def show_cabincrew_member_overview(self):
         """This prints the overview of all pilots"""
@@ -127,11 +133,14 @@ class CabincrewUI():
         
         print("B Back\n")
 
-        action_str = input("Choose action: ").lower()
-        print()
+        action_str = self.choose_action()
 
         if action_str == "b":
-            return
+            self.show_cabincrew_menu()
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
     
     def show_cabincrew_member_create_form(self):
         """This prints the create a cabin crew member form"""
@@ -147,8 +156,7 @@ class CabincrewUI():
 
         print("\nS Save \nB Back \n")
 
-        action_str = input("Choose action: ").lower()
-        print()
+        action_str = self.choose_action()
 
         if action_str == "s":
             #Takes the info and adds it to the cabin crew member list
@@ -156,7 +164,11 @@ class CabincrewUI():
             #new_cabincrew_member = CabinCrewModel(name, role, ssn, address, mobile_number, email)
             #self.cabincrew_member.create_cabincrew_member(new_cabincrew_member)
             #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá        
-            return
+            self.show_cabincrew_menu()
 
         elif action_str == "b":
-            return
+            self.show_cabincrew_menu()
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()

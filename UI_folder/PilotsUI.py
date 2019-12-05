@@ -5,21 +5,25 @@ class PilotsUI():
     def __init__(self, llapi):
         self.llapi = llapi
 
+    def choose_action(self):
+        action_str = input("Choose action: ").lower()
+        print()
+        return action_str
+
     def show_pilot_menu(self):
         '''This prints the pilot menu'''
 
-        action_str = ""
+    
+        print(self.LENGTH_STAR * "*")
+        print("PILOT MENU")
+        print("1 Search for a pilot")
+        print("2 Print overview of pilots")
+        print("3 Create a new pilot")
+        print("B Back")
+        print("Q Quit\n")
+        action_str = self.choose_action()
+    
         while action_str != "q":
-            print(self.LENGTH_STAR * "*")
-            print("PILOT MENU")
-            print("1 Search for a pilot")
-            print("2 Print overview of pilots")
-            print("3 Create a new pilot")
-            print("B Back")
-            print("Q Quit\n")
-            action_str = input("Choose action: ").lower()
-            print()
-
             if action_str == "1":
                 self.show_enter_name_to_search()
             elif action_str == "2": 
@@ -27,7 +31,10 @@ class PilotsUI():
             elif action_str == "3": 
                 self.show_pilot_create_form()
             elif action_str == "b":
-                return     
+                return
+            else:
+                print("Invalid action!")
+                action_str = self.choose_action()     
 
     def show_enter_name_to_search(self):
         """This prints the search for a pilot window"""
@@ -51,8 +58,7 @@ class PilotsUI():
         print("1 {}'s flight schedule").format(name)
         print("2 Edit information about pilot \nB Back")
 
-        action_str = input("Choose action: ").lower()
-        print()
+        action_str = self.choose_action()
 
         if action_str == "1":
             self.show_flight_schedule_of_pilot(name)
@@ -62,6 +68,10 @@ class PilotsUI():
 
         elif action_str == "b":
             self.show_pilot_menu()
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
     
     def show_flight_schedule_of_pilot(self, name):
         """Calls a class that makes a list of their voyages and prints it"""
@@ -75,11 +85,14 @@ class PilotsUI():
         #Herna þarf name ad fara inn
         print("B Back")
 
-        action_str = input("Choose action: ").lower()
-        print()
+        action_str = self.choose_action()
 
         if action_str == "b":
             self.show_pilot_menu()
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
 
     def show_pilot_edit_form(self, name):
         """This prints the edit form for an employee"""
@@ -96,8 +109,7 @@ class PilotsUI():
         
         print("S Save \nB Back\n")
 
-        action_str = input("Choose action: ").lower()
-        print()
+        action_str = self.choose_action()
 
         if action_str == "s":
             #Takes the new info, changes and adds it to the pilot list
@@ -107,6 +119,9 @@ class PilotsUI():
 
         elif action_str == "b":
             self.show_pilot_menu()
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
      
     def show_pilots_overview(self):
         """This prints the overview of all pilots"""
@@ -119,11 +134,14 @@ class PilotsUI():
 
         print("B Back\n")
 
-        action_str = input("Choose action: ").lower()
-        print()
+        action_str = self.choose_action()
         
         if action_str == "b":
             self.show_pilot_menu()
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
     
     def show_pilot_create_form(self):
         """This prints the create a pilot form"""
@@ -140,8 +158,7 @@ class PilotsUI():
         
         print("\nS Save \nB Back\n")
 
-        action_str = input("Choose action: ").lower()
-        print()
+        action_str = self.choose_action()
 
         if action_str == "s":
             #Takes the info and adds it to the pilot list
@@ -153,3 +170,7 @@ class PilotsUI():
 
         elif action_str == "b":
             self.show_pilot_menu()
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()

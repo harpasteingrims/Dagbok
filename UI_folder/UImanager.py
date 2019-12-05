@@ -52,6 +52,10 @@ class UImanager():
             elif action == "q" or action > 5:
                 run = False
                 break
+                
+            else:
+                print("Invalid action!")
+                action_str = self.choose_action()
     
 
 #def main():

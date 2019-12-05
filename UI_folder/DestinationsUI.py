@@ -9,6 +9,7 @@ class DestinationsUI():
     
     def choose_action(self):
         action_str = input("Choose action: ").lower()
+        print()
         return action_str
 
     def show_destination_menu(self):
@@ -24,9 +25,7 @@ class DestinationsUI():
         action_str = self.choose_action()
         print()
 
-        run = True
-
-        while run == True and action_str != "q":
+        while action_str != "q":
 
             if action_str == "1":
                 self.show_destination_overview()
@@ -39,7 +38,6 @@ class DestinationsUI():
             else:
                 print("Invalid action!")
                 action_str = self.choose_action()
-                print()
 
     def show_destination_overview(self):
         """This prints the overview of all destinations"""
@@ -53,11 +51,14 @@ class DestinationsUI():
 
         print("B Back\n")
 
-        action_str = input("Choose action: ").lower() 
-        print()
+        action_str = self.choose_action()
 
         if action_str == "b":
-            return
+            self.show_destination_menu()
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
 
     def show_create_des_form(self):
         """ This prints the create a destination form"""
@@ -73,19 +74,22 @@ class DestinationsUI():
 
         print("\nS Save \nB Back\n")
 
-        action_str = input("Choose action: ").lower() 
-        print()
-
+        action_str = self.choose_action()
+        
         if action_str == "s":
             #Takes the info and adds it to the destination list
             print("Destination successfully created\n")
             new_destination = DestinationsModel(country, airport, flight_duration, distance, contact, contact_phone)
             #self.destination.create_destination(new_destination)
             #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
-            self.show_destination_menu
+            self.show_destination_menu()
 
         if action_str == "b": #Á AÐ VERA ELIF HÉR 
-            return
+            self.show_destination_menu()
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
 
     def show_emerg_country_menu(self):
         """This prints the emergency contact menu"""
@@ -103,10 +107,14 @@ class DestinationsUI():
             #country += 1
 
         print("B Back\n")
-        action_str = input("Choose action: ").lower()
+        action_str = self.choose_action()
         
         if action_str == "b":
-            return 
+            self.show_destination_menu() 
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
 
     def show_emergency_contact(self):
         """This prints the emergency contact for a specific country"""
@@ -122,14 +130,18 @@ class DestinationsUI():
 
         print("1 Edit contact \n2 B Back")
 
-        action_str = input("Choose action: ").lower()
+        action_str = self.choose_action()
 
         if action_str == "1":
             self.show_emerg_country_menu()
         elif action_str == "2":
             self.show_emergency_cont_form()
         elif action_str == "b":
-            return
+            self.show_destination_menu()
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
             
     def show_emergency_cont_form(self):
         """This prints the edit form for an emergency contact"""
@@ -145,13 +157,18 @@ class DestinationsUI():
         #nafniðádict[land] = [name, phone]
         print("S Save \nB Back\n")
         
-        action_str = input("Choose action: ").lower()
+        action_str = self.choose_action()
         
         if action_str == "s":
             #Takes the new info, changes and adds it to the emergency contact list
             #Calls the class that stores the info about the emergency contact to change it... 
             print("Emergency contact information successfully changed")
-            return
+            
+            self.show_destination_menu()
 
         elif action_str == "b":
-            return
+            self.show_destination_menu()
+
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
