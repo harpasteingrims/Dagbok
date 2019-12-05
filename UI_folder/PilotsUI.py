@@ -16,7 +16,7 @@ class PilotsUI():
             print("2 Print overview of pilots")
             print("3 Create a new pilot")
             print("B Back")
-            print("Q Quit")
+            print("Q Quit\n")
             action_str = input("Choose action: ").lower()
             print()
 

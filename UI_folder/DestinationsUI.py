@@ -18,7 +18,7 @@ class DestinationsUI():
             print("2 Create a new destination")
             print("3 Get emergency contact")
             print("B Back")
-            print("Q Quit")
+            print("Q Quit\n")
             action_str = input("Choose action: ").lower()
             print()
 
@@ -37,7 +37,7 @@ class DestinationsUI():
         print("*"*self.LENGTH_STAR)
         print("OVERVIEW OF DESTINATIONS\n")
         
-        destinations = self.llapi.get_destinations_overwiew() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
+        destinations = self.llapi.get_destination_overview() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
         print(destinations)
         #calls the method that makes a list of all destinations and prints it
 

@@ -23,7 +23,7 @@ class EmployeesUI():
                 print("2 Pilots")
                 print("3 Cabin Crew")
                 print("B Back")
-                print("Q Quit")
+                print("Q Quit\n")
                 action_str = input("Choose action: ").lower()
                 print()
 

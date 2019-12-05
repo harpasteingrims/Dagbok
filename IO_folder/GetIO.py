@@ -1,3 +1,4 @@
+import csv
 import sys
 sys.path.insert(1, '~/VERKLEGT-1-verkefni/')
 

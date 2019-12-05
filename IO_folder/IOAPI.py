@@ -37,7 +37,7 @@ class IOAPI():
 
     def get_destination_list(self):
         """ Calls the get class to get a list of all destinations """
-        return self.create.get_all_destinations()
+        return self.get.load_all_destinations()
     
     def create_destination(self):
         return self.create.add_destiantions()
