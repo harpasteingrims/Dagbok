@@ -49,7 +49,7 @@ class LLAPI():
         return self.getvoyages.get_all_voyages()
 
     def get_not_staffed_voyages(self):
-        return self.getvoyages.get_not_staffed()
+        return self.getvoyages.get_not_staffed_voyages()
 
     def get_common_voyages(self):
         pass
