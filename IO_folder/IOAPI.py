@@ -1,6 +1,6 @@
 from IO_folder.CreateIO import CreateIO
 from IO_folder.GetIO import GetIO
-from UI_folder.updateIO import UpdateIO
+from IO_folder.UpdateIO import UpdateIO
 
 class IOAPI():
     def __init__(self):
@@ -12,7 +12,6 @@ class IOAPI():
 
     def get_list_of_all_employees(self):
        """ Calls the class get to get a list of all employees """
-       
         return self.get.load_all_employees()
         
     def get_list_of_all_pilots(self):
