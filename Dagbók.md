@@ -154,7 +154,7 @@ Vika 2: 02.12 - 06.12
         -Eyddum deginum í að finna nýja aðferð til að láta forrit kalla á önnur forrit. Þurfum að muna að setja import setningar alltaf efst í forritið.
         -Ákváðum að hafa bara 1 klasa per skrá til að einfalda hlutina.
         -Mættum í kennslustund um Git kl. 14:00 sem hjálpaði takmarkað því kennarinn talaði svo hratt. Dágóður hluti af deginum fór því í að læra sjálf á Git enda fengum við aldrei almennilega kennslu á það í vetur. 
-        -Fengum aftur hjálp frá Arnari og gáfum honum aðgang að git repositoryinu okkar. 
+        -Fengum aftur hjálp frá Arnari og gáfum honum aðgang að git repositoryinu okkar.
 
 04.12.2019 
     Áætlun: Vinnum úr kommentunum hans Arnars á forritin okkar (því hann fékk aðgang að repositoryinu), reynum að byrja í Logic layerinu og hugsa hvernig við ætlum að tengja það við UI layerið. Byrjum líka aðeins á Data layer. Erum enn í smá veseni með Git því Nína og Hallmar geta ekki pushað. Reynum að leysa það sem allra fyrst í dag.
