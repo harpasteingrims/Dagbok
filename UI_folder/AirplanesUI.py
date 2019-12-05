@@ -10,7 +10,7 @@ class AirplanesUI():
         """This prints the airplane menu"""
 
         action_str = ""
-        while(action_str != "q"):
+        while action_str != "q":
             print(self.LENGTH_STAR * "*")
             print("AIRPLANE MENU")
             print("1 Print overview of all airplanes")
