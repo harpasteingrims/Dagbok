@@ -7,11 +7,11 @@ class DestinationsModel():
         self.contact = contact
         self.contact_phone = contact_phone
 
-    def set_destinations(self):
-        destination = {}
-        destination[self.country] = [self.airport, self.flight_duration, self.distance, self.contact, self.contact_phone]
-        
-        return destination
+    #def set_destinations(self):
+    #    destination = {}
+    #    destination[self.country] = [self.airport, self.flight_duration, self.distance, self.contact, self.contact_phone]
+
+    #    return destination
 
     
         

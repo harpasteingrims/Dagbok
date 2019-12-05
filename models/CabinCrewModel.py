@@ -7,8 +7,8 @@ class CabinCrewModel():
         self.mobile_number = mobile_number
         self.email = email
 
-    def set_cabincrew(self):
-        cabincrew = {}
-        cabincrew[self.ssn] = [self.name, self.role, self.address, self.mobile_number, self.email]
+    #def set_cabincrew(self):
+    #       cabincrew = {}
+    #       cabincrew[self.ssn] = [self.name, self.role, self.address, self.mobile_number, self.email]
         #rangt
-        return cabincrew
+       #return cabincrew
