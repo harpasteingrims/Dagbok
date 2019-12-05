@@ -10,7 +10,7 @@ class VoyagesUI():
         """This prints the voyage menu"""
 
         action_str = ""
-        while(action_str != "q"):
+        while action_str != "q":
             print(self.LENGTH_STAR * "*")
             print("VOYAGE MENU"
             print("1 Print overview of voyages")

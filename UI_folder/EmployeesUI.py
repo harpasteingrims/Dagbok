@@ -15,8 +15,8 @@ class EmployeesUI():
         run = True
         while run is True:
 
-            action = ""
-            while(action != "q"):
+            action_str = ""
+            while action_str != "q":
                 print(self.LENGTH_STAR * "*")
                 print("EMPLOYEES MENU")
                 print("1 Print overview of all employees")
