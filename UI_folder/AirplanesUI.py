@@ -7,7 +7,7 @@ class AirplanesUI():
         self.llapi = llapi
 
     def show_airplane_menu(self):
-        """ This prints the airplane menu """
+        """This prints the airplane menu"""
 
         action_str = ""
         while(action_str != "q"):
@@ -20,7 +20,7 @@ class AirplanesUI():
             action_str = input("Choose action: ").lower()
             print()
 
-            if actio_str  == "1":
+            if action_str  == "1":
                 self.show_airplane_overview()
             elif action_str == "2":
                 self.show_create_airplane_form()
