@@ -50,7 +50,7 @@ class IAADUI():
         print(self.LENGTH_STAR * "*")
         print("AVAILABLE EMPLOYEES")
 
-        available_employess = self.llapi.get_available_emp_by_date()
+        available_employess = self.llapi.get_available_emp_by_date(user_input_date)
         print(available_employess)
 
         print()
@@ -68,7 +68,7 @@ class IAADUI():
         print(self.LENGTH_STAR * "*")
         print("UNAVAILABLE EMPLOYEES")
 
-        unavailable_employess = self.llapi.get_unavailable_emp_by_date()
+        unavailable_employess = self.llapi.get_unavailable_emp_by_date(user_input_date)
         print(unavailable_employess)
 
         print()
@@ -86,7 +86,7 @@ class IAADUI():
         print(self.LENGTH_STAR * "*")
         print("AIRPLANE STATUS")
 
-        airplane_status = self.llapi.get_airplane_status_by_date()
+        airplane_status = self.llapi.get_airplane_status_by_date(user_input_date)
         print(airplane_status)
 
         print()
@@ -104,7 +104,7 @@ class IAADUI():
         print(self.LENGTH_STAR * "*")
         print("VOYAGE STATUS")
         
-        voyage_status = self.llapi.get_voyages_status_by_date()
+        voyage_status = self.llapi.get_voyages_status_by_date(user_input_date)
         print(voyage_status)
 
         print()
