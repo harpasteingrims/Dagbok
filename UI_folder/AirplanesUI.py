@@ -19,7 +19,7 @@ class AirplanesUI():
                 print("1 Print overview of all airplanes")
                 print("2 Create a new airplane")
                 print("B Back")
-                print("press q to quit")
+                print("Q Quit")
                 action = input("Choose action: ").lower()
                 print()
 
