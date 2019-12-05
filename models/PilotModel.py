@@ -10,5 +10,4 @@ class PilotsModel():
         self.email = email
         
     def to_csv_string(self):
-        return f"{self.ssn},{self.name},{self.role},{self.rank},{self.license_type},{self.address},{self.mobile_number},{self.email}"
-
+        return f"{self.SSN},{self.name},{self.role},{self.rank},{self.license_type},{self.address},{self.mobile_number},{self.email}"
