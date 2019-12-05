@@ -54,6 +54,7 @@ class GetIO():
         
 
         return airplane_list
+        #LAGA,VIRKAR EKKI!!!!
     def get_destinations():
         dest_file = open("destinations.csv")
         
@@ -115,7 +116,7 @@ class GetIO():
                 Time = line[1]
                 Destination = line[2]
                 AirplaneID = line[3]
-                print(Date)
+                
 
                 
             
@@ -126,6 +127,6 @@ class GetIO():
 
 
 def main():
-    listi = GetIO.get_destinations()
+    listi = GetIO.get_cabin_crew()
     pass
 main()
