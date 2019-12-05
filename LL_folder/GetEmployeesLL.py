@@ -17,10 +17,15 @@ class GetEmployeesLL():
         return sorted(self.ioapi.get_list_of_all_cabin_crew())
     
     def find_common_named_pilots(self, name):
-        common_names
-        self.pilot_list = self.get_all_pilots()
-        for pilot_object in self.pilot_list:
-            pass
+        common_names = []
+        pilot_list = self.get_all_pilots()
+        
+        for pilot_object in pilot_list:
+            if pilot_object.name == name:
+                
+                common_names.append(pilot_object)
+        
+        return common_names
 
     def list_info_about_pilot_by_name(self, name):
         """  """
@@ -33,6 +38,10 @@ class GetEmployeesLL():
                 # TODO handle if found
                 pass
         # TODO handle if none is found
+
+    def find_common_named_cabincrew(self,name):
+        return self.getemployees.find_common_named_pilots(name)
+
 
     def list_info_about_cabincrew_by_name(self):
         pass

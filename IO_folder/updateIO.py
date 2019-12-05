@@ -1,3 +1,5 @@
+
+import csv
 class UpdateIO:
     def __init__(self, get):
         self.get = get
