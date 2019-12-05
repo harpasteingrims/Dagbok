@@ -40,6 +40,8 @@ class IAADUI():
     def show_airplane_status(self, user_input_date):
         """ This prints the status of a airplane from a certain date """
         print("this is a list of airplanes and their status")
+        airplane_status = self.llapi.get_airplane_status_by_date()
+        print(airplane_status)
         print("\n")
         print("B Back")
         user_input = self.choose_action()
@@ -50,6 +52,8 @@ class IAADUI():
     def show_voyages_status(self, user_input_date):
         """ This prints the status of a voyage from a certain date """
         print("this is a list of voyages and their status")
+        voyage_status = self.llapi.get_voyages_status_by_date()
+        print(voyage_status)
         print("\n")
         print("B Back")
         user_input = self.choose_action()
