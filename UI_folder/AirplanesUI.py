@@ -22,10 +22,8 @@ class AirplanesUI():
 
             if action == "1":
                 self.show_airplane_overview()
-
             elif action == "2":
                 self.show_create_airplane_form()
-
             elif action == "b":
                 return
 
@@ -37,6 +35,7 @@ class AirplanesUI():
         airplanes = self.llapi.get_airplanes_overwiew() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
         print(airplanes)
 
+        #calls the method that makes a list of all airplanes and prints it
         print("B Back\n")
 
         action = input("Choose action: ").lower()
@@ -46,7 +45,7 @@ class AirplanesUI():
             self.show_airplane_menu()
 
     def show_create_airplane_form(self):
-        """This prints the add a airplane form"""
+        """This prints the create an airplane form"""
 
         print("CREATE A NEW AIRPLANE \n")
         airplane_id = input("Enter airplane ID: ")
