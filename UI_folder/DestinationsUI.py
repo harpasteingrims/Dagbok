@@ -133,12 +133,15 @@ class DestinationsUI():
         phone = input("Phone: ")
         #ÉG HLÝT AÐ FÁ INN DICT HÉR ÚR LL-LAYER. ÉG ÞARF ÞÁ AÐ BREYTA HENNI EFTIR ÞVÍ HVAÐ NOTANDINN GERÐI
         #nafniðádict[land] = [name, phone]
-        print("S save \nB Back")
+        print("S Save \nB Back")
         
         action_str = input("Choose action: ").lower()
         
         if action_str == "s":
-            print("Emergency contact successfully changed")
-            #sendi dict í listann af dict contacts í LL-layer
-        if action_str == "b": #Á AÐ VERA ELIF HÉR
-            return
+            #Takes the new info, changes and adds it to the emergency contact list
+            #Calls the class that stores the info about the emergency contact to change it... 
+            print("Emergency contact information successfully changed")
+            self.show_destination_menu
+
+        elif action_str == "b":
+            self.show_destination_menu
