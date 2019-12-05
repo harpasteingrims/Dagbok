@@ -71,7 +71,8 @@ class CabincrewUI():
         date_to = input("Enter date to: ")
 
         #print("{}'S FLIGHT SCHEDULE").format(name.upper)
-        #calls the class that makes a list of the flight schedule and prints it
+        cabincrew_schedule = self.llapi.get_schedule_pilot_by_date()
+        print(cabincrew_schedule)
 
         print("B Back")
 
