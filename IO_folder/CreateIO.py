@@ -20,7 +20,6 @@ class CreateIO():
         cabincrew = models.CabinCrewModel()
         cabincrew_list.append(cabincrew)
         
-
     def add_airplane(self):
         airplane_list = DataLayer_folder.GetIO()
         airplane = models.AirplanesModel()
