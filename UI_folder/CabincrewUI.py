@@ -99,7 +99,7 @@ class CabincrewUI():
         mobile_number = input("Enter mobile number: ")
         email = input("Enter email: ")
 
-        #new_cabincrew_member = CabinCrewModel(name, role, ssn, address, mobile_number, email)
+        new_cabincrew_member = CabinCrewModel(name, role, ssn, address, mobile_number, email)
 
         print("\nS Save \nB Back \n")
 

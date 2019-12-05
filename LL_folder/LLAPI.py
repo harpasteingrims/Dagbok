@@ -30,6 +30,15 @@ class LLAPI():
     def get_info_about_pilot_by_name(self):
         pass
 
+    def get_info_about_cabincrew_by_name(self):
+        pass
+
+    def get_schedule_cabincrew_by_date(self):
+        pass
+
+    def get_schedule_pilot_by_date(self):
+        pass
+
     """DESTINATIONS"""
     def get_destination_overview(self):
         # fall fyrir show_destination_overview, í því falli á að prenta út overview af destinations
@@ -55,14 +64,17 @@ class LLAPI():
     def get_airplanes_overview(self):
         return self.getairplanes.get_all_airplanes()
 
-    #__init__(self):
-        #self.llayer = LLAPI()
-        #self.mainmenu = MainmenuUI()
-        #...
-
-
     def add_employee(self):
         pass
 
     def get_employee(self):
         pass #Listar allar employees
+
+    def get_available_airplanes_by_date(self):
+        pass
+
+
+    #__init__(self):
+        #self.llayer = LLAPI()
+        #self.mainmenu = MainmenuUI()
+        #...
