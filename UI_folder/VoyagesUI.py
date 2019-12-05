@@ -32,12 +32,14 @@ class VoyagesUI():
         """ This prints out the form to assign a staff to a voyage """
         print("\n{}".format(self.LENGTH_STAR*"*"))
         print("ASSIGN CREW TO VOYAGES")
-        self.show_not_staffed_voyages()
+        print("\nB Back") #Kannski sleppa
         #Listi yfir alla lausa pilots og þar þarf IO og fá date til að sjá hverjir eru lausar þennan dag
+        pilot = input("Enter a pilot: ")
         #Listi yfir alla lausa cabincrew
-        print("B Back")
+        cabincrew = input("Enter a cabincrew: ")
+        
         print()
-        voyage_str = input("Choose a voyage")
+        
         #Þurfum meira hér til að klára þetta fall
 
     def show_create_voyage_menu(self):
@@ -57,6 +59,7 @@ class VoyagesUI():
         """ This prints out all the common voyages """
         print("\n{}".format(self.LENGTH_STAR*"*"))
         print("SEE COMMON VOYAGES")
+        self.llapi.get_common_voyages() #Þessi listi þarf að vera númeraður
 
     def create_a_common_voyage(self):
         """ This creates a voyage from the common voyages but with a new date and a new id """
@@ -106,5 +109,8 @@ class VoyagesUI():
 
     def show_not_staffed_voyages(self):
         """ This prints out all the not fully staffed voyages that are available """
-        not_staffed = self.llapi.get_not_staffed_voyages()
+        not_staffed = self.llapi.get_not_staffed_voyages() #Þessi listi þarf að vera númeraður
         print(not_staffed)
+        voyage_str = input("Choose a voyage")
+        self.show_assign_staff_form() #Hérna fer ég með voyage_str í fallið
+        
