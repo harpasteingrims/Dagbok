@@ -196,5 +196,22 @@ Vika 2: 02.12 - 06.12
             -Hildur: Quit option í UI
             -Hallmar: Vinna í update hluta í IO
             -Nína: Vesenast í IOAPI
-            -Harpa: Gera föll í LLAPI og tengja við UI klasa. Bætir við ,,create common voyage" wireframe
+            -Harpa: Gera föll í LLAPI og tengja við UI klasa. Bætir við ,,create common voyage" wireframe.
         -Erum bara svona 95% viss um að þetta sé eitt stórt klúður núna, major progress. :D
+
+05.12.2019 
+    Áætlun: Ræðum hvernig tókst til í heimaverkefnunum í morgunsárið. Þurfum að geta keyrt main til að geta athugað hvort quit option virkar. Eitthvað bras hjá Viktoríu með model klasana. Líka bras hjá Nínu með IOAPI því það vantaði að setja inn update. Önnur saga með hana Hörpu, gekk glimrandi vel með allt heimanámið sitt og jákvæðnin skín úr augum hennar. Sjáum til hvernig quit optionið virkar þegar við náum að laga main.
+
+    Hallmar Orri: 
+        -tba
+    Harpa: 
+        -Heldur áfram með LLAPI föllin og reynir að tengja við UI klasana.
+    Hildur: 
+        -Reynir að láta quit optionið virka
+    Nína Margrét: 
+        -Býr til IOAPI föllin og reynir að tengja við LL klasana.
+    Viktoría Inga: 
+        -Byrjar að kóða IO klasana
+        
+    Samantekt:
+        -Ákváðum að halda afmælið hennar Viktoríu annað hvort á laugardaginn eða sunnudaginn. Erum að hugsa spilakvöld og boraða saman kvöldmat. Sjáum til hvernig stemningin verður að fara niðr'í bæ. 
