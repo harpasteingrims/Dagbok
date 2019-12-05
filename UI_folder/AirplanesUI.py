@@ -47,7 +47,7 @@ class AirplanesUI():
             self.show_airplane_menu()
 
     def show_create_airplane_form(self):
-        """ This prints the add a airplane form """
+        """This prints the add a airplane form"""
 
         print("CREATE A NEW AIRPLANE \n")
         airplane_id = input("Enter airplane ID: ")
@@ -61,7 +61,7 @@ class AirplanesUI():
         print()
 
         if action == "s":
-            """Takes the info and adds it to the airplane list"""
+            #Takes the info and adds it to the airplane list
             print("Airplane successfully created\n")
             new_airplane = AirplanesModel(airplane_id, airplane_type, manufacturer, seat_amount)
             #self.airplane.create_airplane(new_airplane)
