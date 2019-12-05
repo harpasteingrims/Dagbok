@@ -9,28 +9,26 @@ class AirplanesUI():
     def show_airplane_menu(self):
         
         """ This prints the airplane menu """
-        run = True
-        while run is True:
 
-            action = ""
-            while(action != "q"):
-                print(self.LENGTH_STAR * "*")
-                print("AIRPLANE MENU")
-                print("1 Print overview of all airplanes")
-                print("2 Create a new airplane")
-                print("B Back")
-                print("Q Quit")
-                action = input("Choose action: ").lower()
-                print()
+        action = ""
+        while(action != "q"):
+            print(self.LENGTH_STAR * "*")
+            print("AIRPLANE MENU")
+            print("1 Print overview of all airplanes")
+            print("2 Create a new airplane")
+            print("B Back")
+            print("Q Quit")
+            action_str = input("Choose action: ").lower()
+            print()
 
-                if action == "1":
-                    self.show_airplane_overview()
+            if action == "1":
+                self.show_airplane_overview()
 
-                elif action == "2":
-                    self.show_create_airplane_form()
+            elif action == "2":
+                self.show_create_airplane_form()
 
-                elif action == "b":
-                    return
+            elif action == "b":
+                return
 
     def show_airplane_overview(self):
         """ This prints the overview of all airplanes """
@@ -42,10 +40,10 @@ class AirplanesUI():
         #calls the method that makes a list of all airplanes and prints it
         print("B Back\n")
 
-        action = input("Choose action: ")
+        action = input("Choose action: ").lower()
         print()
 
-        if action == "B":
+        if action == "b":
             self.show_airplane_menu()
 
     def show_create_airplane_form(self):
@@ -55,20 +53,19 @@ class AirplanesUI():
         airplane_type = input("Enter airplane type: ")
         manufacturer = input("Enter manufacturer: ")
         seat_amount = input("Enter seat amount: ")
-        new_airplane = AirplanesModel(airplane_id, airplane_type, manufacturer, seat_amount)
-        #self.airplane.create_airplane(new_airplane)
         
         print("\nS Save \nB Back\n")
 
-        action = input("Choose action: ")
+        action = input("Choose action: ").lower()
         print()
 
-        if action == "S":
-            """ Takes the info and adds it to the airplane list"""
-            #calls the method that adds the info to a list of airplanes
-            
+        if action == "s":
+            """Takes the info and adds it to the airplane list"""
             print("Airplane successfully created\n")
+            new_airplane = AirplanesModel(airplane_id, airplane_type, manufacturer, seat_amount)
+            #self.airplane.create_airplane(new_airplane)
+            #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
             self.show_airplane_menu()
 
-        elif action == "B":
+        elif action == "b":
             self.show_airplane_menu()

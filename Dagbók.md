@@ -208,6 +208,7 @@ Vika 2: 02.12 - 06.12
         -Heldur áfram með LLAPI föllin og reynir að tengja við UI klasana.
     Hildur: 
         -Reynir að láta quit optionið virka
+        -Lagar .lower() fyrir öll input
     Nína Margrét: 
         -Býr til IOAPI föllin og reynir að tengja við LL klasana.
     Viktoría Inga: 
