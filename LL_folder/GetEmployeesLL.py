@@ -3,6 +3,7 @@ class GetEmployeesLL():
         self.ioapi = ioapi
         self.avaliable_employees = []
         self.unavaliable_employees = []
+        self.pilot_list = []
         
     def get_all_employees(self):
         """ Calls the IOAPI to get a list of all employees """
@@ -16,6 +17,16 @@ class GetEmployeesLL():
         """ Calls the IOAPI to get a list of the whole cabin crew """
         return sorted(self.ioapi.get_list_of_all_cabin_crew())
     
+    def get_info_about_pilot_by_name(self, name):
+        """"""
+
+        self.pilot_list = self.get_all_pilots()
+
+        
+
+    def get_info_about_cabincrew_by_name(self):
+        pass
+
     def get_available_employees(self,date):
         
         """ Calls the IOAPI to get a list of all employees """

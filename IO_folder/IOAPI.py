@@ -23,6 +23,9 @@ class IOAPI():
         """ Calls the class to get a list of the whole cabin crew """
         return self.get.get_cabincrew()
     
+    def get_info_about_pilot_by_name(self):
+        pass
+    
     def create_pilot(self):
         
         return self.create.add_pilot()
