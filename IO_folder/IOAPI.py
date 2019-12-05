@@ -11,27 +11,31 @@ class IOAPI():
     """ EMPLOYEES """
 
     def get_list_of_all_employees(self):
-        all_employee_list = self.get.get_all_employees()
-        return all_employee_list
+       
+        return self.get.get_all_employees()
         
     def get_list_of_all_pilots(self):
-        pilot_list = self.get.get_all_pilots()
-        return pilot_list
+
+
+        return self.get.get_all_pilots()
 
     def get_list_of_all_cabin_crew(self):
-        cabin_crew_list = self.get_cabincrew()
-        return cabin_crew_list
+         
+        return self.get_cabincrew()
     
     def create_pilot(self):
+
         return self.create.add_pilot()
 
     def create_cabincrew(self):
+        
         return self.create.add_cabincrew()
 
 
     """ DESTINATIONS """
 
     def get_destination_list(self):
+        """ Calls the get class to get a list of all destinations """
         return self.create.get_all_destinations()
     
     def create_destination(self):
