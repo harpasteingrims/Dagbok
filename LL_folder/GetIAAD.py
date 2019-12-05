@@ -14,7 +14,7 @@ class GetIAAD():
         pass
 
     def list_airplane_status_by_date(self, user_input_date):
-        pass
+        pass #Líka pæling hérna hvar er best að geyma þessar upplýsingar og hvernig er best að ná í þær og vinna úr þeim
 
     def list_voyages_status_by_date(self, user_input_date):
         pass

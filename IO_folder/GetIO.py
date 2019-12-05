@@ -49,7 +49,7 @@ class GetIO():
                 #pilot[SSN] = [name, role, plane_license, address, mobile_number, email]
                 pilot = PilotsModel(SSN, name, role, rank, plane_license, address, mobile_number, email)
                 self.pilot_list.append(pilot)
-        print(self.pilot_list)
+        
         return self.pilot_list
 
     def load_all_cabincrew(self):
