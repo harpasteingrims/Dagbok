@@ -69,7 +69,7 @@ class PilotsUI():
 
     
     def show_flight_schedule_of_pilot(self, name):
-        """Calls a class that makes a list of his voyages and prints it"""
+        """Calls a class that makes a list of their voyages and prints it"""
 
         date_from = input("Enter date from: ")
         date_to = input("Enter date to: ")
