@@ -49,7 +49,7 @@ class LLAPI():
         return self.getvoyages.get_all_voyages()
 
     def get_not_staffed_voyages(self):
-        return self.getvoyages.get_not_staffed()
+        return self.getvoyages.get_not_staffed_voyages()
 
     def get_common_voyages(self):
         pass
@@ -75,10 +75,10 @@ class LLAPI():
 
     """IAAD"""
 
-    def get_available_employess_by_date(self):
+    def get_available_emp_by_date(self):
         pass
 
-    def get_unavailable_employees_by_date(self):
+    def get_unavailable_emp_by_date(self):
         pass
 
     def get_airplane_status_by_date(self):

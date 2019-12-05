@@ -16,7 +16,7 @@ class UImanager():
         self.llapi = LLAPI()
         self.cabincrew = CabincrewUI(self.llapi)
         self.pilots = PilotsUI(self.llapi)
-        self.iaad = IAADUI()
+        self.iaad = IAADUI(self.llapi)
         self.employees = EmployeesUI(self.cabincrew, self.pilots, self.llapi)
         self.voyages = VoyagesUI(self.llapi)
         self.destinations = DestinationsUI(self.llapi )

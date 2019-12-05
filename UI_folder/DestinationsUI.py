@@ -10,8 +10,8 @@ class DestinationsUI():
     def show_destination_menu(self):
         """This prints the destination menu"""
 
-        action = ""
-        while(action != "q"):
+        action_str = ""
+        while action_str != "q":
             print(self.LENGTH_STAR * "*")
             print("DESTINATION MENU")
             print("1 Print overview of destinations")
@@ -39,12 +39,15 @@ class DestinationsUI():
         
         destinations = self.llapi.get_destinations_overwiew() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
         print(destinations)
-        
-        print("B back\n")
+        #calls the method that makes a list of all destinations and prints it
+
+        print("B Back\n")
+
         action_str = input("Choose action: ").lower() 
+        print()
+
         if action_str == "b":
-            return
-            #self.show_destination_menu()
+            self.show_destination_menu()
 
     def show_create_des_form(self):
         """ This prints the create a destination form"""
@@ -57,14 +60,22 @@ class DestinationsUI():
         distance = input("Enter distance from Iceland: ")
         contact = input("Enter name of contact: ")
         contact_phone = input("Enter emergency contact")
-        new_destination = DestinationsModel(country, airport, flight_duration, distance, contact, contact_phone)
-        #self.destination.create_destination(new_destination)
+
+        print("\nS Save \nB Back\n")
 
         action_str = input("Choose action: ").lower() 
-        #if action_str == "s"
-            #from UI-layer import FALL SEM VINNUR MEÐ ÞETTA
+        print()
+
+        if action_str == "s"
+            #Takes the info and adds it to the destination list
+            print("Destination successfully created\n")
+            new_destination = DestinationsModel(country, airport, flight_duration, distance, contact, contact_phone)
+            #self.destination.create_destination(new_destination)
+            #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
+            self.show_destination_menu
+
         if action_str == "b": #Á AÐ VERA ELIF HÉR 
-            return
+            self.show_destination_menu
 
     def show_emerg_country_menu(self):
         """This prints the emergency contact menu"""
@@ -81,7 +92,7 @@ class DestinationsUI():
             #find_country_list.append(find_country)
             #country += 1
 
-        print("B back")
+        print("B Back")
         action_str = input("Choose action: ").lower()
         
         if action_str == "b":
@@ -98,7 +109,9 @@ class DestinationsUI():
         # info_of_contact = # Calls the class that holds the information of contact and prints it
         # Name:
         # Phone:
+
         print("1 Edit contact \n2 B Back")
+
         action_str = input("Choose action: ").lower()
 
         if action_str == "1":
@@ -120,10 +133,15 @@ class DestinationsUI():
         phone = input("Phone: ")
         #ÉG HLÝT AÐ FÁ INN DICT HÉR ÚR LL-LAYER. ÉG ÞARF ÞÁ AÐ BREYTA HENNI EFTIR ÞVÍ HVAÐ NOTANDINN GERÐI
         #nafniðádict[land] = [name, phone]
-        print("S save \nB Back")
+        print("S Save \nB Back")
+        
         action_str = input("Choose action: ").lower()
         
-        #if action_str == "s":
-            #sendi dict í listann af dict contacts í LL-layer
-        if action_str == "b": #Á AÐ VERA ELIF HÉR
-            return
+        if action_str == "s":
+            #Takes the new info, changes and adds it to the emergency contact list
+            #Calls the class that stores the info about the emergency contact to change it... 
+            print("Emergency contact information successfully changed")
+            self.show_destination_menu
+
+        elif action_str == "b":
+            self.show_destination_menu

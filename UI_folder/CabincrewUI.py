@@ -9,8 +9,8 @@ class CabincrewUI():
     def show_cabincrew_menu(self):
         """ This prints the cabin crew member menu """
 
-        action = ""
-        while(action != "q"):
+        action_str = ""
+        while(action_str != "q"):
             print(self.LENGTH_STAR * "*")
             print("CABIN CREW MENU")
             print("1 Search for a cabin crew member")
@@ -34,19 +34,19 @@ class CabincrewUI():
         """This prints the search for a cabin crew member window"""
 
         print(self.LENGTH_STAR * "*")
-        print("SEARCH FOR A CABIN CREW MEMBER"")
+        print("SEARCH FOR A CABIN CREW MEMBER")
 
         name = input("Enter name of cabin crew member: ")
         print()
 
-        # info_of_cabincrew_member = # Calls the class that holds the information of cabin crew members and prints it
-        """ Name:
-            Role:
-            Social security number:
-            Adress:
-            Mobile number:
-            Email:
-        """
+        cabincrew_info = self.llapi.get_info_about_cabincrew_by_name()
+        print(cabincrew_info)
+            #Name:
+            #Role:
+            #Social security number:
+            #Adress:
+            #Mobile number:
+            #Email:
 
         print("1 {}'s flight schedule".format(name))
         print("2 Edit information about cabin crew member \nB Back")
@@ -71,7 +71,8 @@ class CabincrewUI():
         date_to = input("Enter date to: ")
 
         #print("{}'S FLIGHT SCHEDULE").format(name.upper)
-        # calls the class that makes a list of the flight schedule and prints it
+        cabincrew_schedule = self.llapi.get_schedule_pilot_by_date()
+        print(cabincrew_schedule)
 
         print("B Back")
 

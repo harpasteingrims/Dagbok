@@ -7,10 +7,10 @@ class AirplanesUI():
         self.llapi = llapi
 
     def show_airplane_menu(self):
-        """ This prints the airplane menu """
+        """This prints the airplane menu"""
 
-        action = ""
-        while(action != "q"):
+        action_str = ""
+        while(action_str != "q"):
             print(self.LENGTH_STAR * "*")
             print("AIRPLANE MENU")
             print("1 Print overview of all airplanes")
@@ -20,11 +20,11 @@ class AirplanesUI():
             action_str = input("Choose action: ").lower()
             print()
 
-            if action == "1":
+            if action_str  == "1":
                 self.show_airplane_overview()
-            elif action == "2":
+            elif action_str == "2":
                 self.show_create_airplane_form()
-            elif action == "b":
+            elif action_str == "b":
                 return
 
     def show_airplane_overview(self):
@@ -39,10 +39,10 @@ class AirplanesUI():
         #calls the method that makes a list of all airplanes and prints it
         print("B Back\n")
 
-        action = input("Choose action: ").lower()
+        action_str = input("Choose action: ").lower()
         print()
 
-        if action == "b":
+        if action_str == "b":
             self.show_airplane_menu()
 
     def show_create_airplane_form(self):
@@ -57,10 +57,10 @@ class AirplanesUI():
         
         print("\nS Save \nB Back\n")
 
-        action = input("Choose action: ").lower()
+        action_str = input("Choose action: ").lower()
         print()
 
-        if action == "s":
+        if action_str == "s":
             #Takes the info and adds it to the airplane list
             print("Airplane successfully created\n")
             new_airplane = AirplanesModel(airplane_id, airplane_type, manufacturer, seat_amount)
@@ -68,5 +68,5 @@ class AirplanesUI():
             #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
             self.show_airplane_menu()
 
-        elif action == "b":
+        elif action_str == "b":
             self.show_airplane_menu()

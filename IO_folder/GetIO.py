@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(1, '~/VERKLEGT-1-verkefni/')
+
 from models.CabinCrewModel import CabinCrewModel
 from models.AirplanesModel import AirplanesModel
 from models.DestinationsModel import DestinationsModel
@@ -44,7 +47,7 @@ class GetIO():
                 #pilot[SSN] = [name, role, plane_license, address, mobile_number, email]
                 pilot = PilotsModel(SSN, name, role, rank, plane_license, address, mobile_number, email)
                 self.pilot_list.append(pilot)
-
+        print(self.pilot_list)
         return self.pilot_list
 
     def load_all_cabincrew(self):
@@ -124,6 +127,10 @@ class GetIO():
                 self.voyages_list.append(voyages)
 
             return self.voyages_list
+
+
+a = GetIO()
+a.load_all_pilots()
                 
 
 
