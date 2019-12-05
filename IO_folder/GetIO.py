@@ -76,7 +76,7 @@ class GetIO():
         
     def load_all_airplanes(self):
         '''Retrieves airplanes and sends to Get LL'''
-        airplane_file = open("Aircraft.csv")
+        airplane_file = open("Aircraft.csv", "r")
 
         counter = 1
         for line in airplane_file:
@@ -94,7 +94,7 @@ class GetIO():
         return self.airplane_list
 
     def load_all_destinations(self):
-        dest_file = open("destinations.csv")
+        dest_file = open("Destinations.csv", "r")
 
         counter = 1
         for line in dest_file:

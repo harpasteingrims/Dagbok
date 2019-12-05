@@ -9,35 +9,42 @@ class EmployeesUI():
         self.pilots = pilots
         self.llapi = llapi
 
+    def choose_action(self):
+        action_str = input("Choose action: ").lower()
+        return action_str
+
     def show_employee_menu(self):
         """This prints the employee menu"""
 
+        print(self.LENGTH_STAR * "*")
+        print("EMPLOYEES MENU")
+        print("1 Print overview of all employees")
+        print("2 Pilots")
+        print("3 Cabin Crew")
+        print("B Back")
+        print("Q Quit\n")
+        action_str = self.choose_action()
+        print()
+
         run = True
-        while run is True:
+        
+        while run == True and action_str != "q":
+        
+            if action_str == "1":
+                self.show_overview_of_all_employees()
 
-            action_str = ""
-            while action_str != "q":
-                print(self.LENGTH_STAR * "*")
-                print("EMPLOYEES MENU")
-                print("1 Print overview of all employees")
-                print("2 Pilots")
-                print("3 Cabin Crew")
-                print("B Back")
-                print("Q Quit\n")
-                action_str = input("Choose action: ").lower()
+            elif action_str == "2":
+                self.pilots.show_pilot_menu()
+
+            elif action_str == "3":
+                self.cabincrew .show_cabincrew_menu()
+
+            elif action_str == "b":
+                return
+            else:
+                print("Invalid action!")
+                action_str = self.choose_action()
                 print()
-
-                if action_str == "1":
-                    self.show_overview_of_all_employees()
-
-                elif action_str == "2":
-                    self.pilots.show_pilot_menu()
-
-                elif action_str == "3":
-                    self.cabincrew .show_cabincrew_menu()
-
-                elif action_str == "b":
-                    return
 
     def show_overview_of_all_employees(self):
         """This prints the overview of all employees"""

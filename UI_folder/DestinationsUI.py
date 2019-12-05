@@ -7,20 +7,26 @@ class DestinationsUI():
     def __init__(self, llapi):
         self.llapi = llapi
     
+    def choose_action(self):
+        action_str = input("Choose action: ").lower()
+        return action_str
+
     def show_destination_menu(self):
         """This prints the destination menu"""
 
-        action_str = ""
-        while action_str != "q":
-            print(self.LENGTH_STAR * "*")
-            print("DESTINATION MENU")
-            print("1 Print overview of destinations")
-            print("2 Create a new destination")
-            print("3 Get emergency contact")
-            print("B Back")
-            print("Q Quit\n")
-            action_str = input("Choose action: ").lower()
-            print()
+        print(self.LENGTH_STAR * "*")
+        print("DESTINATION MENU")
+        print("1 Print overview of destinations")
+        print("2 Create a new destination")
+        print("3 Get emergency contact")
+        print("B Back")
+        print("Q Quit\n")
+        action_str = self.choose_action()
+        print()
+
+        run = True
+
+        while run == True and action_str != "q":
 
             if action_str == "1":
                 self.show_destination_overview()
@@ -30,6 +36,10 @@ class DestinationsUI():
                 self.show_emerg_country_menu()
             elif action_str == "b":
                 return
+            else:
+                print("Invalid action!")
+                action_str = self.choose_action()
+                print()
 
     def show_destination_overview(self):
         """This prints the overview of all destinations"""
@@ -47,7 +57,7 @@ class DestinationsUI():
         print()
 
         if action_str == "b":
-            self.show_destination_menu()
+            return
 
     def show_create_des_form(self):
         """ This prints the create a destination form"""
@@ -75,7 +85,7 @@ class DestinationsUI():
             self.show_destination_menu
 
         if action_str == "b": #Á AÐ VERA ELIF HÉR 
-            self.show_destination_menu
+            return
 
     def show_emerg_country_menu(self):
         """This prints the emergency contact menu"""
@@ -92,7 +102,7 @@ class DestinationsUI():
             #find_country_list.append(find_country)
             #country += 1
 
-        print("B Back")
+        print("B Back\n")
         action_str = input("Choose action: ").lower()
         
         if action_str == "b":
@@ -133,7 +143,7 @@ class DestinationsUI():
         phone = input("Phone: ")
         #ÉG HLÝT AÐ FÁ INN DICT HÉR ÚR LL-LAYER. ÉG ÞARF ÞÁ AÐ BREYTA HENNI EFTIR ÞVÍ HVAÐ NOTANDINN GERÐI
         #nafniðádict[land] = [name, phone]
-        print("S Save \nB Back")
+        print("S Save \nB Back\n")
         
         action_str = input("Choose action: ").lower()
         
@@ -141,7 +151,7 @@ class DestinationsUI():
             #Takes the new info, changes and adds it to the emergency contact list
             #Calls the class that stores the info about the emergency contact to change it... 
             print("Emergency contact information successfully changed")
-            self.show_destination_menu
+            return
 
         elif action_str == "b":
-            self.show_destination_menu()
+            return

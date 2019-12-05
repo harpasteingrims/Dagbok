@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(1, '~/VERKLEGT-1-verkefni/')
 import csv
 from models.CabinCrewModel import CabinCrewModel
 from models.PilotModel import PilotsModel
