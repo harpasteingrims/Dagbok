@@ -3,6 +3,7 @@ from LL_folder.GetDestinationsLL import GetDestinationsLL
 from LL_folder.GetAirplanesLL import GetAirplanesLL
 from LL_folder.GetEmployeesLL import GetEmployeesLL
 from LL_folder.GetVoyagesLL import GetVoyagesLL
+from LL_folder.GetIAAD import GetIAAD
 from LL_folder.UpdateLL import UpdateLL
 from LL_folder.CreateLL import CreateLL
 
@@ -15,17 +16,18 @@ class LLAPI():
         self.getairplanes = GetAirplanesLL(self.ioapi)
         self.getdestinations = GetDestinationsLL(self.ioapi)
         self.getemployees = GetEmployeesLL(self.ioapi)
+        self.getiaad = GetIAAD(self.ioapi)
     
 
     """EMPLOYEES"""
     def get_employee_overview(self):
-        return self.getemployees.get_all_employees() #Þetta kallar á klasann getemployees og fallið þar inni sem nær í alla employees
+        return self.getemployees.list_all_employees() #Þetta kallar á klasann getemployees og fallið þar inni sem nær í alla employees
 
     def get_pilot_overview(self):
-        return self.getemployees.get_all_pilots()
+        return self.getemployees.list_all_pilots()
 
     def get_cabin_crew_overview(self):
-        return self.getemployees.get_all_cabin_crew()
+        return self.getemployees.list_all_cabin_crew()
     
     def get_info_about_pilot_by_name(self):
         pass
@@ -41,45 +43,45 @@ class LLAPI():
 
     """DESTINATIONS"""
     def get_destination_overview(self): #Þessi listi þarf að vera númeraður
-        return self.getdestinations.get_all_destinations()
+        return self.getdestinations.list_all_destinations()
 
 
     """VOYAGES"""
     def get_voyages_overview(self):
-        return self.getvoyages.get_all_voyages()
+        return self.getvoyages.list_all_voyages()
 
     def get_not_staffed_voyages(self):
-        return self.getvoyages.get_not_staffed_voyages()
+        return self.getvoyages.list_not_staffed_voyages()
 
     def get_common_voyages(self):
-        pass
+        return self.getvoyages.list_all_common_voyages()
 
     def get_unavailable_time_for_voyage(self):
-        pass
+        return self.getvoyages.list_unavailable_voyage_time()
 
 
     """AIRPLANES"""
 
     def get_airplanes_overview(self):
-        return self.getairplanes.get_all_airplanes()
+        return self.getairplanes.list_all_airplanes()
 
     def get_available_airplanes_by_date(self): #Þessi listi þarf að vera númeraður
-        pass
+        return self.getairplanes.list_available_airplanes_by_date()
 
 
     """IAAD"""
 
     def get_available_emp_by_date(self):
-        pass
+        return self.getiaad.list_available_emp_by_date()
 
     def get_unavailable_emp_by_date(self):
-        pass
+        return self.getiaad.list_unavailable_emp_by_date()
 
     def get_airplane_status_by_date(self):
-        pass
+        return self.getiaad.list_airplane_status_by_date()
 
     def get_voyages_status_by_date(self):
-        pass
+        return self.getiaad.list_voyages_status_by_date()
 
 
     #__init__(self):
