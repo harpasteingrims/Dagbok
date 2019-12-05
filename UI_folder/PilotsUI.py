@@ -66,10 +66,9 @@ class PilotsUI():
 
         elif action_str == "b":
             self.show_pilot_menu()
-
     
     def show_flight_schedule_of_pilot(self, name):
-        """Calls a class that makes a list of his voyages and prints it"""
+        """Calls a class that makes a list of their voyages and prints it"""
 
         date_from = input("Enter date from: ")
         date_to = input("Enter date to: ")
@@ -104,8 +103,7 @@ class PilotsUI():
 
         if action_str == "s":
             #Takes the new info, changes and adds it to the pilot list
-            
-            # calls the class that stores the info about the pilot to change it...
+            #Calls the class that stores the info about the pilot to change it...
             print("Pilot's information successfully changed")
             self.show_pilot_menu()
 

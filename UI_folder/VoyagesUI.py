@@ -28,6 +28,7 @@ class VoyagesUI():
         elif action_str == "b":
             return
 
+
     def show_assign_staff_form(self):
         """ This prints out the form to assign a staff to a voyage """
         print("\n{}".format(self.LENGTH_STAR*"*"))
