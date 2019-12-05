@@ -23,13 +23,10 @@ class CabincrewUI():
 
             if action_str == "1":
                 self.show_enter_name_to_search()
-
             elif action_str == "2":
                 self.show_cabincrew_member_overview()
-
             elif action_str == "3":
                 self.show_cabincrew_member_create_form()
-
             elif action_str == "b":
                 return
 
