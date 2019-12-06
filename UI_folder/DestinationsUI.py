@@ -16,28 +16,26 @@ class DestinationsUI():
         """This prints the destination menu"""
 
         print(self.LENGTH_STAR * "*")
+        print()
         print("DESTINATION MENU")
         print("1 Print overview of destinations")
         print("2 Create a new destination")
         print("3 Get emergency contact")
         print("B Back")
-        print("Q Quit\n")
-        action_str = self.choose_action()
         print()
+        action_str = self.choose_action()
 
-        while action_str != "q":
-
-            if action_str == "1":
-                self.show_destination_overview()
-            elif action_str == "2":
-                self.show_create_des_form()
-            elif action_str == "3":
-                self.show_emerg_country_menu()
-            elif action_str == "b":
-                return
-            else:
-                print("Invalid action!")
-                action_str = self.choose_action()
+        if action_str == "1":
+            self.show_destination_overview()
+        elif action_str == "2":
+            self.show_create_des_form()
+        elif action_str == "3":
+            self.show_emerg_country_menu()
+        elif action_str == "b":
+            return
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
 
     def show_destination_overview(self):
         """This prints the overview of all destinations"""
