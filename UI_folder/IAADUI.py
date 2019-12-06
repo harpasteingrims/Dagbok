@@ -30,17 +30,21 @@ class IAADUI():
 
             if action_str == "1":
                 self.show_available_employees(user_input_date)
+
             elif action_str == "2":
                 self.show_unavailable_employees(user_input_date)
+
             elif action_str == "3":
                 self.show_voyages_status(user_input_date)
+
             elif action_str == "4":
                 self.show_airplane_status(user_input_date)
+
             elif action_str == "b":
                 return
+                
             else:
                 print("Invalid action!")
-                action_str = self.choose_action()
 
     def show_enter_date_menu(self):
         """This prints the menu for choosing date to get information about""" 
