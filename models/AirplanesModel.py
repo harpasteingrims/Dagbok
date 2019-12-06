@@ -1,3 +1,4 @@
+
 class AirplanesModel():
     def __init__(self, planeID, airplane_type, manufacturer, seat_amount):
         self.planeID = planeID

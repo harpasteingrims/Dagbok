@@ -15,7 +15,6 @@ class IAADUI():
         """This prints the information about a date menu"""
             
         print(self.LENGTH_STAR * "*")
-        print("INFORMATION ABOUT A DAY")
         print("1 Available Employees")
         print("2 Unavailable Employees")
         print("3 Status of voyages")
@@ -45,6 +44,7 @@ class IAADUI():
 
         print(self.LENGTH_STAR * "*")
         print("INFORMATION ABOUT A DAY")
+        print()
         user_input_date = input("Enter a date: ")
         print()
 
