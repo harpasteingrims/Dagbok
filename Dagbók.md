@@ -226,3 +226,39 @@ Vika 2: 02.12 - 06.12
             -Hildur: Reyna að vinna í createLL og tengja klasa í UI
             -Hallmar: kúka
         -Ákváðum að halda afmælið hennar Viktoríu annað hvort á laugardaginn eða sunnudaginn. Erum að hugsa spilakvöld og borða saman kvöldmat. Sjáum til hvernig stemningin verður að fara niðr'í bæ.
+
+06.12.2019 
+    Áætlun: Nína er að finna mynd af frænku sinni svo fundinum seinkar örlítið... Jæja fundur settur. Náðum loksins að keyra main og sjáum hina ýmsu kvilla sem við komum til með að lagfæra í dag. Viktoríu gekk vel í CreateIO og komst að því að það er minni kóði en við gerðum ráð fyrir og hún byrjaði líka á UpdateIO. Nína vann í því að fá forritið til að keyra og vann í LL. Hún bætti einnig við action-input falli í stað þess að hafa aragúa af input setningum. Það gekk ekkert sérstaklega vel hjá Hörpu í Destinations & Airplanes í Logic Layer en líkt og við óttuðumst verður þetta meðal flóknustu verkefnanna sem við munum takast á við. 
+
+    Hallmar Orri: 
+        -Vinnur í import setningum í model klösum
+    Harpa: 
+        -Heldur áfram að reyna við Logic layerið
+    Hildur: 
+        -Reyna að láta quit option virka aftur því nú er búið að breyta UI
+        -Reyna við Logic Layer
+        -IAAD virkar ekki úr main, laga það
+    Nína Margrét: 
+        -Vinnur í GetEmployeesLL
+        -Lærir á daytime
+    Viktoría Inga: 
+        -Vinnur í UpdateIO
+        
+    Samantekt:
+        - 
+
+    Status eftir viku:
+        -Bara eitt fall í UpdateLL
+
+
+
+        main()
+
+
+            elif action == "q" or action > 5:
+                run = False
+                break
+                
+            else:
+                print("Invalid action!")
+                action_str = self.choose_action()
