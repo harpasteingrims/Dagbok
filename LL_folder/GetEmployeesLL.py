@@ -46,7 +46,7 @@ class GetEmployeesLL():
             if cabin_crew_object.name == name:
                 
                 common_crew_names.append(cabin_crew_object)
-                
+
         if len(common_crew_names) > 0:
             return common_crew_names
 
@@ -62,7 +62,8 @@ class GetEmployeesLL():
                 return cabin_crew_object
         
     def list_schedule_cabincrew_by_date(self, name, date_from, date_to):
-        # unnið úr date og búið ti lista af voyages sem viðkamandi er á og á gefna tímabilinu 
+        # unnið úr date og búið ti lista af voyages sem viðkamandi er á og á gefna tímabilinu
+        
         pass
 
     def list_schedule_pilot_by_date(self, name, date_from, date_to):
