@@ -7,7 +7,7 @@ from models.AirplanesModel import AirplanesModel
 from models.DestinationsModel import DestinationsModel
 from models.PilotModel import PilotsModel
 from models.VoyagesModel import VoyagesModel
-from models.Voyage_crewModel import Voyage_crewModel
+
 
 
 class GetIO():
@@ -167,7 +167,7 @@ class GetIO():
                 fa2 = line[8]
                 date, time, destination, airplaneID = line.split(",")
                 voyage = VoyagesModel(date, destination, airplaneID)
-                voyage_with_crew = Voyage_crewModel(voyage,captain,copilot,fsm,fa1,fa2)
+                
                 
                 self.voyages_list.append()
 
