@@ -16,18 +16,21 @@ class EmployeesUI():
 
     def show_employee_menu(self):
         """This prints the employee menu"""
+    
+        action_str = ""
+        run = True
+        while run is True and action_str != "q":
 
-        print(self.LENGTH_STAR * "*")
-        print("EMPLOYEES MENU")
-        print("1 Print overview of all employees")
-        print("2 Pilots")
-        print("3 Cabin Crew")
-        print("B Back")
-        print("Q Quit\n")
-        action_str = self.choose_action()
-        
-        while action_str != "q":
-        
+            print(self.LENGTH_STAR * "*")
+            print("EMPLOYEES MENU")
+            print("1 Print overview of all employees")
+            print("2 Pilots")
+            print("3 Cabin Crew")
+            print("B Back")
+            print("Q Quit\n")
+
+            action_str = self.choose_action()
+
             if action_str == "1":
                 self.show_overview_of_all_employees()
 
@@ -38,7 +41,9 @@ class EmployeesUI():
                 self.cabincrew .show_cabincrew_menu()
 
             elif action_str == "b":
+                action_str = ""
                 return
+
             else:
                 print("Invalid action!")
                 action_str = self.choose_action()

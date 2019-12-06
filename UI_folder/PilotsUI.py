@@ -13,7 +13,6 @@ class PilotsUI():
     def show_pilot_menu(self):
         '''This prints the pilot menu'''
 
-    
         print(self.LENGTH_STAR * "*")
         print("PILOT MENU")
         print("1 Search for a pilot")
@@ -21,6 +20,7 @@ class PilotsUI():
         print("3 Create a new pilot")
         print("B Back")
         print("Q Quit\n")
+        action_str = ""
         action_str = self.choose_action()
     
         while action_str != "q":

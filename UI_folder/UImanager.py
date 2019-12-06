@@ -22,7 +22,6 @@ class UImanager():
         self.destinations = DestinationsUI(self.llapi )
         self.airplanes = AirplanesUI(self.llapi)
         
-
     def mainmenuUI(self):
         #Just to start things up
         run = True
@@ -34,6 +33,7 @@ class UImanager():
             #Hérna vantar input check, break ef >5 og setja run í false
             action = input("Choose action: ").lower()
             print()
+            
             if action == "1":
                 self.employees.show_employee_menu()
 
