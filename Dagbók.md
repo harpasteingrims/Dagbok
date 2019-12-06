@@ -245,20 +245,18 @@ Vika 2: 02.12 - 06.12
         -Vinnur í UpdateIO
         
     Samantekt:
-        - 
-
-    Status eftir viku:
-        -Bara eitt fall í UpdateLL
-
-
-
-        main()
-
-
-            elif action == "q" or action > 5:
-                run = False
-                break
-                
-            else:
-                print("Invalid action!")
-                action_str = self.choose_action()
+        -Dagurinn í dag gekk svona upp og ofan. Tókum fyrsta fund með Friðriki sem hjálpaði okkur að skilja betur hvenær flugvélar eiga að heita lausar.
+        -Borðuðum dýrindis jólamat sem kynti undir eldmóð hópsins.
+        -!!NÍNA NÁÐI AÐ PRENTA OVERVIEW!! (en svo hætti það að virka). Hún vann líka í EmployeesLL og bætti inn í EmployeesUI, PilotsUI og CabincrewUI. 
+        -Viktoría kláraði CreateIO og UpdateIO og gerði VoyagesLL. 
+        -Hættum við að hafa Quit alls staðar, höfum þar bara í main menu. Hildur vann í GetIAADLL og að fjarlægja quit optionið. 
+        -Hallmar vann í GetIO og IOAPI. 
+        -Harpa lærði á DayTime, kláraði GetAirplanesLL, importaði DateTime og Duteutil. Reynum að importa pip3 í terminal-in okkar við fyrsta tækifæri. Gæti orðið dáldið apparat.
+        -Git gerði okkur lífið afar leitt í dag. Afar leitt.
+        -Úthlutuðum hverju okkar heimavinnu fyrir helgina:
+            Viktoría: GetVoyagesLL og fer í UpdateLL eða CreateLL
+            Hallmar: Voyages.module
+            Harpa: Lagar rétt daytime í UI
+            Hildur: Klára GetIAADLL
+            Nína: EmployeesUI, PilotsUI, CabincrewUI og samsvarandi LL skrám.
+        -Við ætlum víst ekki að borða saman kvöldmat annað kvöld. Allir skulu mæta saddir og sælir, enda ekki við hæfi að mæta svangur til samkundu líkt og Óðinn okkar allra bendir réttilega á í 33. vísu Hávamála. Eggert kom við hjá okkur og að sjálfsögðu buðum við honum í teitið. Makar mega koma líka.

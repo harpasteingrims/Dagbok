@@ -17,16 +17,17 @@ class EmployeesUI():
         """This prints the employee menu"""
     
         action_str = ""
-        run = True
-        while run is True and action_str != "q":
 
+        while True:
+            print()
             print(self.LENGTH_STAR * "*")
             print("EMPLOYEES MENU")
+            print()
             print("1 Print overview of all employees")
             print("2 Pilots")
             print("3 Cabin Crew")
             print("B Back")
-            print("Q Quit\n")
+            print()
 
             action_str = self.choose_action()
 
@@ -45,7 +46,7 @@ class EmployeesUI():
 
             else:
                 print("Invalid action!")
-                action_str = self.choose_action()
+                print()
 
     def show_overview_of_all_employees(self):
         """This prints the overview of all employees"""
