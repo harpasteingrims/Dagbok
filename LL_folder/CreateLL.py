@@ -23,12 +23,12 @@ class CreateLL():
         new_destination = []
         pass
     
-    def create_airplanes(self):
+    def create_airplane(self):
         '''Method that creates a new airplane'''
         new_airplane = []
         pass
     
-    def create_common_voyages(self):
+    def create_common_voyage(self):
         '''Method that creates common voyages'''
         common_voyages = []
         pass

@@ -47,9 +47,18 @@ class LLAPI():
     def get_schedule_pilot_by_date(self, name, date_from, date_to):
         return self.getemployees.list_schedule_pilot_by_date(name, date_from, date_to)
 
+    def create_new_pilot(self):
+        return self.createll.create_pilot()
+
+    def create_new_cabincrew(self):
+        return self.createll.create_cabincrew()
+
     """DESTINATIONS"""
     def get_destination_overview(self): #Þessi listi þarf að vera númeraður
         return self.getdestinations.list_all_destinations()
+
+    def create_new_destination(self):
+        return self.createll.create_destination()
 
 
     """VOYAGES"""
@@ -65,6 +74,12 @@ class LLAPI():
     def get_unavailable_time_for_voyage(self):
         return self.getvoyages.list_unavailable_voyage_time()
 
+    def create_new_voyage(self):
+        return self.createll.create_voyage()
+
+    def create_new_common_voyage(self):
+        return self.createll.create_common_voyage()
+
 
     """AIRPLANES"""
 
@@ -73,6 +88,9 @@ class LLAPI():
 
     def get_available_airplanes_by_date(self, voyage_date): #Þessi listi þarf að vera númeraður
         return self.getairplanes.list_available_airplanes_by_date(voyage_date)
+
+    def create_new_airplane(self):
+        return self.createll.create_airplane()
 
 
     """IAAD"""
