@@ -37,6 +37,8 @@ class VoyagesUI():
                 self.show_not_staffed_voyages()
             elif action_str == "b":
                 return
+            #elif action_str == "q":
+            #    break
 
     def show_voyage_overview(self):
         """This prints the overview of all voyages"""
