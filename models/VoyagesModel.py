@@ -1,13 +1,13 @@
 
 class VoyagesModel():
-    def __init__(self, date, destination, airplaneID):
+    def __init__(self, date, destination, aircraftID):
         self.date = date #hér erum við búin í LL-layer að nota datetime þar sem þetta formattast saman í year,month,day,hour,minute
         self.destination = destination
-        self.airplaneID = airplaneID
+        self aircraftID = aircraftID
         self.crew_list = []
 
     def csv_voyage_to_string(self):
-        return f"{self.date},{self.destination},{self.airplaneID}"
+        return f"{self.date},{self.destination},{self aircraftID}"
     
     def assign_crew_to_voyage(self, captain, copilot, fsm, fa1, fa2):
         staff_list = [captain, copilot, fsm, fa1, fa2]
@@ -15,4 +15,4 @@ class VoyagesModel():
         return self.crew_list
 
     def csv_voyage_with_crew_to_string(self):
-        return f"{self.date}, {self.destination}, {self.airplaneID}, {self.crew_list[0]}, {self.crew_list[1]}, {self.crew_list[2]}, {self.crew_list[3]}, {self.crew_list[4]}, {self.crew_list[5]}"
+        return f"{self.date}, {self.destination}, {self aircraftID}, {self.crew_list[0]}, {self.crew_list[1]}, {self.crew_list[2]}, {self.crew_list[3]}, {self.crew_list[4]}, {self.crew_list[5]}"
