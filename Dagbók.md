@@ -237,6 +237,7 @@ Vika 2: 02.12 - 06.12
     Hildur: 
         -Reyna að láta quit option virka aftur því nú er búið að breyta UI
         -Reyna við Logic Layer
+        -IAAD virkar ekki úr main, laga það
     Nína Margrét: 
         -Vinnur í GetEmployeesLL
         -Lærir á daytime
@@ -245,3 +246,19 @@ Vika 2: 02.12 - 06.12
         
     Samantekt:
         - 
+
+    Status eftir viku:
+        -Bara eitt fall í UpdateLL
+
+
+
+        main()
+
+
+            elif action == "q" or action > 5:
+                run = False
+                break
+                
+            else:
+                print("Invalid action!")
+                action_str = self.choose_action()
