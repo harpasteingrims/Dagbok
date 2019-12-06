@@ -45,8 +45,9 @@ class VoyagesUI():
         print(self.LENGTH_STAR*"*")
         print("OVERVIEW OF VOYAGES")
 
-        voyages = self.llapi.get_voyages_overview() #Kallar á fall i llapanum sem returnar öllum vinnuferðum og prenta út flugnúmer beggja flugferða
-        print(voyages)
+        voyages_ob_list = self.llapi.get_voyages_overview() #Kallar á fall i llapanum sem returnar öllum vinnuferðum og prenta út flugnúmer beggja flugferða
+        for voyage_ob in voyages_ob_list:
+            print(f"{voyage_ob.date}, {voyage_ob.destination}, {voyage_ob.aircraftID}")
 
         print("B Back\n")
 
