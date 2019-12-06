@@ -53,7 +53,7 @@ class GetEmployeesLL():
         else:
             return False
 
-    def list_info_about_cabincrew_by_name(self):
+    def list_info_about_cabincrew_by_name(self, name):
 
         cabin_crew_list = self.list_all_cabin_crew()
 

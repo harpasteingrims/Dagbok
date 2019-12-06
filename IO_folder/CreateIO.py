@@ -16,22 +16,22 @@ class CreateIO():
             writer = csv.writer(f)
             writer.writerow(new_pilot.to_csv_string())
 
-    def add_cabincrew(self, new_cabincrew):
+    def store_cabincrew(self, new_cabincrew):
         with open('Pilots.csv', 'a') as f:
             writer = csv.writer(f)
             writer.writerow(new_cabincrew.to_csv_string())
         
-    def add_airplane(self, new_airplane):
+    def store_airplane(self, new_airplane):
         with open('Aircraft.csv', 'a') as f:
             writer = csv.writer(f)
             writer.writerow(new_airplane.to_csv_string())
 
-    def add_destiantions(self, new_destination):
+    def store_destiantions(self, new_destination):
         with open('Destinations.csv', 'a') as f:
             writer = csv.writer(f)
             writer.writerow(new_destination.to_csv_string())
 
-    def add_voyage(self, new_voyage):
+    def store_voyage(self, new_voyage):
         with open('Voyages.csv', 'a') as f:
             writer = csv.writer(f)
             writer.writerow(new_voyage.to_csv_string())
