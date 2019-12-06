@@ -8,7 +8,6 @@ from models.VoyagesModel import VoyagesModel
 from models.DestinationsModel import DestinationsModel
 
 class CreateIO():
-
     def store_pilot(self, new_pilot):
         with open('csv_files\Pilots.csv', 'a') as f:
             writer = csv.writer(f)
