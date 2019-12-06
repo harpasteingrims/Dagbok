@@ -45,7 +45,7 @@ class IOAPI():
     """ AIRPLAINS """
 
     def get_airplane_list(self):
-        """ Calls the Get class to get a list of all airplanes """
+        """ Calls the get class to get a list of all airplanes """
         return self.get.load_all_airplanes()
          
     def create_airlane(self):

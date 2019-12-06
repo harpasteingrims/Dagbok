@@ -18,7 +18,7 @@ class GetEmployeesLL():
     
     def find_common_named_pilots(self, name):
         common_pilot_names = []
-        pilot_list = self.get_all_pilots()
+        pilot_list = self.list_all_pilots()
         
         for pilot_object in pilot_list:
             if pilot_object.name == name:
