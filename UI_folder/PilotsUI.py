@@ -14,27 +14,27 @@ class PilotsUI():
         '''This prints the pilot menu'''
 
         print(self.LENGTH_STAR * "*")
+        print()
         print("PILOT MENU")
         print("1 Search for a pilot")
         print("2 Print overview of pilots")
         print("3 Create a new pilot")
         print("B Back")
-        print("Q Quit\n")
-        action_str = ""
+        print()
+
         action_str = self.choose_action()
     
-        while action_str != "q":
-            if action_str == "1":
-                self.show_enter_name_to_search()
-            elif action_str == "2": 
-                self.show_pilots_overview()
-            elif action_str == "3": 
-                self.show_pilot_create_form()
-            elif action_str == "b":
-                return
-            else:
-                print("Invalid action!")
-                action_str = self.choose_action()     
+        if action_str == "1":
+            self.show_enter_name_to_search()
+        elif action_str == "2": 
+            self.show_pilots_overview()
+        elif action_str == "3": 
+            self.show_pilot_create_form()
+        elif action_str == "b":
+            return
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()     
 
     def show_enter_name_to_search(self):
         """This prints the search for a pilot window"""

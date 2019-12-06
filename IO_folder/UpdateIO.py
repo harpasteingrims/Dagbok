@@ -14,7 +14,7 @@ class UpdateIO:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
 
-        for elem in lis:
+        for elem in destionations_list:
             if elem.airport == update_contact.airport:
                 CreateIO(self.get).store_destiantions(update_contact)
             else:    
@@ -39,8 +39,9 @@ class UpdateIO:
         pilot_list = GetIO.load_all_pilots()
         with open("csv_files\Pilots.csv","w",newline="") as csvfile:
             fieldnames = ["ssn","name","role","rank", "plane license","address", "mobile number", "email"]
-            write = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
+
         for elem in pilot_list:
             if elem.ssn == update_pilot.SSN:
                 CreateIO(self.get).store_pilot(update_pilot)
@@ -51,10 +52,11 @@ class UpdateIO:
         cabincrew_list = GetIO.load_all_cabincrew()
         with open("csv_files\CabinCrew.csv","w", newline="") as csvfile:
             fieldnames = ["ssn","name","role","rank", "address", "mobile number", "email"]
-            write = csv.DictWriter(csvfile, fieldnames = fieldnames)
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
+
         for elem in cabincrew_list:
-            if elem.ssn == update_cabincrew.SSN:
+            if elem.SSN == update_cabincrew.SSN:
                 CreateIO(self.get).store_pilot(update_cabincrew)
             else:
-                CreateIO(self.get)store_pilot(elem)
+                CreateIO(self.get).store_pilot(elem)

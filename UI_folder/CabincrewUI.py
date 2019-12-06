@@ -11,29 +11,29 @@ class CabincrewUI():
 
     def show_cabincrew_menu(self):
         """ This prints the cabin crew member menu """
-          
-        while action_str != "q":
-            print(self.LENGTH_STAR * "*")
-            print("CABIN CREW MENU")
-            print("1 Search for a cabin crew member")
-            print("2 Print overview of cabin crew")
-            print("3 Create a new cabin crew member")
-            print("B Back")
-            print("Q Quit\n")
 
+        print(self.LENGTH_STAR * "*")
+        print()
+        print("CABIN CREW MENU")
+        print("1 Search for a cabin crew member")
+        print("2 Print overview of cabin crew")
+        print("3 Create a new cabin crew member")
+        print("B Back")
+        print()
+
+        action_str = self.choose_action()
+
+        if action_str == "1":
+            self.show_enter_name_to_search()
+        elif action_str == "2":
+            self.show_cabincrew_member_overview()
+        elif action_str == "3":
+            self.show_cabincrew_member_create_form()
+        elif action_str == "b":
+            return
+        else:
+            print("Invalid action!")
             action_str = self.choose_action()
-
-            if action_str == "1":
-                self.show_enter_name_to_search()
-            elif action_str == "2":
-                self.show_cabincrew_member_overview()
-            elif action_str == "3":
-                self.show_cabincrew_member_create_form()
-            elif action_str == "b":
-                return
-            else:
-                print("Invalid action!")
-                action_str = self.choose_action()
 
     def show_enter_name_to_search(self):
         """This prints the search for a cabin crew member window"""
