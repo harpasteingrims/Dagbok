@@ -133,7 +133,6 @@ class CabincrewUI():
         for member in cabin_crew_ob_list:
             print(f"{member.name}, {member.role}, {member.SSN}, {member.mobile_number}, {member.email}")
         
-        
         print("B Back\n")
 
         action_str = self.choose_action()

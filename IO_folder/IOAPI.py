@@ -5,7 +5,7 @@ from IO_folder.UpdateIO import UpdateIO
 class IOAPI():
     def __init__(self):
         self.get = GetIO()
-        self.create = CreateIO(self.get)
+        self.create = CreateIO()
         self.update = UpdateIO(self.get)
 
     """ EMPLOYEES """
