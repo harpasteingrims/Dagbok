@@ -14,10 +14,11 @@ class VoyagesUI():
     
     def show_voyage_menu(self):
         """This prints the voyage menu"""
-            
+
         action_str = ""
 
-        while action_str != "q":
+        while True:
+            print()
             print(self.LENGTH_STAR * "*")
             print("VOYAGE MENU")
             print()
@@ -25,7 +26,6 @@ class VoyagesUI():
             print("2 Create a voyage")
             print("3 Assign crew to flights")
             print("B Back")
-            print("Q Quit")
             print()
 
             action_str = input("Choose action: ").lower()

@@ -41,7 +41,6 @@ class EmployeesUI():
                 self.cabincrew .show_cabincrew_menu()
 
             elif action_str == "b":
-                action_str = ""
                 return
 
             else:
