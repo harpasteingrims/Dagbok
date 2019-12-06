@@ -14,13 +14,14 @@ class PilotsUI():
         '''This prints the pilot menu'''
 
         print(self.LENGTH_STAR * "*")
+        print()
         print("PILOT MENU")
         print("1 Search for a pilot")
         print("2 Print overview of pilots")
         print("3 Create a new pilot")
         print("B Back")
-        print("Q Quit\n")
-        action_str = ""
+        print()
+        
         action_str = self.choose_action()
     
         while action_str != "q":
