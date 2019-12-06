@@ -1,3 +1,4 @@
+
 class Voyage_crewModel(PilotModel):
 
     def assign_crew_to_voyage(self, voyage, captain, copilot, fsm, fa1, fa2):
