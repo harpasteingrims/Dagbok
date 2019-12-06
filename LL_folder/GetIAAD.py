@@ -11,6 +11,7 @@ class GetIAAD():
                 pass  #Hvernig er best að tengja saman employees og ferðirnar þeirra
 
     def list_unavailable_emp_by_date(self, user_input_date):
+        employee_list = self.ioapi.get_
         pass
 
     def list_airplane_status_by_date(self, user_input_date):
