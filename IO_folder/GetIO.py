@@ -1,8 +1,7 @@
 import csv
 import sys
-sys.path.insert(0, 'Documents\VERKLEGT-1-verkefni\models')
+sys.path.insert(0, 'Documents\VERKLEGT-1-verkefni\models') #Vorum að prufa þetta til að ná að importa models en þetta virkar ekki
 
-#from VERKLEGT-1-verkefni.models import models
 from models.CabinCrewModel import CabinCrewModel
 from models.AirplanesModel import AirplanesModel
 from models.DestinationsModel import DestinationsModel
@@ -46,8 +45,6 @@ class GetIO():
                 mobile_number = line[6]
                 email = line[7]
                 SSN, name, role, rank, plane_license, address, mobile_number, email = line.split(",")
-                #pilot = {}
-                #pilot[SSN] = [name, role, plane_license, address, mobile_number, email]
                 pilot = PilotsModel(SSN, name, role, rank, plane_license, address, mobile_number, email)
                 self.pilot_list.append(pilot)
         
@@ -110,6 +107,8 @@ class GetIO():
                 country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number = line.split(",")
                 destination = DestinationsModel(country ,airport ,flight_dur_from_Ice ,dist_from_Ice ,contact_name ,contact_phone_number)
                 self.destination_list.append(destination)
+                
+        dest_file.close()
 
         return self.destination_list  
     
