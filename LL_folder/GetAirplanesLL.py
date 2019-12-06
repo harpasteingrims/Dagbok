@@ -1,5 +1,5 @@
 import datetime
-#import dateutil.parser
+import dateutil.parser
 
 class GetAirplanesLL():
     def __init__(self, ioapi):
@@ -13,18 +13,16 @@ class GetAirplanesLL():
         airplane_list = self.ioapi.get_airplane_list()
         voyage_list = self.ioapi.get_all_voyages_list()
         for voyage_ob in voyage_list:
-            available_airplane_list = []
+            unavailable_airplane_list = []
             date = voyage_ob.date
             parsed_date = dateutil.parser.parse(date)
             if voyage_date.year == parsed_date.year and voyage_date.month == parsed_date.month and voyage_date.day == parsed_date.day:
-                available_airplane_list.append(voyage_ob.airplaneID)
+                unavailable_airplane_list.append(voyage_ob.aircraftID)
 
-        for elem in available_airplane_list:
-            if elem in airplane_list:
-                airplane_list.remove(elem)
-                
-                pass #Þarf ég að taka inn tímann hingað líka? Þarf ég að vita hvenær flugvélarnar eru almennt að lenda? Þarf ég að vita hvaða destination hann er að fara til upp á að flugvélin verði lent áður en hún þarf að fara aftur út? Hvernig geri ég þetta allt??
-        pass
+        for airplane_ob in airplane_list:
+            if airplane_ob.planeID in unavailable_airplane_list:
+                airplane_list.remove(airplane_ob.planeID)
+        return airplane_list
 
     #searched_pilot_info = []
 
