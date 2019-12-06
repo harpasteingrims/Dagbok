@@ -46,6 +46,7 @@ class GetEmployeesLL():
             if cabin_crew_object.name == name:
                 
                 common_crew_names.append(cabin_crew_object)
+                
         if len(common_crew_names) > 0:
             return common_crew_names
 
