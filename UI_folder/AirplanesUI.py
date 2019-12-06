@@ -21,7 +21,8 @@ class AirplanesUI():
         print("2 Create a new airplane")
         print("B Back")
         print()
-        action_str = self.choose_action()        
+        
+        action_str = self.choose_action()
 
         if action_str  == "1":
             self.show_airplane_overview()

@@ -23,6 +23,7 @@ class DestinationsUI():
         print("3 Get emergency contact")
         print("B Back")
         print()
+        
         action_str = self.choose_action()
 
         if action_str == "1":
