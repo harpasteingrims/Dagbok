@@ -1,14 +1,13 @@
-#from UI_folder.CabincrewUI import CabincrewUI
-#from UI_folder.PilotsUI import PilotsUI
-
+from UI_folder.CabincrewUI import CabincrewUI
+from UI_folder.PilotsUI import PilotsUI
 class EmployeesUI():
     LENGTH_STAR = 20
     
-    def __init__(self, cabincrew, pilots, llapi):
-        self.cabincrew = cabincrew
-        self.pilots = pilots
+    def __init__(self , llapi):
         self.llapi = llapi
-
+        self.cabincrew = CabincrewUI(llapi)
+        self.pilots = PilotsUI(llapi)
+        
     def choose_action(self):
         action_str = input("Choose action: ").lower()
         print()
