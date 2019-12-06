@@ -12,7 +12,7 @@ class GetAirplanesLL():
         for time_object in voyage_list:
             airplane_list = []
             if time_object.time == voyage_date:
-                pass #OMG þetta er alltof erfitt... Þarf ég að taka inn tímann hingað líka? Þarf ég að vita hvenær flugvélarnar eru almennt að lenda? Þarf ég að vita hvaða destination hann er að fara til upp á að flugvélin verði lent áður en hún þarf að fara aftur út? Hvernig geri ég þetta allt??
+                pass #Þarf ég að taka inn tímann hingað líka? Þarf ég að vita hvenær flugvélarnar eru almennt að lenda? Þarf ég að vita hvaða destination hann er að fara til upp á að flugvélin verði lent áður en hún þarf að fara aftur út? Hvernig geri ég þetta allt??
         pass
 
     #searched_pilot_info = []
@@ -24,3 +24,5 @@ class GetAirplanesLL():
                 # TODO handle if found
             #    pass
         # TODO handle if none is found
+
+        #hver flugvél flýgur bara einu sinni á dag, fá year month og day í sitthvoru

@@ -54,4 +54,4 @@ class UpdateIO:
             write = csv.DictWriter(csvfile, fieldnames = fieldnames)
             writer.writeheader()
         for elem in cabincrew_list:
-            if elem 
+            if elem

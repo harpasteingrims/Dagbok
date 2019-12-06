@@ -167,7 +167,7 @@ class GetIO():
                 fa1 = line[7]
                 fa2 = line[8]
                 date, time, destination, airplaneID = line.split(",")
-                voyage = VoyagesModel(date, time, destination, airplaneID)
+                voyage = VoyagesModel(date, destination, airplaneID)
                 voyage_with_crew = Voyage_crewModel(voyage,captain,copilot,fsm,fa1,fa2)
                 
                 self.voyages_list.append()
