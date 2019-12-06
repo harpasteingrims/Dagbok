@@ -43,9 +43,10 @@ class IAADUI():
         """This prints the menu for choosing date to get information about""" 
 
         print(self.LENGTH_STAR * "*")
+        print()
         print("INFORMATION ABOUT A DAY")
         print()
-        user_input_date = input("Enter a date: ")
+        user_input_date = input("Enter a date (dd/mm/yy): ")
         print()
 
         self.show_IAAD_menu(user_input_date)
