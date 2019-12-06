@@ -54,4 +54,7 @@ class UpdateIO:
             write = csv.DictWriter(csvfile, fieldnames = fieldnames)
             writer.writeheader()
         for elem in cabincrew_list:
-            if elem
+            if elem.ssn = update_cabincrew.SSN:
+                CreateIO(self.get).store_pilot(update_cabincrew)
+            else:
+                CreateIO(self.get)store_pilot(elem )
