@@ -1,6 +1,6 @@
 from IO_folder.GetIO import GetIO
+from IO_folder.IOAPI import IOAPI
 
 
-
-test = GetIO()
-test.load_all_employees()
+test = IOAPI
+test.get_list_of_all_employees()
