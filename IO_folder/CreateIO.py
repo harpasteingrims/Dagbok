@@ -11,7 +11,7 @@ class CreateIO():
     def __init__(self, get):
         self.get = get
         
-    def add_pilot(self, new_pilot):
+    def store_pilot(self, new_pilot):
         with open('Pilots.csv', 'a') as f:
             writer = csv.writer(f)
             writer.writerow(new_pilot.to_csv_string())
