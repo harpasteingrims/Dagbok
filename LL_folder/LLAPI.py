@@ -53,12 +53,21 @@ class LLAPI():
     def create_new_cabincrew(self):
         return self.createll.create_cabincrew()
 
+    def update_new_pilot_information(self):
+        return self.updatell.update_pilot_information()
+
+    def update_new_cabincrew_information(self):
+        return self.updatell.update_cabincrew_information()
+
     """DESTINATIONS"""
     def get_destination_overview(self): #Þessi listi þarf að vera númeraður
         return self.getdestinations.list_all_destinations()
 
     def create_new_destination(self):
         return self.createll.create_destination()
+
+    def update_new_emerg_contact(self):
+        return self.updatell.update_emergency_contact()
 
 
     """VOYAGES"""
