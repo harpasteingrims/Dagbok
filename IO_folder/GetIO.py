@@ -1,8 +1,8 @@
 import csv
 import sys
-sys.path.insert(1, '~/VERKLEGT-1-verkefni/')
+sys.path.insert(0, 'Documents\VERKLEGT-1-verkefni\models')
 
-
+#from VERKLEGT-1-verkefni.models import models
 from models.CabinCrewModel import CabinCrewModel
 from models.AirplanesModel import AirplanesModel
 from models.DestinationsModel import DestinationsModel
@@ -133,7 +133,7 @@ class GetIO():
 
 
     def load_all_voyages_with_crew(self):
-        voyages_file = open("Voyages.csv","r")
+        voyages_file = open("csv_files\Voyages.csv","r")
 
         counter = 1
         for line in voyages_file:
