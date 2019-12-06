@@ -18,6 +18,10 @@ class GetAirplanesLL():
             parsed_date = dateutil.parser.parse(date)
             if voyage_date.year == parsed_date.year and voyage_date.month == parsed_date.month and voyage_date.day == parsed_date.day:
                 available_airplane_list.append(voyage_ob.airplaneID)
+
+        for elem in available_airplane_list:
+            if elem in airplane_list:
+                airplane_list.remove(elem)
                 
                 pass #Þarf ég að taka inn tímann hingað líka? Þarf ég að vita hvenær flugvélarnar eru almennt að lenda? Þarf ég að vita hvaða destination hann er að fara til upp á að flugvélin verði lent áður en hún þarf að fara aftur út? Hvernig geri ég þetta allt??
         pass
