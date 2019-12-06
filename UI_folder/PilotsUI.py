@@ -18,8 +18,8 @@ class PilotsUI():
             print(self.LENGTH_STAR * "*")
             print("PILOT MENU")
             print()
-            print("1 Search for a pilot")
-            print("2 Print overview of pilots")
+            print("1 Print overview of pilots")
+            print("2 Search for a pilot")
             print("3 Create a new pilot")
             print("B Back")
             print()
@@ -27,10 +27,10 @@ class PilotsUI():
             action_str = self.choose_action()
         
             if action_str == "1":
-                self.show_enter_name_to_search()
+                self.show_pilots_overview()
 
             elif action_str == "2": 
-                self.show_pilots_overview()
+                self.show_enter_name_to_search()
 
             elif action_str == "3": 
                 self.show_pilot_create_form()
@@ -45,11 +45,18 @@ class PilotsUI():
         """This prints the search for a pilot window"""
 
         print(self.LENGTH_STAR * "*")
-        print("SEARCH FOR A PILOT")
+        print("SEARCH FOR A PILOT\n")
         
         name = input("Enter name of pilot: ").lower()
         print()
         
+        same_named_pilots = self.llapi.get_common_named_pilots_by_name(name)
+
+        counter = 1
+        for pilot_name in same_named_pilots:
+            print(f"{counter} {pilot_name.name}")
+            counter += 1
+
         pilot_info = self.llapi.get_info_about_pilot_by_name()
         print(pilot_info)
             #Name:

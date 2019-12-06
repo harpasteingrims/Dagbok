@@ -6,25 +6,28 @@ class GetEmployeesLL():
         
     def list_all_employees(self):
         """ Calls the IOAPI to get a list of all employees """
-        alist = self.ioapi.get_list_of_all_employees()
-        return alist
+        
+        return self.ioapi.get_list_of_all_employees()
 
     def list_all_pilots(self):
         """ Calls the IOAPI to get a list of all pilots """
+        
         return self.ioapi.get_list_of_all_pilots()
     
     def list_all_cabin_crew(self):
         """ Calls the IOAPI to get a list of the whole cabin crew """
-        return sorted(self.ioapi.get_list_of_all_cabin_crew())
+
+        return self.ioapi.get_list_of_all_cabin_crew()
     
     def find_common_named_pilots(self, name):
         common_pilot_names = []
         pilot_list = self.list_all_pilots()
         
         for pilot_object in pilot_list:
-            if pilot_object.name == name:
+            first_name, last_name =pilot_object.name.split()
+            if first_name.lower() == name.lower() or last_name.lower() == name.lower():
                 
-                common_pilot_names.append(pilot_object)
+                common_pilot_names.extend(pilot_object)
         
         if len(common_pilot_names) > 0:
             return common_pilot_names
