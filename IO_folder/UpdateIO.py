@@ -16,9 +16,9 @@ class UpdateIO:
 
         for elem in lis:
             if elem.airport == update_contact.airport:
-                CreateIO(self.get).add_destiantions(update_contact)
+                CreateIO(self.get).store_destiantions(update_contact)
             else:    
-                CreateIO(self.get).add_destiantions(elem)
+                CreateIO(self.get).store_destiantions(elem)
 
     def update_voyage(self, voyage_object):                    
         '''Updates a voyage'''
@@ -29,16 +29,16 @@ class UpdateIO:
             writer.writeheader()
         
         for elem in flights_list:
-            if elem.flightNumber == voyage_object.flightNumber:
-                CreateIO(self.get).add_voyage(voyage_object)
+            if elem.flightNumber == voyage_object.flight_number:
+                CreateIO(self.get).store_voyage(voyage_object)
             else:
-                CreateIO(self.get).add_voyage(elem)
+                CreateIO(self.get).store_voyage(elem)
 
     def update_pilot(self, update_pilot):
         ''' Updates a pilot '''
         pilot_list = GetIO.load_all_pilots()
-        with open("csv_files\Pilots.csv","w",newline=) as csvfile:
-            fieldnames = ["ssn","name","role","rank", "address", "mobile number", "email"]
+        with open("csv_files\Pilots.csv","w",newline="") as csvfile:
+            fieldnames = ["ssn","name","role","rank", "plane license","address", "mobile number", "email"]
             write = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
         for elem in pilot_list:
@@ -49,5 +49,9 @@ class UpdateIO:
         
     def update_cabincrew(self, update_cabincrew):
         cabincrew_list = GetIO.load_all_cabincrew()
-        with open("csv_files\CabinCrew.csv","w", newline=) as csvfile:
+        with open("csv_files\CabinCrew.csv","w", newline="") as csvfile:
             fieldnames = ["ssn","name","role","rank", "address", "mobile number", "email"]
+            write = csv.DictWriter(csvfile, fieldnames = fieldnames)
+            writer.writeheader()
+        for elem in cabincrew_list:
+            if elem
