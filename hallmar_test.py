@@ -3,4 +3,4 @@ from IO_folder.GetIO import GetIO
 
 
 test = GetIO()
-test.load_all_pilots()
+test.load_all_employees()

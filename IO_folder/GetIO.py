@@ -26,13 +26,15 @@ class GetIO():
 
         self.all_employee_list.extend(self.cabincrew_list)
         self.all_employee_list.extend(self.pilot_list)
+        print(self.all_employee_list)
         
 
-        return sorted(self.all_employee_list)
+        return self.all_employee_list
 
     def load_all_pilots(self):
         pilot_file = open("csv_files\Pilots.csv","r")
-        line = pilot_file.readlines()
+        
+        pilot_list = []
         
         counter = 1
         for line in pilot_file:
@@ -49,8 +51,8 @@ class GetIO():
                 email = line[7]
                 SSN, name, role, rank, plane_license, address, mobile_number, email = line.split(",")
                 pilot = PilotsModel(SSN, name, role, rank, plane_license, address, mobile_number, email)
-                self.pilot_list.append(pilot)
-        print(self.pilot_list)
+                pilot_list.append(pilot)
+        
 
         pilot_file.close()
         
