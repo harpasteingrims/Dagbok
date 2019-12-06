@@ -1,5 +1,6 @@
 from models.VoyagesModel import VoyagesModel
 from LL_folder.LLAPI import LLAPI
+import datetime
 
 class VoyagesUI():
     LENGTH_STAR = 20
@@ -102,11 +103,18 @@ class VoyagesUI():
         print(self.LENGTH_STAR*"*")
         print("CREATE A VOYAGE MANUALLY")
         print("\nDate")
-        voyage_date = input("Enter outbound departure date(dd/mm/yy): ")
+        print("Enter outbound departure date")
+        voyage_year = input("Enter year: ")
+        voyage_month = input("Enter month: ")
+        voyage_day = input("Enter day: ")
         print("\nTime")
         unavailable_time = self.llapi.get_unavailable_time_for_voyage() #Þetta prentar alla tímasetningar sem eru ekki í boði
         print(unavailable_time)
-        voyage_time = input("Enter outbound departure time(hh:mm): ")
+        print("Enter outbound departure time")
+        voyage_hour = input("Enter hour: ")
+        voyage_minute = input("Enter minute: ")
+        year, month, day, hour, minute = voyage_year, voyage_month, voyage_day, voyage_hour, voyage_minute
+        voyage_date = datetime.datetime(year, month, day, hour, minute, 0).isoformat()
         print("\nDestination")
         destinations = self.llapi.get_destination_overview() #Þetta prentar alla áfangastaði, þetta þarf að vera númerað
         print(destinations)

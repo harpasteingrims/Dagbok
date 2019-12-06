@@ -9,9 +9,10 @@ class GetAirplanesLL():
     def list_available_airplanes_by_date(self, voyage_date):
         airplane_list = self.ioapi.get_airplane_list()
         voyage_list = self.ioapi.get_all_voyages_list()
-        for time_object in voyage_list:
+        for date_ob in voyage_list:
             airplane_list = []
-            if time_object.time == voyage_date:
+            if date_ob.date == voyage_date:
+                if voyage_date.year, voyage_date.month, voyage_date.day == date_ob.date.year, date_ob.date.month, date_ob.date.day
                 pass #Þarf ég að taka inn tímann hingað líka? Þarf ég að vita hvenær flugvélarnar eru almennt að lenda? Þarf ég að vita hvaða destination hann er að fara til upp á að flugvélin verði lent áður en hún þarf að fara aftur út? Hvernig geri ég þetta allt??
         pass
 
