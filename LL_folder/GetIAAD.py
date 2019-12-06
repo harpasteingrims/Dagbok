@@ -30,7 +30,7 @@ class GetIAAD():
         #for airplane in airplane_list:
         #    available_planes_for_selected_day = []
             #if employee in (hvernig á ég að athuga allt staff á öllum ferðunum í listanum af objectum?)
-                available_planes_for_selected_day.append(airplane)
+                #available_planes_for_selected_day.append(airplane)
         #return available_planes_for_selected_day
         pass
 
