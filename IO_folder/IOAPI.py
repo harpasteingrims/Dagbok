@@ -11,7 +11,7 @@ class IOAPI():
     """ EMPLOYEES """
     def get_list_of_all_employees(self):
         """ Calls the class get to get a list of all employees """
-        employees = self.get_list_of_all_employees()
+        employees = GetIO.load_all_employees()
         return employees
 
     def get_list_of_all_pilots(self):

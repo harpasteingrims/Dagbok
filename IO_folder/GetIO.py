@@ -136,12 +136,11 @@ class GetIO():
                 counter +=1
             else:
                 date = line[0]
-                time = line[1]
-                destination = line[2]
-                airplaneID = line[3]
-                date, time, destination, airplaneID = line.split(",")
+                destination = line[1]
+                airplaneID = line[2]
+                date, destination, airplaneID = line.split(",")
         
-                voyages = VoyagesModel(date, time, destination, airplaneID)
+                voyages = VoyagesModel(date, destination, airplaneID)
                 self.voyages_list.append(voyages)
 
         voyages_file.close()
