@@ -13,18 +13,22 @@ class VoyagesUI():
     
     def show_voyage_menu(self):
         """This prints the voyage menu"""
-        
-        print(self.LENGTH_STAR * "*")
-        print("VOYAGE MENU")
-        print("1 Print overview of voyages")
-        print("2 Create a voyage")
-        print("3 Assign crew to flights")
-        print("B Back")
-        print("Q Quit")
             
-        action_str = self.choose_action()
-        
+        action_str = ""
+
         while action_str != "q":
+            print(self.LENGTH_STAR * "*")
+            print("VOYAGE MENU")
+            print()
+            print("1 Print overview of voyages")
+            print("2 Create a voyage")
+            print("3 Assign crew to flights")
+            print("B Back")
+            print("Q Quit")
+            print()
+
+            action_str = input("Choose action: ").lower()
+
             if action_str == "1":
                 self.show_voyage_overview()
             elif action_str == "2":
@@ -33,9 +37,8 @@ class VoyagesUI():
                 self.show_not_staffed_voyages()
             elif action_str == "b":
                 return
-            else:
-                print("Invalid action!")
-                action_str = self.choose_action()
+            #elif action_str == "q":
+            #    break
 
     def show_voyage_overview(self):
         """This prints the overview of all voyages"""

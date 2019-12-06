@@ -15,7 +15,6 @@ class IAADUI():
         """This prints the information about a date menu"""
             
         print(self.LENGTH_STAR * "*")
-        print("INFORMATION ABOUT A DAY")
         print("1 Available Employees")
         print("2 Unavailable Employees")
         print("3 Status of voyages")
@@ -45,6 +44,7 @@ class IAADUI():
 
         print(self.LENGTH_STAR * "*")
         print("INFORMATION ABOUT A DAY")
+        print()
         user_input_date = input("Enter a date: ")
         print()
 
@@ -74,7 +74,7 @@ class IAADUI():
             print("Invalid action!")
             action_str = self.choose_action()
 
-    def show_unavailable_employees(self, user_input_date):
+    def show_unavailable_employees(self, user_input_date): #Hérna þurfa að fylgja til hvaða áfangastaði starfsmennirnar eru að fara
         """This prints the unavailable employees on a certain day"""
 
         print(self.LENGTH_STAR * "*")

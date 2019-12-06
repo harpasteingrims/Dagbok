@@ -24,39 +24,41 @@ class UImanager():
         
     def mainmenuUI(self):
         #Just to start things up
-        run = True
+        #run = True
         
-        while run is True:
-            print("*" * self.LENGTH_STAR)
-            print("MAIN MENU\n\n1 Employees\n2 Voyages\n3 Destinations\n4 Airplanes\n5 Search a date\n")
+        #while run is True:
         
-            #Hérna vantar input check, break ef >5 og setja run í false
-            action = input("Choose action: ").lower()
+        action_str = ""
+
+        while action_str != "q":
+            print(self.LENGTH_STAR * "*")
+            print("MAIN MENU")
             print()
-            
-            if action == "1":
+            print("1 Employees")
+            print("2 Voyages")
+            print("3 Destinations")
+            print("4 Airplanes")
+            print("5 Search a date")
+            print("Q Quit")
+            print()
+    
+            #Hérna vantar input check, break ef >5 og setja run í false
+            action_str = input("Choose action: ").lower()
+        
+            if action_str == "1":
                 self.employees.show_employee_menu()
 
-            elif action == "2":
+            elif action_str == "2":
                 self.voyages.show_voyage_menu()
 
-            elif action == "3":
+            elif action_str == "3":
                 self.destinations.show_destination_menu()
 
-            elif action == "4":
+            elif action_str == "4":
                 self.airplanes.show_airplane_menu()
 
-            elif action == "5":
-                self.iaad.show_enter_date()
-            
-            elif action == "q" or action > 5:
-                run = False
-                break
-                
-            else:
-                print("Invalid action!")
-                action_str = self.choose_action()
-    
+            elif action_str == "5":
+                self.iaad.show_enter_date_menu()
 
 #def main():
 #    menu = MainmenuUI()
