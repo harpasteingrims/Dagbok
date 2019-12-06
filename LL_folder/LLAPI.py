@@ -29,27 +29,45 @@ class LLAPI():
     def get_cabin_crew_overview(self):
         return self.getemployees.list_all_cabin_crew()
 
-    def find_common_named_pilots_by_name(self,name):
+    def get_common_named_pilots_by_name(self,name):
         return self.getemployees.find_common_named_pilots(name)
     
     def get_info_about_pilot_by_name(self, name):
         return self.getemployees.list_info_about_pilot_by_name(name)
     
-    def find_common_named_cabincrew_by_name(self,name):
+    def get_common_named_cabincrew_by_name(self,name):
         return self.getemployees.find_common_named_cabincrew(name)
 
     def get_info_about_cabincrew_by_name(self, name):
-        self.getemployees.list_info_about_cabincrew_by_name(name)
+        return self.getemployees.list_info_about_cabincrew_by_name(name)
 
     def get_schedule_cabincrew_by_date(self, name, date_from, date_to):
-        pass
+        return self.getemployees.list_schedule_cabincrew_by_date(name, date_from, date_to)
 
     def get_schedule_pilot_by_date(self, name, date_from, date_to):
-        pass
+        return self.getemployees.list_schedule_pilot_by_date(name, date_from, date_to)
+
+    def create_new_pilot(self):
+        return self.createll.create_pilot()
+
+    def create_new_cabincrew(self):
+        return self.createll.create_cabincrew()
+
+    def update_new_pilot_information(self):
+        return self.updatell.update_pilot_information()
+
+    def update_new_cabincrew_information(self):
+        return self.updatell.update_cabincrew_information()
 
     """DESTINATIONS"""
     def get_destination_overview(self): #Þessi listi þarf að vera númeraður
         return self.getdestinations.list_all_destinations()
+
+    def create_new_destination(self):
+        return self.createll.create_destination()
+
+    def update_new_emerg_contact(self):
+        return self.updatell.update_emergency_contact()
 
 
     """VOYAGES"""
@@ -65,6 +83,12 @@ class LLAPI():
     def get_unavailable_time_for_voyage(self):
         return self.getvoyages.list_unavailable_voyage_time()
 
+    def create_new_voyage(self):
+        return self.createll.create_voyage()
+
+    def create_new_common_voyage(self):
+        return self.createll.create_common_voyage()
+
 
     """AIRPLANES"""
 
@@ -73,6 +97,9 @@ class LLAPI():
 
     def get_available_airplanes_by_date(self, voyage_date): #Þessi listi þarf að vera númeraður
         return self.getairplanes.list_available_airplanes_by_date(voyage_date)
+
+    def create_new_airplane(self):
+        return self.createll.create_airplane()
 
 
     """IAAD"""

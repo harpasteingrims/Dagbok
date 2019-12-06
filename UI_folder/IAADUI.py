@@ -74,7 +74,7 @@ class IAADUI():
             print("Invalid action!")
             action_str = self.choose_action()
 
-    def show_unavailable_employees(self, user_input_date):
+    def show_unavailable_employees(self, user_input_date): #Hérna þurfa að fylgja til hvaða áfangastaði starfsmennirnar eru að fara
         """This prints the unavailable employees on a certain day"""
 
         print(self.LENGTH_STAR * "*")
