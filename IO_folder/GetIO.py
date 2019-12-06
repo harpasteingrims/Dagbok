@@ -1,6 +1,6 @@
 import csv
 import sys
-sys.path.insert(0, 'Documents\VERKLEGT-1-verkefni\models') #Vorum að prufa þetta til að ná að importa models en þetta virkar ekki
+sys.path.insert(0, 'VERKLEGT-1-verkefni/models') #Vorum að prufa þetta til að ná að importa models en þetta virkar ekki
 
 from models.CabinCrewModel import CabinCrewModel
 from models.AirplanesModel import AirplanesModel
@@ -21,20 +21,16 @@ class GetIO():
 
     def load_all_employees(self):
 
-        self.pilot_list = self.load_all_pilots()
-        self.cabincrew_list = self.load_all_cabincrew()
+        pilot_list = self.load_all_pilots()
+        cabincrew_list = self.load_all_cabincrew()
 
-        self.all_employee_list.extend(self.cabincrew_list)
-        self.all_employee_list.extend(self.pilot_list)
-        print(self.all_employee_list)
-        
+        self.all_employee_list.extend(cabincrew_list)
+        self.all_employee_list.extend(pilot_list)
 
         return self.all_employee_list
 
     def load_all_pilots(self):
-        pilot_file = open("csv_files\Pilots.csv","r")
-        
-        pilot_list = []
+        pilot_file = open("./csv_files/Pilots.csv","r")
         
         counter = 1
         for line in pilot_file:
@@ -51,16 +47,15 @@ class GetIO():
                 email = line[7]
                 SSN, name, role, rank, plane_license, address, mobile_number, email = line.split(",")
                 pilot = PilotsModel(SSN, name, role, rank, plane_license, address, mobile_number, email)
-                pilot_list.append(pilot)
+                self.pilot_list.append(pilot)
         
 
         pilot_file.close()
         
-        
         return self.pilot_list
 
     def load_all_cabincrew(self):
-        crew_file = open("csv_files\CabinCrew.csv","r")
+        crew_file = open("./csv_files/CabinCrew.csv","r")
         
         counter = 1
         for line in crew_file:
@@ -84,7 +79,7 @@ class GetIO():
         
     def load_all_airplanes(self):
         '''Retrieves airplanes and sends to Get LL'''
-        airplane_file = open("csv_files\Aircraft.csv", "r")
+        airplane_file = open("./csv_files/Aircraft.csv", "r")
 
         counter = 1
         for line in airplane_file:
@@ -104,7 +99,7 @@ class GetIO():
         return self.airplane_list
 
     def load_all_destinations(self):
-        dest_file = open("csv_files\Destinations.csv", "r")
+        dest_file = open("./csv_files/Destinations.csv", "r")
 
         counter = 1
         for line in dest_file:
@@ -128,7 +123,7 @@ class GetIO():
         return self.destination_list  
     
     def load_all_voyages(self):
-        voyages_file = open("csv_files\Voyages.csv","r")
+        voyages_file = open("./csv_files/Voyages.csv","r")
 
         counter = 1
         for line in voyages_file:
@@ -149,7 +144,7 @@ class GetIO():
 
 
     def load_all_voyages_with_crew(self):
-        voyages_file = open("csv_files\Voyages.csv","r")
+        voyages_file = open("./csv_files/Voyages.csv","r")
 
         counter = 1
         for line in voyages_file:

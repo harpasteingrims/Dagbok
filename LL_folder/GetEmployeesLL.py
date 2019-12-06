@@ -6,7 +6,8 @@ class GetEmployeesLL():
         
     def list_all_employees(self):
         """ Calls the IOAPI to get a list of all employees """
-        return self.ioapi.get_list_of_all_employees()
+        alist = self.ioapi.get_list_of_all_employees()
+        return alist
 
     def list_all_pilots(self):
         """ Calls the IOAPI to get a list of all pilots """

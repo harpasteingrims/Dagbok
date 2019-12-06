@@ -9,10 +9,10 @@ class IOAPI():
         self.update = UpdateIO(self.get)
 
     """ EMPLOYEES """
-    def get_list_of_all_employees():
+    def get_list_of_all_employees(self):
         """ Calls the class get to get a list of all employees """
-        employees = GetIO.load_all_employees()
-        print(employees)
+        employees = self.get.load_all_employees()
+        
         return employees
 
     def get_list_of_all_pilots(self):
