@@ -10,10 +10,9 @@ class GetVoyagesLL():
     def list_not_staffed_voyages(self):
         voyages_list = self.ioapi.get_all_voyages_list()
         unmanned_list = []
-        for voyage in voyages_list:
-            #if len(voyage) < 6:
-            if voyage.captain not in voyage:
-                unmanned_list.append(voyage)
+        for voyage_ob in voyages_list:
+            if voyage_ob.captain not in voyage_ob:
+                unmanned_list.append(voyage_ob)
         
         return unmanned_list
 
