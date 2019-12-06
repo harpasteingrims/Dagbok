@@ -129,9 +129,10 @@ class PilotsUI():
         print(self.LENGTH_STAR * "*")
         print("OVERVIEW OF PILOTS\n")
         # Calls the class that makes a list of all pilots and prints it 
-        pilots = self.llapi.get_pilot_overview()
-        print(pilots)
-
+        pilots_ob_list = self.llapi.get_pilot_overview()
+        for pilot in pilots_ob_list:
+            print(f"{pilot.name}, {pilot.role}, {pilot.SSN}, {pilot.mobile_number}, {pilot.email}")
+        
         print("B Back\n")
 
         action_str = self.choose_action()

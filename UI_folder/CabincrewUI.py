@@ -128,8 +128,10 @@ class CabincrewUI():
         print(self.LENGTH_STAR * "*")
         print("OVERVIEW OF CABIN CREW\n")
         # Calls the class that makes a list of all cabin crew members and prints it 
-        cabin_crew = self.llapi.get_cabin_crew_overview()
-        print(cabin_crew)
+        cabin_crew_ob_list = self.llapi.get_cabin_crew_overview()
+        for member in cabin_crew_ob_list:
+            print(f"{member.name}, {member.role}, {member.SSN}, {member.mobile_number}, {member.email}")
+        
         
         print("B Back\n")
 
