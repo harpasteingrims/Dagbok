@@ -12,26 +12,26 @@ class CreateIO():
         self.get = get
         
     def store_pilot(self, new_pilot):
-        with open('Pilots.csv', 'a') as f:
+        with open('csv_files\Pilots.csv', 'a') as f:
             writer = csv.writer(f)
             writer.writerow(new_pilot.to_csv_string())
 
     def store_cabincrew(self, new_cabincrew):
-        with open('Pilots.csv', 'a') as f:
+        with open('csv_files\CabinCrew.csv', 'a') as f:
             writer = csv.writer(f)
             writer.writerow(new_cabincrew.to_csv_string())
         
     def store_airplane(self, new_airplane):
-        with open('Aircraft.csv', 'a') as f:
+        with open('csv_files\Aircraft.csv', 'a') as f:
             writer = csv.writer(f)
             writer.writerow(new_airplane.to_csv_string())
 
     def store_destiantions(self, new_destination):
-        with open('Destinations.csv', 'a') as f:
+        with open('csv_files\Destinations.csv', 'a') as f:
             writer = csv.writer(f)
             writer.writerow(new_destination.to_csv_string())
 
     def store_voyage(self, new_voyage):
-        with open('Voyages.csv', 'a') as f:
+        with open('csv_files\Flights.csv', 'a') as f:
             writer = csv.writer(f)
             writer.writerow(new_voyage.to_csv_string())
