@@ -24,41 +24,41 @@ class UImanager():
         
     def mainmenuUI(self):
         #Just to start things up
-        run = True
+        #run = True
         
-        while run is True:
-            
-            action_str = ""
-
-            while action_str != "q":
-                print(self.LENGTH_STAR * "*")
-                print("MAIN MENU")
-                print()
-                print("1 Employees")
-                print("2 Voyages")
-                print("3 Destinations")
-                print("4 Airplanes")
-                print("5 Search a date")
-                print("Q Quit")
-                print()
+        #while run is True:
         
-                #Hérna vantar input check, break ef >5 og setja run í false
-                action_str = input("Choose action: ").lower()
-            
-                if action_str == "1":
-                    self.employees.show_employee_menu()
+        action_str = ""
 
-                elif action_str == "2":
-                    self.voyages.show_voyage_menu()
+        while action_str != "q":
+            print(self.LENGTH_STAR * "*")
+            print("MAIN MENU")
+            print()
+            print("1 Employees")
+            print("2 Voyages")
+            print("3 Destinations")
+            print("4 Airplanes")
+            print("5 Search a date")
+            print("Q Quit")
+            print()
+    
+            #Hérna vantar input check, break ef >5 og setja run í false
+            action_str = input("Choose action: ").lower()
+        
+            if action_str == "1":
+                self.employees.show_employee_menu()
 
-                elif action_str == "3":
-                    self.destinations.show_destination_menu()
+            elif action_str == "2":
+                self.voyages.show_voyage_menu()
 
-                elif action_str == "4":
-                    self.airplanes.show_airplane_menu()
+            elif action_str == "3":
+                self.destinations.show_destination_menu()
 
-                elif action_str == "5":
-                    self.iaad.show_enter_date_menu()
+            elif action_str == "4":
+                self.airplanes.show_airplane_menu()
+
+            elif action_str == "5":
+                self.iaad.show_enter_date_menu()
 
 #def main():
 #    menu = MainmenuUI()
