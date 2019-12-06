@@ -143,29 +143,46 @@ class GetIO():
         return self.voyages_list
 
 
-    def load_all_voyages_with_crew(self):
-        voyages_file = open("./csv_files/Voyages.csv","r")
+    def load_all_voyages_with_crew():
+        voyages_file = open("./csv_files/Flights.csv","r")
+        flight_nr_from_ice_list = []
+        flight_nr_to_ice_list = []
+        departure_from_ice_list = []
+        arrival_to_ice_list = []
+        Aircraft_ID_list = []
+        captain_list = []
+        copilot_list = []
+        fsm_list = []
+        fa1_list = []
+        fa2_list = []
+        voyages_list = []
 
         counter = 1
         for line in voyages_file:
+            line = line.strip().split(",")
             if counter == 1:
                 counter +=1
-            else:
-                date = line[0]
-                time = line[1]
-                destination = line[2]
-                airplaneID = line[3]
-                captain = line[4]
-                copilot = line[5]
-                fsm = line[6]
-                fa1 = line[7]
-                fa2 = line[8]
-                date, time, destination, airplaneID = line.split(",")
-                voyage = VoyagesModel(date, destination, airplaneID)
+            elif counter % 2 == 0:
+                flight_nr_from_ice_list.append(line[0])
+                departure_from_ice_list.append(line[3])
+                Aircraft_ID_list.append(line[5])
+                captain_list.append(line[6])
+                copilot_list.append(line[7])
+                fsm_list.append(line[8])
+                fa1_list.append(line[9])
+                fa2_list.append(line[10])
+                
+            elif counter % 2 != 0 and counter != 1:
+                flight_nr_to_ice_list.append(line[0])
+                arrival_to_ice_list.append(line[4])
+
+        print(flight_nr_from_ice_list)
+
+
                 
                 
-                self.voyages_list.append()
+                
 
         voyages_file.close()
 
-        return self.voyages_list
+        return voyages_list
