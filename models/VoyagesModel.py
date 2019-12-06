@@ -1,12 +1,7 @@
 
 class VoyagesModel():
-<<<<<<< HEAD
-    def __init__(self, time, destination, airplaneID, copilot =[]):
-        self.time = time #hér erum við búin í LL-layer að nota datetime þar sem þetta formattast saman í year,month,day,hour,minute
-=======
     def __init__(self, date, destination, airplaneID):
         self.date = date #hér erum við búin í LL-layer að nota datetime þar sem þetta formattast saman í year,month,day,hour,minute
->>>>>>> d17f66c58c2d250b663a836efb9ffe19e1383a73
         self.destination = destination
         self.airplaneID = airplaneID
         self.crew_list = []

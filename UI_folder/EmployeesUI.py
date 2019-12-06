@@ -53,8 +53,9 @@ class EmployeesUI():
 
         print("OVERVIEW OF EMPLOYEES")
 
-        #employees = self.llapi.get_employee_overview() #Hérna kallar hann í fall í llapanum sem heitir get_employee_overview sem returnar lista yfir alla starfsmenn
-        #print(employees)
+        employees_ob_list = self.llapi.get_employee_overview() #Hérna kallar hann í fall í llapanum sem heitir get_employee_overview sem returnar lista yfir alla starfsmenn
+        for employee in employees_ob_list:
+            print(f"{employee.name}, {employee.role}, {employee.SSN}, {employee.mobile_number}, {employee.email}")
         
         print()
         print("B Back\n")

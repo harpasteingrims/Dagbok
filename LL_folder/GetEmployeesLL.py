@@ -6,11 +6,11 @@ class GetEmployeesLL():
         
     def list_all_employees(self):
         """ Calls the IOAPI to get a list of all employees """
-        return sorted(self.ioapi.get_list_of_all_employees())
+        return self.ioapi.get_list_of_all_employees()
 
     def list_all_pilots(self):
         """ Calls the IOAPI to get a list of all pilots """
-        return sorted(self.ioapi.get_list_of_all_pilots())
+        return self.ioapi.get_list_of_all_pilots()
     
     def list_all_cabin_crew(self):
         """ Calls the IOAPI to get a list of the whole cabin crew """
