@@ -20,7 +20,7 @@ class GetVoyagesLL():
     def list_all_common_voyages(self):
         pass
 
-    def list_unavailable_voyage_time(self):
+    def list_unavailable_voyage_time(self, voyage_year, voyage_month, voyage_day):
         voyages_list = self.ioapi.get_all_voyages_list
         unavailable_voyage_time_list = []
         for voyage in voyages_list:

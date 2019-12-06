@@ -80,8 +80,8 @@ class LLAPI():
     def get_common_voyages(self):
         return self.getvoyages.list_all_common_voyages()
 
-    def get_unavailable_time_for_voyage(self):
-        return self.getvoyages.list_unavailable_voyage_time()
+    def get_unavailable_time_for_voyage(self, voyage_year, voyage_month, voyage_day):
+        return self.getvoyages.list_unavailable_voyage_time(voyage_year, voyage_month, voyage_day)
 
     def create_new_voyage(self):
         return self.createll.create_voyage()

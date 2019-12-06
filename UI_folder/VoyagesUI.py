@@ -109,7 +109,7 @@ class VoyagesUI():
         voyage_month = input("Enter month: ")
         voyage_day = input("Enter day: ")
         print("\nTime")
-        unavailable_time = self.llapi.get_unavailable_time_for_voyage() #Þetta prentar alla tímasetningar sem eru ekki í boði
+        unavailable_time = self.llapi.get_unavailable_time_for_voyage(voyage_year, voyage_month, voyage_day) #Þetta prentar alla tímasetningar sem eru ekki í boði
         print(unavailable_time)
         print("Enter outbound departure time")
         voyage_hour = input("Enter hour: ")
