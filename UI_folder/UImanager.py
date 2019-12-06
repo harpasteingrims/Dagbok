@@ -22,12 +22,7 @@ class UImanager():
         self.destinations = DestinationsUI(self.llapi )
         self.airplanes = AirplanesUI(self.llapi)
         
-    def mainmenuUI(self):
-        #Just to start things up
-        #run = True
-        
-        #while run is True:
-        
+    def mainmenuUI(self):    
         action_str = ""
 
         while action_str != "q":
@@ -42,7 +37,6 @@ class UImanager():
             print("Q Quit")
             print()
     
-            #Hérna vantar input check, break ef >5 og setja run í false
             action_str = input("Choose action: ").lower()
         
             if action_str == "1":
