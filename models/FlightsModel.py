@@ -1,6 +1,7 @@
 class FlightsModel():
-    def __init__(self, flight_number, departing_from, arriving_at, departure_time, arrival_time, aircraftID, captain = "", copilot = "", fsm = "", fa1 = "", fa2 = ""):
-        self.flight_number = flight_number
+    def __init__(self, kef_flight_number, destination_flight_number, departing_from, arriving_at, departure_time, arrival_time, aircraftID, captain = "", copilot = "", fsm = "", fa1 = "", fa2 = ""):
+        self.kef_flight_number = kef_flight_number
+        self.destination_flight_number = destination_flight_number
         self.departing_from = departing_from
         self.arriving_at = arriving_at
         self.departure_time = departure_time
@@ -11,3 +12,16 @@ class FlightsModel():
         self.fsm = fsm
         self.fa1 = fa1
         self.fa2 = fa2
+
+    #Þurfum að bæta virkni hér við
+
+    def csv_voyage_to_string(self):
+        return f"{self.date},{self.destination},{self.aircraftID}"
+    
+    def assign_crew_to_voyage(self, captain, copilot, fsm, fa1, fa2):
+        staff_list = [captain, copilot, fsm, fa1, fa2]
+        self.crew_list.append(staff_list)
+        return self.crew_list
+
+    def csv_voyage_with_crew_to_string(self):
+        return f"{self.date}, {self.destination}, {self.aircraftID}, {self.crew_list[0]}, {self.crew_list[1]}, {self.crew_list[2]}, {self.crew_list[3]}, {self.crew_list[4]}, {self.crew_list[5]}"
