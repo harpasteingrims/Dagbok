@@ -28,6 +28,7 @@ class GetIO():
 
         self.all_employee_list.extend(self.cabincrew_list)
         self.all_employee_list.extend(self.pilot_list)
+        
 
         return sorted(self.all_employee_list)
 
@@ -53,8 +54,10 @@ class GetIO():
                 #pilot[SSN] = [name, role, plane_license, address, mobile_number, email]
                 pilot = PilotsModel(SSN, name, role, rank, plane_license, address, mobile_number, email)
                 self.pilot_list.append(pilot)
+        print(self.pilot_list)
 
         pilot_file.close()
+        
         
         return self.pilot_list
 
