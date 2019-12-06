@@ -26,6 +26,7 @@ class UImanager():
         action_str = ""
 
         while action_str != "q":
+            print()
             print(self.LENGTH_STAR * "*")
             print("MAIN MENU")
             print()

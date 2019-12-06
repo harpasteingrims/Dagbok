@@ -14,25 +14,28 @@ class AirplanesUI():
     def show_airplane_menu(self):
         """This prints the airplane menu"""
 
-        print(self.LENGTH_STAR * "*")
-        print()
-        print("AIRPLANE MENU")
-        print("1 Print overview of all airplanes")
-        print("2 Create a new airplane")
-        print("B Back")
-        print()
-        
-        action_str = self.choose_action()
+        action_str = ""
 
-        if action_str  == "1":
-            self.show_airplane_overview()
-        elif action_str == "2":
-            self.show_create_airplane_form()
-        elif action_str == "b":
-            return
-        else:
-            print("Invalid action!")
+        while True:
+            print()
+            print(self.LENGTH_STAR * "*")
+            print("AIRPLANE MENU")
+            print()
+            print("1 Print overview of all airplanes")
+            print("2 Create a new airplane")
+            print("B Back")
+            print()
+            
             action_str = self.choose_action()
+
+            if action_str  == "1":
+                self.show_airplane_overview()
+            elif action_str == "2":
+                self.show_create_airplane_form()
+            elif action_str == "b":
+                return
+            else:
+                print("Invalid action!")
 
     def show_airplane_overview(self):
         """This prints the overview of all airplanes"""
