@@ -53,9 +53,3 @@ class UImanager():
 
             elif action_str == "5":
                 self.iaad.show_enter_date_menu()
-
-#def main():
-#    menu = MainmenuUI()
-#    menu.show_main_menu()
-
-#main()
