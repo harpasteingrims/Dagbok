@@ -24,10 +24,10 @@ class GetEmployeesLL():
         pilot_list = self.list_all_pilots()
         
         for pilot_object in pilot_list:
-            first_name, last_name =pilot_object.name.split()
+            first_name, last_name = pilot_object.name.split()
             if first_name.lower() == name.lower() or last_name.lower() == name.lower():
                 
-                common_pilot_names.extend(pilot_object)
+                common_pilot_names.append(pilot_object)
         
         if len(common_pilot_names) > 0:
             return common_pilot_names

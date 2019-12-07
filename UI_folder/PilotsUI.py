@@ -53,11 +53,17 @@ class PilotsUI():
         same_named_pilots = self.llapi.get_common_named_pilots_by_name(name)
 
         counter = 1
-        for pilot_name in same_named_pilots:
-            print(f"{counter} {pilot_name.name}")
+        for pilot_object in same_named_pilots:
+            
+            if len(same_named_pilots) == 1:
+                print(pilot_object.print_pilot_info())
+            
+            else:
+                print(f"{counter} {pilot_name.name}")
             counter += 1
 
-        pilot_info = self.llapi.get_info_about_pilot_by_name()
+        number = input("Pick the right one: ")
+        pilot_info = self.llapi.get_info_about_pilot_by_name(name)
         print(pilot_info)
             #Name:
             #Role:
