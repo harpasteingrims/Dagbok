@@ -20,21 +20,40 @@ class LLAPI():
     
 
     """EMPLOYEES"""
+
     def get_employee_overview(self):
         return self.getemployees.list_all_employees() #Þetta kallar á klasann getemployees og fallið þar inni sem nær í alla employees
+    
+
+    """ PILOTS """
 
     def get_pilot_overview(self):
         return self.getemployees.list_all_pilots()
+        
+    def get_common_named_pilots_by_name(self,name):
+        return self.getemployees.find_common_named_pilots(name)
+    
+    def get_numbered_pilot_dict(self, pilot_list):
+        return self.getemployees.list_numbered_pilots(pilot_list)
+
+    def get_pilot_object_from_numbered_dict(self, numbered_pilot_dict, input_name):
+        return self.getemployees.get_pilot_object_from_numbered_dict(numbered_pilot_dict, input_name)
+
+    def get_schedule_pilot_by_date(self, name, date_from, date_to):
+        return self.getemployees.list_schedule_pilot_by_date(name, date_from, date_to)
+
+    def create_new_pilot(self):
+        return self.createll.create_pilot()
+    
+    def update_new_pilot_information(self):
+        return self.updatell.update_pilot_information()
+
+
+    """ CABIN CREW """
 
     def get_cabin_crew_overview(self):
         return self.getemployees.list_all_cabin_crew()
 
-    def get_common_named_pilots_by_name(self,name):
-        return self.getemployees.find_common_named_pilots(name)
-    
-    def get_numbered_pilot_list(self, pilot_list):
-        return self.getemployees.list_numbered_pilots(pilot_list) #Spurning afhverju við þurfum þettas
-    
     def get_common_named_cabincrew_by_name(self,name):
         return self.getemployees.find_common_named_cabincrew(name)
 
@@ -44,17 +63,10 @@ class LLAPI():
     def get_schedule_cabincrew_by_date(self, name, date_from, date_to):
         return self.getemployees.list_schedule_cabincrew_by_date(name, date_from, date_to)
 
-    def get_schedule_pilot_by_date(self, name, date_from, date_to):
-        return self.getemployees.list_schedule_pilot_by_date(name, date_from, date_to)
-
-    def create_new_pilot(self):
-        return self.createll.create_pilot()
-
     def create_new_cabincrew(self):
         return self.createll.create_cabincrew()
 
-    def update_new_pilot_information(self):
-        return self.updatell.update_pilot_information()
+    
 
     def update_new_cabincrew_information(self):
         return self.updatell.update_cabincrew_information()

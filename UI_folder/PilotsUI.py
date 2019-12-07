@@ -55,17 +55,20 @@ class PilotsUI():
         counter = 1
         
         if len(same_named_pilots) == 1:
-                print(same_named_pilots[0].print_pilot_info())
+            pilot_object = same_named_pilots[0]
+            print(pilot_object.print_pilot_info())
+                
         else:
  
-            numbered_pilot_dict = self.llapi.get_numbered_pilot_list(same_named_pilots)
+            numbered_pilot_dict = self.llapi.get_numbered_pilot_dict(same_named_pilots)
             for number, pilot_object in numbered_pilot_list.items():
                 print(f"{key} {pilot_object.name}")
 
-            number = input("\nPick the right one: ")
+            input_number = input("\nPick the right one: ")
             
+            pilot_object = self.llapi.get_pilot_object_from_numbered_dict(numbered_pilot_dict, input_name)
 
-        print("1 {}'s flight schedule").format(name)
+        print("1 {}'s flight schedule").format(pilot_object.name)
         print("2 Edit information about pilot \nB Back")
 
         action_str = self.choose_action()
