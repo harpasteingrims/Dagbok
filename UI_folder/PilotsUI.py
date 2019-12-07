@@ -41,17 +41,25 @@ class PilotsUI():
             else:
                 print("Invalid action!")  
 
+    def get_pilot_name(self):
+        name = input("Enter name of pilot: ").lower()
+        print()
+        same_named_pilots = self.llapi.get_common_named_pilots_by_name(name)
+        
+        return same_named_pilots
+
     def show_enter_name_to_search(self):
         """This prints the search for a pilot window"""
 
         print(self.LENGTH_STAR * "*")
         print("SEARCH FOR A PILOT\n")
         
-        name = input("Enter name of pilot: ").lower()
-        print()
+        same_named_pilots = self.get_pilot_name()
         
-        same_named_pilots = self.llapi.get_common_named_pilots_by_name(name)
-
+        if same_named_pilots == False:
+            print("Pilot does not exist")
+            same_named_pilots = self.get_pilot_name()
+        
         counter = 1
         
         if len(same_named_pilots) == 1:
@@ -68,8 +76,9 @@ class PilotsUI():
             
             pilot_object = self.llapi.get_pilot_object_from_numbered_dict(numbered_pilot_dict, input_name)
 
-        print("1 {}'s flight schedule").format(pilot_object.name)
-        print("2 Edit information about pilot \nB Back")
+        print(f"\n1 {pilot_object.name}'s flight schedule")
+        print("2 Edit information about pilot")
+        print("B Back")
 
         action_str = self.choose_action()
 
