@@ -53,25 +53,17 @@ class PilotsUI():
         same_named_pilots = self.llapi.get_common_named_pilots_by_name(name)
 
         counter = 1
-        for pilot_object in same_named_pilots:
-            
-            if len(same_named_pilots) == 1:
-                print(pilot_object.print_pilot_info())
-            
-            else:
-                print(f"{counter} {pilot_name.name}")
-            counter += 1
+        
+        if len(same_named_pilots) == 1:
+                print(same_named_pilots[0].print_pilot_info())
+        else:
+ 
+            numbered_pilot_dict = self.llapi.get_numbered_pilot_list(same_named_pilots)
+            for number, pilot_object in numbered_pilot_list.items():
+                print(f"{key} {pilot_object.name}")
 
-        number = input("Pick the right one: ")
-        pilot_info = self.llapi.get_info_about_pilot_by_name(name)
-        print(pilot_info)
-            #Name:
-            #Role:
-            #Social security number:
-            #Adress:
-            #Mobile number:
-            #Email:
-            #License type: 
+            number = input("\nPick the right one: ")
+            
 
         print("1 {}'s flight schedule").format(name)
         print("2 Edit information about pilot \nB Back")

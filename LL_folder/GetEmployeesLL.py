@@ -34,13 +34,18 @@ class GetEmployeesLL():
         else:
             return False
 
-    def list_info_about_pilot_by_name(self, name):
+    def get_numbered_pilot_list(self, pilot_list):
         """  """
-        pilot_list = self.list_all_pilots()
+        numbered_pilot_dict = {}
+        counter = 1
 
         for pilot_object in pilot_list:
-            if pilot.name == name:
-                return pilot_object
+                
+            numbered_pilot_dict[counter] = pilot_object
+
+            counter += 1
+
+        return numbered_pilot_dict
 
     def find_common_named_cabincrew(self,name):
         common_crew_names = []

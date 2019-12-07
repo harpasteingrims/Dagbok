@@ -32,8 +32,8 @@ class LLAPI():
     def get_common_named_pilots_by_name(self,name):
         return self.getemployees.find_common_named_pilots(name)
     
-    def get_info_about_pilot_by_name(self, name):
-        return self.getemployees.list_info_about_pilot_by_name(name)
+    def get_numbered_pilot_list(self, pilot_list):
+        return self.getemployees.list_numbered_pilots(pilot_list)
     
     def get_common_named_cabincrew_by_name(self,name):
         return self.getemployees.find_common_named_cabincrew(name)
