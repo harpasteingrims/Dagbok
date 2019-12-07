@@ -5,13 +5,18 @@ class PilotsUI():
     def __init__(self, llapi):
         self.llapi = llapi
 
+
     def choose_action(self):
+        """ Asks the user for an action and returns it """
+
         action_str = input("Choose action: ").lower()
         print()
+
         return action_str
 
+
     def show_pilot_menu(self):
-        '''This prints the pilot menu'''
+        """ Prints the pilot menu and calls appropriate functions or prints Invalid action"""
 
         while True:
             print()
@@ -41,12 +46,50 @@ class PilotsUI():
             else:
                 print("Invalid action!")  
 
-    def get_pilot_name(self):
-        name = input("Enter name of pilot: ").lower()
-        print()
-        same_named_pilots = self.llapi.get_common_named_pilots_by_name(name)
+
+    def show_pilots_overview(self):
+        """ Prints the overview of all pilots"""
         
-        return same_named_pilots
+        print(self.LENGTH_STAR * "*")
+        print("OVERVIEW OF PILOTS\n")
+        
+        pilots_ob_list = self.llapi.get_pilot_overview() # Calls the class that makes a list of all pilots and prints it
+        
+        for pilot in pilots_ob_list:
+            print(f"{pilot.name}, {pilot.role}, {pilot.SSN}, {pilot.mobile_number}, {pilot.email}")
+        
+        print("\nB Back\n")
+
+        action_str = self.choose_action()
+        
+        if action_str == "b":
+            return
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
+
+
+    def get_pilot_name_and_common_list(self):
+        input_name = input("Enter name of pilot: ").lower()
+        print()
+        same_named_pilots = self.llapi.get_common_named_pilots_by_name(input_name)
+        
+        return same_named_pilots, input_name
+
+
+    def get_number_from_user(self, numbered_pilot_dict):
+
+        input_number = input("\nChoose the number you want: ")
+
+        try:
+            if int(input_number) and int(input_number) in numbered_pilot_dict:
+                return int(input_number)
+        
+        except ValueError or False: 
+            print("Not a valid number!")
+            self.get_number_from_user(numbered_pilot_dict)
+
 
     def show_enter_name_to_search(self):
         """This prints the search for a pilot window"""
@@ -54,11 +97,11 @@ class PilotsUI():
         print(self.LENGTH_STAR * "*")
         print("SEARCH FOR A PILOT\n")
         
-        same_named_pilots = self.get_pilot_name()
+        same_named_pilots, input_name = self.get_pilot_name_and_common_list()
         
         if same_named_pilots == False:
             print("Pilot does not exist")
-            same_named_pilots = self.get_pilot_name()
+            same_named_pilots, input_name = self.get_pilot_name_and_common_list()
         
         counter = 1
         
@@ -69,33 +112,37 @@ class PilotsUI():
         else:
  
             numbered_pilot_dict = self.llapi.get_numbered_pilot_dict(same_named_pilots)
-            for number, pilot_object in numbered_pilot_list.items():
-                print(f"{key} {pilot_object.name}")
-
-            input_number = input("\nPick the right one: ")
             
-            pilot_object = self.llapi.get_pilot_object_from_numbered_dict(numbered_pilot_dict, input_name)
+            for number, pilot_object in numbered_pilot_dict.items():
+                print(f"{number} {pilot_object.name}")
 
-        print(f"\n1 {pilot_object.name}'s flight schedule")
+            input_number = int(self.get_number_from_user(numbered_pilot_dict))
+
+            pilot_object = self.llapi.get_pilot_object_from_numbered_dict(numbered_pilot_dict, input_number)
+            print(pilot_object.print_pilot_info())
+            print()
+
+        print(f"\n1{pilot_object.name}'s flight schedule")
         print("2 Edit information about pilot")
         print("B Back")
 
         action_str = self.choose_action()
 
         if action_str == "1":
-            self.show_flight_schedule_of_pilot(name)
+            self.show_flight_schedule_of_pilot(pilot_object)
 
         elif action_str == "2": 
-            self.show_pilot_edit_form(name)
+            self.show_pilot_edit_form(pilot_object)
 
         elif action_str == "b":
-            self.show_pilot_menu()
+            return
         
         else:
             print("Invalid action!")
             action_str = self.choose_action()
     
-    def show_flight_schedule_of_pilot(self, name):
+
+    def show_flight_schedule_of_pilot(self, pilot_object):
         """Calls a class that makes a list of their voyages and prints it"""
 
         date_from = input("Enter date from: ")
@@ -110,13 +157,14 @@ class PilotsUI():
         action_str = self.choose_action()
 
         if action_str == "b":
-            self.show_pilot_menu()
+            return
         
         else:
             print("Invalid action!")
             action_str = self.choose_action()
 
-    def show_pilot_edit_form(self, name):
+
+    def show_pilot_edit_form(self, pilot_object):
         """This prints the edit form for an employee"""
         
         print(self.LENGTH_STAR * "*")
@@ -140,31 +188,12 @@ class PilotsUI():
             self.show_pilot_menu()
 
         elif action_str == "b":
-            self.show_pilot_menu()
+            return
+
         else:
             print("Invalid action!")
             action_str = self.choose_action()
      
-    def show_pilots_overview(self):
-        """This prints the overview of all pilots"""
-
-        print(self.LENGTH_STAR * "*")
-        print("OVERVIEW OF PILOTS\n")
-        # Calls the class that makes a list of all pilots and prints it 
-        pilots_ob_list = self.llapi.get_pilot_overview()
-        for pilot in pilots_ob_list:
-            print(f"{pilot.name}, {pilot.role}, {pilot.SSN}, {pilot.mobile_number}, {pilot.email}")
-        
-        print("B Back\n")
-
-        action_str = self.choose_action()
-        
-        if action_str == "b":
-            self.show_pilot_menu()
-        
-        else:
-            print("Invalid action!")
-            action_str = self.choose_action()
     
     def show_pilot_create_form(self):
         """This prints the create a pilot form"""
@@ -192,7 +221,7 @@ class PilotsUI():
             self.show_pilot_menu()
 
         elif action_str == "b":
-            self.show_pilot_menu()
+            return
         
         else:
             print("Invalid action!")

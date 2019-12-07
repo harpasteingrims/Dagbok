@@ -34,7 +34,7 @@ class LLAPI():
         return self.getemployees.find_common_named_pilots(name)
     
     def get_numbered_pilot_dict(self, pilot_list):
-        return self.getemployees.list_numbered_pilots(pilot_list)
+        return self.getemployees.make_numbered_pilot_dict(pilot_list)
 
     def get_pilot_object_from_numbered_dict(self, numbered_pilot_dict, input_name):
         return self.getemployees.get_pilot_object_from_numbered_dict(numbered_pilot_dict, input_name)
