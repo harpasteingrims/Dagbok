@@ -71,6 +71,7 @@ class PilotsUI():
 
 
     def get_pilot_name_and_common_list(self):
+
         input_name = input("Enter name of pilot: ").lower()
         print()
         same_named_pilots = self.llapi.get_common_named_pilots_by_name(input_name)
@@ -79,11 +80,12 @@ class PilotsUI():
 
 
     def get_number_from_user(self, numbered_pilot_dict):
+        """ Gets an number from user and checks if it is right """
 
         input_number = input("\nChoose the number you want: ")
 
         try:
-            if int(input_number) and int(input_number) in numbered_pilot_dict:
+            if int(input_number) in numbered_pilot_dict:
                 return int(input_number)
         
         except ValueError or False: 
@@ -92,11 +94,11 @@ class PilotsUI():
 
 
     def show_enter_name_to_search(self):
-        """This prints the search for a pilot window"""
+        """ This prints the search for a pilot window """
 
         print(self.LENGTH_STAR * "*")
         print("SEARCH FOR A PILOT\n")
-        
+         
         same_named_pilots, input_name = self.get_pilot_name_and_common_list()
         
         if same_named_pilots == False:
@@ -144,14 +146,20 @@ class PilotsUI():
 
     def show_flight_schedule_of_pilot(self, pilot_object):
         """Calls a class that makes a list of their voyages and prints it"""
+        
+        # eftir að klára
 
         date_from = input("Enter date from: ")
         date_to = input("Enter date to: ")
 
         print(self.LENGTH_STAR * "*")
-        #print("{}'S FLIGHT SCHEDULE").format(name.upper())
-        flight_schedule = self.llapi.get_schedule_pilot_by_date()
-        #Herna þarf name ad fara inn
+        print(f"{pilot_object.name}'S FLIGHT SCHEDULE")
+
+        flights_object = self.llapi.get_schedule_pilot_by_date(pilot_object, date_from, date_to)
+        
+        #vantar kóða hér
+
+
         print("B Back")
 
         action_str = self.choose_action()
@@ -169,8 +177,10 @@ class PilotsUI():
         
         print(self.LENGTH_STAR * "*")
         print("EDIT PILOT")
-        # name, ssn, role.... = #calls the class to get the info of the pilot 
-        #print("You are changing the information for pilot: {}, {}".format(name, ssn))
+
+        print(pilot_object.print_pilot_info())
+
+        print(f"You are changing the information for pilot: {pilot_object.name}, {pilot_object.SSN}")
        
         new_address = input("Enter new address")
         new_mobile_number = input("Enter new mobile number: ")

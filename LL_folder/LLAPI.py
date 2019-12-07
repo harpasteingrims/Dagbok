@@ -39,8 +39,9 @@ class LLAPI():
     def get_pilot_object_from_numbered_dict(self, numbered_pilot_dict, input_name):
         return self.getemployees.get_pilot_object_from_numbered_dict(numbered_pilot_dict, input_name)
 
-    def get_schedule_pilot_by_date(self, name, date_from, date_to):
+    def get_schedule_pilot_by_date(self, pilot_object, date_from, date_to):
         return self.getemployees.list_schedule_pilot_by_date(name, date_from, date_to)
+        # eftir að klára
 
     def create_new_pilot(self):
         return self.createll.create_pilot()
@@ -65,8 +66,6 @@ class LLAPI():
 
     def create_new_cabincrew(self):
         return self.createll.create_cabincrew()
-
-    
 
     def update_new_cabincrew_information(self):
         return self.updatell.update_cabincrew_information()
