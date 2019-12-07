@@ -43,8 +43,9 @@ class AirplanesUI():
         print(self.LENGTH_STAR * "*")
         print("OVERVIEW OF AIRPLANES")
 
-        airplanes = self.llapi.get_airplanes_overwiew() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
-        print(airplanes)
+        airplanes_ob_list = self.llapi.get_airplanes_overview() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
+        for airplane_ob in airplanes_ob_list:
+            print(f"\n{airplane_ob.planeID},{airplane_ob.airplane_type},{airplane_ob.manufacturer},{airplane_ob.seat_amount}")
 
         print("B Back\n")
 

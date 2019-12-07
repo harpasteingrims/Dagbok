@@ -33,7 +33,7 @@ class LLAPI():
         return self.getemployees.find_common_named_pilots(name)
     
     def get_numbered_pilot_list(self, pilot_list):
-        return self.getemployees.list_numbered_pilots(pilot_list)
+        return self.getemployees.list_numbered_pilots(pilot_list) #Spurning afhverju við þurfum þettas
     
     def get_common_named_cabincrew_by_name(self,name):
         return self.getemployees.find_common_named_cabincrew(name)
