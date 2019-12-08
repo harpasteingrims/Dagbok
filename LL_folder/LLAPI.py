@@ -25,19 +25,26 @@ class LLAPI():
         return self.getemployees.list_all_employees() #Þetta kallar á klasann getemployees og fallið þar inni sem nær í alla employees
     
     def check_name(self,name):
-        pass
+        self.getemployees.check_name(name)
     
     def check_pilot_rank(self, rank):
-        pass
+        self.getemployees.check_pilot_rank(rank)
 
     def check_ssn(self, ssn):
-        pass
+        self.getemployees.check_ssn(ssn)
 
     def check_address(self, address):
-        pass
+        self.getemployees.check_address(address)
 
     def check_mobile_number(self, mobile_number):
-        pass
+        self.getemployees.check_mobile_number(mobile_number)
+    
+    def check_email(self,email):
+        self.getemployees.check_email(email)
+    
+    def check_license_type(self, license_type):
+        self.getemployees.check_license_type(liscense_type)
+        #þarf að klára í getempll
 
     """ PILOTS """
 

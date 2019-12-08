@@ -12,7 +12,7 @@ class GetIAAD():
         i = 0
         for employee_ob in employee_list:
             if employee_ob.name not in self.list_unavailable_emp_by_date(self, user_input_date)[i]:
-                available_employees_list.append([employee_ob.name, employee_ob.role)
+                available_employees_list.append([employee_ob.name, employee_ob.role])
                 i += 1
 
         #for employee in employee_list:

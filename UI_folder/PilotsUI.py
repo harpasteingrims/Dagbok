@@ -228,7 +228,7 @@ class PilotsUI():
             self.get_name()
 
 
-    def get_rank(self):
+    def get_pilot_rank(self):
         rank = input("Enter rank, either Captain or Copilot: ").capitalize()
         rank_check = self.llapi.check_pilot_rank(rank)
 
@@ -237,7 +237,8 @@ class PilotsUI():
         
         else:
             print("Invalid rank")
-            self.get_rank()
+            self.get_pilot_rank()
+
 
     def get_ssn(self):
         ssn = input("Enter social security number: ")
@@ -250,6 +251,7 @@ class PilotsUI():
             print("Invalid SSN")
             self.get_ssn()
     
+
     def get_address(self):
         address = input("Enter address in form; zip code address name house number: ").capitalize()
         address_check = self.llapi.check_address(address)
@@ -260,6 +262,7 @@ class PilotsUI():
         else:
             print("Invalid address")
             self.get_address()
+
 
     def get_mobile_number(self):
         mobile_number = input("Enter mobile number: ")
@@ -272,6 +275,7 @@ class PilotsUI():
             print("Invalid mobile_number")
             self.get_mobile_number()
     
+
     def get_email(self):
         email = input("Enter email: ").capitalize()
         email_check = self.llapi.check_email(email)
@@ -282,6 +286,7 @@ class PilotsUI():
         else:
             print("Invalid email")
             self.get_email()
+
 
     def get_license_type(self):
         license_type = input("Enter license type: ").capitalize()
@@ -294,6 +299,7 @@ class PilotsUI():
             print("Invalid license_type")
             self.get_license_type()
 
+
     def show_pilot_create_form(self):
         """ This prints the create a pilot form """
 
@@ -301,7 +307,7 @@ class PilotsUI():
         print("CREATE A NEW PILOT \n")
 
         name = self.get_name()
-        rank = self.get_rank()
+        rank = self.get_pilot_rank()
         ssn = self.get_ssn()
         address = self.get_address()
         mobile_number = self.get_mobile_number()
