@@ -31,8 +31,9 @@ class GetIAAD():
             unavailable_employees_list = []
             date = voyage_ob.date
             parsed_date = dateutil.parser.parse(date)
-            if user_input_date.year == parsed_date.year and user_input_date.month == parsed_date.month and user_input_date.day == parsed_date.day: #Hérna þyrftum við líka að tékka hvort almennt það eru starfsmenn á vélinni
-                unavailable_employees_list.append([voyage_ob.captain, voyage_ob.copilot, voyage_ob.fsm, voyage_ob.fa1, voyage_ob.fa2, voyage_ob.arriving_at])
+            if user_input_date.year == parsed_date.year and user_input_date.month == parsed_date.month and user_input_date.day == parsed_date.day:
+                if voyage_ob.captain != "":
+                    unavailable_employees_list.append([voyage_ob.captain, voyage_ob.copilot, voyage_ob.fsm, voyage_ob.fa1, voyage_ob.fa2, voyage_ob.arriving_at])
 
             return unavailable_employees_list
 
