@@ -1,3 +1,5 @@
+import datetime
+import dateutil.parser
 class GetIAAD():
     def __init__(self, ioapi):
         self.ioapi = ioapi
@@ -5,6 +7,10 @@ class GetIAAD():
     def list_available_emp_by_date(self, user_input_date):
         #employee_list = self.ioapi.get_list_of_all_employees()
         #voyage_list = self.list_voyages_status_by_date(self, user_input_date)
+        voyage_list = self.ioapi.get_all_voyages_list()
+
+        for voyage_ob in voyage_list:
+            pass
 
         #for employee in employee_list:
             #available_emps_for_selected_day = []
@@ -16,6 +22,14 @@ class GetIAAD():
     def list_unavailable_emp_by_date(self, user_input_date):
         #employee_list = self.ioapi.get_list_of_all_employees()
         #voyage_list = list_voyages_status_by_date(self, user_input_date)
+        voyage_list = self.ioapi.get_all_voyages_list()
+
+        for voyage_ob in voyage_list:
+            unavailable_employees_list = []
+            date = voyage_ob.date
+            parsed_date = dateutil.parser.parse(date)
+            if user_input_date.year == parsed_date.year and user_input_date.month == parsed_date.month and user_input_date.day == parsed_date.day:
+                unavailable_employees_list.append([voyage_ob.captain, voyage_ob.copilot, voyage_ob.fsm, voyage_ob.fa1, voyage_ob.fa2])
 
         #for employee in employee_list:
         #    available_emps_for_selected_day = []
