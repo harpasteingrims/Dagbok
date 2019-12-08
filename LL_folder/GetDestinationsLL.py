@@ -4,9 +4,12 @@ class GetDestinationsLL():
         
     def list_all_destinations(self):
         """ Calls the IOAPI to get a list of all destinations """
-        return sorted(self.ioapi.get_destination_list())
+        return self.ioapi.get_destination_list()
 
     def list_all_airports(self):
-        pass
+        destination_list = self.ioapi.get_destination_list()
+        airport_list = []
+        for destination_ob in destination_list:
+            airport_list.append(destination_ob.airport)
 
         

@@ -117,9 +117,9 @@ class VoyagesUI():
         year, month, day, hour, minute = voyage_year, voyage_month, voyage_day, voyage_hour, voyage_minute
         voyage_date = datetime.datetime(year, month, day, hour, minute, 0).isoformat()
         print("\nDestination")
-        destinations = self.llapi.get_destination_overview() #Þetta prentar alla áfangastaði, þetta þarf að vera númerað
-        print(destinations)
-        voyage_destination = input("Choose number of destination: ")
+        airports = self.llapi.get_airport_overview() #Þetta prentar alla áfangastaði, þetta þarf að vera númerað
+        print(airports)
+        voyage_airport = input("Choose number of airport: ")
         print("\nAirplane")
         available_airplanes = self.llapi.get_available_airplanes_by_date(voyage_date)
         print(available_airplanes)

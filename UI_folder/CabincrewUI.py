@@ -1,4 +1,5 @@
 from models.CabinCrewModel import CabinCrewModel
+import datetime
 class CabincrewUI():
     LENGTH_STAR = 20
     def __init__(self, llapi):
@@ -82,8 +83,18 @@ class CabincrewUI():
         """Calls a class that makes a list of their voyages and prints it"""
 
         print(self.LENGTH_STAR * "*")
-        data_from = input("Enter date from: ")
-        date_to = input("Enter date to: ")
+
+        print("Enter date from")
+        year_from = input("Enter year from: ")
+        month_from = input("Enter month from: ")
+        day_from = input("Enter day from: ")
+        date_from = datetime.datetime(year_from, month_from, day_from, 0, 0, 0).isoformat()
+
+        print("Enter date to")
+        year_to = input("Enter year to:")
+        month_to = input("Enter month to: ")
+        day_to = input("Enter day to: ")
+        date_to = datetime.datetime(year_to, month_to, day_to, 0, 0, 0).isoformat()
 
         #print("{}'S FLIGHT SCHEDULE").format(name.upper)
         cabincrew_schedule = self.llapi.get_schedule_pilot_by_date()
