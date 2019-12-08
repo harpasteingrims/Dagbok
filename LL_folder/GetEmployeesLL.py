@@ -4,6 +4,26 @@ class GetEmployeesLL():
         self.avaliable_employees = []
         self.unavaliable_employees = []
     
+    """ PILOTS AND CABIN CREW """
+    def make_numbered_employee_dict(self, object_list):
+        
+        numbered_employee_dict = {}
+        counter = 1
+
+        for employee_object in object_list:
+                
+            numbered_employee_dict[counter] = employee_object
+
+            counter += 1
+
+        return numbered_employee_dict
+
+
+    def get_employee_object_from_numbered_dict(self, numbered_employee_dict, input_number):
+        
+        for number, employee_object in numbered_employee_dict.items():
+            if number == input_number:
+                return employee_object
 
     """ EMPLOYEES """
 
@@ -32,6 +52,9 @@ class GetEmployeesLL():
 
     """ PILOTS """
 
+    
+
+
     def list_all_pilots(self):
         """ Calls the IOAPI to get a list of all pilots """
         
@@ -58,27 +81,6 @@ class GetEmployeesLL():
             return common_pilot_names
         else:
             return False
-
-
-    def make_numbered_pilot_dict(self, pilot_list):
-        
-        numbered_pilot_dict = {}
-        counter = 1
-
-        for pilot_object in pilot_list:
-                
-            numbered_pilot_dict[counter] = pilot_object
-
-            counter += 1
-
-        return numbered_pilot_dict
-
-
-    def get_pilot_object_from_numbered_dict(self, numbered_pilot_dict, input_number):
-        
-        for number, pilot_object in numbered_pilot_dict.items():
-            if number == input_number:
-                return pilot_object
     
     
     def list_schedule_pilot_by_date(self, pilot_object, date_from, date_to):
@@ -94,7 +96,21 @@ class GetEmployeesLL():
     def list_available_pilots(self):
         pass
 
-    
+    def check_name(self,name):
+
+        if len(name) < 40: 
+            return name
+        
+        else:
+            return False
+
+    def check_role(self, role):
+        pass
+
+    def check_ssn(self, ssn):
+        pass
+
+
     """ CABIN CREW """
 
     def find_common_named_cabincrew(self,name):

@@ -83,6 +83,7 @@ class PilotsUI():
         """ Gets an number from user and checks if it is right """
 
         input_number = input("\nChoose the number you want: ")
+        print()
 
         try:
             if int(input_number) in numbered_pilot_dict:
@@ -113,14 +114,14 @@ class PilotsUI():
                 
         else:
  
-            numbered_pilot_dict = self.llapi.get_numbered_pilot_dict(same_named_pilots)
+            numbered_pilot_dict = self.llapi.get_numbered_employee_dict(same_named_pilots)
             
             for number, pilot_object in numbered_pilot_dict.items():
                 print(f"{number} {pilot_object.name}")
 
             input_number = int(self.get_number_from_user(numbered_pilot_dict))
 
-            pilot_object = self.llapi.get_pilot_object_from_numbered_dict(numbered_pilot_dict, input_number)
+            pilot_object = self.llapi.get_employee_object_from_numbered_dict(numbered_pilot_dict, input_number)
             print(pilot_object.print_pilot_info())
             print()
 
@@ -210,13 +211,13 @@ class PilotsUI():
 
         print(self.LENGTH_STAR * "*")
         print("CREATE A NEW PILOT \n")
-        name = input("Enter full name: ")
-        role = input("Enter role: ")
-        ssn = input("Enter social security number: ")
-        address = input("Enter address: ")
-        mobile_number = input("Enter mobile number: ")
-        email = input("Enter email: ")
-        license_type = input("Enter license type: ")
+        name = input("Enter full name: ").lower()
+        role = input("Enter role: ").lower()
+        ssn = input("Enter social security number: ").lower()
+        address = input("Enter address: ").lower()
+        mobile_number = input("Enter mobile number: ").lower()
+        email = input("Enter email: ").lower()
+        license_type = input("Enter license type: ").lower()
         
         print("\nS Save \nB Back\n")
 

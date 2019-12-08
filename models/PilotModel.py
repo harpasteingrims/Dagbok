@@ -14,3 +14,5 @@ class PilotsModel():
 
     def print_pilot_info(self):
         return f"Name: {self.name} \nRole: {self.role} \nSSN: {self.SSN} \nAdress: {self.address} \nMobile number: {self.mobile_number} \nEmail:{self.email}License type: {self.license_type}"
+
+

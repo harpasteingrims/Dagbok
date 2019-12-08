@@ -33,11 +33,11 @@ class LLAPI():
     def get_common_named_pilots_by_name(self,name):
         return self.getemployees.find_common_named_pilots(name)
     
-    def get_numbered_pilot_dict(self, pilot_list):
-        return self.getemployees.make_numbered_pilot_dict(pilot_list)
+    def get_numbered_employee_dict(self, pilot_list):
+        return self.getemployees.make_numbered_employee_dict(pilot_list)
 
-    def get_pilot_object_from_numbered_dict(self, numbered_pilot_dict, input_name):
-        return self.getemployees.get_pilot_object_from_numbered_dict(numbered_pilot_dict, input_name)
+    def get_employee_object_from_numbered_dict(self, numbered_pilot_dict, input_name):
+        return self.getemployees.get_employee_object_from_numbered_dict(numbered_pilot_dict, input_name)
 
     def get_schedule_pilot_by_date(self, pilot_object, date_from, date_to):
         return self.getemployees.list_schedule_pilot_by_date(name, date_from, date_to)
