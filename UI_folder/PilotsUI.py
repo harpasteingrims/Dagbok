@@ -223,7 +223,7 @@ class PilotsUI():
         print(self.LENGTH_STAR * "*")
         print("CREATE A NEW PILOT \n")
 
-        name = input("Enter full name: ").capitalize()
+        name = input("Enter full name: ").capitalize() #Hvað gerir .capitalize() ?
         rank = input("Enter rank, either Captain or Copilot: ").capitalize()
         ssn = input("Enter social security number: ").capitalize()
         address = input("Enter address in form; zip code, address name, house number: ").capitalize()
