@@ -78,8 +78,9 @@ class CabincrewUI():
         else:
             print("Invalid action!")
             action_str = self.choose_action()
+        return name
 
-    def show_flight_schedule_of_cabincrew_member(self):
+    def show_flight_schedule_of_cabincrew_member(self, name):
         """Calls a class that makes a list of their voyages and prints it"""
 
         print(self.LENGTH_STAR * "*")
@@ -94,10 +95,10 @@ class CabincrewUI():
         year_to = input("Enter year to:")
         month_to = input("Enter month to: ")
         day_to = input("Enter day to: ")
-        date_to = datetime.datetime(year_to, month_to, day_to, 0, 0, 0).isoformat()
+        date_to = datetime.datetime(year_to, month_to, day_to, 23, 59, 0).isoformat()
 
-        #print("{}'S FLIGHT SCHEDULE").format(name.upper)
-        cabincrew_schedule = self.llapi.get_schedule_pilot_by_date()
+        print("{}'S FLIGHT SCHEDULE").format(name.upper())
+        cabincrew_schedule = self.llapi.get_schedule_cabincrew_by_date(date_from, date_to)
         print(cabincrew_schedule)
 
         print("B Back")

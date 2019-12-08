@@ -1,4 +1,5 @@
 from models.PilotModel import PilotsModel
+import datetime
 class PilotsUI():
     LENGTH_STAR = 20
 
@@ -150,8 +151,18 @@ class PilotsUI():
         
         # eftir að klára
 
-        date_from = input("Enter date from: ")
-        date_to = input("Enter date to: ")
+        print("Enter date from")
+        year_from = input("Enter year from: ")
+        month_from = input("Enter month from: ")
+        day_from = input("Enter day from: ")
+        date_from = datetime.datetime(year_from, month_from, day_from, 0, 0, 0).isoformat()
+
+        print("Enter date to")
+        year_to = input("Enter year to:")
+        month_to = input("Enter month to: ")
+        day_to = input("Enter day to: ")
+        date_to = datetime.datetime(year_to, month_to, day_to, 23, 59, 0).isoformat()
+
 
         print(self.LENGTH_STAR * "*")
         print(f"{pilot_object.name}'S FLIGHT SCHEDULE")
