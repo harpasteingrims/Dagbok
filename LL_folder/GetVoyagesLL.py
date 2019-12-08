@@ -12,7 +12,7 @@ class GetVoyagesLL():
         voyages_list = self.ioapi.get_all_voyages_list()
         unmanned_list = []
         for voyage_ob in voyages_list:
-            if voyage_ob.captain not in voyage_ob:
+            if voyage_ob.captain == "":
                 unmanned_list.append(voyage_ob)
         
         return unmanned_list

@@ -135,7 +135,7 @@ class VoyagesUI():
             new_voyage = VoyagesModel(voyage_date, voyage_time, voyage_airport, voyage_airplane)
             #self.voyage.create_voyage(new_voyage)
             #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
-            self.show_assign_staff_form(voyage_date)
+            self.show_assign_staff_form(voyage_date, new_voyage)
 
         elif action_str == "s":
             #Takes the info and adds it to the voyage list
@@ -152,7 +152,7 @@ class VoyagesUI():
             print("Invalid action!")
             action_str = self.choose_action()
 
-    def show_assign_staff_form(self, voyage_date):
+    def show_assign_staff_form(self, voyage_date, voyage):
         """This prints the form to assign a staff to a voyage"""
         
         print(self.LENGTH_STAR*"*")
@@ -163,9 +163,12 @@ class VoyagesUI():
         for employee_ob in available_employess_ob_list:
             print(f"\n{employee_ob.name}, {employee_ob.role}")
 
-        pilot = input("Enter a pilot: ")
+        captain = input("Enter full name of captain: ")
+        copilot = input("Enter full name of copilot: ")
 
-        cabincrew = input("Enter a cabin crew member: ")
+        senior_cabincrew_member = input("Enter full name of senior cabin crew member: ")
+        cabincrew_member_1 = input("Enter full name of cabincrew member #1: ")
+        cabincrew_member_2 = input("Enter full name of cabincrew member #2: ")
         
         print()
         
@@ -176,8 +179,11 @@ class VoyagesUI():
         
         print(self.LENGTH_STAR*"*")
         print("NOT FULLY STAFFED VOYAGES")
-        not_staffed = self.llapi.get_not_staffed_voyages() #Þessi listi þarf að vera númeraður
-        print(not_staffed)
+        not_staffed_ob_list = self.llapi.get_not_staffed_voyages() #Þessi listi þarf að vera númeraður
+        counter = 1
+        for voyage_ob in not_staffed_ob_list:
+            print(f"\n{counter}{voyage_ob.departure_time}, {voyage_ob.arriving_at}, {voyage_ob.aircraftID}")
+            counter += 1
         voyage_str = input("Choose a voyage")
         self.show_assign_staff_form() #Hérna fer ég með voyage_str í fallið
         
