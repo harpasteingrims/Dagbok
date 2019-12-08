@@ -18,7 +18,20 @@ class GetVoyagesLL():
         return unmanned_list
 
     def list_all_common_voyages(self):
-        pass
+        voyages_list = self.ioapi.get_all_voyages_list()
+        counter = 0
+        common_voyages_list = []
+        for voyage_ob in voyages_list:
+            destination = voyage_ob.arriving_at
+            departure_time = voyage_ob.departure_time
+            for voyage_object in voyages_list:
+                if voyage_object.arriving_at == destination and voyage_object.departure_time == departure_time:
+                    counter += 1
+            if counter > 2:
+                common_voyages_list.append([destination, departure_time])
+            counter = 0
+
+        return common_voyages_list
 
     def list_unavailable_voyage_time(self, voyage_year, voyage_month, voyage_day):
         voyages_list = self.ioapi.get_all_voyages_list
