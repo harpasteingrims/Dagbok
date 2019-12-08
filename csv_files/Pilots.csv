@@ -1,14 +1,14 @@
-ssn,name,role,rank,plane_license,address,mobile number,email
-3009907461, William Carillo, Pilot, SamPrecc, NAFokkerF100, 200 Lundur 8, 8950395, WilliamCa@gmail.com
-2910858778, Virginia Ho, Pilot, Captain, NABAE146, 200 Birkigrund 5, 7612431, HoVirginia@gmail.com
-2706838569,Gerard Nelson, Pilot, Captain, NAFokkerF100, 102 Stórhöfði 2, 8760098, GerardNel1@gmail.com 
-2209955782, Allen Ley, Pilot, Captain, NABAE146, 103 Háaleitisbraut 13,  7789056, LeyAllen3@gmail.com
-2907675667, Felecia Moye, Pilot, Captain, NABAE146, 109 Þönglabakki 20, 8104936, FeleciaMo9@gmail.com
-1309797899, Tyler Anderson, Pilot, Captain, NAFokkerF28, 112 Hverafold 2, 7970649, TyAnderson@gmail.com
-2410876598, Nan Gage, Pilot, Copilot, NAFokkerF100,  220 Fjarðargata 11, 7640926, NanGage12@gmail.com
-2211658134, Charla Johnson, Pilot, Copilot, NABAE146, 210 Litlatún 3, 8173057, CharlaJohns@gmail.com
-2504939263, Sam Preciado, Pilot, Copilot, NABAE146, 201 Dalvegur 17, 8121436, SamPrecc@gmail.com
-1900769521, Jasmine Hagadone, Pilot, Copilot, NABAE146, 201 Haukalind 5, 6597646, JasmineHagad@gmail.com
-2500812671, Anna Phillips, Pilot, Copilot, NAFokkerF28, 200 Digranesvegur 24, 6670351, AnnaPhills@gmail.com
-1309927223, Patricia Bates, Pilot, Copilot, NAFokkerF28, 270 Háholt 8, 6680482, PatriciaBates99@gmail.com
-1807894119, Anna Page, Pilot, Captain, NAFokkerF28, 220 Öldugata 17, 8984232, AnnaPage@gmail.com
+ssn, name, role, plane_license, address, mobile number, email
+3009907461, William Carillo, Captain, NAFokkerF100, 200 Lundur 8, 8950395, WilliamCa@gmail.com
+2910858778, Virginia Ho, Captain, NABAE146, 200 Birkigrund 5, 7612431, HoVirginia@gmail.com
+2706838569,Gerard Nelson, Captain, NAFokkerF100, 102 Stórhöfði 2, 8760098, GerardNel1@gmail.com 
+2209955782, Allen Ley, Captain, NABAE146, 103 Háaleitisbraut 13,  7789056, LeyAllen3@gmail.com
+2907675667, Felecia Moye, Captain, NABAE146, 109 Þönglabakki 20, 8104936, FeleciaMo9@gmail.com
+1309797899, Tyler Anderson, Captain, NAFokkerF28, 112 Hverafold 2, 7970649, TyAnderson@gmail.com
+2410876598, Nan Gage, Copilot, NAFokkerF100,  220 Fjarðargata 11, 7640926, NanGage12@gmail.com
+2211658134, Charla Johnson, Copilot, NABAE146, 210 Litlatún 3, 8173057, CharlaJohns@gmail.com
+2504939263, Sam Preciado, Copilot, NABAE146, 201 Dalvegur 17, 8121436, SamPrecc@gmail.com
+1900769521, Jasmine Hagadone, Copilot, NABAE146, 201 Haukalind 5, 6597646, JasmineHagad@gmail.com
+2500812671, Anna Phillips, Copilot, NAFokkerF28, 200 Digranesvegur 24, 6670351, AnnaPhills@gmail.com
+1309927223, Patricia Bates, Copilot, NAFokkerF28, 270 Háholt 8, 6680482, PatriciaBates99@gmail.com
+1807894119, Anna Page, Captain, NAFokkerF28, 220 Öldugata 17, 8984232, AnnaPage@gmail.com

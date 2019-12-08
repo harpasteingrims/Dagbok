@@ -96,6 +96,11 @@ class GetEmployeesLL():
     def list_available_pilots(self):
         pass
 
+
+
+    """ CHECKING INOPUT """
+
+
     def check_name(self,name):
 
         if len(name) < 40: 
@@ -104,11 +109,26 @@ class GetEmployeesLL():
         else:
             return False
 
+
     def check_role(self, role):
-        pass
+
+        if role in ["Captain", "Copilot"]:
+            return role
+        
+        else:
+            return False
+        
 
     def check_ssn(self, ssn):
-        pass
+        
+        if len(ssn) == 10:
+            first_six, last_four = ssn.split()
+            try:
+                
+
+
+
+
 
 
     """ CABIN CREW """

@@ -207,17 +207,18 @@ class PilotsUI():
      
     
     def show_pilot_create_form(self):
-        """This prints the create a pilot form"""
+        """ This prints the create a pilot form """
 
         print(self.LENGTH_STAR * "*")
         print("CREATE A NEW PILOT \n")
-        name = input("Enter full name: ").lower()
-        role = input("Enter role: ").lower()
-        ssn = input("Enter social security number: ").lower()
-        address = input("Enter address: ").lower()
-        mobile_number = input("Enter mobile number: ").lower()
-        email = input("Enter email: ").lower()
-        license_type = input("Enter license type: ").lower()
+
+        name = input("Enter full name: ").capitalize()
+        role = input("Enter role, either Captain or Copilot: ").capitalize()
+        ssn = input("Enter social security number: ").capitalize()
+        address = input("Enter address, : ").capitalize()
+        mobile_number = input("Enter mobile number: ").capitalize()
+        email = input("Enter email: ").capitalize()
+        license_type = input("Enter license type: ").capitalize()
         
         print("\nS Save \nB Back\n")
 
