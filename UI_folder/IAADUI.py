@@ -1,4 +1,5 @@
 from LL_folder.LLAPI import LLAPI
+import datetime
 
 class IAADUI():
     LENGTH_STAR = 20
@@ -53,8 +54,12 @@ class IAADUI():
         print(self.LENGTH_STAR * "*")
         print("INFORMATION ABOUT A DAY")
         print()
-        user_input_date = input("Enter a date (dd/mm/yy): ")
+        iaad_year = input("Enter year: ")
+        iaad_month = input("Enter month: ")
+        iaad_day = input("Enter day: ")
         print()
+        year, month, day = iaad_year, iaad_month, iaad_day
+        user_input_date = datetime.datetime(year, month, day, 0, 0, 0).isoformat()
 
         self.show_IAAD_menu(user_input_date)
         """ This prints out, input date """
