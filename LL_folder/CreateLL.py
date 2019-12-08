@@ -21,7 +21,7 @@ class CreateLL():
         pilot_role = check_pilot_role(new_pilot.role)
         address = check_address(new_pilot.address)
         mobile_number = check_mobile_number(new_pilot.mobile_number)
-        email_address = check_email_address.(new_pilot.email)
+        email_address = check_email_address(new_pilot.email)
 
         new_pilot_list = [name, SSN, pilot_role, address, mobile_number, email_address] #vantar check_email_address í GetEmployeesLL sýndist mér
         #nú er ég komin með lista af öllu sem LLAPI sendi mér EN er búin að input checka allt saman og þá get ég sent það í IO
