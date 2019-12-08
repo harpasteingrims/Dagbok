@@ -100,7 +100,7 @@ class GetEmployeesLL():
 
     """ CHECKING INOPUT """
 
-
+    
     def check_name(self,name):
 
         if len(name) < 40 and name.isalpha() : 
@@ -135,10 +135,20 @@ class GetEmployeesLL():
                 return False
     
     def check_address(self, address):
-        if adress
+        zip_code, address_name, house_number = address.split(", ")
 
+        if len(zip_code) == 3 and zip_code.isdigit() and adress_name.isalpha() and house_number.isdigit():
+            return address
+        
+        else: 
+            return False
 
+    def check_mobile_number(self, mobile_number):
+        if len(mobile_number) == 6 and mobile_number.isdigit():
+            return mobile_number
 
+        else:
+            return False
 
     """ CABIN CREW """
 

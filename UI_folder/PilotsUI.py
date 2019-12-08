@@ -215,7 +215,7 @@ class PilotsUI():
         name = input("Enter full name: ").capitalize()
         rank = input("Enter rank, either Captain or Copilot: ").capitalize()
         ssn = input("Enter social security number: ").capitalize()
-        address = input("Enter address in form; zip code address name and house number : ").capitalize()
+        address = input("Enter address in form; zip code, address name, house number: ").capitalize()
         mobile_number = input("Enter mobile number: ").capitalize()
         email = input("Enter email: ").capitalize()
         license_type = input("Enter license type: ").capitalize()
