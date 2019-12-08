@@ -87,7 +87,7 @@ class VoyagesUI():
         print("SEE COMMON VOYAGES")
         self.llapi.get_common_voyages() #Þessi listi þarf að vera númeraður
         common_voyage = input("Choose a common voyage: ") #Þetta fer inní create a common voyage fallið
-        #Hér þarf að vera einhver counter kóði eins og í emergency contact destinations :/
+        #Hér þarf að vera einhver counter kóði eins og í emergency contact destinations :)
 
     def show_create_a_common_voyage_form(self):
         """This creates a voyage from the common voyages but with a new date and a new id"""
@@ -132,15 +132,15 @@ class VoyagesUI():
         if action_str == "1":
             #Takes the info and adds it to the voyage list
             print("\n*Voyage successfully created*")
-            new_voyage = VoyagesModel(voyage_date, voyage_time, voyage_destination, voyage_airplane)
+            new_voyage = VoyagesModel(voyage_date, voyage_time, voyage_airport, voyage_airplane)
             #self.voyage.create_voyage(new_voyage)
             #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
-            self.show_assign_staff_form()
+            self.show_assign_staff_form(voyage_date)
 
         elif action_str == "s":
             #Takes the info and adds it to the voyage list
             print("\n*Voyage successfully created*")
-            new_voyage = VoyagesModel(voyage_date, voyage_time, voyage_destination, voyage_airplane)
+            new_voyage = VoyagesModel(voyage_date, voyage_time, voyage_airport, voyage_airplane)
             #self.voyage.create_voyage(new_voyage)
             #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
             self.show_create_voyage_menu()
@@ -152,15 +152,19 @@ class VoyagesUI():
             print("Invalid action!")
             action_str = self.choose_action()
 
-    def show_assign_staff_form(self):
+    def show_assign_staff_form(self, voyage_date):
         """This prints the form to assign a staff to a voyage"""
         
         print(self.LENGTH_STAR*"*")
         print("ASSIGN CREW TO VOYAGES")
         print("\nB Back") #Kannski sleppa
         #Listi yfir alla lausa pilots og þar þarf IO og fá date til að sjá hverjir eru lausar þennan dag
+        available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
+        for employee_ob in available_employess_ob_list:
+            print(f"\n{employee_ob.name}, {employee_ob.role}")
+
         pilot = input("Enter a pilot: ")
-        #Listi yfir alla lausa cabincrew
+
         cabincrew = input("Enter a cabin crew member: ")
         
         print()
