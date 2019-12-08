@@ -132,7 +132,7 @@ class VoyagesUI():
         if action_str == "1":
             #Takes the info and adds it to the voyage list
             print("\n*Voyage successfully created*")
-            new_voyage = VoyagesModel(voyage_date, voyage_time, voyage_airport, voyage_airplane)
+            new_voyage = VoyagesModel(voyage_date, voyage_time, voyage_airport, voyage_airplane) #Pæling að gera þetta ekki fyrr en í hinu fallinu, eða veit ekki
             #self.voyage.create_voyage(new_voyage)
             #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
             self.show_assign_staff_form(voyage_date, new_voyage)
@@ -182,7 +182,7 @@ class VoyagesUI():
         not_staffed_ob_list = self.llapi.get_not_staffed_voyages() #Þessi listi þarf að vera númeraður
         counter = 1
         for voyage_ob in not_staffed_ob_list:
-            print(f"\n{counter}{voyage_ob.departure_time}, {voyage_ob.arriving_at}, {voyage_ob.aircraftID}")
+            print(f"\n{counter}{voyage_ob.departure_time}, {voyage_ob.arriving_at}, {voyage_ob.aircraftID}") #Pæling að gera þetta öðruvísi með númerin
             counter += 1
         voyage_str = input("Choose a voyage")
         self.show_assign_staff_form() #Hérna fer ég með voyage_str í fallið
