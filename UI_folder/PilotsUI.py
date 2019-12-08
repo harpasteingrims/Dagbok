@@ -207,7 +207,7 @@ class PilotsUI():
             #Takes the new info, changes and adds it to the pilot list
             #Calls the class that stores the info about the pilot to change it...
             print("Pilot's information successfully changed")
-            self.show_pilot_menu()
+            return
 
         elif action_str == "b":
             return
@@ -215,22 +215,99 @@ class PilotsUI():
         else:
             print("Invalid action!")
             action_str = self.choose_action()
-     
     
+    def get_name(self):
+        name = input("Enter full name: ").capitalize()
+        name_check = self.llapi.check_name(name)
+        
+        if name_check:
+            return name
+            
+        else:
+            print("invalid name")
+            self.get_name()
+
+
+    def get_rank(self):
+        rank = input("Enter rank, either Captain or Copilot: ").capitalize()
+        rank_check = self.llapi.check_pilot_rank(rank)
+
+        if rank_check:
+            return rank
+        
+        else:
+            print("Invalid rank")
+            self.get_rank()
+
+    def get_ssn(self):
+        ssn = input("Enter social security number: ")
+        ssn_check = self.llapi.check_ssn(ssn)
+
+        if ssn_check:
+            return ssn
+        
+        else:
+            print("Invalid SSN")
+            self.get_ssn()
+    
+    def get_address(self):
+        address = input("Enter address in form; zip code address name house number: ").capitalize()
+        address_check = self.llapi.check_address(address)
+
+        if address_check:
+            return address
+        
+        else:
+            print("Invalid address")
+            self.get_address()
+
+    def get_mobile_number(self):
+        mobile_number = input("Enter mobile number: ")
+        mobile_number_check = self.llapi.check_mobile_number(mobile_number)
+
+        if mobile_number_check:
+            return mobile_number
+        
+        else:
+            print("Invalid mobile_number")
+            self.get_mobile_number()
+    
+    def get_email(self):
+        email = input("Enter email: ").capitalize()
+        email_check = self.llapi.check_email(email)
+
+        if email_check:
+            return email
+        
+        else:
+            print("Invalid email")
+            self.get_email()
+
+    def get_license_type(self):
+        license_type = input("Enter license type: ").capitalize()
+        license_type_check = self.llapi.check_license_type(license_type)
+
+        if license_type_check:
+            return license_type
+        
+        else:
+            print("Invalid license_type")
+            self.get_license_type()
+
     def show_pilot_create_form(self):
         """ This prints the create a pilot form """
 
         print(self.LENGTH_STAR * "*")
         print("CREATE A NEW PILOT \n")
 
-        name = input("Enter full name: ").capitalize() #Hvað gerir .capitalize() ?
-        rank = input("Enter rank, either Captain or Copilot: ").capitalize()
-        ssn = input("Enter social security number: ").capitalize()
-        address = input("Enter address in form; zip code, address name, house number: ").capitalize()
-        mobile_number = input("Enter mobile number: ").capitalize()
-        email = input("Enter email: ").capitalize()
-        license_type = input("Enter license type: ").capitalize()
-        
+        name = self.get_name()
+        rank = self.get_rank()
+        ssn = self.get_ssn()
+        address = self.get_address()
+        mobile_number = self.get_mobile_number()
+        email = self.get_email()
+        license_type = self.get_license_type()
+
         print("\nS Save \nB Back\n")
 
         action_str = self.choose_action()

@@ -24,6 +24,20 @@ class LLAPI():
     def get_employee_overview(self):
         return self.getemployees.list_all_employees() #Þetta kallar á klasann getemployees og fallið þar inni sem nær í alla employees
     
+    def check_name(self,name):
+        pass
+    
+    def check_pilot_rank(self, rank):
+        pass
+
+    def check_ssn(self, ssn):
+        pass
+
+    def check_address(self, address):
+        pass
+
+    def check_mobile_number(self, mobile_number):
+        pass
 
     """ PILOTS """
 
@@ -42,12 +56,6 @@ class LLAPI():
     def get_schedule_pilot_by_date(self, pilot_object, date_from, date_to):
         return self.getemployees.list_schedule_pilot_by_date(name, date_from, date_to)
         # eftir að klára
-
-    def check_name(self,name):
-        pass
-
-    def check_pilot_role(self, rank):
-        pass
 
     def create_new_pilot(self):
         return self.createll.create_pilot()
