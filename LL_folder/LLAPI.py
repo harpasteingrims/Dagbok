@@ -64,8 +64,8 @@ class LLAPI():
         return self.getemployees.list_schedule_pilot_by_date(name, date_from, date_to)
         # eftir að klára
 
-    def create_new_pilot(self):
-        return self.createll.create_pilot()
+    def create_new_pilot(self, new_pilot_list):
+        return self.createll.create_pilot(new_pilot_list)
     
     def update_new_pilot_information(self):
         return self.updatell.update_pilot_information()

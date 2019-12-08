@@ -1,5 +1,6 @@
 import datetime
-import dateutil.parser
+#import dateutil.parser
+
 class GetIAAD():
     def __init__(self, ioapi):
         self.ioapi = ioapi

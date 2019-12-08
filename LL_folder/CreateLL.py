@@ -1,31 +1,24 @@
-from ioapi.create_pilot import create_pilot
-from GetEmployeesLL.check_name import check_name
-from GetEmployeesLL.check_SSN import check_SSN
-from GetEmployeesLL.check_pilot_role import pilot_role
-from GetEmployeesLL.check_address import check_address
-from GetEmployeesLL.check_mobile_number import check_mobile_number
-from GetEmployeesLL.check_email_address import check_email_address
+from models.PilotModel import PilotsModel
+
 class CreateLL():
     '''Subclass of LLAPI that is only designed to create something'''
+    
     def __init__(self, ioapi):
         self.ioapi = ioapi
 
-    def create_pilot(self, new_pilot):
-        '''Method that creates a new pilot'''
-        #NÍNAAAAAA ER AÐ COMMENTA TIL ÞÍN - VIKKA
+    def create_pilot(self, new_pilot_list):
 
-        #ÞARF ÉG EKKI AÐ SENDA ÞETTA ALLT INN Í GETEMPLOYEESLL TIL AÐ INPUT CHECKA EINS OG ÉG ER AÐ GERA FYRIR NEÐAN?
-        #SÍÐAN RETURNA ÞESSI FÖLL Í GETEMPLOYEELL MÉR TIL BAKA HVORT INPUTTIÐ SÉ RÉTT SKILURU
-        name = check_name(new_pilot.name)
-        SSN = check_SSN(new_pilot.ssn)
-        pilot_role = check_pilot_role(new_pilot.role)
-        address = check_address(new_pilot.address)
-        mobile_number = check_mobile_number(new_pilot.mobile_number)
-        email_address = check_email_address(new_pilot.email)
+        name = new_pilot_list[0]
+        rank = new_pilot_list[1]
+        ssn = new_pilot_list[2]
+        address = new_pilot_list[3]
+        mobile_number = new_pilot_list[4]
+        email = new_pilot_list[5]
+        license_type = new_pilot_list[6]
 
-        new_pilot_list = [name, SSN, pilot_role, address, mobile_number, email_address] #vantar check_email_address í GetEmployeesLL sýndist mér
-        #nú er ég komin með lista af öllu sem LLAPI sendi mér EN er búin að input checka allt saman og þá get ég sent það í IO
-        self.ioapi.create_pilot(new_pilot_list)
+        new_pilot_object = PilotsModel(name, rank, ssn, address, mobile_number, email, license_type)
+    
+        return self.ioapi.create_pilot(new_pilot_object)
         
 
     def create_cabincrew(self, new_cabincrew):

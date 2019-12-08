@@ -8,8 +8,6 @@ from models.DestinationsModel import DestinationsModel
 from models.PilotModel import PilotsModel
 from models.VoyagesModel import VoyagesModel
 
-
-
 class GetIO():
     def __init__(self):
         self.all_employee_list = []

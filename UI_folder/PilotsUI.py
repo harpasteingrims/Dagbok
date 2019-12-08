@@ -319,12 +319,19 @@ class PilotsUI():
         action_str = self.choose_action()
 
         if action_str == "s":
-            #Takes the info and adds it to the pilot list
-            print("Pilot successfully created\n")
-            #new_pilot = PilotModel(name, role, ssn, address, mobile_number, email, license_type)
-            #self.pilot.create_pilot(new_pilot)
+
+            new_pilot_list = [name, rank, ssn, address, mobile_number, email, license_type]
+            added_to_file = self.llapi.create_new_pilot(new_pilot_list)
+            
+            if added_to_file:
+
+                print("Pilot successfully created\n")
+
+            else:
+                print("Something went wrong, try again\n")
+            
             #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá        
-            self.show_pilot_menu()
+            return 
 
         elif action_str == "b":
             return
