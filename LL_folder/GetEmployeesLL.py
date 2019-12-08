@@ -103,14 +103,14 @@ class GetEmployeesLL():
 
     def check_name(self,name):
 
-        if len(name) < 40: 
+        if len(name) < 40 and name.isalpha() : 
             return name
         
         else:
             return False
 
 
-    def check_role(self, role):
+    def check_pilot_role(self, rank):
 
         if role in ["Captain", "Copilot"]:
             return role
@@ -123,10 +123,19 @@ class GetEmployeesLL():
         
         if len(ssn) == 10:
             first_six, last_four = ssn.split()
+            
+            first_six_int = int(first_six)
+            last_four_int = int(last_four)
+
             try:
-                
+                if first_six_int and last_four_int:
+                    return ssn
 
-
+            except ValueError:
+                return False
+    
+    def check_address(self, address):
+        if adress
 
 
 
