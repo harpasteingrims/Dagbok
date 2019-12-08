@@ -6,4 +6,7 @@ class GetDestinationsLL():
         """ Calls the IOAPI to get a list of all destinations """
         return sorted(self.ioapi.get_destination_list())
 
+    def list_all_airports(self):
+        pass
+
         

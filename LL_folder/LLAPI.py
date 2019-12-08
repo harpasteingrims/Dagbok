@@ -74,6 +74,9 @@ class LLAPI():
     def get_destination_overview(self): #Þessi listi þarf að vera númeraður
         return self.getdestinations.list_all_destinations()
 
+    def get_airport_overview(self):
+        return self.getdestinations.list_all_airports()
+
     def create_new_destination(self):
         return self.createll.create_destination()
 
