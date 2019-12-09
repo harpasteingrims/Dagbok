@@ -117,16 +117,16 @@ class CabincrewUI():
         else:
  
             counter = 1
-            for crew_member_ob in common_named_pilots_list:
+            for crew_member_ob in common_named_crew_members_list:
 
                 print(crew_member_ob.print_crew_member_object_info(counter))
 
                 counter += 1 
 
-            chosen_pilot_ob = self.get_the_right_pilot_ob(common_named_pilots_list)
+            chosen_crew_member_ob = self.get_the_right_pilot_ob(common_named_pilots_list)
 
             print()
-            print(chosen_pilot_ob.print_crew_member_object_info())
+            print(chosen_crew_member_ob.print_crew_member_object_info())
 
         print(f"\n1{crew_member_ob.name}'s flight schedule")
         print("2 Edit information about pilot")

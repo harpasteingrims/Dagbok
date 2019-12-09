@@ -108,7 +108,7 @@ class PilotsUI():
         
         while common_named_pilots_list == False:
             print("Pilot does not exist")
-            common_named_pilots_list, input_name = self.get_pilot_name_and_common_list()
+            new_common_named_pilots_list, input_name = self.get_pilot_name_and_common_list()
         
         if len(common_named_pilots_list) == 1:
             pilot_object = same_named_pilots[0]

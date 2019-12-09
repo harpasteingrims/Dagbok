@@ -7,7 +7,6 @@ class UpdateLL():
         #ssn, name, new_role , new_rank, license_type, new_address, new_mobile_number, email = updated_pilot_list.split()
         #ef ég fæ updated pilot list sentann inn í þetta fall er ég þá ekki bara að senda hann beint í ioapi...?
         return self.ioapi.update_pilot(updated_pilot_ob)
-        
 
     def update_cabin_crew_information(self, updated_crew_member_ob):
         #ssn, name, new_role, new_rank, new_address, new_mobile_number, new_email = updated_crew_member_list.split()
