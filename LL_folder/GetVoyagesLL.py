@@ -1,5 +1,5 @@
 import datetime
-#import dateutil.parser
+import dateutil.parser
 
 class GetVoyagesLL():
     def __init__(self, ioapi):
@@ -17,7 +17,7 @@ class GetVoyagesLL():
         
         return unmanned_list
 
-    def list_all_common_voyages(self):
+    def list_all_common_voyages_dict(self):
         voyages_list = self.ioapi.get_all_voyages_list()
         counter = 0
         common_voyages_list = []
