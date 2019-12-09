@@ -157,7 +157,13 @@ class EmployeesUI():
 
     def get_license_type(self):
         license_type = input("\nEnter license type: ").lower()
+        
+        airplane_object_list = self.llapi.get_airplanes_overview()
+
+        
         license_type_check = self.llapi.check_license_type(license_type)
+
+
 
         if license_type_check:
             return license_type_check.capitalize()

@@ -80,9 +80,9 @@ class InputCheckLL():
             return False
     
     def check_license_type(self, license_type):
-        #ariplane_list = vantar fallið úr airplanes
+        airplane_object_list = self.llapi.get_airplanes_overview()
 
-        if license_type in ariplane_list:
+        if license_type in airplane_object_list:
             return license_type
 
         else:
