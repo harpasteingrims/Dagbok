@@ -1,36 +1,12 @@
 from models.PilotModel import PilotsModel
 
-class CreateLL():
+class InputCheckLL():
     '''Subclass of LLAPI that is designed to create something and error checking the input'''
     
     def __init__(self, ioapi):
         self.ioapi = ioapi
 
-    def create_pilot(self, new_pilot_ob):
-        ''' Method that gets an object from LLAPI and returns it to IOAPI'''
-        return self.ioapi.create_pilot(new_pilot_ob)
-        
-    def create_cabincrew(self, new_cabincrew_ob):
-        '''Method that creates a new cabincrew member'''
-        return self.ioapi.new_cabincrew_ob
-    
-    def create_voyage(self, new_voyage_ob):
-        '''Method that creates a new voyage'''
-        return self.ioapi.new_voyage_ob
-
-    def create_destination(self, new_destination_ob):
-        '''Method that creates a new destination'''
-        return self.ioapi.new_destination_ob
-    
-    def create_airplane(self, new_airplane_ob):
-        '''Method that creates a new airplane'''
-        return self.ioapi.new_airplane_ob
-    
-    def create_common_voyage(self, common_voyages_ob):
-        '''Method that creates common voyages'''
-        return self.ioapi.common_voyages_ob
-
-    """ CHECKING INOPUT FOR EMPLOYEES"""
+    """ CHECKING INPUT FOR EMPLOYEES"""
 
 
     def check_name(self,name):
