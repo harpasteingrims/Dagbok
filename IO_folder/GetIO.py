@@ -40,7 +40,7 @@ class GetIO():
                 name = line[1]
                 role = line[2]
                 rank = line[3]
-                plane_license = line[4]
+                license_type = line[4]
                 address = line[5]
                 mobile_number = line[6]
                 email = line[7]
@@ -121,34 +121,28 @@ class GetIO():
         return self.destination_list  
     
     def load_all_voyages(self):
-        voyages_file = open("./csv_files/Flights.csv","r")
+        flights_file = open("./csv_files/Flights.csv","r")
         """flight_number_list = []
         departing_from_list = []
         arriving_at_list = []
         departure_time_list = []
         arrival_time_list = []
         aircraft_ID_list = []"""
-        flights_list = []
+        
 
         counter = 1
-        for line in voyages_file:
+        for line in flights_file:
             line = line.strip().split(",")
             if counter == 1:
                 counter += 1
             else:
                 try:
                     flight_number = line[0]
-                    print(flight_number)
                     departing_from = line[1]
-                    print(departing_from)
                     arriving_at = line[2]
-                    print(arriving_at)
                     departure_time = line[3]
-                    print(departure_time)
                     arrival_time = line[4]
-                    print(arrival_time)
                     aircraft_ID = line[5]
-                    print(aircraft_ID)
                     #flight_number, departing_from, arriving_at, departure_time, arrival_time, aircraft_ID = line.split(",")
                 except IndexError:
                     aircraft_ID = ""
@@ -179,21 +173,10 @@ class GetIO():
 
 
     def load_all_voyages_with_crew(self):
-        voyages_file = open("./csv_files/Flights.csv","r")
-        flight_nr_from_ice_list = []
-        flight_nr_to_ice_list = []
-        departure_from_ice_list = []
-        arrival_to_ice_list = []
-        Aircraft_ID_list = []
-        captain_list = []
-        copilot_list = []
-        fsm_list = []
-        fa1_list = []
-        fa2_list = []
-        voyages_list = []
+        flights_with_crew_file = open("./csv_files/Flights.csv","r")
 
         counter = 1
-        for line in flights_file:
+        for line in flights_with_crew_file:
             line = line.strip().split(",")
             if counter == 1:
                 counter += 1
@@ -221,6 +204,6 @@ class GetIO():
                 flight_with_crew = FlightsModel(flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2)
                 self.flights_list.append(flight_with_crew)
 
-        flights_file.close()
+        flights_with_crew_file.close()
 
         return self.flights_list
