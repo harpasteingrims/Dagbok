@@ -9,12 +9,12 @@ class GetIAAD():
         employee_list = self.ioapi.get_list_of_all_employees()
         #voyage_list = self.list_voyages_status_by_date(self, user_input_date)
         available_employees_list = []
-        voyage_list = self.ioapi.get_all_voyages_list()
+        #voyage_list = self.ioapi.get_all_voyages_list()
         i = 0
         for employee_ob in employee_list:
             if self.list_unavailable_emp_by_date(user_input_date) != []:
                 if employee_ob.ssn not in self.list_unavailable_emp_by_date(user_input_date)[i]:
-                    available_employees_list.append([employee_ob.name, employee_ob.rank])
+                    available_employees_list.append(employee_ob)
                     i += 1
 
             else:
@@ -33,10 +33,9 @@ class GetIAAD():
         voyage_list = self.ioapi.get_all_voyages_list()
         unavailable_employees_list = []
         for voyage_ob in voyage_list:
-            date = voyage_ob.departure_time
-            parsed_date = dateutil.parser.parse(date)
+            parsed_date = dateutil.parser.parse(voyage_ob.departure_time)
             user_input_parsed_date = dateutil.parser.parse(user_input_date)
-            if user_input_parsed_date.year == parsed_date.year and user_input_parsed_date.month == parsed_date.month and user_input_parsed_date.day == parsed_date.day:
+            if [user_input_parsed_date.year, user_input_parsed_date.month, user_input_parsed_date.day] == [parsed_date.year, parsed_date.month, parsed_date.day]:
                 if voyage_ob.crew_list != []:
                     unavailable_employees_list.append(voyage_ob.crew_list)
 

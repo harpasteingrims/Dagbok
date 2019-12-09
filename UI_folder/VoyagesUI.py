@@ -85,7 +85,11 @@ class VoyagesUI():
         
         print(self.LENGTH_STAR*"*")
         print("SEE COMMON VOYAGES")
-        self.llapi.get_common_voyages() #Þessi listi þarf að vera númeraður
+        common_voyages = self.llapi.get_common_voyages()
+        counter = 1
+        for voyage_elem in common_voyages:
+            print(f"\n{counter} {voyage_elem[0]}, {voyage_elem[1]}")
+            counter += 1
         common_voyage = input("Choose a number for a common voyage: ") #Þetta fer inní create a common voyage fallið
         #Hér þarf að vera einhver counter kóði eins og í emergency contact destinations :)
 
@@ -166,7 +170,8 @@ class VoyagesUI():
         #Listi yfir alla lausa pilots og þar þarf IO og fá date til að sjá hverjir eru lausar þennan dag
         available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
         for employee_element in available_employess_ob_list:
-            print(f"\n{employee_element[0]}, {employee_element[1]}")
+            #print(f"\n{employee_element[0]}, {employee_element[1]}")
+            print(employee_element)
 
         captain = input("Choose number for captain: ")
         copilot = input("Choose number for copilot: ")
