@@ -58,6 +58,7 @@ class EmployeesUI():
         counter = 1
         for employee in employees_ob_list:
             if employee.role == "Cabin crew":
+                
                 print(employee.print_crew_member_info_in_line(counter))
 
             else:
@@ -69,7 +70,7 @@ class EmployeesUI():
         action_str = self.choose_action()
 
         if action_str == "b":
-            self.show_employee_menu()
+            return 
         else:
             print("Invalid action!")
             action_str = self.choose_action()
