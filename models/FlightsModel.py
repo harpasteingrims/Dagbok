@@ -1,7 +1,6 @@
 class FlightsModel():
-    def __init__(self, kef_flight_number, destination_flight_number, departing_from, arriving_at, departure_time, arrival_time, aircraftID, captain = "", copilot = "", fsm = "", fa1 = "", fa2 = ""):
-        self.kef_flight_number = kef_flight_number
-        self.destination_flight_number = destination_flight_number
+    def __init__(self, flight_number, departing_from, arriving_at, departure_time, arrival_time, aircraftID, captain = "", copilot = "", fsm = "", fa1 = "", fa2 = ""):
+        self.flight_number = flight_number
         self.departing_from = departing_from
         self.arriving_at = arriving_at
         self.departure_time = departure_time

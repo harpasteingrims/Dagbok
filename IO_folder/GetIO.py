@@ -16,7 +16,7 @@ class GetIO():
         self.cabincrew_list = []
         self.airplane_list = []
         self.destination_list = []
-        self.voyages_list = []
+        self.flights_list = []
 
     def load_all_employees(self):
 
@@ -117,122 +117,99 @@ class GetIO():
                 
         dest_file.close()
 
-        dest_file.close()
 
         return self.destination_list  
     
     def load_all_voyages():
         voyages_file = open("./csv_files/Flights.csv","r")
-        flight_nr_from_ice_list = []
-        flight_nr_to_ice_list = []
-        departure_from_ice_list = []
-        arrival_to_ice_list = []
-        Aircraft_ID_list = []
-
-        counter = 1
-        for line in voyages_file:
-            if counter == 1:
-                counter +=1
-            elif counter % 2 == 0:
-                flight_nr_from_ice_list.append(line[0])
-                departure_from_ice_list.append(line[3])
-                Aircraft_ID_list.append(line[5])
-                counter += 1
-                
-            elif counter % 2 != 0 and counter != 1:
-                flight_nr_to_ice_list.append(line[0])
-                arrival_to_ice_list.append(line[4])
-                counter += 1
-
-        voyages_file.close()
-        counter = 1
-
-        for x in range(0,len(flight_nr_from_ice_list)):
-            flight_nr_from_ice = flight_nr_from_ice_list[counter]
-            departure_from_ice = departure_from_ice_list[counter]
-            Aircraft_ID = Aircraft_ID_list[counter]
-            flight_nr_to_ice = flight_nr_to_ice_list[counter]
-            arrival_to_ice = arrival_to_ice_list[counter]
-            flight_nr_from_ice,departure_from_ice,Aircraft_ID,flight_nr_to_ice,arrival_to_ice = line.split(",")
-            Voyage = FlightsModel() #þarf að spyrja hvað þýðir hvað hér
-            self.voyages_list.append(Voyage)
-            counter += 1
-
-
-        return self.voyages_list
-
-
-    def load_all_voyages_with_crew():
-        voyages_file = open("./csv_files/Flights.csv","r")
-        flight_nr_from_ice_list = []
-        flight_nr_to_ice_list = []
-        departure_from_ice_list = []
-        arrival_to_ice_list = []
-        Aircraft_ID_list = []
-        captain_list = []
-        copilot_list = []
-        fsm_list = []
-        fa1_list = []
-        fa2_list = []
-        voyages_list = []
+        """flight_number_list = []
+        departing_from_list = []
+        arriving_at_list = []
+        departure_time_list = []
+        arrival_time_list = []
+        aircraft_ID_list = []"""
+        flights_list = []
 
         counter = 1
         for line in voyages_file:
             line = line.strip().split(",")
-            
             if counter == 1:
-                counter +=1
-            elif counter % 2 == 0:
+                counter += 1
+            else:
                 try:
-                    flight_nr_from_ice_list.append(line[0])
-                    departure_from_ice_list.append(line[3])
-                    Aircraft_ID_list.append(line[5])
-                    captain_list.append(line[6])
-                    copilot_list.append(line[7])
-                    fsm_list.append(line[8])
-                    fa1_list.append(line[9])
-                    fa2_list.append(line[10])
+                    flight_number = line[0]
+                    print(flight_number)
+                    departing_from = line[1]
+                    print(departing_from)
+                    arriving_at = line[2]
+                    print(arriving_at)
+                    departure_time = line[3]
+                    print(departure_time)
+                    arrival_time = line[4]
+                    print(arrival_time)
+                    aircraft_ID = line[5]
+                    print(aircraft_ID)
+                    #flight_number, departing_from, arriving_at, departure_time, arrival_time, aircraft_ID = line.split(",")
                 except IndexError:
-                    Aircraft_ID_list.append("")
-                    captain_list.append("")
-                    copilot_list.append("")
-                    fsm_list.append("")
-                    fa1_list.append("")
-                    fa2_list.append("")
+                    aircraft_ID = ""
+                Flight = FlightsModel(flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID)
+                flights_list.append(Flight)
+                  
 
-                counter += 1
+        flights_file.close()
+        """counter = 1
+        for flight in range(count_of_flights):
+            if counter % 2 != 0:
+                kef_flight_number = flight_number_list[counter]
+                departure_time = departure_time_list[counter]
+                departing_from = departing_from_list[counter]
+                arriving_at = arriving_at_list[counter]
+                aircraft_ID = aircraft_ID_list[counter]
                 
-            elif counter % 2 != 0 and counter != 1:
-                flight_nr_to_ice_list.append(line[0])
-                arrival_to_ice_list.append(line[4])
-                counter += 1
+            elif counter % 2 == 0:
+                destination_flight_number = flight_number_list[counter]
+                arrival_time = arrival_time_list[counter]"""
 
             
 
-            counter = 1
-            for x in range(len(arrival_to_ice_list)):
-                flight_nr_from_ice = flight_nr_from_ice_list[counter]
-                departure_from_ice = departure_from_ice_list[counter]
-                Aircraft_ID = Aircraft_ID_list[counter]
-                flight_nr_to_ice = flight_nr_to_ice_list[counter]
-                arrival_to_ice = arrival_to_ice_list[counter]
-                captain = captain_list[counter]
-                copilot = copilot_list[counter]
-                fsm = fsm_list[counter]
-                fa1 = fa1_list[counter]
-                fa2 = fa2_list[counter]
-                flight_nr_from_ice,departure_from_ice,Aircraft_ID,flight_nr_to_ice,arrival_to_ice,captain,copilot,fsm,fa1,fa2 = line.split(",")
-                Voyage = FlightsModel() #þarf að spyrja hvað þýðir hvað hér
-                self.voyages_list.append(Voyage)
+
+
+
+        return self.flights_list
+
+
+    def load_all_voyages_with_crew():
+        flights_file = open("./csv_files/Flights.csv","r")
+
+        counter = 1
+        for line in flights_file:
+            line = line.strip().split(",")
+            if counter == 1:
                 counter += 1
+            else:   
+                try:
+                    flight_number = line[0]  
+                    departing_from = line[1]
+                    arriving_at = line[2]
+                    departure_time = line[3]
+                    arrival_time = line[4]
+                    aircraft_ID = line[5]    
+                    captain = line[6]
+                    copilot = line[7]
+                    fsm = line[8]
+                    fa1 = line[9]
+                    fa2 = line[10]
+                except IndexError:
+                    aircraft_ID = ""
+                    captain = ""
+                    copilot = ""                    
+                    fsm = ""
+                    fa1 = ""
+                    fa2 = ""
+                #flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2 = line.split(",")
+                flight_with_crew = FlightsModel(flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2)
+                self.flights_list.append(flight_with_crew)
 
-        
+        flights_file.close()
 
-
-                
-                
-                
-
-        voyages_file.close()
-
-        return voyages_list
+        return self.flights_list
