@@ -119,6 +119,9 @@ class LLAPI():
     def get_unavailable_time_for_voyage(self, voyage_year, voyage_month, voyage_day):
         return self.getvoyages.list_unavailable_voyage_time(voyage_year, voyage_month, voyage_day)
 
+    def get_numbered_common_voyage_dict(self):
+        pass    
+
     def create_new_voyage(self, new_voyage_object):
         return self.ioapi.create_voyage(new_voyage_object)
 
@@ -127,6 +130,8 @@ class LLAPI():
         common_voyage_object = []
         voyage_list = self.ioapi.get_all_voyages_list()
         return common_voyage_list
+
+    
 
 
     """AIRPLANES"""
