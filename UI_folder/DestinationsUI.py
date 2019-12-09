@@ -202,7 +202,7 @@ class DestinationsUI():
             self.get_airport()
 
     def get_flight_duration(self):
-        flight_duration = input("Enter flight duration: ")
+        flight_duration = input("Enter flight duration (hh:mm): ")
         flight_duration_check = self.llapi.check_flight_duration(flight_duration)
 
         if flight_duration:

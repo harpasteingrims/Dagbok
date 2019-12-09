@@ -100,15 +100,8 @@ class AirplanesUI():
             self.get_airplane_id()
 
     def get_airplane_type(self):
-        airplane_type = input("Enter airplane type: ")
-        airplane_type_check = self.llapi.check_airplane_type(airplane_type)
-
-        if airplane_type_check:
-            return airplane_type_check
-
-        else:
-            print("\nInvalid airplane type")
-            self.get_airplane_type()
+        airplane_type = input("Enter airplane type")
+        return airplane_type
 
     def get_manufacturer(self):
         manufacturer = input("Enter manufacturer: ")
