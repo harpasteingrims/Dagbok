@@ -30,7 +30,7 @@ class CreateLL():
         '''Method that creates common voyages'''
         return self.ioapi.common_voyages_ob
 
-    """ CHECKING INOPUT FOR EMPLOYEES"""
+    """ CHECKING INPUT FOR EMPLOYEES"""
 
 
     def check_name(self,name):
