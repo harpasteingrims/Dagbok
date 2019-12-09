@@ -7,6 +7,7 @@ from models.AirplanesModel import AirplanesModel
 from models.DestinationsModel import DestinationsModel
 from models.PilotModel import PilotsModel
 from models.VoyagesModel import VoyagesModel
+from models.FlightsModel import FlightsModel
 
 class GetIO():
     def __init__(self):
@@ -121,22 +122,42 @@ class GetIO():
         return self.destination_list  
     
     def load_all_voyages(self):
-        voyages_file = open("./csv_files/Voyages.csv","r")
+        voyages_file = open("./csv_files/Flights.csv","r")
+        flight_nr_from_ice_list = []
+        flight_nr_to_ice_list = []
+        departure_from_ice_list = []
+        arrival_to_ice_list = []
+        Aircraft_ID_list = []
 
         counter = 1
         for line in voyages_file:
             if counter == 1:
                 counter +=1
-            else:
-                date = line[0]
-                destination = line[1]
-                airplaneID = line[2]
-                date, destination, airplaneID = line.split(",")
-        
-                voyages = VoyagesModel(date, destination, airplaneID)
-                self.voyages_list.append(voyages)
+            elif counter % 2 == 0:
+                flight_nr_from_ice_list.append(line[0])
+                departure_from_ice_list.append(line[3])
+                Aircraft_ID_list.append(line[5])
+                counter += 1
+                
+            elif counter % 2 != 0 and counter != 1:
+                flight_nr_to_ice_list.append(line[0])
+                arrival_to_ice_list.append(line[4])
+                counter += 1
 
         voyages_file.close()
+        counter = 1
+
+        for x in range(0,len(flight_nr_from_ice_list)):
+            flight_nr_from_ice = flight_nr_from_ice_list[counter]
+            departure_from_ice = departure_from_ice_list[counter]
+            Aircraft_ID = Aircraft_ID_list[counter]
+            flight_nr_to_ice = flight_nr_to_ice_list[counter]
+            arrival_to_ice = arrival_to_ice_list[counter]
+            flight_nr_from_ice,departure_from_ice,Aircraft_ID,flight_nr_to_ice,arrival_to_ice = line.split(",")
+            Voyage = VoyagesModel() #þarf að spyrja hvað þýðir hvað hér
+            self.voyages_list.append(Voyage)
+            counter += 1
+
 
         return self.voyages_list
 
@@ -158,23 +179,45 @@ class GetIO():
         counter = 1
         for line in voyages_file:
             line = line.strip().split(",")
+            print(line)
             if counter == 1:
                 counter +=1
             elif counter % 2 == 0:
                 flight_nr_from_ice_list.append(line[0])
                 departure_from_ice_list.append(line[3])
-                Aircraft_ID_list.append(line[5])
-                captain_list.append(line[6])
-                copilot_list.append(line[7])
-                fsm_list.append(line[8])
-                fa1_list.append(line[9])
-                fa2_list.append(line[10])
+                #Aircraft_ID_list.append(line[5])
+                #captain_list.append(line[6])
+                #copilot_list.append(line[7])
+                #fsm_list.append(line[8])
+                #fa1_list.append(line[9])
+                #fa2_list.append(line[10])
+                counter += 1
                 
             elif counter % 2 != 0 and counter != 1:
                 flight_nr_to_ice_list.append(line[0])
                 arrival_to_ice_list.append(line[4])
+                counter += 1
 
-        print(flight_nr_from_ice_list)
+            voyages_file.close()
+
+            counter = 1
+            for x in range(len(arrival_to_ice_list)):
+                flight_nr_from_ice = flight_nr_from_ice_list[counter]
+                departure_from_ice = departure_from_ice_list[counter]
+                Aircraft_ID = Aircraft_ID_list[counter]
+                flight_nr_to_ice = flight_nr_to_ice_list[counter]
+                arrival_to_ice = arrival_to_ice_list[counter]
+                captain = captain_list[counter]
+                copilot = copilot_list[counter]
+                fsm = fsm_list[counter]
+                fa1 = fa1_list[counter]
+                fa2 = fa2_list[counter]
+                flight_nr_from_ice,departure_from_ice,Aircraft_ID,flight_nr_to_ice,arrival_to_ice,captain,copilot,fsm,fa1,fa2 = line.split(",")
+                Voyage = VoyagesModel() #þarf að spyrja hvað þýðir hvað hér
+                self.voyages_list.append(Voyage)
+                counter += 1
+
+        
 
 
                 
