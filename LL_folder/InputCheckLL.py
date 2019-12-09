@@ -18,7 +18,7 @@ class InputCheckLL():
             return False
 
 
-    def check_pilot_rank(self, rank):s
+    def check_pilot_rank(self, rank):
 
         if rank == "1":
             rank = "Captain"
