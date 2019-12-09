@@ -81,7 +81,7 @@ class IAADUI():
         action_str = self.choose_action()
 
         if action_str == "b":
-            self.show_IAAD_menu(user_input_date)
+            return
         
         else:
             print("Invalid action!")
@@ -102,7 +102,7 @@ class IAADUI():
         action_str = self.choose_action()
 
         if action_str == "b":
-            self.show_IAAD_menu(user_input_date)
+            return
         
         else:
             print("Invalid action!")
@@ -123,7 +123,7 @@ class IAADUI():
         action_str = self.choose_action()
 
         if action_str == "b":
-            self.show_IAAD_menu(user_input_date)
+            return
         
         else:
             print("Invalid action!")
@@ -144,7 +144,7 @@ class IAADUI():
         action_str = self.choose_action()
 
         if action_str == "b":
-            self.show_IAAD_menu(user_input_date)
+            return
         
         else:
             print("Invalid action!")

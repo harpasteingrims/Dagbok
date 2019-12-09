@@ -247,13 +247,9 @@ class PilotsUI(EmployeesUI):
 
             new_pilot_object = PilotsModel(name, rank, ssn, address, mobile_number, email, license_type)
             added_to_file = self.llapi.create_new_pilot(new_pilot_object)
-            
-            if added_to_file:
-
-                print("Pilot successfully created\n")
-
-            else:
-                print("Something went wrong, try again\n")
+        
+            print("Pilot successfully created\n")
+            return
 
         elif action_str == "b":
             return

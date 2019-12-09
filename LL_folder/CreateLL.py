@@ -7,7 +7,7 @@ class CreateLL():
         self.ioapi = ioapi
 
     def create_pilot(self, new_pilot_ob):
-
+        """Method that creates a new pilot"""
         return self.ioapi.create_pilot(new_pilot_ob)
         
     def create_cabincrew(self, new_cabincrew_ob):
