@@ -47,7 +47,7 @@ class VoyagesUI():
 
         voyages_ob_list = self.llapi.get_voyages_overview() #Kallar á fall i llapanum sem returnar öllum vinnuferðum og prenta út flugnúmer beggja flugferða
         for voyage_ob in voyages_ob_list:
-            print(f"\n{voyage_ob.departure_time}, {voyage_ob.arrival_time}, {voyage_ob.destination}, {voyage_ob.aircraftID}, {voyage_ob.crew_list}")
+            print(f"\n{voyage_ob.departure_time}, {voyage_ob.arrival_time}, {voyage_ob.destination}, {voyage_ob.aircraftID}")
 
         print("B Back\n")
 
@@ -181,7 +181,7 @@ class VoyagesUI():
     def show_not_staffed_voyages(self):
         """This prints all the not fully staffed voyages that are available"""
         
-        print(self.LENGTH_STAR*"*")
+        print(self.LENGTH_STAR * "*")
         print("NOT FULLY STAFFED VOYAGES")
         not_staffed_ob_list = self.llapi.get_not_staffed_voyages() #Þessi listi þarf að vera númeraður
         counter = 1
@@ -189,8 +189,11 @@ class VoyagesUI():
             print(f"\n{counter}. {voyage_ob.departure_time}, {voyage_ob.destination}, {voyage_ob.aircraftID}") #Pæling að gera þetta öðruvísi með númerin
             counter += 1
         voyage_number = input("Choose number for a voyage: ")
-        for i in range(1, (len(not_staffed_ob_list)+1)):
-            if i == voyage_number:
-                chosen_voyage_ob = not_staffed_ob_list[i]
-        self.show_assign_staff_form() #Hérna fer ég með voyage_str í fallið
+        if 1 <= int(voyage_number) <= len(not_staffed_ob_list):
+            chosen_voyage_ob = not_staffed_ob_list[voyage_number]
+            self.show_assign_staff_form(chosen_voyage_ob)
+        else:
+            print("Invalid number!")
+                
+        
         
