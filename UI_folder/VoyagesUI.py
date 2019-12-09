@@ -165,8 +165,8 @@ class VoyagesUI():
         print("\nB Back") #Kannski sleppa
         #Listi yfir alla lausa pilots og þar þarf IO og fá date til að sjá hverjir eru lausar þennan dag
         available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
-        for employee_ob in available_employess_ob_list:
-            print(f"\n{employee_ob.name}, {employee_ob.role}")
+        for employee_element in available_employess_ob_list:
+            print(f"\n{employee_element[0]}, {employee_element[1]}")
 
         captain = input("Choose number for captain: ")
         copilot = input("Choose number for copilot: ")
