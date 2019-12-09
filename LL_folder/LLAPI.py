@@ -11,7 +11,7 @@ class LLAPI():
     def __init__(self):
         self.ioapi = IOAPI()
         self.inputcheckll = InputCheckLL(self.ioapi)
-        self.updatell = UpdateLL(self.ioapi)
+        #self.updatell = UpdateLL(self.ioapi)
         self.getvoyages = GetVoyagesLL(self.ioapi)
         self.getairplanes = GetAirplanesLL(self.ioapi)
         self.getdestinations = GetDestinationsLL(self.ioapi)
