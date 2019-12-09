@@ -147,7 +147,7 @@ class LLAPI():
     def get_airplanes_overview(self):
         return self.getairplanes.list_all_airplanes()
     
-    def get_numbered_employee_dict(self):
+    def get_numbered_employee_dict(self): #Þetta heitir örugglega vitlaust
         airplane_list = self.get_airplanes_overview()
         return self.getairplane.make_numbered_airplane_dict(airplane_list)
 

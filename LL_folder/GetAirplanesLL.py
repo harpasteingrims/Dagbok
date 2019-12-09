@@ -1,5 +1,5 @@
 import datetime
-# import dateutil.parser
+import dateutil.parser
 
 class GetAirplanesLL():
     def __init__(self, ioapi):
@@ -10,13 +10,13 @@ class GetAirplanesLL():
         return self.ioapi.get_airplane_list()
 
     def list_available_airplanes_by_date(self, voyage_date):
-        airplane_list = self.ioapi.get_airplane_list()
+        airplane_list = self.list_all_airplanes()
         voyage_list = self.ioapi.get_all_voyages_list()
+        unavailable_airplane_list = []
         for voyage_ob in voyage_list:
-            unavailable_airplane_list = []
-            date = voyage_ob.date
-            parsed_date = dateutil.parser.parse(date)
-            if voyage_date.year == parsed_date.year and voyage_date.month == parsed_date.month and voyage_date.day == parsed_date.day:
+            input_voyage_date = dateutil.parser.parse(voyage_date)
+            parsed_date = dateutil.parser.parse(voyage_ob.departure_time)
+            if [input_voyage_date.year, input_voyage_date.month, input_voyage_date.day] == [parsed_date.year, parsed_date.month, parsed_date.day]:
                 unavailable_airplane_list.append(voyage_ob.aircraftID)
 
         for airplane_ob in airplane_list:

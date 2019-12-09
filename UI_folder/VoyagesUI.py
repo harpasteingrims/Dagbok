@@ -83,26 +83,33 @@ class VoyagesUI():
     def show_see_common(self):
         """This prints all the common voyages"""
         
-        print(self.LENGTH_STAR*"*")
+        print(self.LENGTH_STAR * "*")
         print("SEE COMMON VOYAGES")
         common_voyages = self.llapi.get_common_voyages()
         counter = 1
         for voyage_elem in common_voyages:
             print(f"\n{counter} {voyage_elem[0]}, {voyage_elem[1]}")
             counter += 1
-        common_voyage = input("Choose a number for a common voyage: ") #Þetta fer inní create a common voyage fallið
-        #Hér þarf að vera einhver counter kóði eins og í emergency contact destinations :)
+        chosen_number = self.choose_a_number()
 
-    def show_create_a_common_voyage_form(self):
+        if 1 <= int(chosen_number) <= len(common_voyages):
+            chosen_voyage_elem = common_voyages[int(chosen_number)-1]
+            self.show_create_a_common_voyage_form(chosen_voyage_elem)
+        else:
+            print("Invalid number!")
+            chosen_number = self.choose_a_number()
+        return chosen_voyage_elem
+
+    def show_create_a_common_voyage_form(self, chosen_voyage_elem):
         """This creates a voyage from the common voyages but with a new date and a new id"""
         
         print(self.LENGTH_STAR * "*")
         print("INPUT DEPARTURE DATE AND ARIPLANE ID")
         print("Enter outbound departure date") #Hérna þarf ég að kalla á available airplanes by date
-        departure_year = input("Enter departure year: ")
-        departure_month = input("Enter departure month: ")
-        departure_day = input("Enter departure day: ") #Hérna þarf að villutékka hvort það sé flug á þessum degi á þessum tíma
-        departure_date = datetime.datetime(departure_year, departure_month, departure_day)
+        departure_date = self.get_year_month_day(chosen_voyage_elem)
+        available_airplanes_list = self.llapi.get_available_airplanes_by_date(departure_date)
+        for airplane_elem in available_airplanes_list:
+            print(airplane_elem.planeID)
         airplane_id = input("Enter airplane ID: ")
         pass #Eftir að klára þetta :)
 
@@ -198,7 +205,7 @@ class VoyagesUI():
         voyage_number = self.choose_a_number()
 
         if 1 <= int(voyage_number) <= len(not_staffed_ob_list):
-            chosen_voyage_ob = not_staffed_ob_list[int(voyage_number)]
+            chosen_voyage_ob = not_staffed_ob_list[int(voyage_number)-1]
             self.show_assign_staff_form(chosen_voyage_ob.departure_time, chosen_voyage_ob)
         else:
             print("Invalid number!")
@@ -206,8 +213,16 @@ class VoyagesUI():
 
     
     def choose_a_number(self):
-        chosen_number = input("Choose a number: ")
+        chosen_number = input("\nChoose a number: ")
         return chosen_number
                 
         
-        
+    def get_year_month_day(self, chosen_voyage_elem):
+        departure_year = input("Enter departure year: ")
+        departure_month = input("Enter departure month: ")
+        departure_day = input("Enter departure day: ")
+        departure_hour, departure_minute, departure_second = chosen_voyage_elem[1].split(":")
+        departure_date = datetime.datetime(int(departure_year), int(departure_month), int(departure_day), int(departure_hour), int(departure_minute), int(departure_second)).isoformat() #Þetta þyrfti að vera í try except uppá intið
+
+        return departure_date
+        #Hérna þarf að gera villutékk á departure_date bæði á formatinu og líka hvort það sé flug á þessari tímasetningu
