@@ -54,7 +54,7 @@ class VoyagesUI():
         action_str = self.choose_action()
 
         if action_str == "b":
-            self.show_voyage_menu
+            return
         
         else:
             print("Invalid action!")
@@ -74,7 +74,7 @@ class VoyagesUI():
         elif action_str == "2":
             self.show_create_manually_form()
         elif action_str == "b":
-            self.show_voyage_menu()
+            return
         
         else:
             print("Invalid action!")
@@ -86,15 +86,19 @@ class VoyagesUI():
         print(self.LENGTH_STAR*"*")
         print("SEE COMMON VOYAGES")
         self.llapi.get_common_voyages() #Þessi listi þarf að vera númeraður
-        common_voyage = input("Choose a common voyage: ") #Þetta fer inní create a common voyage fallið
+        common_voyage = input("Choose a number for a common voyage: ") #Þetta fer inní create a common voyage fallið
         #Hér þarf að vera einhver counter kóði eins og í emergency contact destinations :)
 
     def show_create_a_common_voyage_form(self):
         """This creates a voyage from the common voyages but with a new date and a new id"""
         
-        print(self.LENGTH_STAR*"*")
+        print(self.LENGTH_STAR * "*")
         print("INPUT DEPARTURE DATE AND ARIPLANE ID")
-        departure_date = input("Enter outbound departure date: dd/mm/yy: ")
+        print("Enter outbound departure date") #Hérna þarf ég að kalla á available airplanes by date
+        departure_year = input("Enter departure year: ")
+        departure_month = input("Enter departure month: ")
+        departure_day = input("Enter departure day: ") #Hérna þarf að villutékka hvort það sé flug á þessum degi á þessum tíma
+        departure_date = datetime.datetime(departure_year, departure_month, departure_day)
         airplane_id = input("Enter airplane ID: ")
         pass #Eftir að klára þetta :)
 
@@ -143,10 +147,10 @@ class VoyagesUI():
             new_voyage = VoyagesModel(voyage_date, voyage_time, voyage_airport, voyage_airplane)
             #self.voyage.create_voyage(new_voyage)
             #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
-            self.show_create_voyage_menu()
+            return
 
         elif action_str == "b":
-            self.show_create_voyage_menu()
+            return
         
         else:
             print("Invalid action!")
@@ -163,12 +167,12 @@ class VoyagesUI():
         for employee_ob in available_employess_ob_list:
             print(f"\n{employee_ob.name}, {employee_ob.role}")
 
-        captain = input("Enter full name of captain: ")
-        copilot = input("Enter full name of copilot: ")
+        captain = input("Choose number for captain: ")
+        copilot = input("Choose number for copilot: ")
 
-        senior_cabincrew_member = input("Enter full name of senior cabin crew member: ")
-        cabincrew_member_1 = input("Enter full name of cabincrew member #1: ")
-        cabincrew_member_2 = input("Enter full name of cabincrew member #2: ")
+        senior_cabincrew_member = input("Choose number for senior cabin crew member: ")
+        cabincrew_member_1 = input("Choose number for cabincrew member #1: ")
+        cabincrew_member_2 = input("Chooose number for cabincrew member #2: ")
         
         print()
         
