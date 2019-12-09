@@ -120,7 +120,7 @@ class GetIO():
 
         return self.destination_list  
     
-    def load_all_voyages():
+    def load_all_voyages(self):
         voyages_file = open("./csv_files/Flights.csv","r")
         """flight_number_list = []
         departing_from_list = []
@@ -178,8 +178,19 @@ class GetIO():
         return self.flights_list
 
 
-    def load_all_voyages_with_crew():
-        flights_file = open("./csv_files/Flights.csv","r")
+    def load_all_voyages_with_crew(self):
+        voyages_file = open("./csv_files/Flights.csv","r")
+        flight_nr_from_ice_list = []
+        flight_nr_to_ice_list = []
+        departure_from_ice_list = []
+        arrival_to_ice_list = []
+        Aircraft_ID_list = []
+        captain_list = []
+        copilot_list = []
+        fsm_list = []
+        fa1_list = []
+        fa2_list = []
+        voyages_list = []
 
         counter = 1
         for line in flights_file:

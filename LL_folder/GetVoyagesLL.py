@@ -1,5 +1,5 @@
 import datetime
-import dateutil.parser
+#import dateutil.parser
 
 class GetVoyagesLL():
     def __init__(self, ioapi):
@@ -23,18 +23,20 @@ class GetVoyagesLL():
         common_voyages_list = []
         for voyage_ob in voyages_list:
             destination = voyage_ob.arriving_at
-            departure_time = voyage_ob.departure_time
+            parsed_date = dateutil.parser.parse(voyage_ob.departure_time)
             for voyage_object in voyages_list:
-                if voyage_object.arriving_at == destination and voyage_object.departure_time == departure_time:
+                parsed_date_voyage = dateutil.parser.parse(voyage_object.departure_time)
+                if [voyage_object.arriving_at, parsed_date_voyage.hour, parsed_date_voyage.minute] == [destination, parsed_date.hour, parsed_date.minute]:
                     counter += 1
             if counter > 2:
+                departure_time = parsed_date.hour + ":" + parsed_date.minute + ":00"
                 common_voyages_list.append([destination, departure_time])
             counter = 0
 
         return common_voyages_list
 
     def list_unavailable_voyage_time(self, voyage_year, voyage_month, voyage_day):
-        voyages_list = self.ioapi.get_all_voyages_list
+        voyages_list = self.ioapi.get_all_voyages_list()
         unavailable_voyage_time_list = []
         for voyage_ob in voyages_list:
             date = voyage_ob.date

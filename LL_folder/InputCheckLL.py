@@ -1,62 +1,17 @@
 from models.PilotModel import PilotsModel
 
-class CreateLL():
-    '''Subclass of LLAPI that is only designed to create something'''
+class InputCheckLL():
+    '''Subclass of LLAPI that is designed to create something and error checking the input'''
     
     def __init__(self, ioapi):
         self.ioapi = ioapi
 
-    def create_pilot(self, new_pilot_list):
-
-        name = new_pilot_list[0]
-        rank = new_pilot_list[1]
-        ssn = new_pilot_list[2]
-        address = new_pilot_list[3]
-        mobile_number = new_pilot_list[4]
-        email = new_pilot_list[5]
-        license_type = new_pilot_list[6]
-
-        new_pilot_object = PilotsModel(name, rank, ssn, address, mobile_number, email, license_type)
-    
-        return self.ioapi.create_pilot(new_pilot_object)
-        
-
-    def create_cabincrew(self, new_cabincrew):
-        '''Method that creates a new cabincrew member'''
-        new_cabincrew_list = []
-        new_cabincrew_list.append(new_cabincrew)
-        pass
-    
-    def create_voyage(self, new_voyage):
-        '''Method that creates a new voyage'''
-        new_voyage_list = []
-        new_voyage_list.append(new_voyage)
-        pass
-
-    def create_destination(self, new_destination):
-        '''Method that creates a new destination'''
-        new_destination_list = []
-        new_destination_list.append(new_destination)
-        pass
-    
-    def create_airplane(self, new_airplane):
-        '''Method that creates a new airplane'''
-        new_airplane_list = []
-        new_airplane_list.append(new_airplane)
-        pass
-    
-    def create_common_voyage(self, common_voyages):
-        '''Method that creates common voyages'''
-        common_voyages_list = []
-        pass
-
-
-    """ CHECKING INOPUT FOR EMPLOYEES"""
+    """ CHECKING INPUT FOR EMPLOYEES"""
 
 
     def check_name(self,name):
             
-        if len(name) < 40: 
+        if len(name) < 40 and name.isalpha(): 
             return name
         
         else:
@@ -90,7 +45,7 @@ class CreateLL():
             return False
     def check_ssn(self, ssn):
         
-        if len(ssn) == 10:
+        if len(ssn) == 10 and ssn.isdigit():
             return ssn
         
         else:

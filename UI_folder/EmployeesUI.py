@@ -68,8 +68,6 @@ class EmployeesUI():
             action_str = self.choose_action()
 
 
-
-
     def get_name(self):
         name = input("\nEnter full name: ").lower()
         name_check = self.llapi.check_name(name)
@@ -78,7 +76,7 @@ class EmployeesUI():
             return name.capitalize()
             
         else:
-            print("\ninvalid name\n")
+            print("\nInvalid name\n")
             self.get_name()
 
 
@@ -113,7 +111,7 @@ class EmployeesUI():
         ssn_check = self.llapi.check_ssn(ssn)
 
         if ssn_check:
-            return ssn
+            return ssn_check
         
         else:
             print("\nInvalid SSN")
@@ -125,7 +123,7 @@ class EmployeesUI():
         address_check = self.llapi.check_address(address).lower()
 
         if address_check:
-            return address.capitalize()
+            return address_check.capitalize()
         
         else:
             print("\nInvalid address")
@@ -137,7 +135,7 @@ class EmployeesUI():
         mobile_number_check = self.llapi.check_mobile_number(mobile_number)
 
         if mobile_number_check:
-            return mobile_number
+            return mobile_number_check
         
         else:
             print("\nInvalid mobile_number")
@@ -149,7 +147,7 @@ class EmployeesUI():
         email_check = self.llapi.check_email(email).lower()
 
         if email_check:
-            return email.capitalize()
+            return email_check.capitalize()
         
         else:
             print("\nInvalid email")
@@ -161,7 +159,7 @@ class EmployeesUI():
         license_type_check = self.llapi.check_license_type(license_type)
 
         if license_type_check:
-            return license_type.capitalize()
+            return license_type_check.capitalize()
         
         else:
             print("\nInvalid license_type")

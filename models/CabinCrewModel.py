@@ -1,5 +1,5 @@
 class CabinCrewModel():
-    def __init__(self, ssn, name, role, rank, address, mobile_number, email):
+    def __init__(self, ssn, name, rank, address, mobile_number, email , role = "Cabin crew"):
         self.ssn = ssn
         self.name = name
         self.role = role
