@@ -1,12 +1,17 @@
 import datetime
 import dateutil.parser
-
+from models.VoyagesModel import VoyagesModel
 class GetVoyagesLL():
     def __init__(self, ioapi):
         self.ioapi = ioapi
+        self.voyages_list = []
 
     def list_all_voyages(self):
-        return self.ioapi.get_all_voyages_list()
+        flights_list = self.ioapi.get_all_voyages_list()
+        
+
+            
+        return self.voyages_list
 
     def list_not_staffed_voyages(self):
         voyages_list = self.ioapi.get_all_voyages_list()
