@@ -19,10 +19,11 @@ class GetAirplanesLL():
             if [input_voyage_date.year, input_voyage_date.month, input_voyage_date.day] == [parsed_date.year, parsed_date.month, parsed_date.day]:
                 unavailable_airplane_list.append(voyage_ob.aircraftID)
 
+        available_airplane_list = []
         for airplane_ob in airplane_list:
-            if airplane_ob.planeID in unavailable_airplane_list:
-                airplane_list.remove(airplane_ob.planeID)
-        return airplane_list
+            if airplane_ob.planeID not in unavailable_airplane_list:
+                available_airplane_list.append(airplane_ob.planeID)
+        return available_airplane_list
 
     #searched_pilot_info = []
 

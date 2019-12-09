@@ -108,9 +108,11 @@ class VoyagesUI():
         print("Enter outbound departure date") #Hérna þarf ég að kalla á available airplanes by date
         departure_date = self.get_year_month_day(chosen_voyage_elem)
         available_airplanes_list = self.llapi.get_available_airplanes_by_date(departure_date)
+        counter = 1
         for airplane_elem in available_airplanes_list:
-            print(airplane_elem.planeID)
-        airplane_id = input("Enter airplane ID: ")
+            print(f"{counter} {airplane_elem}")
+            counter += 1
+        airplane_id = self.choose_a_number()
         pass #Eftir að klára þetta :)
 
     def show_create_manually_form(self): #Lista upp alla áfangastaði allar tímasetningar sem eru uppteknar allar flugvélar sem eru lausar
