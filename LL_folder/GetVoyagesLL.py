@@ -7,11 +7,13 @@ class GetVoyagesLL():
         self.voyages_list = []
 
     def list_all_voyages(self):
+
         flights_list = self.ioapi.get_all_voyages_list()
         return flights_list
 
     def list_not_staffed_voyages(self):
-        voyages_list = self.ioapi.get_all_voyages_list()
+
+        voyages_list = self.list_all_voyages()
         unmanned_list = []
         for voyage_ob in voyages_list:
             if voyage_ob.crew_list == []:
@@ -20,7 +22,8 @@ class GetVoyagesLL():
         return unmanned_list
 
     def list_all_common_voyages_dict(self):
-        voyages_list = self.ioapi.get_all_voyages_list()
+
+        voyages_list = self.list_all_voyages()
         counter = 0
         common_voyages_list = []
         for voyage_ob in voyages_list:
@@ -38,7 +41,8 @@ class GetVoyagesLL():
         return common_voyages_list
 
     def list_unavailable_voyage_time(self, voyage_year, voyage_month, voyage_day):
-        voyages_list = self.ioapi.get_all_voyages_list()
+
+        voyages_list = self.list_all_voyages()
         unavailable_voyage_time_list = []
         for voyage_ob in voyages_list:
             date = voyage_ob.date
@@ -49,4 +53,9 @@ class GetVoyagesLL():
         
         return unavailable_voyage_time_list
 
+    def list_schedule_employee_by_date(employee_ob, date_from, date_to):
+        voyages_list = self.list_all_voyages()
+        
+        #flight_schedule_of_employee = 
+        pass
         

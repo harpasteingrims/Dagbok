@@ -53,7 +53,24 @@ class LLAPI():
     def check_license_type(self, license_type):
         return self.inputcheckll.check_license_type(license_type)
         #þarf að klára í getempll
+
+        
     
+    """ EMPLOYEES """
+
+    def get_employee_overview(self):
+        return self.getemployees.list_all_employees() #Þetta kallar á klasann getemployees og fallið þar inni sem nær í alla employees
+    
+    def get_numbered_employee_dict(self, employee_list):
+        return self.getemployees.make_numbered_employee_dict(employee_list)
+
+    def get_employee_object_from_numbered_dict(self, numbered_employee_dict, input_name):
+        return self.getemployees.get_employee_object_from_numbered_dict(numbered_employee_dict, input_name)
+    
+    def get_schedule_employee_by_date(self, pilot_object, date_from, date_to):
+        return self.getemployees.list_schedule_employee_by_date(name, date_from, date_to)
+        # eftir að klára
+
     """ PILOTS """
 
     def get_pilot_overview(self):
@@ -62,10 +79,6 @@ class LLAPI():
     def get_common_named_pilots(self,name):
         return self.getemployees.find_common_named_pilots(name)
     
-    def get_schedule_pilot_by_date(self, pilot_object, date_from, date_to):
-        return self.getemployees.list_schedule_pilot_by_date(name, date_from, date_to)
-        # eftir að klára
-
     def create_new_pilot(self, new_pilot_ob):
         return self.ioapi.create_pilot(new_pilot_ob)
     
