@@ -157,6 +157,7 @@ class EmployeesUI():
 
 
     def get_license_type(self):
+
         
         license_type = input("\nEnter license type: ").lower()
         

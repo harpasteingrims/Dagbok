@@ -87,8 +87,9 @@ class GetEmployeesLL():
     
     
     def list_schedule_pilot_by_date(self, pilot_object, date_from, date_to):
-        # unnið úr date og búið ti lista af voyages sem viðkamandi er á og á gefna tímabilinu
-        # eftir að klára
+        
+        
+
         pass
 
 
@@ -123,12 +124,4 @@ class GetEmployeesLL():
     def list_schedule_cabincrew_by_date(self, name, date_from, date_to):
         # unnið úr date og búið ti lista af voyages sem viðkamandi er á og á gefna tímabilinu
         
-        pass
-    
-    
-    def list_available_cabin_crew(self):
-        pass
-
-
-    def list_unavailable_cabin_crew(self):
         pass

@@ -11,7 +11,7 @@ class LLAPI():
     def __init__(self):
         self.ioapi = IOAPI()
         self.inputcheckll = InputCheckLL(self.ioapi)
-        #self.updatell = UpdateLL(self.ioapi)
+        self.updatell = UpdateLL(self.ioapi)
         self.getvoyages = GetVoyagesLL(self.ioapi)
         self.getairplanes = GetAirplanesLL(self.ioapi)
         self.getdestinations = GetDestinationsLL(self.ioapi)
@@ -139,7 +139,8 @@ class LLAPI():
     def get_airplanes_overview(self):
         return self.getairplanes.list_all_airplanes()
     
-    def get_numbered_employee_dict(self, airplane_list):
+    def get_numbered_employee_dict(self):
+        airplane_list = self.get_airplanes_overview()
         return self.getairplane.make_numbered_airplane_dict(airplane_list)
 
     def get_airplane_object_from_numbered_dict(self, numbered_airplane_dict, input_airplane_name):
