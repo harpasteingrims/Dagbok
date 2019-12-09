@@ -9,7 +9,6 @@ class GetEmployeesLL():
 
     def list_all_employees(self):
         """ Calls the IOAPI to get a list of all employees """
-        if 
         return self.ioapi.get_list_of_all_employees()
     
     def list_available_employees(self,date_from, date_to):

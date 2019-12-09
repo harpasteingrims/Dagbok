@@ -176,7 +176,7 @@ class InputCheckLL():
                 return iaad_day
             else:
                 return False
-        elif iaad_month == "02" and int(iaad_year) % 4 == 0 and int(iaad_year) % 100 == 0 and int(iaad_year) % 400 == 0:
+        elif iaad_month == "02" and int(iaad_year) % 4 == 0 and int(iaad_year) % 100 != 0 and int(iaad_year) % 400 != 0:
             if len(iaad_day) == 2 and iaad_day.isdigit() and 0 < int(iaad_day) < 30:
                 return iaad_day
             else:
