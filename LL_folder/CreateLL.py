@@ -49,7 +49,7 @@ class CreateLL():
         pass
 
 
-    """ CHECKING INOPUT FOR EMPLOYEES"""
+    """ CHECKING INPUT FOR EMPLOYEES"""
 
 
     def check_name(self, name):
@@ -124,7 +124,7 @@ class CreateLL():
     def check_license_type(self, license_type):
         #ariplane_list = vantar fallið úr airplanes
 
-        if license_type in ariplane_list:
+        if license_type in airplane_list:
             return license_type
 
         else:
