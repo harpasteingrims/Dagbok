@@ -84,10 +84,9 @@ class DestinationsUI():
         
         if action_str == "s":
             #Takes the info and adds it to the destination list
-            print("Destination successfully created\n")
-            new_destination = DestinationsModel(country, airport, flight_duration, distance, contact, contact_phone)
-            #self.llapi.create_new_destination(new_destination)
-            #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
+            new_destination_object = DestinationsModel(country, airport, flight_duration, distance, contact, contact_phone)
+            self.llapi.create_new_destination(new_destination_object)
+            print(f"Destination {new_destination_object.country} successfully created\n")
             return
 
         elif action_str == "b":
@@ -213,7 +212,7 @@ class DestinationsUI():
             self.get_flight_duration()
 
     def get_distance(self):
-        distance = input("Enter distance from Iceland: ")
+        distance = input("Enter distance from Iceland (xkm): ")
         distance_check = self.llapi.check_distance(distance)
 
         if distance_check:

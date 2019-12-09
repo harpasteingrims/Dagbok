@@ -8,16 +8,14 @@ class InputCheckLL():
 
     """ CHECKING INPUT FOR EMPLOYEES"""
 
-
     def check_name(self, name):
 
         first_name, last_name = name.split()
             
         if len(name) < 40 and first_name.isalpha() and last_name.isalpha(): 
-            return name
+            return name.title()
         else:
             return False
-
 
     def check_pilot_rank(self, rank):
 
@@ -58,19 +56,15 @@ class InputCheckLL():
 
     def check_mobile_number(self, mobile_number):
         
-        mobile_number_int = int(mobile_number)
-        try:
-
-            if len(mobile_number) == 7 and mobile_number.isdigit():
-                return mobile_number
-
-        except ValueError:
+        if len(mobile_number) == 7 and mobile_number.isdigit():
+            return mobile_number
+        else:
             return False
 
     def check_email(self, email):
 
         if "@" in email and "." in email:
-            return email
+            return email.lower()
         else:
             return False
     
@@ -84,29 +78,53 @@ class InputCheckLL():
 
         pass
 
-""" CHECKING INPUT FOR VOYAGES"""
+    """CHECKING INPUT FOR VOYAGES"""
 
-""" CHECKING INPUT FOR DESTINATIONS"""
+    """CHECKING INPUT FOR DESTINATIONS"""
 
     def check_country(self, country):
 
         if country.isalpha():
-            return country.capitalize()
+            return country.title()
         else:
             return False
 
     def check_airport(self, airport):
 
         if airport.isalpha():
-            return airport.capitalize()
+            return airport.title()
         else:
             return False
 
     def check_flight_airport(self, flight_duration):
 
-        if flight_duration
+        if flight_duration[0:1].isdigit() and flight_duration[3:5].isdigit() and flight_duration[2] == ":":
+            return flight_duration
+        else:
+            return False
 
-""" CHECKING INPUT FOR AIRPLANES"""
+    def check_distance(self, distance):
+
+        if distance[-3:] == " km":
+            return distance
+        else:
+            return False
+
+    def check_contact(self, contact):
+
+        if contact.isalpha():
+            return contact.title
+        else:
+            return False
+
+    def check_contact_number(self, contact_number): 
+
+        if contact_number.replace("+", "").replace(" ", "").isdigit():
+            return contact_number
+        else:
+            return False
+
+    """ CHECKING INPUT FOR AIRPLANES"""
 
     def check_airplane_id(self, airplane_id):
         

@@ -51,10 +51,20 @@ class GetAirplanesLL():
     #parsed_date.minute : 35
     #parsed_date.year : 2019
 
-    def make_numbered_airplane_dict(self,airplane_list):
-        pass
+    def make_numbered_airplane_dict(self, airplane_list):
+        numbered_airplane_dict = {}
+        counter = 1
+
+        for airplane_ob in airplane_list:
+                
+            numbered_airplane_dict[counter] = airplane_ob
+
+            counter += 1
+
+        return numbered_airplane_dict
     
-    def get_airplane_object_from_numbered_dict(self, numbered_airplane_dict, input_airplane_name):
-        pass
-    
-    
+    def get_airplane_object_from_numbered_dict(self, numbered_airplane_dict, input_number):
+        
+        for number, airplane_ob in numbered_airplane_dict.items():
+            if number == input_number:
+                return airplane_ob
