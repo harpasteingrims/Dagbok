@@ -23,11 +23,11 @@ class IOAPI():
         """ Calls the class to get a list of the whole cabin crew """
         return self.get.load_all_cabincrew()
     
-    def create_pilot(self):
+    def create_pilot(self, new_pilot):
         
         return self.create.store_pilot()
 
-    def create_cabincrew(self):
+    def create_cabincrew(self, new_cabincrew):
 
         return self.create.store_cabincrew()
 
@@ -38,7 +38,7 @@ class IOAPI():
         """ Calls the get class to get a list of all destinations """
         return self.get.load_all_destinations()
     
-    def create_destination(self):
+    def create_destination(self, new_destination):
         return self.create.add_destiantions()
 
 
@@ -48,7 +48,7 @@ class IOAPI():
         """ Calls the get class to get a list of all airplanes """
         return self.get.load_all_airplanes()
          
-    def create_airlane(self):
+    def create_airplane(self, new_airplane):
         return self.create.add_airplane()
 
 
@@ -56,8 +56,11 @@ class IOAPI():
 
     def get_all_voyages_list(self):
         """ Calls the Get class to get a list of all voyagess """
+        
         return self.get.load_all_voyages()
         
         
-    def create_voyage(self):
+    def create_voyage(self, new_voyage):
         return self.create.add_voyage()
+    
+    

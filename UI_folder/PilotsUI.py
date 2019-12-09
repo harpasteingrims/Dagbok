@@ -205,17 +205,12 @@ class PilotsUI(EmployeesUI):
         action_str = self.choose_action()
 
         if action_str == "s":
-            updated_pilot_list = [pilot_object.ssn, pilot_object.name, "Pilot", new_license_type, new_address, new_rank, mobile_number, new_email]
+            updated_pilot_object = PilotsModel(name, rank, ssn, address, mobile_number, email, license_type)
             
-            updated_pilot = self.llapi.update_new_pilot_information(updated_pilot_list)
+            updated_pilot = self.llapi.update_new_pilot_information(updated_pilot_object)
             
-            if updated_pilot:
-
-                print("Pilot's information successfully changed")
-
-            else:
-                print("Something went wrong, try again\n")
-            
+            print("Pilot's information successfully changed")
+            return
 
         elif action_str == "b":
             return

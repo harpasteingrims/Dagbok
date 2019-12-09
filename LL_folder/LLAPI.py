@@ -5,12 +5,12 @@ from LL_folder.GetEmployeesLL import GetEmployeesLL
 from LL_folder.GetVoyagesLL import GetVoyagesLL
 from LL_folder.GetIAAD import GetIAAD
 from LL_folder.UpdateLL import UpdateLL
-from LL_folder.CreateLL import CreateLL
+from LL_folder.InputCheckLL import InputCheckLL
 
 class LLAPI():
     def __init__(self):
         self.ioapi = IOAPI()
-        self.createll = CreateLL(self.ioapi)
+        self.inputcheckll = InputCheckLL(self.ioapi)
         self.updatell = UpdateLL(self.ioapi)
         self.getvoyages = GetVoyagesLL(self.ioapi)
         self.getairplanes = GetAirplanesLL(self.ioapi)
@@ -31,28 +31,28 @@ class LLAPI():
         return self.getemployees.get_employee_object_from_numbered_dict(numbered_employee_dict, input_name)
     
     def check_name(self, name):
-        return self.createll.check_name(name)
+        return self.inputcheckll.check_name(name)
     
     def check_pilot_rank(self, rank):
-        return self.createll.check_pilot_rank(rank)
+        return self.inputcheckll.check_pilot_rank(rank)
 
     def check_crew_member_rank(self,rank):
-        return self.createll.check_crew_member_rank(rank)
+        return self.inputcheckll.check_crew_member_rank(rank)
 
     def check_ssn(self, ssn):
-        return self.createll.check_ssn(ssn)
+        return self.inputcheckll.check_ssn(ssn)
 
     def check_address(self, address):
-        return self.createll.check_address(address)
+        return self.inputcheckll.check_address(address)
 
     def check_mobile_number(self, mobile_number):
-        return self.createll.check_mobile_number(mobile_number)
+        return self.inputcheckll.check_mobile_number(mobile_number)
     
     def check_email(self,email):
-        return self.createll.check_email(email)
+        return self.inputcheckll.check_email(email)
     
     def check_license_type(self, license_type):
-        return self.createll.check_license_type(liscense_type)
+        return self.inputcheckll.check_license_type(liscense_type)
         #þarf að klára í getempll
     
 
@@ -71,8 +71,8 @@ class LLAPI():
     def create_new_pilot(self, new_pilot_object):
         return self.ioapi.create_pilot(new_pilot_object)
     
-    def update_new_pilot_information(self, updated_pilot_list):
-        return self.updatell.update_pilot_information(updated_pilot_list)
+    def update_new_pilot_information(self, updated_pilot_object):
+        return self.updatell.update_pilot_information(updated_pilot_object)
 
 
     """ CABIN CREW """
@@ -86,8 +86,8 @@ class LLAPI():
     def get_schedule_cabincrew_by_date(self, name, date_from, date_to):
         return self.getemployees.list_schedule_cabincrew_by_date(name, date_from, date_to)
 
-    def create_new_cabin_crew(self):
-        return self.createll.create_cabincrew()
+    def create_new_cabin_crew(self, new_cabincrew_object):
+        return self.ioapi.create_cabincrew(new_cabincrew_object)
 
     def update_new_crew_member_information(self):
         return self.updatell.update_cabin_crew_information()
@@ -99,8 +99,8 @@ class LLAPI():
     def get_airport_overview(self):
         return self.getdestinations.list_all_airports()
 
-    def create_new_destination(self):
-        return self.createll.create_destination()
+    def create_new_destination(self, new_destination_object):
+        return self.ioapi.create_destination(new_destination_object)
 
     def update_new_emerg_contact(self):
         return self.updatell.update_emergency_contact()
@@ -119,11 +119,14 @@ class LLAPI():
     def get_unavailable_time_for_voyage(self, voyage_year, voyage_month, voyage_day):
         return self.getvoyages.list_unavailable_voyage_time(voyage_year, voyage_month, voyage_day)
 
-    def create_new_voyage(self):
-        return self.createll.create_voyage()
+    def create_new_voyage(self, new_voyage_object):
+        return self.ioapi.create_voyage(new_voyage_object)
 
-    def create_new_common_voyage(self):
-        return self.createll.create_common_voyage()
+    def create_new_common_voyage(self, common_voyage_object):
+        #HÉR Á EFTIR AÐ VINNA
+        common_voyage_object = []
+        voyage_list = self.ioapi.get_all_voyages_list()
+        return common_voyage_list
 
 
     """AIRPLANES"""
@@ -134,8 +137,8 @@ class LLAPI():
     def get_available_airplanes_by_date(self, voyage_date): #Þessi listi þarf að vera númeraður
         return self.getairplanes.list_available_airplanes_by_date(voyage_date)
 
-    def create_new_airplane(self):
-        return self.createll.create_airplane()
+    def create_new_airplane(self, new_airplane_object):
+        return self.ioapi.create_airplane(new_airplane_object)
 
 
     """IAAD"""
