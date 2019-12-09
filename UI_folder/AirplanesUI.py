@@ -75,10 +75,9 @@ class AirplanesUI():
 
         if action_str == "s":
             #Takes the info and adds it to the airplane list
-            print("Airplane successfully created\n")
-            new_airplane = AirplanesModel(airplane_id, airplane_type, manufacturer, seat_amount)
-            #self.llapi.create_new_airplane(new_airplane)
-            #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
+            new_airplane_object = AirplanesModel(airplane_id, airplane_type, manufacturer, seat_amount)
+            self.llapi.create_new_airplane(new_airplane_object)
+            print(f"Airplane {new_airplane_object.airplane_id} successfully created\n")
             return
 
         elif action_str == "b":

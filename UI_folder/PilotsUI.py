@@ -10,7 +10,6 @@ class PilotsUI():
 
     def choose_action(self):
         """ Asks the user for an action and returns it """
-
         action_str = input("Choose action: ").lower()
         print()
 

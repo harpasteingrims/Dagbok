@@ -64,7 +64,7 @@ class CabincrewUI():
         action_str = self.choose_action()
 
         if action_str == "b":
-            self.show_cabincrew_menu()
+            return
         
         else:
             print("Invalid action!")
