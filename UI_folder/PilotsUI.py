@@ -127,7 +127,7 @@ class PilotsUI():
             print(pilot_object.print_pilot_info())
             print()
 
-        print(f"\n1{pilot_object.name}'s flight schedule")
+        print(f"1 {pilot_object.name}'s flight schedule")
         print("2 Edit information about pilot")
         print("B Back")
 

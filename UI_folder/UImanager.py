@@ -13,7 +13,7 @@ class UImanager():
     def __init__(self):
         self.llapi = LLAPI()
         self.iaad = IAADUI(self.llapi)
-        self.employeesUI_ob = EmployeesUI()
+        self.employeesUI_ob = EmployeesUI(self.llapi)
         self.employeesUI = EmployeesUI(self.llapi, self.employeesUI_ob)
         self.voyages = VoyagesUI(self.llapi)
         self.destinations = DestinationsUI(self.llapi )

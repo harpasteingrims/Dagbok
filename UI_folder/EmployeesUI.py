@@ -3,7 +3,7 @@ from UI_folder.PilotsUI import PilotsUI
 class EmployeesUI():
     LENGTH_STAR = 20
     
-    def __init__(self , llapi = None, employeesUI = None):
+    def __init__(self , llapi, employeesUI = None):
         self.llapi = llapi
         self.employeesUI = employeesUI
         self.cabincrew = CabincrewUI(llapi, self.employeesUI)
