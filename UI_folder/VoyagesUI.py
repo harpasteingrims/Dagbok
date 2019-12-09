@@ -105,7 +105,7 @@ class VoyagesUI():
         
         print(self.LENGTH_STAR * "*")
         print("INPUT DEPARTURE DATE AND ARIPLANE ID")
-        print("Enter outbound departure date") #Hérna þarf ég að kalla á available airplanes by date
+        print("Enter outbound departure date")
         departure_date = self.get_year_month_day(chosen_voyage_elem)
         available_airplanes_list = self.llapi.get_available_airplanes_by_date(departure_date)
         counter = 1
@@ -115,11 +115,12 @@ class VoyagesUI():
         airplane_id = self.choose_a_number()
         if 1 <= int(airplane_id) <= len(available_airplanes_list):
             chosen_airplane_id = available_airplanes_list[int(airplane_id)-1]
-            
+            print("\n*Voyage successfully created*")
+            new_voyage = VoyagesModel(departure_date, voyage_time, chosen_voyage_elem[0], chosen_airplane_id)
         else:
             print("Invalid number!")
             airplane_id = self.choose_a_number()
-        return chosen_voyage_elem
+        #return chosen_voyage_elem
         pass #Eftir að klára þetta :)
 
     def show_create_manually_form(self): #Lista upp alla áfangastaði allar tímasetningar sem eru uppteknar allar flugvélar sem eru lausar
