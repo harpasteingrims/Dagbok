@@ -23,8 +23,9 @@ class GetIO():
         pilot_list = self.load_all_pilots()
         cabincrew_list = self.load_all_cabincrew()
 
-        self.all_employee_list.extend(cabincrew_list)
-        self.all_employee_list.extend(pilot_list)
+        #self.all_employee_list.extend(cabincrew_list)
+        #self.all_employee_list.extend(pilot_list)
+        self.all_employee_list = pilot_list + cabincrew_list
 
         return self.all_employee_list
 
@@ -33,7 +34,7 @@ class GetIO():
         
         counter = 1
         for line in pilot_file:
-            if counter == 1:
+            if counter == 1: #Skil ekki alveg þetta
                 counter += 1
             else:
                 ssn = line[0]

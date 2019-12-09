@@ -24,21 +24,22 @@ class GetVoyagesLL():
         
         return unmanned_list
 
-    def list_all_common_voyages_dict(self):
+    def list_all_common_voyages(self):
 
         voyages_list = self.list_all_voyages()
         counter = 0
         common_voyages_list = []
         for voyage_ob in voyages_list:
-            destination = voyage_ob.arriving_at
+            destination = voyage_ob.destination
             parsed_date = dateutil.parser.parse(voyage_ob.departure_time)
             for voyage_object in voyages_list:
                 parsed_date_voyage = dateutil.parser.parse(voyage_object.departure_time)
-                if [voyage_object.arriving_at, parsed_date_voyage.hour, parsed_date_voyage.minute] == [destination, parsed_date.hour, parsed_date.minute]:
+                if [voyage_object.destination, parsed_date_voyage.hour, parsed_date_voyage.minute] == [destination, parsed_date.hour, parsed_date.minute]:
                     counter += 1
-            if counter > 2:
-                departure_time = parsed_date.hour + ":" + parsed_date.minute + ":00"
-                common_voyages_list.append([destination, departure_time])
+            if counter > 1:
+                departure_time = str(parsed_date.hour) + ":" + str(parsed_date.minute) + ":00"
+                if [destination, departure_time] not in common_voyages_list:
+                    common_voyages_list.append([destination, departure_time])
             counter = 0
 
         return common_voyages_list
