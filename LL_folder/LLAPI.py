@@ -30,7 +30,7 @@ class LLAPI():
     def get_employee_object_from_numbered_dict(self, numbered_employee_dict, input_name):
         return self.getemployees.get_employee_object_from_numbered_dict(numbered_employee_dict, input_name)
     
-    def check_name(self,name):
+    def check_name(self, name):
         return self.createll.check_name(name)
     
     def check_pilot_rank(self, rank):
@@ -68,8 +68,8 @@ class LLAPI():
         return self.getemployees.list_schedule_pilot_by_date(name, date_from, date_to)
         # eftir að klára
 
-    def create_new_pilot(self, new_pilot_list):
-        return self.createll.create_pilot(new_pilot_list)
+    def create_new_pilot(self, new_pilot_object):
+        return self.ioapi.create_pilot(new_pilot_list)
     
     def update_new_pilot_information(self, updated_pilot_list):
         return self.updatell.update_pilot_information(updated_pilot_list)
