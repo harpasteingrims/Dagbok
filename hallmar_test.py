@@ -1,6 +1,5 @@
-from IO_folder.GetIO import GetIO
+from LL_folder.GetVoyagesLL import GetVoyagesLL
 
-
-test = GetIO
-test.load_all_voyages()
+test = GetVoyagesLL
+test.list_not_staffed_voyages()
 
