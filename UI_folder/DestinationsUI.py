@@ -213,7 +213,7 @@ class DestinationsUI():
             self.get_flight_duration()
 
     def get_distance(self):
-        distance = input("Enter distance from Iceland: ")
+        distance = input("Enter distance from Iceland (xkm): ")
         distance_check = self.llapi.check_distance(distance)
 
         if distance_check:
