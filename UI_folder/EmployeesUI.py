@@ -120,7 +120,8 @@ class EmployeesUI():
     
 
     def get_address(self):
-        address = input("\nEnter address in form; zip code address name house number: ")
+        address = input("\nEnter address in form \nzip code address name house number\n: ")
+            
         address_check = self.llapi.check_address(address).lower()
 
         if address_check:
@@ -156,11 +157,12 @@ class EmployeesUI():
 
 
     def get_license_type(self):
+        
         license_type = input("\nEnter license type: ").lower()
         
         airplane_object_list = self.llapi.get_airplanes_overview()
 
-        
+
         license_type_check = self.llapi.check_license_type(license_type)
 
 
