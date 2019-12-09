@@ -273,12 +273,26 @@ Vika 2: 02.12 - 06.12
     Hildur: 
         -Gera Create fyrir Airplanes
         -Laga create path dyrir allt UI
+        -Hjálpa með GetIAADLL
     Nína Margrét: 
         -Heldur áfram með villutékk.
         -Kommenta á það sem hún gerði um helgina.
+        -Hjálpa með GetIAADLL
     Viktoría Inga: 
-        -Klára VreteLL
+        -Klára CreteLL
         -Byrja á UpdateLL
         
     Samantekt:
-        -
+        -Dagurinn í dag var sveiflukenndur. Komumst áfram með ýmis atriði og svo virðist sem önnur og þriðja A krafan sé komin í hús. Á fundum dagsins kom upp úr dúrnum allnokkrir kvillar sem við höfðum ekki pælt í. Byrjuðum daginn með því að download-a Github for Desktop. Sending af himnum ofan. Erum að velta því fyrir okkur hvort við eigum að manipulate-a skrárnar með "a" aðferðinni eða vista í local lista/dict. Harpa, Nína og Hallmar fóru á fund með Gylfa sem hjálpaði smá en skildum ekki allt sem hann sagði. 
+        -Viktoría gerði UpdateLL og CreateLL. Bætti miklu við í IOAPI og LLAPI.
+        -Hildur vann í InputCheck en getur ekki gert það fyrir Voyages á meðan Hallmar og Harpa eru að vinna í því.
+        -Harpa náði að láta prenta Not Staffed Voyages, hélt áfram með Voyages UI en það er ekki fullklárað.
+        -Nína er búin að gera svo mikið að ógerningur er að telja það allt upp. Meðal annars náði hún að láta Create CabinCrew virka.
+        -Hallmar vann með Hörpu í Voyages í öllum layer-um. Kláraði líka GetIO.
+        -Erum dálítið hrædd við veðrið á morgun en það er spáð appelsínugulri viðvörun. Ákveðum í kvöld hvort við vinnum heima eða mætum bara fyrir hádegi. Alla vega úthlutum við verkefnum og sjáum svo til.
+        -Heimaverkfni
+            -Nína: Gera license_type í Input check. Gera flight_schedule. Laga create number dict.
+            -Hildur: Input check fyrir Voyages
+            -Hallmar: Finna út úr því hvernig tímareikningurinn virkar í CreateVoyages
+            -Viktoría: æj búnað gleyma, hún fór í afmælisdinner og að hitta ömmu og afa.
+            -Harpa: VoyagesUI og GetIAAD (láta það heita GetIAADLL)
