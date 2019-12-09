@@ -32,9 +32,8 @@ class CreateLL():
 
     """ CHECKING INPUT FOR EMPLOYEES"""
 
-
     def check_name(self,name):
-            
+
         if len(name) < 40 and name.isalpha(): 
             return name
         
@@ -112,3 +111,15 @@ class CreateLL():
             return False
 
         pass
+
+    """ CHECKING INPUT FOR VOYAGES"""
+
+    """ CHECKING INPUT FOR DESTINATIONS"""
+
+    """ CHECKING INPUT FOR AIRPLANES"""
+
+    def check_airplane_id(self, airplane_id):
+        
+        if len(airplane_id) == 6:
+            return airplane_id
+        else: return False
