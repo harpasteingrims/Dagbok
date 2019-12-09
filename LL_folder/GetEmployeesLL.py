@@ -28,31 +28,6 @@ class GetEmployeesLL():
         # flokka þá sem ekki eru að vinna....
 
         return unavaliable_employees
-    
-
-    """ PILOTS AND CABIN CREW """
-
-
-    def make_numbered_employee_dict(self, object_list):
-        
-        numbered_employee_dict = {}
-        counter = 1
-
-        for employee_object in object_list:
-                
-            numbered_employee_dict[counter] = employee_object
-
-            counter += 1
-
-        return numbered_employee_dict
-
-
-    def get_employee_object_from_numbered_dict(self, numbered_employee_dict, input_number):
-        
-        for number, employee_object in numbered_employee_dict.items():
-            if number == input_number:
-                return employee_object
-
 
 
     """ PILOTS """
