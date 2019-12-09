@@ -32,7 +32,8 @@ class GetIAAD():
             unavailable_employees_list = []
             date = voyage_ob.departure_time
             parsed_date = dateutil.parser.parse(date)
-            if user_input_date.year == parsed_date.year and user_input_date.month == parsed_date.month and user_input_date.day == parsed_date.day:
+            user_input_parsed_date = dateutil.parser.parse(user_input_date)
+            if user_input_parsed_date.year == parsed_date.year and user_input_parsed_date.month == parsed_date.month and user_input_parsed_date.day == parsed_date.day:
                 if voyage_ob.crew_list != []:
                     unavailable_employees_list.append(voyage_ob.crew_list)
 

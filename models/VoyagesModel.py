@@ -16,6 +16,7 @@ class VoyagesModel():
         return self.crew_list
     
     def calculate_arrival_date(self):
+        pass
         
 
 
