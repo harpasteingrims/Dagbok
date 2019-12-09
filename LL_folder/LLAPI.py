@@ -18,17 +18,10 @@ class LLAPI():
         self.getemployees = GetEmployeesLL(self.ioapi)
         self.getiaad = GetIAAD(self.ioapi)
 
-    """EMPLOYEES"""
-
-    def get_employee_overview(self):
-        return self.getemployees.list_all_employees() #Þetta kallar á klasann getemployees og fallið þar inni sem nær í alla employees
     
-    def get_numbered_employee_dict(self, employee_list):
-        return self.getemployees.make_numbered_employee_dict(employee_list)
+    """ INPUT CHECK """
 
-    def get_employee_object_from_numbered_dict(self, numbered_employee_dict, input_name):
-        return self.getemployees.get_employee_object_from_numbered_dict(numbered_employee_dict, input_name)
-    
+
     def check_name(self, name):
         return self.inputcheckll.check_name(name)
     
@@ -53,8 +46,21 @@ class LLAPI():
     def check_license_type(self, license_type):
         return self.inputcheckll.check_license_type(license_type)
         #þarf að klára í getempll
-    
 
+        
+    
+    """ EMPLOYEES """
+
+    def get_employee_overview(self):
+        return self.getemployees.list_all_employees() #Þetta kallar á klasann getemployees og fallið þar inni sem nær í alla employees
+    
+    def get_numbered_employee_dict(self, employee_list):
+        return self.getemployees.make_numbered_employee_dict(employee_list)
+
+    def get_employee_object_from_numbered_dict(self, numbered_employee_dict, input_name):
+        return self.getemployees.get_employee_object_from_numbered_dict(numbered_employee_dict, input_name)
+    
+    
     """ PILOTS """
 
     def get_pilot_overview(self):
