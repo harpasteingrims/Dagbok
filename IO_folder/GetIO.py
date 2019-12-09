@@ -153,7 +153,7 @@ class GetIO():
                 except IndexError:
                     aircraft_ID = ""
                 Flight = FlightsModel(flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID)
-                flights_list.append(Flight)
+                self.flights_list.append(Flight)
                   
 
         flights_file.close()
