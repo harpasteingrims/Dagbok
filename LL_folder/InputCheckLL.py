@@ -10,6 +10,7 @@ class InputCheckLL():
 
 
     def check_name(self,name):
+        first_name, last_name = name.split()
             
         if len(name) < 40 and name.isalpha(): 
             return name
@@ -18,7 +19,7 @@ class InputCheckLL():
             return False
 
 
-    def check_pilot_rank(self, rank):s
+    def check_pilot_rank(self, rank):
 
         if rank == "1":
             rank = "Captain"
