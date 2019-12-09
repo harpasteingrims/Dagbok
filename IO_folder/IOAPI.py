@@ -4,9 +4,9 @@ from IO_folder.UpdateIO import UpdateIO
 
 class IOAPI():
     def __init__(self):
-        self.get = GetIO()
-        self.create = CreateIO()
-        self.update = UpdateIO(self.create, self.get)
+        self.getio = GetIO()
+        self.createio = CreateIO()
+        self.updateio = UpdateIO(self.createio, self.getio)
 
     """ EMPLOYEES """
     def get_list_of_all_employees(self):
@@ -17,39 +17,49 @@ class IOAPI():
 
     def get_list_of_all_pilots(self):
         """ Calls the class get to get a list of all pilots """
-        return self.get.load_all_pilots()
+        return self.getio.load_all_pilots()
 
     def get_list_of_all_cabin_crew(self):
         """ Calls the class to get a list of the whole cabin crew """
-        return self.get.load_all_cabincrew()
+        return self.getio.load_all_cabincrew()
     
     def create_pilot(self, new_pilot):
         
-        return self.create.store_pilot()
+        return self.createio.store_pilot()
+    
+    def update_pilot(self, updated_pilot):
+        
+        return self.updateio.update_pilot(updated_pilot)
 
     def create_cabincrew(self, new_cabincrew):
 
-        return self.create.store_cabincrew()
+        return self.createio.store_cabincrew()
 
+    def update_cabincrew(self, updated_cabincrew_ob):
+
+        return self.updateio.update_cabincrew(updated_cabincrew_ob)
 
     """ DESTINATIONS """
 
     def get_destination_list(self):
         """ Calls the get class to get a list of all destinations """
-        return self.get.load_all_destinations()
+        return self.getio.load_all_destinations()
     
     def create_destination(self, new_destination):
-        return self.create.add_destiantions()
+        return self.createio.add_destiantions()
+    
+    def update_emergency_contact(self, updated_contact):  
+        return self.updateio.update_emergency_contact(updated_contact)
 
 
     """ AIRPLAINS """
 
     def get_airplane_list(self):
         """ Calls the get class to get a list of all airplanes """
-        return self.get.load_all_airplanes()
+        return self.getio.load_all_airplanes()
          
     def create_airplane(self, new_airplane):
-        return self.create.add_airplane()
+        return self.createio.add_airplane()
 
 
     """ VOYAGES """
@@ -57,10 +67,11 @@ class IOAPI():
     def get_all_voyages_list(self):
         """ Calls the Get class to get a list of all voyagess """
 
-        return self.get.load_all_voyages()
+    def update_voyage(self, voyage_object):
+        return self.updateio.load_all_voyages()
         
         
     def create_voyage(self, new_voyage):
-        return self.create.add_voyage()
+        return self.createio.add_voyage()
     
     

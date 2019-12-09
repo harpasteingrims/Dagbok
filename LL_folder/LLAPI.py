@@ -17,7 +17,6 @@ class LLAPI():
         self.getdestinations = GetDestinationsLL(self.ioapi)
         self.getemployees = GetEmployeesLL(self.ioapi)
         self.getiaad = GetIAAD(self.ioapi)
-    
 
     """EMPLOYEES"""
 
@@ -52,7 +51,7 @@ class LLAPI():
         return self.inputcheckll.check_email(email)
     
     def check_license_type(self, license_type):
-        return self.inputcheckll.check_license_type(liscense_type)
+        return self.inputcheckll.check_license_type(license_type)
         #þarf að klára í getempll
     
 
@@ -68,11 +67,11 @@ class LLAPI():
         return self.getemployees.list_schedule_pilot_by_date(name, date_from, date_to)
         # eftir að klára
 
-    def create_new_pilot(self, new_pilot_object):
-        return self.ioapi.create_pilot(new_pilot_object)
+    def create_new_pilot(self, new_pilot_ob):
+        return self.ioapi.create_pilot(new_pilot_ob)
     
-    def update_new_pilot_information(self, updated_pilot_object):
-        return self.updatell.update_pilot_information(updated_pilot_object)
+    def update_new_pilot_information(self, updated_pilot_ob):
+        return self.ioapi.update_pilot(updated_pilot_ob)
 
 
     """ CABIN CREW """
@@ -86,11 +85,11 @@ class LLAPI():
     def get_schedule_cabincrew_by_date(self, name, date_from, date_to):
         return self.getemployees.list_schedule_cabincrew_by_date(name, date_from, date_to)
 
-    def create_new_cabin_crew(self, new_cabincrew_object):
-        return self.ioapi.create_cabincrew(new_cabincrew_object)
+    def create_new_cabin_crew(self, new_cabincrew_ob):
+        return self.ioapi.create_cabincrew(new_cabincrew_ob)
 
-    def update_new_crew_member_information(self):
-        return self.updatell.update_cabin_crew_information()
+    def update_new_crew_member_information(self, updated_crew_member_ob):
+        return self.ioapi.update_cabincrew(updated_crew_member_ob)
 
 
     """DESTINATIONS"""
@@ -100,12 +99,11 @@ class LLAPI():
     def get_airport_overview(self):
         return self.getdestinations.list_all_airports()
 
-    def create_new_destination(self, new_destination_object):
-        return self.ioapi.create_destination(new_destination_object)
+    def create_new_destination(self, new_destination_ob):
+        return self.ioapi.create_destination(new_destination_ob)
 
-    def update_new_emerg_contact(self):
-        return self.updatell.update_emergency_contact()
-
+    def update_new_emerg_contact(self, updated_emergency_contact_ob):
+        return self.ioapi.update_emergency_contact(updated_emergency_contact_ob)
 
     """VOYAGES"""
     def get_voyages_overview(self):
@@ -131,6 +129,9 @@ class LLAPI():
         common_voyage_object = []
         voyage_list = self.ioapi.get_all_voyages_list()
         return common_voyage_list
+    
+    def update_voyage(self, updated_voyage_ob):
+        return self.ioapi.update_voyage(updated_voyage_ob)
 
     
     """AIRPLANES"""
