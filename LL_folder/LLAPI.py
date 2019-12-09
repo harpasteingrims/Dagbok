@@ -24,42 +24,48 @@ class LLAPI():
     def get_employee_overview(self):
         return self.getemployees.list_all_employees() #Þetta kallar á klasann getemployees og fallið þar inni sem nær í alla employees
     
+    def get_numbered_employee_dict(self, employee_list):
+        return self.getemployees.make_numbered_employee_dict(employee_list)
+
+    def get_employee_object_from_numbered_dict(self, numbered_employee_dict, input_name):
+        return self.getemployees.get_employee_object_from_numbered_dict(numbered_employee_dict, input_name)
+
+    
+    
     def check_name(self,name):
-        return self.getemployees.check_name(name)
+        return self.createll.check_name(name)
     
     def check_pilot_rank(self, rank):
-        return self.getemployees.check_pilot_rank(rank)
+        return self.createll.check_pilot_rank(rank)
+
+    def check_crew_member_rank(self,rank):
+        return self.createll.check_crew_member_rank(rank)
 
     def check_ssn(self, ssn):
-        return self.getemployees.check_ssn(ssn)
+        return self.createll.check_ssn(ssn)
 
     def check_address(self, address):
-        return self.getemployees.check_address(address)
+        return self.createll.check_address(address)
 
     def check_mobile_number(self, mobile_number):
-        return self.getemployees.check_mobile_number(mobile_number)
+        return self.createll.check_mobile_number(mobile_number)
     
     def check_email(self,email):
-        return self.getemployees.check_email(email)
+        return self.createll.check_email(email)
     
     def check_license_type(self, license_type):
-        return self.getemployees.check_license_type(liscense_type)
+        return self.createll.check_license_type(liscense_type)
         #þarf að klára í getempll
+    
 
     """ PILOTS """
 
     def get_pilot_overview(self):
         return self.getemployees.list_all_pilots()
         
-    def get_common_named_pilots_by_name(self,name):
+    def get_common_named_pilots(self,name):
         return self.getemployees.find_common_named_pilots(name)
     
-    def get_numbered_employee_dict(self, pilot_list):
-        return self.getemployees.make_numbered_employee_dict(pilot_list)
-
-    def get_employee_object_from_numbered_dict(self, numbered_pilot_dict, input_name):
-        return self.getemployees.get_employee_object_from_numbered_dict(numbered_pilot_dict, input_name)
-
     def get_schedule_pilot_by_date(self, pilot_object, date_from, date_to):
         return self.getemployees.list_schedule_pilot_by_date(name, date_from, date_to)
         # eftir að klára
@@ -76,20 +82,17 @@ class LLAPI():
     def get_cabin_crew_overview(self):
         return self.getemployees.list_all_cabin_crew()
 
-    def get_common_named_cabincrew_by_name(self,name):
-        return self.getemployees.find_common_named_cabincrew(name)
-
-    def get_info_about_cabincrew_by_name(self, name):
-        return self.getemployees.list_info_about_cabincrew_by_name(name)
+    def get_common_named_crew_members(self, name):
+        return self.getemployees.find_common_named_crew_members(name)
 
     def get_schedule_cabincrew_by_date(self, name, date_from, date_to):
         return self.getemployees.list_schedule_cabincrew_by_date(name, date_from, date_to)
 
-    def create_new_cabincrew(self):
+    def create_new_cabin_crew(self):
         return self.createll.create_cabincrew()
 
-    def update_new_cabincrew_information(self):
-        return self.updatell.update_cabincrew_information()
+    def update_new_crew_member_information(self):
+        return self.updatell.update_cabin_crew_information()
 
     """DESTINATIONS"""
     def get_destination_overview(self): #Þessi listi þarf að vera númeraður

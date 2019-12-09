@@ -1,27 +1,31 @@
 from models.CabinCrewModel import CabinCrewModel
 import datetime
+
 class CabincrewUI():
     LENGTH_STAR = 20
+
     def __init__(self, llapi):
         self.llapi = llapi
 
     def choose_action(self):
+        """ Asks the user for an action and returns it """
+
         action_str = input("Choose action: ").lower()
         print()
+
         return action_str
+
 
     def show_cabincrew_menu(self):
         """ This prints the cabin crew member menu """
-
-        action_str = ""
 
         while True:
             print()
             print(self.LENGTH_STAR * "*")
             print("CABIN CREW MENU")
             print()
-            print("1 Search for a cabin crew member")
-            print("2 Print overview of cabin crew")
+            print("1 Print overview of cabin crew")
+            print("2 Search for a cabin crew member")
             print("3 Create a new cabin crew member")
             print("B Back")
             print()
@@ -29,10 +33,10 @@ class CabincrewUI():
             action_str = self.choose_action()
 
             if action_str == "1":
-                self.show_enter_name_to_search()
+                self.show_cabincrew_member_overview()
 
             elif action_str == "2":
-                self.show_cabincrew_member_overview()
+                self.show_enter_name_to_search()
 
             elif action_str == "3":
                 self.show_cabincrew_member_create_form()
@@ -43,26 +47,86 @@ class CabincrewUI():
             else:
                 print("Invalid action!")
 
+
+    def show_cabincrew_member_overview(self):
+        """This prints the overview of all pilots"""
+
+        print(self.LENGTH_STAR * "*")
+        print("OVERVIEW OF CABIN CREW\n")
+        # Calls the class that makes a list of all cabin crew members and prints it 
+        cabin_crew_ob_list = self.llapi.get_cabin_crew_overview()
+        for member in cabin_crew_ob_list:
+            print(f"{member.name}, {member.role}, {member.ssn}, {member.mobile_number}, {member.email}")
+        
+        print("B Back\n")
+
+        action_str = self.choose_action()
+
+        if action_str == "b":
+            self.show_cabincrew_menu()
+        
+        else:
+            print("Invalid action!")
+            action_str = self.choose_action()
+
+    def get_crew_member_name_and_common_list(self):
+
+        input_name = input("Enter name of cabin crew member: ").lower()
+        print()
+        same_named_crew_members = self.llapi.get_common_named_crew_members(input_name)
+        
+        return same_named_crew_members, input_name
+
+
+    def get_number_from_user(self, numbered_crew_member_dict):
+        """ Gets an number from user and checks if it is right """
+
+        input_number = input("\nChoose the number you want: ")
+        print()
+
+        try:
+            if int(input_number) in numbered_crew_member_dict:
+                return int(input_number)
+        
+        except ValueError or False: 
+            print("Not a valid number!")
+            self.get_number_from_user(numbered_crew_member_dict)
+
+
     def show_enter_name_to_search(self):
         """This prints the search for a cabin crew member window"""
 
         print(self.LENGTH_STAR * "*")
         print("SEARCH FOR A CABIN CREW MEMBER\n")
 
-        name = input("Enter name of cabin crew member: ")
-        print()
+        same_named_crew_members, input_name = self.get_crew_member_name_and_common_list()
 
-        cabincrew_info = self.llapi.get_info_about_cabincrew_by_name()
-        print(cabincrew_info)
-            #Name:
-            #Role:
-            #Social security number:
-            #Adress:
-            #Mobile number:
-            #Email:
+        if same_named_crew_members == False:
+            print("Crew member does not exist")
+            same_named_crew_members, input_name = self.get_crew_member_name_and_common_list()
+        
+        counter = 1
+        
+        if len(same_named_crew_members) == 1:
+            crew_member_object = same_named_crew_members[0]
+            print(crew_member_object.print_crew_member_object_info())
+                
+        else:
+ 
+            numbered_crew_member_dict = self.llapi.get_numbered_employee_dict(same_named_crew_members)
+            
+            for number, crew_member_object in numbered_crew_member_dict.items():
+                print(f"{number} {crew_member_object.name}")
 
-        print("1 {}'s flight schedule".format(name))
-        print("2 Edit information about cabin crew member \nB Back")
+            input_number = int(self.get_number_from_user(numbered_crew_member_dict))
+
+            crew_member_object = self.llapi.get_employee_object_from_numbered_dict(numbered_crew_member_dict, input_number)
+            print(crew_member_object.print_pilot_info())
+            print()
+
+        print(f"\n1{crew_member_object.name}'s flight schedule")
+        print("2 Edit information about pilot")
+        print("B Back")
 
         action_str = self.choose_action()
 
@@ -73,14 +137,14 @@ class CabincrewUI():
             self.show_cabincrew_member_edit_form()
 
         elif action_str == "b":
-            self.show_cabincrew_menu()
+            return
         
         else:
             print("Invalid action!")
             action_str = self.choose_action()
-        return name
 
-    def show_flight_schedule_of_cabincrew_member(self, name):
+
+    def show_flight_schedule_of_cabincrew_member(self, crew_member_object):
         """Calls a class that makes a list of their voyages and prints it"""
 
         print(self.LENGTH_STAR * "*")
@@ -97,97 +161,96 @@ class CabincrewUI():
         day_to = input("Enter day to: ")
         date_to = datetime.datetime(year_to, month_to, day_to, 23, 59, 0).isoformat()
 
-        print("{}'S FLIGHT SCHEDULE").format(name.upper())
-        cabincrew_schedule = self.llapi.get_schedule_cabincrew_by_date(date_from, date_to)
-        print(cabincrew_schedule)
+
+        print(self.LENGTH_STAR * "*")
+        print(f"{crew_member_object.name}'S FLIGHT SCHEDULE")
+
+        flights_object = self.llapi.get_schedule_crew_member_by_date(pilot_object, date_from, date_to)
+        
+        #vantar kóða hér
+
 
         print("B Back")
 
         action_str = self.choose_action()
 
         if action_str == "b":
-            self.show_cabincrew_menu()
+            return
         
         else:
             print("Invalid action!")
             action_str = self.choose_action()
     
-    def show_cabincrew_member_edit_form(self):
+    def show_cabincrew_member_edit_form(self, crew_member_object):
         """This prints the edit form for a cabin crew member"""
         
         print(self.LENGTH_STAR * "*")
         print("EDIT CABIN CREW MEMBER")
-        # name, ssn, role.... = #calls the class to get the info of the cabin crew member 
-        #print("You are changing the information for cabin crew member: {}, {}".format(name, ssn))
-        
-        new_address = input("Enter new address")
-        new_mobile_number = input("Enter new mobile number: ")
-        new_email = input("Enter new email: ")
+        print(pilot_object.print_pilot_info())
 
+        print(f"You are changing the information for pilot: {crew_member_object.name}, {crew_member_object.ssn}")
+       
+        new_address = self.employeesUI.get_address()
+        new_rank = self.employeesUI.get_crew_member_rank()
+        mobile_number = self.employeesUI.get_mobile_number()
+        new_email = self.employeesUI.get_email()
+        
         print("S Save \nB Back\n")
 
         action_str = self.choose_action()
 
         if action_str == "s":
-            #Takes the new info, changes and adds it to the cabin crew member list
-            #Calls the class that stores the info about the cabin crew member to change it...
-            print("Cabin crew member's information successfully changed")
-            self.show_cabincrew_menu()
+            updated_crew_member_list = [crew_member_object.ssn, crew_member_object.name, "Cabin crew", new_rank, new_address, mobile_number, new_email]
+            
+            updated_crew_member = self.llapi.update_new_crew_member_information(updated_crew_member_list)
+            
+            if updated_crew_member:
+
+                print("Crew member's information successfully changed\n")
+
+            else:
+                print("Something went wrong, try again\n")
+            
 
         elif action_str == "b":
-            self.show_cabincrew_menu()
-        
+            return
+
         else:
             print("Invalid action!")
             action_str = self.choose_action()
 
-    def show_cabincrew_member_overview(self):
-        """This prints the overview of all pilots"""
-
-        print(self.LENGTH_STAR * "*")
-        print("OVERVIEW OF CABIN CREW\n")
-        # Calls the class that makes a list of all cabin crew members and prints it 
-        cabin_crew_ob_list = self.llapi.get_cabin_crew_overview()
-        for member in cabin_crew_ob_list:
-            print(f"{member.name}, {member.role}, {member.SSN}, {member.mobile_number}, {member.email}")
-        
-        print("B Back\n")
-
-        action_str = self.choose_action()
-
-        if action_str == "b":
-            self.show_cabincrew_menu()
-        
-        else:
-            print("Invalid action!")
-            action_str = self.choose_action()
     
     def show_cabincrew_member_create_form(self):
         """This prints the create a cabin crew member form"""
 
         print(self.LENGTH_STAR * "*")
         print("CREATE A NEW CABIN CREW MEMBER\n")
-        name = input("Enter full name: ")
-        role = input("Enter role: ")
-        ssn = input("Enter social security number: ")
-        address = input("Enter address: ")
-        mobile_number = input("Enter mobile number: ")
-        email = input("Enter email: ")
+        name = self.employeesUI.get_name()
+        rank = self.employeesUI.get_cabin_crew_rank()
+        ssn = self.employeesUI.get_ssn()
+        address = self.employeesUI.get_address()
+        mobile_number = self.employeesUI.get_mobile_number()
+        email = self.employeesUI.get_email()
+       
 
         print("\nS Save \nB Back \n")
 
         action_str = self.choose_action()
 
         if action_str == "s":
-            #Takes the info and adds it to the cabin crew member list
-            print("Cabin crew member successfully created\n")
-            #new_cabincrew_member = CabinCrewModel(name, role, ssn, address, mobile_number, email)
-            #self.cabincrew_member.create_cabincrew_member(new_cabincrew_member)
-            #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá        
-            self.show_cabincrew_menu()
+            new_crew_member_list = [ssn, name, "Cabin crew" , rank, address, mobile_number, email]
+            added_to_file = self.llapi.create_new_cabin_crew(new_crew_member_list)
+            
+            if added_to_file:
+
+                print("Crew member successfully created\n")
+
+            else:
+                print("Something went wrong, try again\n")
+
 
         elif action_str == "b":
-            self.show_cabincrew_menu()
+            return
         
         else:
             print("Invalid action!")

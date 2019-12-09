@@ -7,15 +7,11 @@ from UI_folder.VoyagesUI import VoyagesUI
 from UI_folder.EmployeesUI import EmployeesUI
 from UI_folder.AirplanesUI import AirplanesUI
 from UI_folder.IAADUI import IAADUI
-from UI_folder.CabincrewUI import CabincrewUI
-from UI_folder.PilotsUI import PilotsUI
 
 class UImanager():
     LENGTH_STAR = 20
     def __init__(self):
         self.llapi = LLAPI()
-        self.cabincrew = CabincrewUI(self.llapi)
-        self.pilots = PilotsUI(self.llapi)
         self.iaad = IAADUI(self.llapi)
         self.employees = EmployeesUI(self.llapi)
         self.voyages = VoyagesUI(self.llapi)

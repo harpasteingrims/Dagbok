@@ -75,7 +75,7 @@ class PilotsUI():
 
         input_name = input("Enter name of pilot: ").lower()
         print()
-        same_named_pilots = self.llapi.get_common_named_pilots_by_name(input_name)
+        same_named_pilots = self.llapi.get_common_named_pilots(input_name)
         
         return same_named_pilots, input_name
 
@@ -192,13 +192,13 @@ class PilotsUI():
 
         print(pilot_object.print_pilot_info())
 
-        print(f"You are changing the information for pilot: {pilot_object.name}, {pilot_object.SSN}")
+        print(f"You are changing the information for pilot: {pilot_object.name}, {pilot_object.ssn}")
        
-        new_address = self.get_address()
-        new_rank = self.get_pilot_rank()
-        mobile_number = self.get_mobile_number()
-        new_email = self.get_email()
-        new_license_type = self.get_license_type()
+        new_address = self.employeesUI.get_address()
+        new_rank = self.employeesUI.get_pilot_rank()
+        mobile_number = self.employeesUI.get_mobile_number()
+        new_email = self.employeesUI.get_email()
+        new_license_type = self.employeesUI.get_license_type()
         
         print("S Save \nB Back\n")
 
@@ -223,89 +223,6 @@ class PilotsUI():
         else:
             print("Invalid action!")
             action_str = self.choose_action()
-    
-    def get_name(self):
-        name = input("Enter full name: ").lower()
-        name_check = self.llapi.check_name(name)
-        
-        if name_check:
-            return name.capitalize()
-            
-        else:
-            print("invalid name")
-            self.get_name()
-
-
-    def get_pilot_rank(self):
-        rank = input("Enter rank, either Captain or Copilot: ")
-        rank_check = self.llapi.check_pilot_rank(rank)
-
-        if rank_check:
-            return rank.capitalize()
-        
-        else:
-            print("Invalid rank")
-            self.get_pilot_rank()
-
-
-    def get_ssn(self):
-        ssn = input("Enter social security number: ")
-        ssn_check = self.llapi.check_ssn(ssn)
-
-        if ssn_check:
-            return ssn
-        
-        else:
-            print("Invalid SSN")
-            self.get_ssn()
-    
-
-    def get_address(self):
-        address = input("Enter address in form; zip code address name house number: ")
-        address_check = self.llapi.check_address(address).lower()
-
-        if address_check:
-            return address.capitalize()
-        
-        else:
-            print("Invalid address")
-            self.get_address()
-
-
-    def get_mobile_number(self):
-        mobile_number = input("Enter mobile number: ")
-        mobile_number_check = self.llapi.check_mobile_number(mobile_number)
-
-        if mobile_number_check:
-            return mobile_number
-        
-        else:
-            print("Invalid mobile_number")
-            self.get_mobile_number()
-    
-
-    def get_email(self):
-        email = input("Enter email: ")
-        email_check = self.llapi.check_email(email).lower()
-
-        if email_check:
-            return email.capitalize()
-        
-        else:
-            print("Invalid email")
-            self.get_email()
-
-
-    def get_license_type(self):
-        license_type = input("Enter license type: ").lower()
-        license_type_check = self.llapi.check_license_type(license_type)
-
-        if license_type_check:
-            return license_type.capitalize()
-        
-        else:
-            print("Invalid license_type")
-            self.get_license_type()
 
 
     def show_pilot_create_form(self):
@@ -314,13 +231,13 @@ class PilotsUI():
         print(self.LENGTH_STAR * "*")
         print("CREATE A NEW PILOT \n")
 
-        name = self.get_name()
-        rank = self.get_pilot_rank()
-        ssn = self.get_ssn()
-        address = self.get_address()
-        mobile_number = self.get_mobile_number()
-        email = self.get_email()
-        license_type = self.get_license_type()
+        name = self.employeesUI.get_name()
+        rank = self.employeesUI.get_pilot_rank()
+        ssn = self.employeesUI.get_ssn()
+        address = self.employeesUI.get_address()
+        mobile_number = self.employeesUI.get_mobile_number()
+        email = self.employeesUI.get_email()
+        license_type = self.employeesUI.get_license_type()
 
         print("\nS Save \nB Back\n")
 
@@ -337,9 +254,6 @@ class PilotsUI():
 
             else:
                 print("Something went wrong, try again\n")
-            
-            #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá        
-            return 
 
         elif action_str == "b":
             return

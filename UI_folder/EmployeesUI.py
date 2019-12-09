@@ -66,3 +66,103 @@ class EmployeesUI():
         else:
             print("Invalid action!")
             action_str = self.choose_action()
+
+
+
+
+    def get_name(self):
+        name = input("\nEnter full name: ").lower()
+        name_check = self.llapi.check_name(name)
+        
+        if name_check:
+            return name.capitalize()
+            
+        else:
+            print("\ninvalid name\n")
+            self.get_name()
+
+
+    def get_pilot_rank(self):
+
+        rank = input("\nEnter number for either \n1 Captain \n2 Copilot\n: ")
+        
+        rank_check = self.llapi.check_pilot_rank(rank)
+        
+        if rank_check:
+            return rank_check.capitalize()
+        
+        else:
+            print("\nInvalid rank\n")
+            self.get_pilot_rank()
+    
+    def get_cabin_crew_rank(self):
+        rank = input("\nEnter number for either \n1 Flight Service Manager \n2 Flight Attendant\n: ")
+        
+        rank_check = self.llapi.check_crew_member_rank(rank)
+
+        if rank_check:
+            return rank_check
+        
+        else:
+            print("\nInvalid rank")
+            self.get_cabin_crew_rank()
+        
+
+    def get_ssn(self):
+        ssn = input("\nEnter social security number: ")
+        ssn_check = self.llapi.check_ssn(ssn)
+
+        if ssn_check:
+            return ssn
+        
+        else:
+            print("\nInvalid SSN")
+            self.get_ssn()
+    
+
+    def get_address(self):
+        address = input("\nEnter address in form; zip code address name house number: ")
+        address_check = self.llapi.check_address(address).lower()
+
+        if address_check:
+            return address.capitalize()
+        
+        else:
+            print("\nInvalid address")
+            self.get_address()
+
+
+    def get_mobile_number(self):
+        mobile_number = input("\nEnter mobile number: ")
+        mobile_number_check = self.llapi.check_mobile_number(mobile_number)
+
+        if mobile_number_check:
+            return mobile_number
+        
+        else:
+            print("\nInvalid mobile_number")
+            self.get_mobile_number()
+    
+
+    def get_email(self):
+        email = input("\nEnter email: ")
+        email_check = self.llapi.check_email(email).lower()
+
+        if email_check:
+            return email.capitalize()
+        
+        else:
+            print("\nInvalid email")
+            self.get_email()
+
+
+    def get_license_type(self):
+        license_type = input("\nEnter license type: ").lower()
+        license_type_check = self.llapi.check_license_type(license_type)
+
+        if license_type_check:
+            return license_type.capitalize()
+        
+        else:
+            print("\nInvalid license_type")
+            self.get_license_type()
