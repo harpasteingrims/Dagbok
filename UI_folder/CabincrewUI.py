@@ -1,11 +1,12 @@
 from models.CabinCrewModel import CabinCrewModel
 import datetime
 
-class CabincrewUI(EmployeesUI):
+class CabincrewUI():
     LENGTH_STAR = 20
 
-    def __init__(self, llapi):
+    def __init__(self, llapi, employeesUI):
         self.llapi = llapi
+        self.employeesUI = employeesUI
 
     def choose_action(self):
         """ Asks the user for an action and returns it """
@@ -235,10 +236,10 @@ class CabincrewUI(EmployeesUI):
         action_str = self.choose_action()
 
         if action_str == "s":
-            new_crew_member_object = CabinCrewModel(ssn, name , rank, address, mobile_number, email)
+            new_crew_member_object = CabinCrewModel(ssn, name, "Cabin crew", rank, address, mobile_number, email)
             added_to_file = self.llapi.create_new_cabin_crew(new_crew_member_object)
 
-            print("Crew member successfully created\n")
+            print(f"Crew member {new_crew_member_object.name} successfully created\n")
 
             return 
 

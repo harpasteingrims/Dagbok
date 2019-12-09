@@ -1,5 +1,5 @@
 class PilotsModel():
-    def __init__(self, ssn, name, role, license_type, address, mobile_number, email, rank = "Pilot"):
+    def __init__(self, ssn, name, role, rank, license_type, address, mobile_number, email):
         self.ssn = ssn
         self.name = name
         self.role = role
