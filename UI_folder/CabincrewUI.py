@@ -1,7 +1,7 @@
 from models.CabinCrewModel import CabinCrewModel
 import datetime
 
-class CabincrewUI():
+class CabincrewUI(EmployeesUI):
     LENGTH_STAR = 20
 
     def __init__(self, llapi):

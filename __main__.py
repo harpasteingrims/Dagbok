@@ -5,7 +5,6 @@
 # í sér möppu heldur í möppunni sem ER raunverulega rótin á verkefninu
 # (þeas í möppunni  VERKLEGT-1-verkefni)
 
-
 from UI_folder.UImanager import UImanager
 
 def main():

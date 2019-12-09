@@ -1,6 +1,6 @@
 from models.PilotModel import PilotsModel
 import datetime
-class PilotsUI():
+class PilotsUI(EmployeesUI):
     LENGTH_STAR = 20
 
     def __init__(self, llapi):
@@ -245,8 +245,8 @@ class PilotsUI():
 
         if action_str == "s":
 
-            new_pilot_list = [ssn, name, "Pilot" , rank, license_type, address, mobile_number, email]
-            added_to_file = self.llapi.create_new_pilot(new_pilot_list)
+            new_pilot_object = PilotsModel(name, rank, ssn, address, mobile_number, email, license_type)
+            added_to_file = self.llapi.create_new_pilot(new_pilot_object)
             
             if added_to_file:
 

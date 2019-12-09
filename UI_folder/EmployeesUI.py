@@ -68,8 +68,6 @@ class EmployeesUI():
             action_str = self.choose_action()
 
 
-
-
     def get_name(self):
         name = input("\nEnter full name: ").lower()
         name_check = self.llapi.check_name(name)
@@ -78,7 +76,7 @@ class EmployeesUI():
             return name.capitalize()
             
         else:
-            print("\ninvalid name\n")
+            print("\nInvalid name\n")
             self.get_name()
 
 

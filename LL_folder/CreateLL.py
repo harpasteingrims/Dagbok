@@ -15,8 +15,6 @@ class CreateLL():
         mobile_number = new_pilot_list[4]
         email = new_pilot_list[5]
         license_type = new_pilot_list[6]
-
-        new_pilot_object = PilotsModel(name, rank, ssn, address, mobile_number, email, license_type)
     
         return self.ioapi.create_pilot(new_pilot_object)
         
@@ -54,7 +52,7 @@ class CreateLL():
     """ CHECKING INOPUT FOR EMPLOYEES"""
 
 
-    def check_name(self,name):
+    def check_name(self, name):
             
         if len(name) < 40: 
             return name

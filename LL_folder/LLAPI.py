@@ -29,8 +29,6 @@ class LLAPI():
 
     def get_employee_object_from_numbered_dict(self, numbered_employee_dict, input_name):
         return self.getemployees.get_employee_object_from_numbered_dict(numbered_employee_dict, input_name)
-
-    
     
     def check_name(self,name):
         return self.createll.check_name(name)
