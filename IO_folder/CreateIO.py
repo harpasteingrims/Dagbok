@@ -23,7 +23,7 @@ class CreateIO():
             writer = csv.writer(f)
             writer.writerow(new_airplane.to_csv_string())
 
-    def store_destiantions(self, new_destination):
+    def store_destination(self, new_destination):
         with open('csv_files\Destinations.csv', 'a') as f:
             writer = csv.writer(f)
             writer.writerow(new_destination.to_csv_string())
