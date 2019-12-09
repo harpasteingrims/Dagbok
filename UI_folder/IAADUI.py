@@ -59,7 +59,7 @@ class IAADUI():
         iaad_day = input("Enter day: ")
         print()
         year, month, day = iaad_year, iaad_month, iaad_day
-        user_input_date = datetime.datetime(year, month, day, 0, 0, 0).isoformat()
+        user_input_date = datetime.datetime(year, month, day, 0, 0, 1).isoformat()
 
         self.show_IAAD_menu(user_input_date)
         """ This prints out, input date """
