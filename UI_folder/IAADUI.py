@@ -54,9 +54,9 @@ class IAADUI():
         print(self.LENGTH_STAR * "*")
         print("INFORMATION ABOUT A DAY")
         print()
-        iaad_year = input("Enter year (yyyy): ")
-        iaad_month = input("Enter month(mm): ")
-        iaad_day = input("Enter day (dd): ")
+        iaad_year = self.get_iaad_year()
+        iaad_month = self.get_iaad_month(iaad_year)
+        iaad_day = self.get_iaad_day(iaad_month, iaad_year)
         year, month, day = int(iaad_year), int(iaad_month), int(iaad_day)
         print()
         user_input_date = datetime.datetime(year, month, day, 0, 0, 1).isoformat()
@@ -160,3 +160,33 @@ class IAADUI():
         else:
             print("Invalid action!")
             action_str = self.choose_action()
+
+    def get_iaad_year(self):
+        iaad_year = input("Enter year (yyyy): ")
+        iaad_year_check = self.llapi.check_iaad_year(iaad_year)
+
+        if iaad_year_check:
+            return iaad_year_check
+        else:
+            print("\nInvalid year\n")
+            self.get_iaad_year()
+
+    def get_iaad_month(self, iaad_year):
+        iaad_month = input("Enter month (mm): ")
+        iaad_month_check = self.llapi.check_iaad_month(iaad_month, iaad_year)
+
+        if iaad_month_check:
+            return iaad_month_check
+        else:
+            print("\nInvalid month\n")
+            self.get_iaad_month(iaad_year)
+
+    def get_iaad_day(self, iaad_month, iaad_year):
+        iaad_day = input("Enter day (dd): ")
+        iaad_day_check = self.llapi.check_iaad_day(iaad_day, iaad_month, iaad_year)
+
+        if iaad_day_check:
+            return iaad_day_check
+        else:
+            print("\nInvalid day\n")
+            self.get_iaad_day(iaad_month, iaad_year)

@@ -189,6 +189,15 @@ class LLAPI():
     def get_voyages_status_by_date(self, user_input_date):
         return self.getiaad.list_voyages_status_by_date(user_input_date)
 
+    def check_iaad_year(self, iaad_year):
+        return self.inputcheckll.check_iaad_year(iaad_year)
+
+    def check_iaad_month(self, iaad_month, iaad_year):
+        return self.inputcheckll.check_iaad_month(iaad_month, iaad_year)
+
+    def check_iaad_day(self, iaad_day, iaad_month, iaad_year):
+        return self.inputcheckll.check_iaad_day(iaad_day, iaad_month, iaad_year)
+
     #__init__(self):
         #self.llayer = LLAPI()
         #self.mainmenu = MainmenuUI()
