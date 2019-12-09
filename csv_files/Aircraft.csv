@@ -1,4 +1,4 @@
-planeID,planeType,Manufacturer,Seat amount
+planeID,airplaneType,Manufacturer,Seat amount
 TF-EPG,NAFokkerF100,NAFokker,100
 TF-UVR,NAFokkerF28,NAFokker,65
 TF-XZR,NABAE146,NABAE,82

@@ -20,15 +20,13 @@ class EmployeesUI():
         action_str = ""
 
         while True:
-            print()
+    
             print(self.LENGTH_STAR * "*")
-            print("EMPLOYEES MENU")
-            print()
+            print("\nEMPLOYEES MENU\n")
             print("1 Print overview of all employees")
             print("2 Pilots")
             print("3 Cabin Crew")
-            print("B Back")
-            print()
+            print("B Back\n")
 
             action_str = self.choose_action()
 
@@ -45,8 +43,7 @@ class EmployeesUI():
                 return
 
             else:
-                print("Invalid action!")
-                print()
+                print("Invalid action!\n")
 
     def show_overview_of_all_employees(self):
         """This prints the overview of all employees"""
@@ -58,7 +55,7 @@ class EmployeesUI():
         counter = 1
         for employee in employees_ob_list:
             if employee.role == "Cabin crew":
-                
+
                 print(employee.print_crew_member_info_in_line(counter))
 
             else:
