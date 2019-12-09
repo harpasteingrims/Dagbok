@@ -241,8 +241,7 @@ class PilotsUI():
         if action_str == "s":
 
             new_pilot_object = PilotsModel(ssn, name, "Pilot", rank, license_type, address, mobile_number, email)
-            added_to_file = self.llapi.create_new_pilot(new_pilot_object)
-        
+            self.llapi.create_new_pilot(new_pilot_object)
             print(f"Pilot {new_pilot_object.name} successfully created\n")
             return
 
