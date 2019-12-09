@@ -25,11 +25,11 @@ class IOAPI():
     
     def create_pilot(self):
         
-        return self.create.add_pilot()
+        return self.create.store_pilot()
 
     def create_cabincrew(self):
 
-        return self.create.add_cabincrew()
+        return self.create.store_cabincrew()
 
 
     """ DESTINATIONS """

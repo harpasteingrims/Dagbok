@@ -6,16 +6,7 @@ class CreateLL():
     def __init__(self, ioapi):
         self.ioapi = ioapi
 
-    def create_pilot(self, new_pilot_list):
-
-        name = new_pilot_list[0]
-        rank = new_pilot_list[1]
-        ssn = new_pilot_list[2]
-        address = new_pilot_list[3]
-        mobile_number = new_pilot_list[4]
-        email = new_pilot_list[5]
-        license_type = new_pilot_list[6]
-    
+    def create_pilot(self, new_pilot_object):
         return self.ioapi.create_pilot(new_pilot_object)
         
 
