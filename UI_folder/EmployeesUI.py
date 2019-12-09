@@ -3,11 +3,11 @@ from UI_folder.PilotsUI import PilotsUI
 class EmployeesUI():
     LENGTH_STAR = 20
     
-    def __init__(self , llapi, employeesUI = None):
+    def __init__(self , llapi, employees):
         self.llapi = llapi
-        self.employeesUI = employeesUI
-        self.cabincrew = CabincrewUI(llapi, self.employeesUI)
-        self.pilots = PilotsUI(llapi, self.employeesUI)
+        self.self.employees = employees
+        self.cabincrew = CabincrewUI(llapi, employees)
+        self.pilots = PilotsUI(llapi, employees)
         
     def choose_action(self):
         action_str = input("Choose action: ").lower()
@@ -74,7 +74,7 @@ class EmployeesUI():
         name_check = self.llapi.check_name(name)
         
         if name_check:
-            return name.capitalize()
+            return name_check
             
         else:
             print("\nInvalid name\n")
@@ -88,7 +88,7 @@ class EmployeesUI():
         rank_check = self.llapi.check_pilot_rank(rank)
         
         if rank_check:
-            return rank_check.capitalize()
+            return rank_check
         
         else:
             print("\nInvalid rank\n")
@@ -125,7 +125,7 @@ class EmployeesUI():
         address_check = self.llapi.check_address(address).lower()
 
         if address_check:
-            return address_check.capitalize()
+            return address_check
         
         else:
             print("\nInvalid address")
@@ -158,7 +158,7 @@ class EmployeesUI():
 
     def get_license_type(self):
 
-        
+
         license_type = input("\nEnter license type: ").lower()
         
         airplane_object_list = self.llapi.get_airplanes_overview()

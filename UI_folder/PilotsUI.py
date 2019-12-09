@@ -71,27 +71,16 @@ class PilotsUI():
             action_str = self.choose_action()
 
 
-    def get_pilot_name_and_common_list(self):
-
-        input_name = input("Enter name of pilot: ").lower()
-        print()
-        same_named_pilots = self.llapi.get_common_named_pilots(input_name)
-        
-        return same_named_pilots, input_name
-
-
     def get_number_from_user(self, numbered_pilot_dict):
         """ Gets an number from user and checks if it is right """
-
-        input_number = input("\nChoose the number you want: ")
-        print()
-
-        try:
-            if int(input_number) in numbered_pilot_dict:
-                return int(input_number)
+        pilot_ob_number = input("Choose a number for pilot's information: ")
         
-        except ValueError or False: 
-            print("Not a valid number!")
+        if 1 <= int(pilot_ob_number) <= len(pilots_list):
+            chosen_pilot_ob = pilots_list[pilot_ob_number]
+            return chosen_pilot_ob, input_name
+
+        else:
+            print("Invalid number!")
             self.get_number_from_user(numbered_pilot_dict)
 
 
@@ -100,7 +89,19 @@ class PilotsUI():
 
         print(self.LENGTH_STAR * "*")
         print("SEARCH FOR A PILOT\n")
-         
+        
+        input_name = input("Enter name of pilot: ").lower()
+        print()
+
+        counter = 1
+        for pilot_ob in same_named_pilots:
+
+            print(pilot_ob.print_pilot_info_in_line(counter))
+
+            counter += 1 
+
+
+
         same_named_pilots, input_name = self.get_pilot_name_and_common_list()
         
         if same_named_pilots == False:
