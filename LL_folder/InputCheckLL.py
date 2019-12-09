@@ -10,6 +10,7 @@ class InputCheckLL():
 
 
     def check_name(self,name):
+        first_name, last_name = name.split()
             
         if len(name) < 40 and name.isalpha(): 
             return name
