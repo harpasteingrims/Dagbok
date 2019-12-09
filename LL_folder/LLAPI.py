@@ -18,9 +18,16 @@ class LLAPI():
         self.getemployees = GetEmployeesLL(self.ioapi)
         self.getiaad = GetIAAD(self.ioapi)
 
-    
-    """ INPUT CHECK """
+    """ EMPLOYEES """
 
+    def get_employee_overview(self):
+        return self.getemployees.list_all_employees() #Þetta kallar á klasann getemployees og fallið þar inni sem nær í alla employees
+    
+    def get_numbered_employee_dict(self, employee_list):
+        return self.getemployees.make_numbered_employee_dict(employee_list)
+
+    def get_employee_object_from_numbered_dict(self, numbered_employee_dict, input_name):
+        return self.getemployees.get_employee_object_from_numbered_dict(numbered_employee_dict, input_name)
 
     def check_name(self, name):
         return self.inputcheckll.check_name(name)
@@ -28,7 +35,7 @@ class LLAPI():
     def check_pilot_rank(self, rank):
         return self.inputcheckll.check_pilot_rank(rank)
 
-    def check_crew_member_rank(self,rank):
+    def check_crew_member_rank(self, rank):
         return self.inputcheckll.check_crew_member_rank(rank)
 
     def check_ssn(self, ssn):
@@ -40,26 +47,12 @@ class LLAPI():
     def check_mobile_number(self, mobile_number):
         return self.inputcheckll.check_mobile_number(mobile_number)
     
-    def check_email(self,email):
+    def check_email(self, email):
         return self.inputcheckll.check_email(email)
     
     def check_license_type(self, license_type):
         return self.inputcheckll.check_license_type(license_type)
         #þarf að klára í getempll
-
-        
-    
-    """ EMPLOYEES """
-
-    def get_employee_overview(self):
-        return self.getemployees.list_all_employees() #Þetta kallar á klasann getemployees og fallið þar inni sem nær í alla employees
-    
-    def get_numbered_employee_dict(self, employee_list):
-        return self.getemployees.make_numbered_employee_dict(employee_list)
-
-    def get_employee_object_from_numbered_dict(self, numbered_employee_dict, input_name):
-        return self.getemployees.get_employee_object_from_numbered_dict(numbered_employee_dict, input_name)
-    
     
     """ PILOTS """
 
@@ -97,20 +90,6 @@ class LLAPI():
     def update_new_crew_member_information(self, updated_crew_member_ob):
         return self.ioapi.update_cabincrew(updated_crew_member_ob)
 
-
-    """DESTINATIONS"""
-    def get_destination_overview(self): #Þessi listi þarf að vera númeraður
-        return self.getdestinations.list_all_destinations()
-
-    def get_airport_overview(self):
-        return self.getdestinations.list_all_airports()
-
-    def create_new_destination(self, new_destination_ob):
-        return self.ioapi.create_destination(new_destination_ob)
-
-    def update_new_emerg_contact(self, updated_emergency_contact_ob):
-        return self.ioapi.update_emergency_contact(updated_emergency_contact_ob)
-
     """VOYAGES"""
     def get_voyages_overview(self):
         return self.getvoyages.list_all_voyages()
@@ -139,7 +118,23 @@ class LLAPI():
     def update_voyage(self, updated_voyage_ob):
         return self.ioapi.update_voyage(updated_voyage_ob)
 
-    
+    #Vantar check föll
+
+    """DESTINATIONS"""
+    def get_destination_overview(self): #Þessi listi þarf að vera númeraður
+        return self.getdestinations.list_all_destinations()
+
+    def get_airport_overview(self):
+        return self.getdestinations.list_all_airports()
+
+    def create_new_destination(self, new_destination_ob):
+        return self.ioapi.create_destination(new_destination_ob)
+
+    def update_new_emerg_contact(self, updated_emergency_contact_ob):
+        return self.ioapi.update_emergency_contact(updated_emergency_contact_ob)
+
+    #def check_
+
     """AIRPLANES"""
 
     def get_airplanes_overview(self):
