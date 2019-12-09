@@ -160,7 +160,10 @@ class GetIO():
                 departure_time = flights.departure_time
                 destination = flights.arriving_at
                 aircraftID = flights.aircraftID
-                crew_list = [flights.captain, flights.copilot, flights.fsm, flights.fa1, flights.fa2]
+                if flights.captain == "":
+                    crew_list = []
+                else:
+                    crew_list = [flights.captain, flights.copilot, flights.fsm, flights.fa1, flights.fa2]
 
 
                 counter += 1
