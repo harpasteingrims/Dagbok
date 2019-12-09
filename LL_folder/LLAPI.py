@@ -175,7 +175,6 @@ class LLAPI():
     def check_seat_amount(self, seat_amount):
         return self.inputcheckll.check_seat_amount(seat_amount)
 
-
     """IAAD"""
 
     def get_available_emp_by_date(self, user_input_date):
@@ -189,7 +188,6 @@ class LLAPI():
 
     def get_voyages_status_by_date(self, user_input_date):
         return self.getiaad.list_voyages_status_by_date(user_input_date)
-
 
     #__init__(self):
         #self.llayer = LLAPI()
