@@ -71,12 +71,12 @@ class DestinationsUI():
 
         print("*"*self.LENGTH_STAR)
         print("CREATE A NEW DESTINATION\n")
-        country = input("Enter country: ")
-        airport = input("Enter airport: ")
-        flight_duration = input("Enter flight duration from Iceland: ")
-        distance = input("Enter distance from Iceland: ")
-        contact = input("Enter name of contact: ")
-        contact_phone = input("Enter emergency contact")
+        country = self.DestinationsUI.get_country
+        airport = self.DestinationsUI.get_airport
+        flight_duration = self.DestinationsUI.get_flight_duration
+        distance = self.DestinationsUI.get_distance
+        contact = self.DestinationsUI.get_contact
+        contact_number = self.DestinationsUI.get_contact_number
 
         print("\nS Save \nB Back\n")
 
@@ -88,7 +88,7 @@ class DestinationsUI():
             new_destination = DestinationsModel(country, airport, flight_duration, distance, contact, contact_phone)
             #self.llapi.create_new_destination(new_destination)
             #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
-            self.show_destination_menu()
+            return
 
         elif action_str == "b":
             return
@@ -178,3 +178,69 @@ class DestinationsUI():
         else:
             print("Invalid action!")
             action_str = self.choose_action()
+
+    def get_country(self):
+        country = input("Enter country: ")
+        country_check = self.llapi.check_country(country)
+
+        if country_check:
+            return country_check
+
+        else:
+            print("\nInvalid country")
+            self.get_country()
+
+    def get_airport(self):
+        airport = input("Enter airport: ")
+        airport_check = self.llapi.check_airport(airport)
+
+        if airport_check:
+            return airport_check
+
+        else:
+            print("\nInvalid airport")
+            self.get_airport()
+
+    def get_flight_duration(self):
+        flight_duration = input("Enter flight duration: ")
+        flight_duration_check = self.llapi.check_flight_duration(flight_duration)
+
+        if flight_duration:
+            return flight_duration
+
+        else:
+            print("\nInvalid flight duration")
+            self.get_flight_duration()
+
+    def get_distance(self):
+        distance = input("Enter distance from Iceland: ")
+        distance_check = self.llapi.check_distance(distance)
+
+        if distance_check:
+            return distance_check
+
+        else:
+            print("\nInvalid distance")
+            self.get_distance()
+
+    def get_contact(self):
+        contact = input("Enter emergency contanct name: ")
+        contact_check = self.llapi.check_contact(contact)
+
+        if contact_check:
+            return contact_check
+
+        else:
+            print("\nInvalid contact")
+            self.get_contact()
+
+    def get_contact_number(self):
+        contact_number = input("Enter emergency contact phone number")
+        contact_number_check = self.llapi.check_contact_number(contact_number)
+
+        if contact_number_check:
+            return contact_number_check
+
+        else:
+            print("\nInvalid emergency contact phone number")
+            self.get_contact_number()

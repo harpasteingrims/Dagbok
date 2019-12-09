@@ -66,8 +66,8 @@ class AirplanesUI():
 
         airplane_id = self.AirplanesUI.get_airplane_id
         airplane_type = self.AirplanesUI.get_airplane_type
-        manufacturer = input("Enter manufacturer: ")
-        seat_amount = input("Enter seat amount: ")
+        manufacturer = self.AirplanesUI.get_manufacturer
+        seat_amount = self.AirplanesUI.get_seat_amount
         
         print("\nS Save \nB Back\n")
 
@@ -79,8 +79,7 @@ class AirplanesUI():
             new_airplane = AirplanesModel(airplane_id, airplane_type, manufacturer, seat_amount)
             #self.llapi.create_new_airplane(new_airplane)
             #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
-            
-            self.show_airplane_menu()
+            return
 
         elif action_str == "b":
             return
