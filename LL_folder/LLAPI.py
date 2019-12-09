@@ -69,7 +69,7 @@ class LLAPI():
         # eftir að klára
 
     def create_new_pilot(self, new_pilot_object):
-        return self.ioapi.create_pilot(new_pilot_list)
+        return self.ioapi.create_pilot(new_pilot_object)
     
     def update_new_pilot_information(self, updated_pilot_list):
         return self.updatell.update_pilot_information(updated_pilot_list)

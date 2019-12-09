@@ -7,7 +7,7 @@ class CreateLL():
         self.ioapi = ioapi
 
     def create_pilot(self, new_pilot_ob):
-        """Method that creates a new pilot"""
+        ''' Method that gets an object from LLAPI and returns it to IOAPI'''
         return self.ioapi.create_pilot(new_pilot_ob)
         
     def create_cabincrew(self, new_cabincrew_ob):
@@ -30,10 +30,11 @@ class CreateLL():
         '''Method that creates common voyages'''
         return self.ioapi.common_voyages_ob
 
-    """ CHECKING INPUT FOR EMPLOYEES"""
+    """ CHECKING INOPUT FOR EMPLOYEES"""
+
 
     def check_name(self,name):
-
+            
         if len(name) < 40 and name.isalpha(): 
             return name
         
@@ -68,7 +69,7 @@ class CreateLL():
             return False
     def check_ssn(self, ssn):
         
-        if len(ssn) == 10:
+        if len(ssn) == 10 and ssn.isdigit():
             return ssn
         
         else:
@@ -111,15 +112,3 @@ class CreateLL():
             return False
 
         pass
-
-    """ CHECKING INPUT FOR VOYAGES"""
-
-    """ CHECKING INPUT FOR DESTINATIONS"""
-
-    """ CHECKING INPUT FOR AIRPLANES"""
-
-    def check_airplane_id(self, airplane_id):
-        
-        if len(airplane_id) == 6:
-            return airplane_id
-        else: return False
