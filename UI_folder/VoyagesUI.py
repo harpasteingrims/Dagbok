@@ -113,6 +113,13 @@ class VoyagesUI():
             print(f"{counter} {airplane_elem}")
             counter += 1
         airplane_id = self.choose_a_number()
+        if 1 <= int(airplane_id) <= len(available_airplanes_list):
+            chosen_airplane_id = available_airplanes_list[int(airplane_id)-1]
+            
+        else:
+            print("Invalid number!")
+            airplane_id = self.choose_a_number()
+        return chosen_voyage_elem
         pass #Eftir að klára þetta :)
 
     def show_create_manually_form(self): #Lista upp alla áfangastaði allar tímasetningar sem eru uppteknar allar flugvélar sem eru lausar
