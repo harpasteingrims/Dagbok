@@ -208,9 +208,7 @@ class CabincrewUI(EmployeesUI):
 
                 print("Crew member's information successfully changed\n")
 
-            else:
-                print("Something went wrong, try again\n")
-            
+                return 
 
         elif action_str == "b":
             return
@@ -238,7 +236,7 @@ class CabincrewUI(EmployeesUI):
         action_str = self.choose_action()
 
         if action_str == "s":
-            new_crew_member_object = [ssn, name, "Cabin crew" , rank, address, mobile_number, email]
+            new_crew_member_object = CabinCrewModel(ssn, name , rank, address, mobile_number, email)
             added_to_file = self.llapi.create_new_cabin_crew(new_crew_member_object)
             
             if added_to_file:
