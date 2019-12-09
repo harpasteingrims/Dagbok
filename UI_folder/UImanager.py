@@ -13,7 +13,8 @@ class UImanager():
     def __init__(self):
         self.llapi = LLAPI()
         self.iaad = IAADUI(self.llapi)
-        self.employees = EmployeesUI(self.llapi)
+        self.employeesUI_ob = EmployeesUI()
+        self.employeesUI = EmployeesUI(self.llapi, self.employeesUI_ob)
         self.voyages = VoyagesUI(self.llapi)
         self.destinations = DestinationsUI(self.llapi )
         self.airplanes = AirplanesUI(self.llapi)
@@ -36,7 +37,7 @@ class UImanager():
             action_str = input("Choose action: ").lower()
         
             if action_str == "1":
-                self.employees.show_employee_menu()
+                self.employeesUI.show_employee_menu()
 
             elif action_str == "2":
                 self.voyages.show_voyage_menu()

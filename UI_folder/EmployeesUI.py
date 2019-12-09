@@ -3,10 +3,11 @@ from UI_folder.PilotsUI import PilotsUI
 class EmployeesUI():
     LENGTH_STAR = 20
     
-    def __init__(self , llapi):
+    def __init__(self , llapi = None, employeesUI = None):
         self.llapi = llapi
-        self.cabincrew = CabincrewUI(llapi)
-        self.pilots = PilotsUI(llapi)
+        self.employeesUI = employeesUI
+        self.cabincrew = CabincrewUI(llapi, self.employeesUI)
+        self.pilots = PilotsUI(llapi, self.employeesUI)
         
     def choose_action(self):
         action_str = input("Choose action: ").lower()

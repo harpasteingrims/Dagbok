@@ -1,10 +1,11 @@
 from models.PilotModel import PilotsModel
 import datetime
-class PilotsUI(EmployeesUI):
+class PilotsUI():
     LENGTH_STAR = 20
 
-    def __init__(self, llapi):
+    def __init__(self, llapi, employeesUI):
         self.llapi = llapi
+        self.employeesUI = employeesUI
 
 
     def choose_action(self):
@@ -205,7 +206,7 @@ class PilotsUI(EmployeesUI):
         action_str = self.choose_action()
 
         if action_str == "s":
-            updated_pilot_object = PilotsModel(name, rank, ssn, address, mobile_number, email, license_type)
+            updated_pilot_object = PilotsModel(ssn, name, rank, ssn, address, mobile_number, email, license_type)
             
             updated_pilot = self.llapi.update_new_pilot_information(updated_pilot_object)
             
@@ -240,10 +241,10 @@ class PilotsUI(EmployeesUI):
 
         if action_str == "s":
 
-            new_pilot_object = PilotsModel(name, rank, ssn, address, mobile_number, email, license_type)
+            new_pilot_object = PilotsModel(ssn, name, "Pilot", rank, license_type, address, mobile_number, email)
             added_to_file = self.llapi.create_new_pilot(new_pilot_object)
         
-            print("Pilot successfully created\n")
+            print(f"Pilot {new_pilot_object.name} successfully created\n")
             return
 
         elif action_str == "b":
