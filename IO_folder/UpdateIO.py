@@ -2,8 +2,10 @@ from IO_folder.GetIO import GetIO
 from IO_folder.CreateIO import CreateIO
 import csv
 class UpdateIO:
-    def __init__(self, get):
-        self.get = get
+    def __init__(self, createio, getio):
+        self.createio = createio
+        self.getio = getio
+
         # ef við viljum að update noti get til að updatea
         
     def update_emergency_contact(self, update_contact):               
@@ -16,9 +18,9 @@ class UpdateIO:
 
         for elem in destionations_list:
             if elem.airport == update_contact.airport:
-                CreateIO(self.get).store_destiantions(update_contact)
+                self.createio.store_destiantions(update_contact)
             else:    
-                CreateIO(self.get).store_destiantions(elem)
+                self.createio.store_destiantions(elem)
 
     def update_voyage(self, voyage_object):                    
         '''Updates a voyage'''
@@ -30,9 +32,9 @@ class UpdateIO:
         
         for elem in flights_list:
             if elem.flightNumber == voyage_object.flight_number:
-                CreateIO(self.get).store_voyage(voyage_object)
+                self.createio.store_voyage(voyage_object)
             else:
-                CreateIO(self.get).store_voyage(elem)
+                self.createio.store_voyage(elem)
 
     def update_pilot(self, update_pilot):
         ''' Updates a pilot '''
@@ -44,9 +46,9 @@ class UpdateIO:
 
         for elem in pilot_list:
             if elem.ssn == update_pilot.SSN:
-                CreateIO(self.get).store_pilot(update_pilot)
+                self.createio.store_pilot(update_pilot)
             else:
-                CreateIO(self.get).store_pilot(elem)
+                self.createio.store_pilot(elem)
         
     def update_cabincrew(self, update_cabincrew):
         cabincrew_list = GetIO.load_all_cabincrew()
@@ -57,6 +59,6 @@ class UpdateIO:
 
         for elem in cabincrew_list:
             if elem.SSN == update_cabincrew.SSN:
-                CreateIO(self.get).store_pilot(update_cabincrew)
+                self.createio.store_pilot(update_cabincrew)
             else:
-                CreateIO(self.get).store_pilot(elem)
+                self.createio.store_pilot(elem)

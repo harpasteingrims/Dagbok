@@ -6,7 +6,7 @@ class IOAPI():
     def __init__(self):
         self.get = GetIO()
         self.create = CreateIO()
-        self.update = UpdateIO(self.get)
+        self.update = UpdateIO(self.create, self.get)
 
     """ EMPLOYEES """
     def get_list_of_all_employees(self):
@@ -56,7 +56,7 @@ class IOAPI():
 
     def get_all_voyages_list(self):
         """ Calls the Get class to get a list of all voyagess """
-        
+
         return self.get.load_all_voyages()
         
         
