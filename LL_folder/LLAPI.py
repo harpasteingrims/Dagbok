@@ -67,8 +67,8 @@ class LLAPI():
     def create_new_pilot(self, new_pilot_list):
         return self.createll.create_pilot(new_pilot_list)
     
-    def update_new_pilot_information(self):
-        return self.updatell.update_pilot_information()
+    def update_new_pilot_information(self, updated_pilot_list):
+        return self.updatell.update_pilot_information(updated_pilot_list)
 
 
     """ CABIN CREW """
