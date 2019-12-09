@@ -146,11 +146,9 @@ class PilotsUI():
             action_str = self.choose_action()
     
 
-    def show_flight_schedule_of_pilot(self, pilot_object):
+    def show_flight_schedule_of_pilot(self, pilot_ob):
         """Calls a class that makes a list of their voyages and prints it"""
-        
-        # eftir að klára
-
+         
         print("Enter date from")
         year_from = input("Enter year from: ")
         month_from = input("Enter month from: ")
@@ -165,10 +163,10 @@ class PilotsUI():
 
 
         print(self.LENGTH_STAR * "*")
-        print(f"{pilot_object.name}'S FLIGHT SCHEDULE")
-
-        flights_object = self.llapi.get_schedule_pilot_by_date(pilot_object, date_from, date_to)
+        print(f"{pilot_ob.name}'S FLIGHT SCHEDULE")
         
+        flight_schedule = self.llapi.get_schedule_pilot_by_date(pilot_ob, date_from, date_to)
+    
         #vantar kóða hér
 
 
@@ -184,15 +182,15 @@ class PilotsUI():
             action_str = self.choose_action()
 
 
-    def show_pilot_edit_form(self, pilot_object):
+    def show_pilot_edit_form(self, pilot_ob):
         """This prints the edit form for an employee"""
         
         print(self.LENGTH_STAR * "*")
         print("EDIT PILOT")
 
-        print(pilot_object.print_pilot_info())
+        print(pilot_ob.print_pilot_info())
 
-        print(f"You are changing the information for pilot: {pilot_object.name}, {pilot_object.ssn}")
+        print(f"You are changing the information for pilot: {pilot_ob.name}, {pilot_ob.ssn}")
        
         new_address = self.employeesUI.get_address()
         new_rank = self.employeesUI.get_pilot_rank()
@@ -205,9 +203,9 @@ class PilotsUI():
         action_str = self.choose_action()
 
         if action_str == "s":
-            updated_pilot_object = PilotsModel(ssn, name, rank, ssn, address, mobile_number, email, license_type)
+            updated_pilot_ob = PilotsModel(ssn, name, rank, ssn, address, mobile_number, email, license_type)
             
-            updated_pilot = self.llapi.update_new_pilot_information(updated_pilot_object)
+            updated_pilot = self.llapi.update_new_pilot_information(updated_pilot_ob)
             
             print("Pilot's information successfully changed")
             return
