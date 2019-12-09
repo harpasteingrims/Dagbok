@@ -188,12 +188,24 @@ class VoyagesUI():
         for voyage_ob in not_staffed_ob_list:
             print(f"\n{counter}. {voyage_ob.departure_time}, {voyage_ob.destination}, {voyage_ob.aircraftID}") #Pæling að gera þetta öðruvísi með númerin
             counter += 1
-        voyage_number = input("Choose number for a voyage: ")
+        
+        voyage_number = self.choose_a_number()
+        try:
+            voyage_number = int(voyage_number)
+        except ValueError:
+            print("Invalid input!")
+            voyage_number = self.choose_a_number()
+
         if 1 <= int(voyage_number) <= len(not_staffed_ob_list):
             chosen_voyage_ob = not_staffed_ob_list[voyage_number]
             self.show_assign_staff_form(chosen_voyage_ob)
         else:
             print("Invalid number!")
+
+    
+    def choose_a_number(self):
+        chosen_number = input("Choose a number: ")
+        return chosen_number
                 
         
         

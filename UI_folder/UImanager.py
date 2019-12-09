@@ -17,7 +17,7 @@ class UImanager():
         self.iaad = IAADUI(self.llapi)
         self.employeesUI = EmployeesUI(self.llapi)
         self.voyages = VoyagesUI(self.llapi)
-        self.destinations = DestinationsUI(self.llapi )
+        self.destinations = DestinationsUI(self.llapi)
         self.airplanes = AirplanesUI(self.llapi)
         self.cabincrew = CabincrewUI(self.llapi, self.employeesUI)
         self.pilots = PilotsUI(self.llapi, self.employeesUI)
@@ -53,3 +53,7 @@ class UImanager():
 
             elif action_str == "5":
                 self.iaad.show_enter_date_menu()
+
+    def choose_a_number(self):
+        chosen_number = input("Choose a number: ")
+        return chosen_number
