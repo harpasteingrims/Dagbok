@@ -64,8 +64,8 @@ class AirplanesUI():
         print(self.LENGTH_STAR * "*")
         print("CREATE A NEW AIRPLANE \n")
 
-        airplane_id = input("Enter airplane ID: ")
-        airplane_type = input("Enter airplane type: ")
+        airplane_id = self.AirplanesUI.get_airplane_id
+        airplane_type = self.AirplanesUI.get_airplane_type
         manufacturer = input("Enter manufacturer: ")
         seat_amount = input("Enter seat amount: ")
         
@@ -88,3 +88,47 @@ class AirplanesUI():
         else:
             print("Invalid action!")
             action_str = self.choose_action()
+
+    def get_airplane_id(self):
+        airplane_id = input("Enter airplane ID: ")
+        airplane_id_check = self.llapi.check_airplane_id(airplane_id)
+
+        if airplane_id_check:
+            return airplane_id_check
+
+        else:
+            print("\nInvalid airplane ID")
+            self.get_airplane_id()
+
+    def get_airplane_type(self):
+        airplane_type = input("Enter airplane type: ")
+        airplane_type_check = self.llapi.check_airplane_type(airplane_type)
+
+        if airplane_type_check:
+            return airplane_type_check
+
+        else:
+            print("\nInvalid airplane type")
+            self.get_airplane_type()
+
+    def get_manufacturer(self):
+        manufacturer = input("Enter manufacturer: ")
+        manufacturer_check = self.llapi.check_manufacturer(manufacturer)
+
+        if manufacturer_check:
+            return manufacturer_check
+
+        else:
+            print("\nInvalid manufacturer")
+            self.get_manufacturer()
+
+    def get_seat_amount(self):
+        seat_amount = input("Enter seat amount: ")
+        seat_amount_check = self.llapi.check_seat_amount(seat_amount)
+
+        if seat_amount_check:
+            return seat_amount_check
+
+        else:
+            print("\nInvalid seat amount")
+            self.get_seat_amount()
