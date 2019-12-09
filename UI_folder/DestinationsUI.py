@@ -143,7 +143,6 @@ class DestinationsUI():
             self.show_emergency_cont_form()
         elif action_str == "b":
             return
-        
         else:
             print("Invalid action!")
             action_str = self.choose_action()
@@ -168,8 +167,7 @@ class DestinationsUI():
             #Takes the new info, changes and adds it to the emergency contact list
             #Calls the class that stores the info about the emergency contact to change it... 
             print("Emergency contact information successfully changed")
-            
-            self.show_destination_menu()
+            return
 
         elif action_str == "b":
             return
