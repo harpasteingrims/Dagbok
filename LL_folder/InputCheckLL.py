@@ -8,7 +8,6 @@ class InputCheckLL():
 
     """ CHECKING INPUT FOR EMPLOYEES"""
 
-
     def check_name(self, name):
 
         first_name, last_name = name.split()
@@ -17,7 +16,6 @@ class InputCheckLL():
             return name.title()
         else:
             return False
-
 
     def check_pilot_rank(self, rank):
 
@@ -58,13 +56,9 @@ class InputCheckLL():
 
     def check_mobile_number(self, mobile_number):
         
-        mobile_number_int = int(mobile_number)
-        try:
-
-            if len(mobile_number) == 7 and mobile_number.isdigit():
-                return mobile_number
-
-        except ValueError:
+        if len(mobile_number) == 7 and mobile_number.isdigit():
+            return mobile_number
+        else:
             return False
 
     def check_email(self, email):
@@ -83,6 +77,10 @@ class InputCheckLL():
             return False
 
         pass
+
+    """CHECKING INPUT FOR VOYAGES"""
+
+    """CHECKING INPUT FOR DESTINATIONS"""
 
     def check_country(self, country):
 
@@ -119,7 +117,12 @@ class InputCheckLL():
         else:
             return False
 
-    #def check_contact_number(self, contact_number): 
+    def check_contact_number(self, contact_number): 
+
+        if contact_number.replace("+", "").replace(" ", "").isdigit():
+            return contact_number
+        else:
+            return False
 
     """ CHECKING INPUT FOR AIRPLANES"""
 
