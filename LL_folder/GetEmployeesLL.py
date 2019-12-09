@@ -53,7 +53,7 @@ class GetEmployeesLL():
                 return employee_object
 
 
-                
+
     """ PILOTS """
 
 
@@ -88,14 +88,6 @@ class GetEmployeesLL():
     def list_schedule_pilot_by_date(self, pilot_object, date_from, date_to):
         # unnið úr date og búið ti lista af voyages sem viðkamandi er á og á gefna tímabilinu
         # eftir að klára
-        pass
-
-
-    def list_unavaliable_pilots(self):
-        pass
-
-
-    def list_available_pilots(self):
         pass
 
 
@@ -145,8 +137,8 @@ class GetEmployeesLL():
 
 
     def check_name(self,name):
-
-        if len(name) < 40 and name.isalpha(): 
+            
+        if len(name) < 40: 
             return name
         
         else:
@@ -165,32 +157,29 @@ class GetEmployeesLL():
     def check_ssn(self, ssn):
         
         if len(ssn) == 10:
-            first_six, last_four = ssn.split()
-            
-            first_six_int = int(first_six)
-            last_four_int = int(last_four)
-
-            try:
-                if first_six_int and last_four_int:
-                    return ssn
-
-            except ValueError:
-                return False
+            return ssn
+        
+        else:
+            return False
     
     def check_address(self, address):
         zip_code, address_name, house_number = address.split()
 
-        if len(zip_code) == 3 and zip_code.isdigit() and adress_name.isalpha() and house_number.isdigit():
+        if len(zip_code) == 3 and zip_code.isdigit() and address_name.isalpha() and house_number.isdigit():
             return address
         
         else: 
             return False
 
     def check_mobile_number(self, mobile_number):
-        if len(mobile_number) == 6 and mobile_number.isdigit():
-            return mobile_number
+        
+        mobile_number_int = int(mobile_number)
+        try:
 
-        else:
+            if len(mobile_number) == 7 and mobile_number.isdigit():
+                return mobile_number
+
+        except ValueError:
             return False
 
     def check_email(self, email):

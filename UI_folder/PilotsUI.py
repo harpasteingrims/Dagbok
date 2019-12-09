@@ -57,7 +57,7 @@ class PilotsUI():
         pilots_ob_list = self.llapi.get_pilot_overview() # Calls the class that makes a list of all pilots and prints it
         
         for pilot in pilots_ob_list:
-            print(f"{pilot.name}, {pilot.role}, {pilot.SSN}, {pilot.mobile_number}, {pilot.email}")
+            print(f"{pilot.name}, {pilot.role}, {pilot.ssn}, {pilot.mobile_number}, {pilot.email}")
         
         print("\nB Back\n")
 
@@ -194,20 +194,28 @@ class PilotsUI():
 
         print(f"You are changing the information for pilot: {pilot_object.name}, {pilot_object.SSN}")
        
-        new_address = input("Enter new address")
-        new_mobile_number = input("Enter new mobile number: ")
-        new_email = input("Enter new email: ")
-        new_licence_type = input("Enter new license type: ")
+        new_address = self.get_address()
+        new_rank = self.get_pilot_rank()
+        mobile_number = self.get_mobile_number()
+        new_email = self.get_email()
+        new_license_type = self.get_license_type()
         
         print("S Save \nB Back\n")
 
         action_str = self.choose_action()
 
         if action_str == "s":
-            #Takes the new info, changes and adds it to the pilot list
-            #Calls the class that stores the info about the pilot to change it...
-            print("Pilot's information successfully changed")
-            return
+            updated_pilot_list = [pilot_object.ssn, pilot_object.name, "Pilot", new_license_type, new_address, new_rank, mobile_number, new_email]
+            
+            updated_pilot = self.llapi.update_new_pilot_information(updated_pilot_list)
+            
+            if updated_pilot:
+
+                print("Pilot's information successfully changed")
+
+            else:
+                print("Something went wrong, try again\n")
+            
 
         elif action_str == "b":
             return
@@ -217,11 +225,11 @@ class PilotsUI():
             action_str = self.choose_action()
     
     def get_name(self):
-        name = input("Enter full name: ").capitalize()
+        name = input("Enter full name: ").lower()
         name_check = self.llapi.check_name(name)
         
         if name_check:
-            return name
+            return name.capitalize()
             
         else:
             print("invalid name")
@@ -229,11 +237,11 @@ class PilotsUI():
 
 
     def get_pilot_rank(self):
-        rank = input("Enter rank, either Captain or Copilot: ").capitalize()
+        rank = input("Enter rank, either Captain or Copilot: ")
         rank_check = self.llapi.check_pilot_rank(rank)
 
         if rank_check:
-            return rank
+            return rank.capitalize()
         
         else:
             print("Invalid rank")
@@ -253,11 +261,11 @@ class PilotsUI():
     
 
     def get_address(self):
-        address = input("Enter address in form; zip code address name house number: ").capitalize()
-        address_check = self.llapi.check_address(address)
+        address = input("Enter address in form; zip code address name house number: ")
+        address_check = self.llapi.check_address(address).lower()
 
         if address_check:
-            return address
+            return address.capitalize()
         
         else:
             print("Invalid address")
@@ -277,11 +285,11 @@ class PilotsUI():
     
 
     def get_email(self):
-        email = input("Enter email: ").capitalize()
-        email_check = self.llapi.check_email(email)
+        email = input("Enter email: ")
+        email_check = self.llapi.check_email(email).lower()
 
         if email_check:
-            return email
+            return email.capitalize()
         
         else:
             print("Invalid email")
@@ -289,11 +297,11 @@ class PilotsUI():
 
 
     def get_license_type(self):
-        license_type = input("Enter license type: ").capitalize()
+        license_type = input("Enter license type: ").lower()
         license_type_check = self.llapi.check_license_type(license_type)
 
         if license_type_check:
-            return license_type
+            return license_type.capitalize()
         
         else:
             print("Invalid license_type")
@@ -320,7 +328,7 @@ class PilotsUI():
 
         if action_str == "s":
 
-            new_pilot_list = [name, rank, ssn, address, mobile_number, email, license_type]
+            new_pilot_list = [ssn, name, "Pilot" , rank, license_type, address, mobile_number, email]
             added_to_file = self.llapi.create_new_pilot(new_pilot_list)
             
             if added_to_file:

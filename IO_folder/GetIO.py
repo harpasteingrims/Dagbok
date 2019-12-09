@@ -35,7 +35,7 @@ class GetIO():
             if counter == 1:
                 counter += 1
             else:
-                SSN = line[0]
+                ssn = line[0]
                 name = line[1]
                 role = line[2]
                 rank = line[3]
@@ -43,8 +43,8 @@ class GetIO():
                 address = line[5]
                 mobile_number = line[6]
                 email = line[7]
-                SSN, name, role, rank, plane_license, address, mobile_number, email = line.split(",")
-                pilot = PilotsModel(SSN, name, role, rank, plane_license, address, mobile_number, email)
+                ssn, name, role , rank, license_type, address, mobile_number, email = line.split(",")
+                pilot = PilotsModel(ssn, name, role , rank, license_type, address, mobile_number, email)
                 self.pilot_list.append(pilot)
         
 
@@ -60,16 +60,16 @@ class GetIO():
             if counter == 1:
                 counter += 1
             else:
-                SSN = line[0]
+                ssn = line[0]
                 name = line[1]
                 role = line[2]
                 rank = line[3]
                 address = line[4]
                 mobile_number = line[5]
                 email = line[6]
-                SSN, name, role, rank, address, mobile_number, email = line.split(",")
+                ssn, name, role, rank, address, mobile_number, email = line.split(",")
                 
-                cabincrew_employee = CabinCrewModel(SSN, name, role, rank, address, mobile_number, email)
+                cabincrew_employee = CabinCrewModel(ssn, name, role, rank, address, mobile_number, email)
                 self.cabincrew_list.append(cabincrew_employee)
         crew_file.close()
 
