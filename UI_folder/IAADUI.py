@@ -58,7 +58,7 @@ class IAADUI():
         iaad_year = input("Enter year (yyyy): ")
         iaad_month = input("Enter month(mm): ")
         iaad_day = input("Enter day (dd): ")
-        year, month, day = iaad_year, iaad_month, iaad_day
+        year, month, day = int(iaad_year), int(iaad_month), int(iaad_day)
         print()
         user_input_date = datetime.datetime(year, month, day, 0, 0, 1).isoformat()
 
