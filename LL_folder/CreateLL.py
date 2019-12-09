@@ -1,7 +1,7 @@
 from models.PilotModel import PilotsModel
 
 class CreateLL():
-    '''Subclass of LLAPI that is only designed to create something'''
+    '''Subclass of LLAPI that is designed to create something and error checking the input'''
     
     def __init__(self, ioapi):
         self.ioapi = ioapi
@@ -14,7 +14,7 @@ class CreateLL():
         '''Method that creates a new cabincrew member'''
         return self.ioapi.new_cabincrew_ob
     
-    def create_voyage(self, new_voyage):
+    def create_voyage(self, new_voyage_ob):
         '''Method that creates a new voyage'''
         return self.ioapi.new_voyage_ob
 
@@ -35,14 +35,14 @@ class CreateLL():
 
     def check_name(self,name):
             
-        if len(name) < 40: 
+        if len(name) < 40 and name.isalpha(): 
             return name
         
         else:
             return False
 
 
-    def check_pilot_rank(self, rank):
+    def check_pilot_rank(self, rank):s
 
         if rank == "1":
             rank = "Captain"
