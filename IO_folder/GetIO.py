@@ -16,7 +16,6 @@ class GetIO():
         self.cabincrew_list = []
         self.airplane_list = []
         self.destination_list = []
-        self.flights_list = []
         self.voyages_list = []
 
     def load_all_employees(self):
@@ -123,12 +122,8 @@ class GetIO():
     
     def load_all_voyages(self):
         flights_file = open("./csv_files/Flights.csv","r")
-        """flight_number_list = []
-        departing_from_list = []
-        arriving_at_list = []
-        departure_time_list = []
-        arrival_time_list = []
-        aircraft_ID_list = []"""
+        
+        flights_list = []
         
 
         counter = 1
@@ -148,7 +143,7 @@ class GetIO():
                 except IndexError:
                     aircraft_ID = ""
                 Flight = FlightsModel(flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID)
-                self.flights_list.append(Flight)
+                flights_list.append(Flight)
                   
 
 
@@ -158,7 +153,7 @@ class GetIO():
             if counter % 2 != 0:
                 departure_time = flights.departure_time
                 destination = flights.arriving_at
-                aircraft_ID = flights.aircraft_ID
+                aircraftID = flights.aircraftID
 
 
                 counter += 1
@@ -176,6 +171,7 @@ class GetIO():
 
     def load_all_voyages_with_crew(self):
         flights_with_crew_file = open("./csv_files/Flights.csv","r")
+        flights_list = []
 
         counter = 1
         for line in flights_with_crew_file:
@@ -204,7 +200,7 @@ class GetIO():
                     fa2 = ""
                 #flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2 = line.split(",")
                 flight_with_crew = FlightsModel(flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2)
-                self.flights_list.append(flight_with_crew)
+                flights_list.append(flight_with_crew)
 
         counter = 1
 
@@ -212,7 +208,7 @@ class GetIO():
             if counter % 2 != 0:
                 departure_time = flights.departure_time
                 destination = flights.arriving_at
-                aircraft_ID = flights.aircraft_ID
+                aircraftID = flights.aircraftID
                 crew_list = [flights.captain, flights.copilot, flights.fsm, flights.fa1, flights.fa2]
 
 
