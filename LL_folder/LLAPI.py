@@ -133,8 +133,6 @@ class LLAPI():
         return common_voyage_list
 
     
-
-
     """AIRPLANES"""
 
     def get_airplanes_overview(self):
