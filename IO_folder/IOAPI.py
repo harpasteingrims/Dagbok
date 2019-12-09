@@ -66,8 +66,8 @@ class IOAPI():
         """ Calls the Get class to get a list of all voyagess """
         return self.getio.load_all_voyages()
 
-    def update_voyage(self, voyage_object):
-        return self.updateio.update_voyage(voyage_object)
+    def update_voyage(self, voyage_ob):
+        return self.updateio.update_voyage(voyage_ob)
         
     def create_voyage(self, new_voyage):
         return self.createio.store_voyage(new_voyage)
