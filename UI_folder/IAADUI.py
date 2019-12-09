@@ -36,8 +36,7 @@ class IAADUI():
                 self.show_unavailable_employees(user_input_date)
 
             elif action_str == "3":
-                self.enter_time_menu()
-                self.show_voyages_status(user_input_time)
+                self.show_enter_time_menu(user_input_date)
 
             elif action_str == "4":
                 self.show_airplane_status(user_input_date)
@@ -64,15 +63,19 @@ class IAADUI():
 
         self.show_IAAD_menu(user_input_date)
         """ This prints out, input date """
-        return user_input_date, iaad_year, iaad_month, iaad_day
+        return user_input_date
 
-    def show_enter_time_menu(self, iaad_year, iaad_month, iaad_day):
-        self.enter_time_menu()
+    def show_enter_time_menu(self, user_input_date):
+        #iaad_year = self.
         iaad_hour = input("Enter hour (hh): ")
         iaad_minute = input("Enter minute(mm): ")
         print()
-        user_input_time = datetime.datetime(iaad_year, iaad_month, iaad_day, iaad_hour, iaad_minute, 0).isoformat()
-        return user_input_time
+        list_user_input_date = list(user_input_date)
+        list_user_input_date[11:13] = iaad_hour
+        list_user_input_date[14:16] = iaad_minute
+        user_input_time = "".join(list_user_input_date)
+        self.show_voyages_status(user_input_time)
+        #return user_input_time
     
     def show_available_employees(self, user_input_date):
         """This prints the available employees from a certain day"""
