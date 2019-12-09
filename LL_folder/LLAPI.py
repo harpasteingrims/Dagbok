@@ -54,23 +54,6 @@ class LLAPI():
         return self.inputcheckll.check_license_type(license_type)
         #þarf að klára í getempll
 
-        
-    
-    """ EMPLOYEES """
-
-    def get_employee_overview(self):
-        return self.getemployees.list_all_employees() #Þetta kallar á klasann getemployees og fallið þar inni sem nær í alla employees
-    
-    def get_numbered_employee_dict(self, employee_list):
-        return self.getemployees.make_numbered_employee_dict(employee_list)
-
-    def get_employee_object_from_numbered_dict(self, numbered_employee_dict, input_name):
-        return self.getemployees.get_employee_object_from_numbered_dict(numbered_employee_dict, input_name)
-    
-    def get_schedule_employee_by_date(self, pilot_object, date_from, date_to):
-        return self.getemployees.list_schedule_employee_by_date(name, date_from, date_to)
-        # eftir að klára
-
     """ PILOTS """
 
     def get_pilot_overview(self):
@@ -84,7 +67,6 @@ class LLAPI():
     
     def update_new_pilot_information(self, updated_pilot_ob):
         return self.ioapi.update_pilot(updated_pilot_ob)
-
 
     """ CABIN CREW """
 
@@ -104,6 +86,7 @@ class LLAPI():
         return self.ioapi.update_cabincrew(updated_crew_member_ob)
 
     """VOYAGES"""
+
     def get_voyages_overview(self):
         return self.getvoyages.list_all_voyages()
 
@@ -134,6 +117,7 @@ class LLAPI():
     #Vantar check föll
 
     """DESTINATIONS"""
+
     def get_destination_overview(self): #Þessi listi þarf að vera númeraður
         return self.getdestinations.list_all_destinations()
 
@@ -146,7 +130,23 @@ class LLAPI():
     def update_new_emerg_contact(self, updated_emergency_contact_ob):
         return self.ioapi.update_emergency_contact(updated_emergency_contact_ob)
 
-    #def check_
+    def check_country(self, country):
+        return self.inputcheckll.check_country(country)
+
+    def check_airport(self, airport):
+        return self.inputcheckll.check_airport(airport)
+
+    def check_flight_duration(self, flight_duration):
+        return self.inputcheckll.check_flight_duration(flight_duration)
+
+    def check_distance(self, distance):
+        return self.inputcheckll.check_distance(distance)
+
+    def check_contact(self, contact):
+        return self.inputcheckll.check_contact(contact)
+
+    def check_contact_number(self, contact_number):
+        return self.inputcheckll.check_contact_number(contact_number)
 
     """AIRPLANES"""
 
@@ -165,6 +165,15 @@ class LLAPI():
 
     def create_new_airplane(self, new_airplane_object):
         return self.ioapi.create_airplane(new_airplane_object)
+
+    def check_airplane_id(self, airplane_id):
+        return self.inputcheckll.check_airplane_id(airplane_id)
+
+    def check_manufacturer(self, manufacturer):
+        return self.inputcheckll.check_manufacturer(manufacturer)
+
+    def check_seat_amount(self, seat_amount):
+        return self.inputcheckll.check_seat_amount(seat_amount)
 
 
     """IAAD"""
