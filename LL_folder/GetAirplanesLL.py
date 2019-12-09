@@ -50,3 +50,11 @@ class GetAirplanesLL():
 
     #parsed_date.minute : 35
     #parsed_date.year : 2019
+
+    def make_numbered_airplane_dict(self,airplane_list):
+        pass
+    
+    def get_airplane_object_from_numbered_dict(self, numbered_airplane_dict, input_airplane_name):
+        pass
+    
+    

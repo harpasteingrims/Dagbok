@@ -6,6 +6,7 @@
 # (þeas í möppunni  VERKLEGT-1-verkefni)
 
 from UI_folder.UImanager import UImanager
+import dateutil.parser
 
 def main():
     ui = UImanager()

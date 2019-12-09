@@ -92,6 +92,7 @@ class LLAPI():
     def update_new_crew_member_information(self):
         return self.updatell.update_cabin_crew_information()
 
+
     """DESTINATIONS"""
     def get_destination_overview(self): #Þessi listi þarf að vera númeraður
         return self.getdestinations.list_all_destinations()
@@ -132,12 +133,16 @@ class LLAPI():
         return common_voyage_list
 
     
-
-
     """AIRPLANES"""
 
     def get_airplanes_overview(self):
         return self.getairplanes.list_all_airplanes()
+    
+    def get_numbered_employee_dict(self, airplane_list):
+        return self.getairplane.make_numbered_airplane_dict(airplane_list)
+
+    def get_airplane_object_from_numbered_dict(self, numbered_airplane_dict, input_airplane_name):
+        return self.getairplane.get_airplane_object_from_numbered_dict(numbered_airplane_dict, input_airplane_name)
 
     def get_available_airplanes_by_date(self, voyage_date): #Þessi listi þarf að vera númeraður
         return self.getairplanes.list_available_airplanes_by_date(voyage_date)
