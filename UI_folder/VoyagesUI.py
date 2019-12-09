@@ -190,17 +190,13 @@ class VoyagesUI():
             counter += 1
         
         voyage_number = self.choose_a_number()
-        try:
-            voyage_number = int(voyage_number)
-        except ValueError:
-            print("Invalid input!")
-            voyage_number = self.choose_a_number()
 
         if 1 <= int(voyage_number) <= len(not_staffed_ob_list):
-            chosen_voyage_ob = not_staffed_ob_list[voyage_number]
-            self.show_assign_staff_form(chosen_voyage_ob)
+            chosen_voyage_ob = not_staffed_ob_list[int(voyage_number)]
+            self.show_assign_staff_form(chosen_voyage_ob.departure_time, chosen_voyage_ob)
         else:
             print("Invalid number!")
+            voyage_number = self.choose_a_number()
 
     
     def choose_a_number(self):
