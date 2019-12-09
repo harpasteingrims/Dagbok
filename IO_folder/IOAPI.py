@@ -66,6 +66,7 @@ class IOAPI():
 
     def get_all_voyages_list(self):
         """ Calls the Get class to get a list of all voyagess """
+        return self.getio.load_all_voyages()
 
     def update_voyage(self, voyage_object):
         return self.updateio.update_voyage(voyage_object)
