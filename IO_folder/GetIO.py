@@ -121,31 +121,37 @@ class GetIO():
         return self.destination_list  
     
     def load_all_voyages(self):
-        flights_file = open("./csv_files/Flights.csv","r")
-        
+        flights_with_crew_file = open("./csv_files/Flights.csv","r")
         flights_list = []
-        
 
         counter = 1
-        for line in flights_file:
+        for line in flights_with_crew_file:
             line = line.strip().split(",")
             if counter == 1:
                 counter += 1
-            else:
+            else:   
                 try:
-                    flight_number = line[0]
+                    flight_number = line[0]  
                     departing_from = line[1]
                     arriving_at = line[2]
                     departure_time = line[3]
                     arrival_time = line[4]
-                    aircraft_ID = line[5]
-                    #flight_number, departing_from, arriving_at, departure_time, arrival_time, aircraft_ID = line.split(",")
+                    aircraft_ID = line[5]    
+                    captain = line[6]
+                    copilot = line[7]
+                    fsm = line[8]
+                    fa1 = line[9]
+                    fa2 = line[10]
                 except IndexError:
                     aircraft_ID = ""
-                Flight = FlightsModel(flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID)
-                flights_list.append(Flight)
-                  
-
+                    captain = ""
+                    copilot = ""                    
+                    fsm = ""
+                    fa1 = ""
+                    fa2 = ""
+                #flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2 = line.split(",")
+                flight_with_crew = FlightsModel(flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2)
+                flights_list.append(flight_with_crew)
 
         counter = 1
 
@@ -154,18 +160,20 @@ class GetIO():
                 departure_time = flights.departure_time
                 destination = flights.arriving_at
                 aircraftID = flights.aircraftID
+                crew_list = [flights.captain, flights.copilot, flights.fsm, flights.fa1, flights.fa2]
 
 
                 counter += 1
             elif counter % 2 == 0:
                 arrival_time = flights.arrival_time
-                voyage = VoyagesModel(departure_time, arrival_time, destination, aircraftID)
+                voyage = VoyagesModel(departure_time, arrival_time, destination, aircraftID, crew_list)
                 self.voyages_list.append(voyage)
 
                 counter += 1
 
-        flights_file.close()
-    
+
+        flights_with_crew_file.close()
+
         return self.voyages_list
 
 
