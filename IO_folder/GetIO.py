@@ -48,7 +48,6 @@ class GetIO():
                 pilot = PilotsModel(ssn, name, role , rank, license_type, address, mobile_number, email)
                 self.pilot_list.append(pilot)
         
-
         pilot_file.close()
         
         return self.pilot_list

@@ -51,14 +51,20 @@ class EmployeesUI():
     def show_overview_of_all_employees(self):
         """This prints the overview of all employees"""
 
-        print("OVERVIEW OF EMPLOYEES")
+        print("OVERVIEW OF EMPLOYEES\n")
 
         employees_ob_list = self.llapi.get_employee_overview() #Hérna kallar hann í fall í llapanum sem heitir get_employee_overview sem returnar lista yfir alla starfsmenn
-        for employee in employees_ob_list:
-            print(f"{employee.name}, {employee.role}, {employee.ssn}, {employee.mobile_number}, {employee.email}")
         
-        print()
-        print("B Back\n")
+        counter = 1
+        for employee in employees_ob_list:
+            if employee.role == "Cabin crew":
+                print(employee.print_crew_member_info_in_line(counter))
+
+            else:
+                print(employee.print_pilot_info_in_line(counter))
+            counter += 1
+        
+        print("\nB Back\n")
 
         action_str = self.choose_action()
 

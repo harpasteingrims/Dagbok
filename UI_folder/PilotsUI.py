@@ -56,8 +56,10 @@ class PilotsUI():
         
         pilots_ob_list = self.llapi.get_pilot_overview() # Calls the class that makes a list of all pilots and prints it
         
-        for pilot in pilots_ob_list:
-            print(f"{pilot.name}, {pilot.role}, {pilot.ssn}, {pilot.mobile_number}, {pilot.email}")
+        counter = 1
+        for pilot_ob in pilots_ob_list:
+            print(pilot_ob.print_pilot_info_in_line(counter))
+            counter += 1
         
         print("\nB Back\n")
 
@@ -71,17 +73,29 @@ class PilotsUI():
             action_str = self.choose_action()
 
 
-    def get_number_from_user(self, numbered_pilot_dict):
-        """ Gets an number from user and checks if it is right """
-        pilot_ob_number = input("Choose a number for pilot's information: ")
+    def get_pilot_name_and_common_list(self):
         
-        if 1 <= int(pilot_ob_number) <= len(pilots_list):
-            chosen_pilot_ob = pilots_list[pilot_ob_number]
-            return chosen_pilot_ob, input_name
+        input_name = input("Enter name of pilot: ").lower()
+        print()
+        
+        common_named_pilots_list = self.llapi.get_common_named_pilots(input_name)
 
-        else:
-            print("Invalid number!")
-            self.get_number_from_user(numbered_pilot_dict)
+        return common_named_pilots_list, input_name
+
+
+    def get_the_right_pilot_ob(self, common_named_pilots):
+        """ Gets an number from user and checks if it is right """
+        
+        pilot_ob_number = int(input("\nChoose a number for pilot's information: "))
+        
+        try:
+            if pilot_ob_number and 1 <= pilot_ob_number <= len(common_named_pilots):
+                chosen_pilot_ob = common_named_pilots[pilot_ob_number-1]
+                return chosen_pilot_ob
+
+        except ValueError:
+            print("\nInvalid number!")
+            self.get_number_from_user(common_named_pilots)
 
 
     def show_enter_name_to_search(self):
@@ -90,54 +104,43 @@ class PilotsUI():
         print(self.LENGTH_STAR * "*")
         print("SEARCH FOR A PILOT\n")
         
-        input_name = input("Enter name of pilot: ").lower()
-        print()
-
-        counter = 1
-        for pilot_ob in same_named_pilots:
-
-            print(pilot_ob.print_pilot_info_in_line(counter))
-
-            counter += 1 
-
-
-
-        same_named_pilots, input_name = self.get_pilot_name_and_common_list()
+        common_named_pilots_list, input_name = self.get_pilot_name_and_common_list()
         
-        if same_named_pilots == False:
+        while common_named_pilots_list == False:
             print("Pilot does not exist")
-            same_named_pilots, input_name = self.get_pilot_name_and_common_list()
+            new_common_named_pilots_list, input_name = self.get_pilot_name_and_common_list()
+            new_common_named_pilots_list = common_named_pilots_list
         
-        counter = 1
-        
-        if len(same_named_pilots) == 1:
+        if len(common_named_pilots_list) == 1:
             pilot_object = same_named_pilots[0]
-            print(pilot_object.print_pilot_info())
-                
-        else:
- 
-            numbered_pilot_dict = self.llapi.get_numbered_employee_dict(same_named_pilots)
-            
-            for number, pilot_object in numbered_pilot_dict.items():
-                print(f"{number} {pilot_object.name}")
-
-            input_number = int(self.get_number_from_user(numbered_pilot_dict))
-
-            pilot_object = self.llapi.get_employee_object_from_numbered_dict(numbered_pilot_dict, input_number)
-            print(pilot_object.print_pilot_info())
             print()
+            print(pilot_object.print_pilot_info())
 
-        print(f"1 {pilot_object.name}'s flight schedule")
-        print("2 Edit information about pilot")
-        print("B Back")
+        else: 
+            
+            counter = 1
+            for pilot_ob in common_named_pilots_list:
+
+                print(pilot_ob.print_pilot_info_in_line(counter))
+
+                counter += 1 
+
+            chosen_pilot_ob = self.get_the_right_pilot_ob(common_named_pilots_list)
+
+            print()
+            print(chosen_pilot_ob.print_pilot_info())
+
+        print(f"\n1 {chosen_pilot_ob.name}'s flight schedule")
+        print(f"2 Edit information about {chosen_pilot_ob.name}")
+        print("B Back\n")
 
         action_str = self.choose_action()
 
         if action_str == "1":
-            self.show_flight_schedule_of_pilot(pilot_object)
+            self.show_flight_schedule_of_pilot(chosen_pilot_ob)
 
         elif action_str == "2": 
-            self.show_pilot_edit_form(pilot_object)
+            self.show_pilot_edit_form(chosen_pilot_ob)
 
         elif action_str == "b":
             return
