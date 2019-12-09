@@ -70,28 +70,30 @@ class CabincrewUI():
             print("Invalid action!")
             action_str = self.choose_action()
 
+
     def get_crew_member_name_and_common_list(self):
 
         input_name = input("Enter name of cabin crew member: ").lower()
         print()
-        same_named_crew_members = self.llapi.get_common_named_crew_members(input_name)
+
+        common_named_crew_members_list = self.llapi.get_common_named_crew_members(input_name)
         
-        return same_named_crew_members, input_name
+        return common_named_crew_members_list, input_name
 
 
-    def get_number_from_user(self, numbered_crew_member_dict):
+    def get_number_from_user(self, common_named_crew_members):
         """ Gets an number from user and checks if it is right """
 
-        input_number = input("\nChoose the number you want: ")
-        print()
-
-        try:
-            if int(input_number) in numbered_crew_member_dict:
-                return int(input_number)
+        crew_member_ob_number = int(input("\nChoose a number for Crew member's information: "))
         
-        except ValueError or False: 
-            print("Not a valid number!")
-            self.get_number_from_user(numbered_crew_member_dict)
+        try:
+            if crew_member_ob_number and 1 <= pilot_ob_number <= len(common_named_pilots):
+                chosen_crew_member_ob = common_named_crew_members[crew_member_ob_number-1]
+                return chosen_crew_member_ob
+
+        except ValueError:
+            print("\nInvalid number!")
+            self.get_number_from_user(common_named_pilots)
 
 
     def show_enter_name_to_search(self):
@@ -100,32 +102,33 @@ class CabincrewUI():
         print(self.LENGTH_STAR * "*")
         print("SEARCH FOR A CABIN CREW MEMBER\n")
 
-        same_named_crew_members, input_name = self.get_crew_member_name_and_common_list()
+        common_named_crew_members_list, input_name = self.get_crew_member_name_and_common_list()
 
-        if same_named_crew_members == False:
+        while common_named_crew_members == False:
             print("Crew member does not exist")
-            same_named_crew_members, input_name = self.get_crew_member_name_and_common_list()
+            common_named_crew_members_list, input_name = self.get_crew_member_name_and_common_list()
         
         counter = 1
         
-        if len(same_named_crew_members) == 1:
-            crew_member_object = same_named_crew_members[0]
+        if len(common_named_crew_members_list) == 1:
+            crew_member_object = common_named_crew_members_list[0]
             print(crew_member_object.print_crew_member_object_info())
                 
         else:
  
-            numbered_crew_member_dict = self.llapi.get_numbered_employee_dict(same_named_crew_members)
-            
-            for number, crew_member_object in numbered_crew_member_dict.items():
-                print(f"{number} {crew_member_object.name}")
+            counter = 1
+            for crew_member_ob in common_named_pilots_list:
 
-            input_number = int(self.get_number_from_user(numbered_crew_member_dict))
+                print(crew_member_ob.print_crew_member_object_info(counter))
 
-            crew_member_object = self.llapi.get_employee_object_from_numbered_dict(numbered_crew_member_dict, input_number)
-            print(crew_member_object.print_pilot_info())
+                counter += 1 
+
+            chosen_pilot_ob = self.get_the_right_pilot_ob(common_named_pilots_list)
+
             print()
+            print(chosen_pilot_ob.print_crew_member_object_info())
 
-        print(f"\n1{crew_member_object.name}'s flight schedule")
+        print(f"\n1{crew_member_ob.name}'s flight schedule")
         print("2 Edit information about pilot")
         print("B Back")
 
