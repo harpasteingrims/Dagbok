@@ -8,23 +8,7 @@ class GetVoyagesLL():
 
     def list_all_voyages(self):
         flights_list = self.ioapi.get_all_voyages_list()
-        counter = 1
-
-        for flights in flights_list:
-            if counter % 2 != 0:
-                departure_time = flights.departure_time
-                destination = flights.arriving_at
-                aircraft_ID = flights.aircraft_ID
-                crew_list = [flights.captain, flights.copilot, flights.fsm, flights.fa1, flights.fa2]
-
-
-                counter += 1
-            elif counter % 2 == 0:
-                arrival_time = flights.arrival_time
-                voyage = VoyagesModel(departure_time, arrival_time, destination, aircraftID, crew_list)
-                self.voyages_list.append(voyage)
-
-                counter += 1
+        
 
             
         return self.voyages_list
