@@ -8,8 +8,11 @@ class GetVoyagesLL():
 
     def list_all_voyages(self):
 
-        flights_list = self.ioapi.get_all_voyages_list()
-        return flights_list
+        voyage_list = self.ioapi.get_all_voyages_list()
+            
+            
+            
+        return voyage_list
 
     def list_not_staffed_voyages(self):
 
@@ -59,3 +62,4 @@ class GetVoyagesLL():
         #flight_schedule_of_employee = 
         pass
         
+    
