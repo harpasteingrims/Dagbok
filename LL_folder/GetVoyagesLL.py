@@ -34,7 +34,7 @@ class GetVoyagesLL():
         return common_voyages_list
 
     def list_unavailable_voyage_time(self, voyage_year, voyage_month, voyage_day):
-        voyages_list = self.ioapi.get_all_voyages_list
+        voyages_list = self.ioapi.get_all_voyages_list()
         unavailable_voyage_time_list = []
         for voyage_ob in voyages_list:
             date = voyage_ob.date
