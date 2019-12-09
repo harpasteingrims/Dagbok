@@ -162,14 +162,17 @@ class EmployeesUI():
 
     def get_license_type(self):
 
-
-        license_type = input("\nEnter license type: ").lower()
+        airplane_ob_list = self.llapi.get_airplanes_overview()
         
-        airplane_object_list = self.llapi.get_airplanes_overview()
+        counter = 1
+        for airplane_ob in airplane_ob_list:
+            print(f"{counter} {airplane_ob.airplane_type}")
+            
+            counter += 1
 
+        license_type_num = input("\nEnter a number to choose the license type: ").lower()
 
-        license_type_check = self.llapi.check_license_type(license_type)
-
+        license_type_check = self.llapi.check_license_type(license_type_num)
 
 
         if license_type_check:
@@ -178,3 +181,17 @@ class EmployeesUI():
         else:
             print("\nInvalid license_type")
             self.get_license_type()
+
+    def get_the_right_pilot_ob(self, common_named_pilots):
+        """ Gets an number from user and checks if it is right """
+        
+        pilot_ob_number = int(input("\nChoose a number for pilot's information: "))
+        
+        try:
+            if pilot_ob_number and 1 <= pilot_ob_number <= len(common_named_pilots):
+                chosen_pilot_ob = common_named_pilots[pilot_ob_number-1]
+                return chosen_pilot_ob
+
+        except ValueError:
+            print("\nInvalid number!")
+            self.get_number_from_user(common_named_pilots)

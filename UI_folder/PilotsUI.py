@@ -77,11 +77,16 @@ class PilotsUI():
         
         input_name = input("Enter name of pilot: ").lower()
         print()
-        
+
         common_named_pilots_list = self.llapi.get_common_named_pilots(input_name)
+        try:
+            if common_named_pilots_list:
 
-        return common_named_pilots_list, input_name
-
+                return common_named_pilots_list, input_name
+        
+        except TypeError:
+        
+            return False
 
     def get_the_right_pilot_ob(self, common_named_pilots):
         """ Gets an number from user and checks if it is right """
@@ -106,11 +111,11 @@ class PilotsUI():
         
         common_named_pilots_list, input_name = self.get_pilot_name_and_common_list()
         
-        while common_named_pilots_list == False:
-            print("Pilot does not exist")
+        if common_named_pilots_list == False:
+            print("\nPilot does not exist")
             new_common_named_pilots_list, input_name = self.get_pilot_name_and_common_list()
         
-        if len(common_named_pilots_list) == 1:
+        elif len(common_named_pilots_list) == 1:
             pilot_object = same_named_pilots[0]
             print()
             print(pilot_object.print_pilot_info())
