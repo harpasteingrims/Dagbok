@@ -6,44 +6,34 @@ class CreateLL():
     def __init__(self, ioapi):
         self.ioapi = ioapi
 
-    def create_pilot(self, new_pilot_object):
-        return self.ioapi.create_pilot(new_pilot_object)
-        
+    def create_pilot(self, new_pilot_ob):
 
-    def create_cabincrew(self, new_cabincrew):
+        return self.ioapi.create_pilot(new_pilot_ob)
+        
+    def create_cabincrew(self, new_cabincrew_ob):
         '''Method that creates a new cabincrew member'''
-        new_cabincrew_list = []
-        new_cabincrew_list.append(new_cabincrew)
-        pass
+        return self.ioapi.new_cabincrew_ob
     
     def create_voyage(self, new_voyage):
         '''Method that creates a new voyage'''
-        new_voyage_list = []
-        new_voyage_list.append(new_voyage)
-        pass
+        return self.ioapi.new_voyage_ob
 
-    def create_destination(self, new_destination):
+    def create_destination(self, new_destination_ob):
         '''Method that creates a new destination'''
-        new_destination_list = []
-        new_destination_list.append(new_destination)
-        pass
+        return self.ioapi.new_destination_ob
     
-    def create_airplane(self, new_airplane):
+    def create_airplane(self, new_airplane_ob):
         '''Method that creates a new airplane'''
-        new_airplane_list = []
-        new_airplane_list.append(new_airplane)
-        pass
+        return self.ioapi.new_airplane_ob
     
-    def create_common_voyage(self, common_voyages):
+    def create_common_voyage(self, common_voyages_ob):
         '''Method that creates common voyages'''
-        common_voyages_list = []
-        pass
+        return self.ioapi.common_voyages_ob
+
+    """ CHECKING INOPUT FOR EMPLOYEES"""
 
 
-    """ CHECKING INPUT FOR EMPLOYEES"""
-
-
-    def check_name(self, name):
+    def check_name(self,name):
             
         if len(name) < 40: 
             return name
@@ -115,7 +105,7 @@ class CreateLL():
     def check_license_type(self, license_type):
         #ariplane_list = vantar fallið úr airplanes
 
-        if license_type in airplane_list:
+        if license_type in ariplane_list:
             return license_type
 
         else:
