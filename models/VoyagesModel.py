@@ -5,7 +5,7 @@ class VoyagesModel():
         self.arrival_time = arrival_time
         self.destination = destination #tilvikið destination
         self.aircraftID = aircraftID
-        self.crew_list = []
+        self.crew_list = crew_list
 
     def csv_voyage_to_string(self):
         return f"{self.departure_time},{self.arrival_time},{self.destination},{self.aircraftID}"

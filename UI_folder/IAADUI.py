@@ -20,10 +20,10 @@ class IAADUI():
         while True:
             print()
             print(self.LENGTH_STAR * "*")
-            print("1 Available Employees")
-            print("2 Unavailable Employees")
+            print("1 Available employees")
+            print("2 Unavailable employees")
             print("3 Status of voyages")
-            print("4 Status of Airplanes")
+            print("4 Status of airplanes")
             print("B Back")
             print()
             
@@ -36,7 +36,8 @@ class IAADUI():
                 self.show_unavailable_employees(user_input_date)
 
             elif action_str == "3":
-                self.show_voyages_status(user_input_date)
+                self.enter_time_menu()
+                self.show_voyages_status(user_input_time)
 
             elif action_str == "4":
                 self.show_airplane_status(user_input_date)
@@ -54,17 +55,23 @@ class IAADUI():
         print(self.LENGTH_STAR * "*")
         print("INFORMATION ABOUT A DAY")
         print()
-        iaad_year = input("Enter year: ")
-        iaad_month = input("Enter month: ")
-        iaad_day = input("Enter day: ")
+        iaad_year = input("Enter year (yyyy): ")
+        iaad_month = input("Enter month(mm): ")
+        iaad_day = input("Enter day (dd): ")
         print()
-        year, month, day = iaad_year, iaad_month, iaad_day
-        user_input_date = datetime.datetime(year, month, day, 0, 0, 0).isoformat()
+        user_input_date = datetime.datetime(iaad_year, iaad_month, iaad_day, 0, 0, 1).isoformat()
 
         self.show_IAAD_menu(user_input_date)
         """ This prints out, input date """
-        return user_input_date
+        return user_input_date, iaad_year, iaad_month, iaad_day
 
+    def show_enter_time_menu(self, iaad_year, iaad_month, iaad_day):
+        self.enter_time_menu()
+        iaad_hour = input("Enter hour (hh): ")
+        iaad_minute = input("Enter minute(mm): ")
+        print()
+        user_input_time = datetime.datetime(iaad_year, iaad_month, iaad_day, iaad_hour, iaad_minute, 0).isoformat()
+        return user_input_time
     
     def show_available_employees(self, user_input_date):
         """This prints the available employees from a certain day"""
