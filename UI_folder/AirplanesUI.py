@@ -52,7 +52,7 @@ class AirplanesUI():
         action_str = self.choose_action()
 
         if action_str == "b":
-            self.show_airplane_menu()
+            return
             
         else:
             print("Invalid action!")
@@ -63,6 +63,7 @@ class AirplanesUI():
 
         print(self.LENGTH_STAR * "*")
         print("CREATE A NEW AIRPLANE \n")
+
         airplane_id = input("Enter airplane ID: ")
         airplane_type = input("Enter airplane type: ")
         manufacturer = input("Enter manufacturer: ")
@@ -76,13 +77,13 @@ class AirplanesUI():
             #Takes the info and adds it to the airplane list
             print("Airplane successfully created\n")
             new_airplane = AirplanesModel(airplane_id, airplane_type, manufacturer, seat_amount)
-            #self.airplane.create_airplane(new_airplane)
+            #self.llapi.create_new_airplane(new_airplane)
             #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
             
             self.show_airplane_menu()
 
         elif action_str == "b":
-            self.show_airplane_menu()
+            return
         
         else:
             print("Invalid action!")

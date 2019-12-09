@@ -260,3 +260,25 @@ Vika 2: 02.12 - 06.12
             Hildur: Klára GetIAADLL
             Nína: EmployeesUI, PilotsUI, CabincrewUI og samsvarandi LL skrám.
         -Við ætlum víst ekki að borða saman kvöldmat annað kvöld. Allir skulu mæta saddir og sælir, enda ekki við hæfi að mæta svangur til samkundu líkt og Óðinn okkar allra bendir réttilega á í 33. vísu Hávamála. Eggert kom við hjá okkur og að sjálfsögðu buðum við honum í teitið. Makar mega koma líka.
+
+09.12.2019 
+    Áætlun: Í dag á Viktoría afmæli. Húrra, húrra, húrra! Vonum að afmælisandinn fleyti okkur áfram á réttu brautina. Spilakvöldið var einkar skemmtilegt en heyrst hefur að sumir hafi verið að vinna í verkefninu kenndir. Hvað sem þeim sögusögnum líður, þá var helgin hin ágætasta. Um það geta allir verið sammála. Áfram gakk. Nína bjó til villutékk fyrir allt heila klabbið og í dag þurfum við að vinna í því að implementa það og skoða það saman. Nína bjó líka til form fyrir Create og Update og vann í LLAPI. Hallmar lagaði GetIO. Harpa hélt áfram með GetVoyages og GetIAAD og kláraði líka Daytime. Villutékk, status og overview verða verkefni dagsins.
+
+    Hallmar Orri: 
+        -Heldur áfram með GetIO
+        -Vinna í Voyages í IO og LL
+    Harpa: 
+        -Klára VoyagesUI
+        -Kíkja á status of airplanes
+    Hildur: 
+        -Gera Create fyrir Airplanes
+        -Laga create path dyrir allt UI
+    Nína Margrét: 
+        -Heldur áfram með villutékk.
+        -Kommenta á það sem hún gerði um helgina.
+    Viktoría Inga: 
+        -Klára VreteLL
+        -Byrja á UpdateLL
+        
+    Samantekt:
+        -

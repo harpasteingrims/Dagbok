@@ -45,6 +45,7 @@ class GetIAAD():
         #return available_emps_for_selected_day
 
     def list_airplane_status_by_date(self, user_input_date):
+        """Returns a list of airplanes sorted by available and unavailable"""
         #airplane_list = self.ioapi.get_airplane_list
         #voyage_list = list_voyages_status_by_date(self, user_input_date)
         #for airplane in airplane_list:
@@ -58,7 +59,7 @@ class GetIAAD():
          #Líka pæling hérna hvar er best að geyma þessar upplýsingar og hvernig er best að ná í þær og vinna úr þeim
 
     def list_voyages_status_by_date(self, user_input_date):
-        #"""Returns a list of voyages on that day sorted by complete, arrived, in air and not started"""
+        """Returns a list of voyages on that day sorted by complete, arrived, in air and not started"""
         #voyage_list = self.ioapi.get_all_voyages_list
         #for voyage in voyage_list:
         #    voyages_for selected_day = []
@@ -67,7 +68,7 @@ class GetIAAD():
         pass
 
     def list_of_all_voyages_for_selected_day(self, user_input_date):
-        #"""Returns an unsorted list of voyages on that day that the other functions in this class wil be using. The outcome of this function will never appear in the interface"""
+        """Returns an unsorted list of voyages on that day that the other functions in this class wil be using. The outcome of this function will never appear in the interface"""
         #voyage_list = self.ioapi.get_all_voyages_list()
         #return voyage_list
         pass

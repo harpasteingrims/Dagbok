@@ -60,7 +60,7 @@ class DestinationsUI():
         action_str = self.choose_action()
 
         if action_str == "b":
-            self.show_destination_menu()
+            return
         
         else:
             print("Invalid action!")
@@ -86,12 +86,12 @@ class DestinationsUI():
             #Takes the info and adds it to the destination list
             print("Destination successfully created\n")
             new_destination = DestinationsModel(country, airport, flight_duration, distance, contact, contact_phone)
-            #self.destination.create_destination(new_destination)
+            #self.llapi.create_new_destination(new_destination)
             #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
             self.show_destination_menu()
 
-        if action_str == "b": #Á AÐ VERA ELIF HÉR 
-            self.show_destination_menu()
+        elif action_str == "b":
+            return
         
         else:
             print("Invalid action!")
@@ -116,7 +116,7 @@ class DestinationsUI():
         action_str = self.choose_action()
         
         if action_str == "b":
-            self.show_destination_menu() 
+            return
         
         else:
             print("Invalid action!")
@@ -143,7 +143,7 @@ class DestinationsUI():
         elif action_str == "2":
             self.show_emergency_cont_form()
         elif action_str == "b":
-            self.show_destination_menu()
+            return
         
         else:
             print("Invalid action!")
@@ -173,7 +173,7 @@ class DestinationsUI():
             self.show_destination_menu()
 
         elif action_str == "b":
-            self.show_destination_menu()
+            return
 
         else:
             print("Invalid action!")
