@@ -161,7 +161,7 @@ class GetIO():
                 destination = flights.arriving_at
                 aircraftID = flights.aircraftID
                 if flights.captain == "":
-                    crew_list = "Unmanned!"
+                    crew_list = []
                 else:
                     crew_list = [flights.captain, flights.copilot, flights.fsm, flights.fa1, flights.fa2]
 
