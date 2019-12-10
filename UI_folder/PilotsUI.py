@@ -135,10 +135,10 @@ class PilotsUI():
         action_str = self.choose_action()
 
         if action_str == "1":
-            self.show_flight_schedule_of_pilot(chosen_pilot_ob)
+            self.show_flight_schedule_of_pilot(pilot_ob)
 
         elif action_str == "2": 
-            self.show_pilot_edit_form(chosen_pilot_ob)
+            self.show_pilot_edit_form(pilot_ob)
 
         elif action_str == "b":
             return
