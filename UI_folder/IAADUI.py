@@ -82,6 +82,7 @@ class IAADUI():
         list_user_input_date = list(user_input_date)
         list_user_input_date[11:13] = iaad_hour
         list_user_input_date[14:16] = iaad_minute
+        list_user_input_date[17:19] = "00"
         user_input_time = "".join(list_user_input_date)
         self.show_airplane_status(user_input_time)
     
@@ -134,12 +135,14 @@ class IAADUI():
         print("AIRPLANE STATUS")
 
         airplane_status = self.llapi.get_airplane_status_by_date(user_input_date)
+        counter = 1
         if airplane_status != []:
             for airplane_elem in airplane_status:
-                    print(f"{airplane_elem[0]}, {airplane_elem[1]}, {airplane_elem[2]}, {airplane_elem[3]}, {airplane_elem[4]}, {airplane_elem[5]}")
+                    print(f"\n{counter}.\nDestination: {airplane_elem[0]} \nAirplane name: {airplane_elem[1]} \nAirplane type: {airplane_elem[2]} \nSeat amount: {airplane_elem[3]}Flight number: {airplane_elem[4]} \nNext available time: {airplane_elem[5]}")
+                    counter += 1
 
         else:
-            print("\nThe airplane is not flying at this time")
+            print("\nNo airplne is flying at this time")
 
         print()
         print("B Back")

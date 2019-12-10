@@ -70,11 +70,12 @@ class GetIAAD():
                             parsed_voyage_date = dateutil.parser.parse(voyage_ob.departure_time)
                             if [parsed_input_date.year, parsed_input_date.month, (parsed_input_date.day+counter)] == [parsed_voyage_date.year, parsed_voyage_date.month, parsed_voyage_date.day]:
                                 if flights_on_day_list[i].aircraftID != voyage_ob.aircraftID:
-                                    availale_airplane_date = str(parsed_voyage_date.day) + "." + str(parsed_voyage_date.month) + "." + str(parsed_voyage_date.year) + " 00:00:00"
-                                counter += 1
+                                    available_airplane_date = str(parsed_voyage_date.day) + "." + str(parsed_voyage_date.month) + "." + str(parsed_voyage_date.year) + " 00:00:00"
+                                    break
+                            counter += 1
 
                     
-                    airplane_status_list.append([flights_on_day_list[i].arriving_at,airplane_name, airplane_type, airplane_seat_amount, flight_number, availale_airplane_date])
+                    airplane_status_list.append([flights_on_day_list[i].arriving_at,airplane_name, airplane_type, airplane_seat_amount, flight_number, available_airplane_date])
 
                 i += 2
         return airplane_status_list
