@@ -51,15 +51,16 @@ class InputCheckLL():
         else:
             return False
     
-    def check_address(self, address):
+    def check_address(self, address_list):
 
-        if len(address) == 3:
-            zip_code = address[0]
-            address_name = address[1]
-            house_number = address[2]
+        if len(address_list) == 3:
+            
+            address_name = address_list[0]
+            house_number = address_list[1]
+            zip_code = address_list[2]
 
-            if len(zip_code) == 3 and zip_code.isdigit() and address_name.isalpha() and house_number.isdigit():
-                return address[0:4] + address[4].upper() + address[5:]
+            if len(zip_code) == 3 and int(zip_code) and address_name.isalpha() and int(house_number):
+                return address_list[0].capitalize() + str(address_list[1]) + str(address_list[2])
             else: 
                 return False
         else: 

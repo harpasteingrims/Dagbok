@@ -22,23 +22,27 @@ class UImanager():
         self.airplanes = AirplanesUI(self.llapi)
         self.cabincrew = CabincrewUI(self.llapi, self.employeesUI)
         self.pilots = PilotsUI(self.llapi, self.employeesUI)
-        
+    
+    def choose_action(self):
+        action_str = input("Choose action: ").lower()
+        print()
+        return action_str    
+    
     def mainmenuUI(self):    
         action_str = ""
 
         while action_str != "q":
             print(self.LENGTH_STAR * "*")
-            print("MAIN MENU")
-            print()
+            print("MAIN MENU\n")
+            
             print("1 Employees")
             print("2 Voyages")
             print("3 Destinations")
             print("4 Airplanes")
             print("5 Search a date")
-            print("Q Quit")
-            print()
+            print("Q Quit\n")
     
-            action_str = input("Choose action: ").lower()
+            action_str = self.choose_action()
         
             if action_str == "1":
                 self.employeesUI.show_employee_menu()
@@ -57,7 +61,3 @@ class UImanager():
 
             else:
                 print("\nInvalid action!\n")
-
-    def choose_a_number(self):
-        chosen_number = input("Choose a number: ")
-        return chosen_number

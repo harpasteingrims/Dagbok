@@ -20,7 +20,6 @@ class PilotsUI():
         """ Prints the pilot menu and calls appropriate functions or prints Invalid action"""
 
         while True:
-            print()
             print(self.LENGTH_STAR * "*")
             print("PILOT MENU\n")
             
@@ -85,23 +84,24 @@ class PilotsUI():
     def get_the_right_pilot_ob(self, common_named_pilots):
         """ Gets an number from user and checks if it is right """
         
-        pilot_ob_number = int(input("\nChoose a number for pilot's information: "))
+        pilot_ob_number = input("\nChoose a number for pilot's information: ")
         
         try:
+            pilot_ob_number = int(pilot_ob_number)
             if pilot_ob_number and 1 <= pilot_ob_number <= len(common_named_pilots):
                 chosen_pilot_ob = common_named_pilots[pilot_ob_number-1]
                 return chosen_pilot_ob
 
         except ValueError:
             print("\nInvalid number!")
-            self.get_number_from_user(common_named_pilots)
-
-
+            self.get_the_right_pilot_ob(common_named_pilots)
+        
+    
     def show_enter_name_to_search(self):
         """ This prints the search for a pilot window """
 
         print(self.LENGTH_STAR * "*")
-        print("\nSEARCH FOR A PILOT\n")
+        print("SEARCH FOR A PILOT\n")
         
         common_named_pilots_list, input_name = self.get_pilot_name_and_common_list()
         
@@ -115,18 +115,20 @@ class PilotsUI():
             print(pilot_ob.print_pilot_info())
 
         else: 
-            
-            counter = 1
-            for pilot_ob in common_named_pilots_list:
+            while True:
+                counter = 1
+                for pilot_ob in common_named_pilots_list:
 
-                print(pilot_ob.print_pilot_info_in_line(counter))
+                    print(pilot_ob.print_pilot_info_in_line(counter))
 
-                counter += 1 
+                    counter += 1 
 
-            pilot_ob = self.get_the_right_pilot_ob(common_named_pilots_list)
-
-            print()
-            print(pilot_ob.print_pilot_info())
+                pilot_ob = self.get_the_right_pilot_ob(common_named_pilots_list)
+                
+                print()
+                print(self.LENGTH_STAR * "*")
+                print(f"{pilot_ob.name.upper()}'S INFO\n")
+                print(pilot_ob.print_pilot_info())
 
         print(f"\n1 {pilot_ob.name}'s flight schedule")
         print(f"2 Edit information about {pilot_ob.name}")
@@ -145,7 +147,6 @@ class PilotsUI():
         
         else:
             print("Invalid action!")
-            action_str = self.choose_action()
     
 
     def show_flight_schedule_of_pilot(self, pilot_ob):
@@ -190,19 +191,14 @@ class PilotsUI():
         print(self.LENGTH_STAR * "*")
         print("EDIT PILOT\n")
         
-        print(f"You are changing the information for pilot: {pilot_ob.name}, {pilot_ob.ssn}")
+        print(f"You are changing the information for pilot:\n")
         print(pilot_ob.print_pilot_info())
         
-        print(self.LENGTH_STAR * "*")
+        print()
+
         new_address = self.employeesUI.get_address()
-        print(self.LENGTH_STAR * "*")
-        new_rank = self.employeesUI.get_pilot_rank()
-        print(self.LENGTH_STAR * "*")
         mobile_number = self.employeesUI.get_mobile_number()
-        print(self.LENGTH_STAR * "*")
         new_email = self.employeesUI.get_email()
-        print(self.LENGTH_STAR * "*")
-        new_license_type = self.employeesUI.get_license_type()
         
         print("S Save \nB Back\n")
 
