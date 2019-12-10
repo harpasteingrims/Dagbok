@@ -173,7 +173,7 @@ class EmployeesUI():
             counter += 1
 
         license_type_num = input("\nEnter a number to choose the license type: ").lower()
-        license_type_check = self.llapi.check_license_type(license_type_num)
+        license_type_check = self.llapi.check_license_type(license_type_num, airplane_list)
     
         if license_type_check:
             return license_type_check.capitalize()
