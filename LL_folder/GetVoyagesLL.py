@@ -43,7 +43,7 @@ class GetVoyagesLL():
 
     def list_not_staffed_voyages(self):
 
-        
+        voyages_list = self.list_all_voyages()
         unmanned_list = []
         for voyage_ob in voyages_list:
             if voyage_ob.crew_list == []:

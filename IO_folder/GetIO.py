@@ -31,7 +31,8 @@ class GetIO():
         pilot_list = []
         counter = 1
         for line in pilot_file:
-            if counter == 1: #Skil ekki alveg þetta
+            line = line.strip()
+            if counter == 1:
                 counter += 1
             else:
                 ssn = line[0]

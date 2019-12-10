@@ -188,7 +188,7 @@ class VoyagesUI():
     def show_assign_staff_form(self, voyage_date, voyage):
         """This prints the form to assign a staff to a voyage"""
         
-        print(self.LENGTH_STAR*"*")
+        print(self.LENGTH_STAR * "*")
         print("ASSIGN CREW TO VOYAGES")
         print("\nB Back") #Kannski sleppa
         #Listi yfir alla lausa pilots og þar þarf IO og fá date til að sjá hverjir eru lausar þennan dag
