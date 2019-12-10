@@ -24,7 +24,7 @@ class LLAPI():
         return self.getemployees.list_all_employees() #Þetta kallar á klasann getemployees og fallið þar inni sem nær í alla employees
     
     def get_employee_schedule_by_date(self, name, date_from, date_to):
-        return self.getemployees.list_schedule_employee_by_date(name, date_from, date_to)
+        return self.getvoyages.list_schedule_employee_by_date(name, date_from, date_to)
 
     def check_name(self, name):
         return self.inputcheckll.check_name(name)

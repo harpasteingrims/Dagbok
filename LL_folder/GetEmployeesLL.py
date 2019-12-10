@@ -11,20 +11,6 @@ class GetEmployeesLL():
         """ Calls the IOAPI to get a list of all employees """
     
         return self.ioapi.get_list_of_all_employees()
-    
-    
-    def list_schedule_employee_by_date(self, employee_ob, date_from, date_to):
-        flights_ob_list = self.llapi.get_voyages_overview()
-
-        employees_flights = []
-
-        for flight_ob in flights_ob_list:
-            if employee_ob.ssn in flight_ob.crew_list:
-                employees_flights.append(flight_ob)
-        
-
-        #vinna úr tíma hér....
-
 
 
     """ PILOTS """
