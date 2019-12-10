@@ -45,12 +45,9 @@ class VoyagesUI():
         print(self.LENGTH_STAR*"*")
         print("OVERVIEW OF VOYAGES")
 
-        voyages_ob_list = self.llapi.get_voyages_overview() #Kallar á fall i llapanum sem returnar öllum vinnuferðum og prenta út flugnúmer beggja flugferða
-        for voyage_ob in voyages_ob_list:
-            if voyage_ob.crew_list != []:
-                print(f"\n{voyage_ob.departure_time}, {voyage_ob.arrival_time}, {voyage_ob.destination}, {voyage_ob.aircraftID}, {voyage_ob.crew_list}")
-            else:
-                print(f"\n{voyage_ob.departure_time}, {voyage_ob.arrival_time}, {voyage_ob.destination}, {voyage_ob.aircraftID}")
+        voyages_elem_list = self.llapi.get_voyages_overview() #Kallar á fall i llapanum sem returnar öllum vinnuferðum og prenta út flugnúmer beggja flugferða
+        for voyage_elem in voyages_elem_list:
+            print(f"\nDeparture time: {voyage_elem[0]}, arrival time: {voyage_elem[1]}, destination: {voyage_elem[2]}, aircraftID: {voyage_elem[3]}, #1 flight number: {voyage_elem[4]}, #2 flight number: {voyage_elem[5]}, flight status: {voyage_elem[6]}")
 
         print("B Back\n")
 
