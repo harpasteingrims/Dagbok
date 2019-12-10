@@ -11,8 +11,9 @@ class GetIAAD():
         for employee_ob in employee_list:
             if self.list_unavailable_emp_by_date(user_input_date) != []:
                 for i in range(len(self.list_unavailable_emp_by_date(user_input_date))):
-                    if employee_ob.ssn not in self.list_unavailable_emp_by_date(user_input_date)[i] and employee_ob.ssn not in available_employees_list:
+                    if employee_ob.name not in self.list_unavailable_emp_by_date(user_input_date)[i]:
                         available_employees_list.append(employee_ob)
+                        break
             else:
                 available_employees_list.append(employee_ob)
 
@@ -20,15 +21,22 @@ class GetIAAD():
 
     def list_unavailable_emp_by_date(self, user_input_date):
         voyage_list = self.ioapi.get_all_voyages_list()
-        unavailable_employees_list = []
+        employee_list = self.ioapi.get_list_of_all_employees()
+        unavailable_emp_ssn_list = []
         for voyage_ob in voyage_list:
             parsed_date = dateutil.parser.parse(voyage_ob.departure_time)
             user_input_parsed_date = dateutil.parser.parse(user_input_date)
             if [user_input_parsed_date.year, user_input_parsed_date.month, user_input_parsed_date.day] == [parsed_date.year, parsed_date.month, parsed_date.day]:
                 if voyage_ob.crew_list != []:
-                    unavailable_employees_list.append([voyage_ob.crew_list, voyage_ob.destination])
+                    unavailable_emp_ssn_list.append([voyage_ob.crew_list[0], voyage_ob.crew_list[1], voyage_ob.crew_list[2], voyage_ob.crew_list[3], voyage_ob.crew_list[4], voyage_ob.destination])
+        
+        unavailable_emp_name_list = []
+        for employee_ob in employee_list:
+            for i in range(len(unavailable_emp_ssn_list)):
+                if employee_ob.ssn in unavailable_emp_ssn_list[i]:
+                    unavailable_emp_name_list.append([employee_ob.name, unavailable_emp_ssn_list[i][5]])
 
-        return unavailable_employees_list
+        return unavailable_emp_name_list
 
 
     def list_airplane_status_by_date(self, user_input_date):

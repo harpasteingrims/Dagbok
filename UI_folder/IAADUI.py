@@ -116,7 +116,8 @@ class IAADUI():
         print("UNAVAILABLE EMPLOYEES")
 
         unavailable_employess = self.llapi.get_unavailable_emp_by_date(user_input_date)
-        print(unavailable_employess)
+        for employee_elem in unavailable_employess:
+            print(f"\nName: {employee_elem[0]}, destination: {employee_elem[1]}")
 
         print()
         print("B Back")
