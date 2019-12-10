@@ -46,8 +46,16 @@ class InputCheckLL():
 
     def check_ssn(self, ssn):
         
-        if len(ssn) == 10 and ssn.isdigit() and self.check_iaad_month(ssn[2:4], ) != False and self.check_iaad_day(ssn[0:2], ssn[2:4], "19" + ssn[4:6]) != False:
-            return ssn
+        if int(ssn[4:5]) > 20:
+            if len(ssn) == 10 and ssn.isdigit() and self.check_iaad_month(ssn[2:4], ) != False and self.check_iaad_day(ssn[0:2], ssn[2:4], "19" + ssn[4:6]) != False:
+                return ssn
+            else:
+                return False
+        elif ssn[4] == "0" and 0 < int(ssn[5]) < 4:
+            if len(ssn) == 10 and ssn.isdigit() and self.check_iaad_month(ssn[2:4], ) != False and self.check_iaad_day(ssn[0:2], ssn[2:4], "20" + ssn[4:6]) != False:
+                return ssn
+            else:
+                return False
         else:
             return False
     
