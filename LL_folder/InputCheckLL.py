@@ -10,13 +10,10 @@ class InputCheckLL():
     """ CHECKING INPUT FOR EMPLOYEES"""
 
     def check_name(self, name):
-        if " " in name:
+        if len(name.split()) > 1:
             first_name, last_name = name.split()
-            
             if len(name) < 40 and first_name.isalpha() and last_name.isalpha():
-            
                 return name.title()
-
             else:
                 return False
         else: 
@@ -46,8 +43,16 @@ class InputCheckLL():
 
     def check_ssn(self, ssn):
         
-        if len(ssn) == 10 and ssn.isdigit() and self.check_iaad_month(ssn[2:4], ) != False and self.check_iaad_day(ssn[0:2], ssn[2:4]) != False:
-            return ssn
+        if int(ssn[4:5]) > 20:
+            if len(ssn) == 10 and ssn.isdigit() and self.check_iaad_month(ssn[2:4], ) != False and self.check_iaad_day(ssn[0:2], ssn[2:4], "19" + ssn[4:6]) != False:
+                return ssn
+            else:
+                return False
+        elif ssn[4] == "0" and 0 < int(ssn[5]) < 4:
+            if len(ssn) == 10 and ssn.isdigit() and self.check_iaad_month(ssn[2:4], ) != False and self.check_iaad_day(ssn[0:2], ssn[2:4], "20" + ssn[4:6]) != False:
+                return ssn
+            else:
+                return False
         else:
             return False
     
@@ -181,7 +186,7 @@ class InputCheckLL():
         else:
             return False
 
-    def check_iaad_day(self, iaad_day, iaad_month, iaad_year = 0):
+    def check_iaad_day(self, iaad_day, iaad_month, iaad_year):
 
         if iaad_month == "01" or iaad_month == "03" or iaad_month == "05" or iaad_month == "07" or iaad_month == "08" or iaad_month == "10" or iaad_month == "12":
             if len(iaad_day) == 2 and iaad_day.isdigit() and 0 < int(iaad_day) < 32:

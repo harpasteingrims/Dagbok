@@ -35,7 +35,7 @@ class LLAPI():
     def check_crew_member_rank(self, rank):
         return self.inputcheckll.check_crew_member_rank(rank)
 
-    def check_ssn(self, ssn, employees_ob_list):
+    def check_ssn(self, ssn):
         return self.inputcheckll.check_ssn(ssn)
 
     def check_address(self, address_list):
