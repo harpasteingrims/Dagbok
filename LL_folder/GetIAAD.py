@@ -47,9 +47,9 @@ class GetIAAD():
 
         airplane_status_list = []
 
-        i = 1
+        i = 0
         if flights_on_day_list != []:
-            for j in range(len(flights_on_day_list)):
+            for j in range(len(flights_on_day_list)//2):
                 if flights_on_day_list[i].departure_time <= user_input_date <= flights_on_day_list[i+1].arrival_time:
                     for airplane_ob in airplane_list:
                         if flights_on_day_list[i].aircraftID == airplane_ob.planeID:

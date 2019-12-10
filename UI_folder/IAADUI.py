@@ -126,7 +126,12 @@ class IAADUI():
         print("AIRPLANE STATUS")
 
         airplane_status = self.llapi.get_airplane_status_by_date(user_input_date)
-        print(airplane_status)
+        if airplane_status != []:
+            for airplane_elem in airplane_status:
+                    print(f"{airplane_elem[0]}, {airplane_elem[1]}, {airplane_elem[2]}, {airplane_elem[3]}, {airplane_elem[4]}, {airplane_elem[5]}")
+
+        else:
+            print("\nThe airplane is not flying at this time")
 
         print()
         print("B Back")
