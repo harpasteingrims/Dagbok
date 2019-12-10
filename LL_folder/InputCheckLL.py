@@ -50,7 +50,7 @@ class InputCheckLL():
             else:
                 return False
         elif ssn[4] == "0" and 0 < int(ssn[5]) < 4:
-            if len(ssn) == 10 and ssn.isdigit() and self.check_iaad_month(ssn[2:4], ) != False and self.check_iaad_day(ssn[0:2], ssn[2:4], "20" + ssn[4:6]) != False:
+            if len(ssn) == 10 and ssn.isdigit() and self.check_iaad_month(ssn[2:4], "20" + ssn[4:6]) != False and self.check_iaad_day(ssn[0:2], ssn[2:4], "20" + ssn[4:6]) != False:
                 return ssn
             else:
                 return False
@@ -98,7 +98,7 @@ class InputCheckLL():
 
     """CHECKING INPUT FOR VOYAGES"""
     
-    def calculate_arrival_time(self,new_voyage_object):
+    def calculate_arrival_time(self, new_voyage_object):
         departure_time = new_voyage_object.departure_time
         if new_voyage_object.destination == "Longyearbyean":
             new_voyage_object.arrival_time = departure_time + timedelta(hours=2,minutes=47)
@@ -163,7 +163,7 @@ class InputCheckLL():
 
     def check_contact_number(self, contact_number): 
 
-        if contact_number.replace("+", "").replace(" ", "").isdigit():
+        if contact_number.replace("+", "").replace(" ", "").isdigit() and len(contact_number) < 14:
             return contact_number
         else:
             return False
@@ -172,7 +172,7 @@ class InputCheckLL():
 
     def check_airplane_id(self, airplane_id):
         
-        if len(airplane_id) == 6:
+        if len(airplane_id) == 6 and airplane_id[2] == "-":
             return airplane_id.upper()
         else: 
             return False
