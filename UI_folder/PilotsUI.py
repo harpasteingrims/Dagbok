@@ -81,20 +81,19 @@ class PilotsUI():
         return common_named_pilots_list, input_name
 
 
-    def get_the_right_pilot_ob(self, common_named_pilots):
+    def get_input_number(self, common_named_pilots_list):
         """ Gets an number from user and checks if it is right """
         
-        pilot_ob_number = input("\nChoose a number for pilot's information: ")
-        
+        user_input = input("\nChoose a number for pilot's information: ")
         try:
-            pilot_ob_number = int(pilot_ob_number)
-            if pilot_ob_number and 1 <= pilot_ob_number <= len(common_named_pilots):
-                chosen_pilot_ob = common_named_pilots[pilot_ob_number-1]
-                return chosen_pilot_ob
+            user_input_int = int(user_input)
+            if user_input_int and 1 <= user_input_int <= len(common_named_pilots_list):
+                pilot_ob = common_named_pilots_list[user_input_int-1]
+                return pilot_ob
 
         except ValueError:
-            print("\nInvalid number!")
-            self.get_the_right_pilot_ob(common_named_pilots)
+            print("\nInvalid input!")
+            return self.get_input_number(common_named_pilots_list)
         
     
     def show_enter_name_to_search(self):
@@ -115,20 +114,19 @@ class PilotsUI():
             print(pilot_ob.print_pilot_info())
 
         else: 
-            while True:
-                counter = 1
-                for pilot_ob in common_named_pilots_list:
+            counter = 1
+            for pilot_ob in common_named_pilots_list:
 
-                    print(pilot_ob.print_pilot_info_in_line(counter))
+                print(pilot_ob.print_pilot_info_in_line(counter))
 
-                    counter += 1 
+                counter += 1 
 
-                pilot_ob = self.get_the_right_pilot_ob(common_named_pilots_list)
-                
-                print()
-                print(self.LENGTH_STAR * "*")
-                print(f"{pilot_ob.name.upper()}'S INFO\n")
-                print(pilot_ob.print_pilot_info())
+            pilot_ob = self.get_input_number(common_named_pilots_list)
+            
+            print()
+            print(self.LENGTH_STAR * "*")
+            print(f"{pilot_ob.name}'S INFO\n")
+            print(pilot_ob.print_pilot_info())
 
         print(f"\n1 {pilot_ob.name}'s flight schedule")
         print(f"2 Edit information about {pilot_ob.name}")
@@ -200,12 +198,12 @@ class PilotsUI():
         mobile_number = self.employeesUI.get_mobile_number()
         new_email = self.employeesUI.get_email()
         
-        print("S Save \nB Back\n")
+        print("\nS Save \nB Back\n")
 
         action_str = self.choose_action()
 
         if action_str == "s":
-            updated_pilot_ob = PilotsModel(ssn, name, rank, ssn, address, mobile_number, email, license_type)
+            updated_pilot_ob = PilotsModel(pilot_ob.ssn, pilot_ob.name, "Pilot", pilot_ob.rank, new_address, mobile_number, new_email, pilot_ob.license_type)
             
             updated_pilot = self.llapi.update_new_pilot_information(updated_pilot_ob)
             

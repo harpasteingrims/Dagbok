@@ -75,7 +75,8 @@ class EmployeesUI():
 
     def get_name(self):
         print(self.LENGTH_STAR * "*")
-        name = input("\nEnter full name: ").lower()
+        name = input("Enter full name: ").lower()
+        print()
         name_check = self.llapi.check_name(name)
         
         if name_check:
@@ -88,8 +89,9 @@ class EmployeesUI():
 
     def get_pilot_rank(self):
         print(self.LENGTH_STAR * "*")
-        rank = input("\nEnter number for either \n1 Captain \n2 Copilot\n: ")
-        
+        rank = input("Enter number for either \n1 Captain \n2 Copilot\n: ")
+        print()
+
         rank_check = self.llapi.check_pilot_rank(rank)
         
         if rank_check:
@@ -102,7 +104,8 @@ class EmployeesUI():
     def get_cabin_crew_rank(self):
         print(self.LENGTH_STAR * "*")
         rank = input("Enter number for either \n1 Flight Service Manager \n2 Flight Attendant\n: ")
-        
+        print()
+
         rank_check = self.llapi.check_crew_member_rank(rank)
 
         if rank_check:
@@ -116,6 +119,8 @@ class EmployeesUI():
     def get_ssn(self):
         print(self.LENGTH_STAR * "*")
         ssn = input("Enter social security number: ")
+        print()
+
         ssn_check = self.llapi.check_ssn(ssn)
 
         if ssn_check:
@@ -127,8 +132,10 @@ class EmployeesUI():
     
 
     def get_address(self):
-        address = input("\nEnter address in form \n{address name} {house number}, {zip code} \n: ").replace(",", "").split()
-            
+        print(self.LENGTH_STAR * "*")
+        address = input("Enter address in form \n{address name} {house number}, {zip code} \n: ").replace(",", "").split()
+        print()
+
         address_check = self.llapi.check_address(address)
 
         if address_check:
@@ -142,6 +149,8 @@ class EmployeesUI():
     def get_mobile_number(self):
         print(self.LENGTH_STAR * "*")
         mobile_number = input("Enter mobile number: ")
+        print()
+
         mobile_number_check = self.llapi.check_mobile_number(mobile_number)
 
         if mobile_number_check:
@@ -155,6 +164,7 @@ class EmployeesUI():
     def get_email(self):
         print(self.LENGTH_STAR * "*")
         email = input("Enter email: ")
+        print()
         email_check = self.llapi.check_email(email).lower()
 
         if email_check:
@@ -167,7 +177,7 @@ class EmployeesUI():
 
     def get_license_type(self):
         print(self.LENGTH_STAR * "*")
-        print("\nOverview of license types:")
+        print("Overview of license types:")
         
         airplane_list = self.llapi.get_airplanes_for_UI()
         
@@ -177,7 +187,8 @@ class EmployeesUI():
             
             counter += 1
 
-        license_type_num = input("\nEnter a number to choose the license type: ").lower()
+        license_type_num = input("\nEnter a number to choose the license type: ")
+        print()
         license_type_check = self.llapi.check_license_type(license_type_num, airplane_list)
     
         if license_type_check:
