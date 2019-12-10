@@ -55,7 +55,7 @@ class DestinationsUI():
         print(destinations)
         #calls the method that makes a list of all destinations and prints it
 
-        print("B Back\n")
+        print("\nB Back\n")
 
         action_str = self.choose_action()
 

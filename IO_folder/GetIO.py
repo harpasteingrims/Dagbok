@@ -112,7 +112,7 @@ class GetIO():
                 dist_from_Ice = line[3]
                 contact_name = line[4]
                 contact_phone_number = line[5]
-                country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number = line.split(",")
+                country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID = line.split(",")
                 destination = DestinationsModel(country ,airport ,flight_dur_from_Ice ,dist_from_Ice ,contact_name ,contact_phone_number)
                 destination_list.append(destination)
                 
