@@ -15,7 +15,7 @@ class GetVoyagesLL():
         flights_list = self.ioapi.get_all_flights_list()
         all_voyage_list = []
         now = datetime.now()
-        date_time_now = now[0,10] + "T" + [11,]
+        date_time_now = now.strftime("%Y-%m-%dT%H:%M:%S")
         i = 0
         for voyage_ob in voyages_list:
             if voyage_ob.departure_time == flights_list[i].departure_time:
@@ -30,9 +30,16 @@ class GetVoyagesLL():
                 else:
                     flight_status = "Has landed at destination"
 
-                all_voyage_list.append([voyage_ob.departure_time, voyage_ob.arrival_time, voyage_ob.destination, voyage_ob.aircraftID, flights_list[i].flight_number, flights_list[i+1].flight_number, flight_status])
+                departure_time = dateutil.parser.parse(voyage_ob.departure_time)
+                arrival_time = dateutil.parser.parse(voyage_ob.arrival_time)
+
+                departure_time_str = str(departure_time.year) + "/" + str(departure_time.month) + "/" + str(departure_time.day) + " " + str(departure_time.hour) + ":" + str(departure_time.minute) + ":00"
+                arrival_time_str = str(arrival_time.year) + "/" + str(arrival_time.month) + "/" + str(arrival_time.day) + " " + str(arrival_time.hour) + ":" + str(arrival_time.minute) + ":00"
+
+                all_voyage_list.append([departure_time_str, arrival_time_str, voyage_ob.destination, voyage_ob.aircraftID, flights_list[i].flight_number, flights_list[i+1].flight_number, flight_status])
 
             i += 2
+        return all_voyage_list
 
     def list_not_staffed_voyages(self):
 
