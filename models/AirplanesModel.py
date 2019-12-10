@@ -7,4 +7,4 @@ class AirplanesModel():
         self.seat_amount = seat_amount
     
     def to_csv_string(self):
-        return f"{self.planeID},{self.airplane_type},{self.manufacturer},{self.seat_amount}"
+        return f"{self.planeID}, {self.airplane_type}, {self.manufacturer}, {self.seat_amount}"

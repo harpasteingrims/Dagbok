@@ -42,7 +42,7 @@ class GetIO():
                 address = line[5]
                 mobile_number = line[6]
                 email = line[7]
-                ssn, name, role , rank, license_type, address, mobile_number, email = line.split(",")
+                ssn, name, role , rank, license_type, address, mobile_number, email = line.split(", ")
                 pilot = PilotsModel(ssn, name, role , rank, license_type, address, mobile_number, email)
                 pilot_list.append(pilot)
         
@@ -67,7 +67,7 @@ class GetIO():
                 address = line[4]
                 mobile_number = line[5]
                 email = line[6]
-                ssn, name, role, rank, address, mobile_number, email = line.split(",")
+                ssn, name, role, rank, address, mobile_number, email = line.split(", ")
                 
                 cabincrew_employee = CabinCrewModel(ssn, name, role, rank, address, mobile_number, email)
                 cabincrew_list.append(cabincrew_employee)
@@ -89,7 +89,7 @@ class GetIO():
                 airplane_type = line[1]
                 manufacturer = line[2]
                 seat_amount = line[3]
-                planeID, airplane_type, manufacturer, seat_amount = line.split(",")
+                planeID, airplane_type, manufacturer, seat_amount = line.split(", ")
                 airplane = AirplanesModel(planeID, airplane_type, manufacturer, seat_amount)
                 airplane_list.append(airplane)
 
@@ -112,7 +112,7 @@ class GetIO():
                 dist_from_Ice = line[3]
                 contact_name = line[4]
                 contact_phone_number = line[5]
-                country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID = line.split(",")
+                country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID = line.split(", ")
                 destination = DestinationsModel(country ,airport ,flight_dur_from_Ice ,dist_from_Ice ,contact_name ,contact_phone_number)
                 destination_list.append(destination)
                 
@@ -151,7 +151,7 @@ class GetIO():
                     fsm = ""
                     fa1 = ""
                     fa2 = ""
-                #flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2 = line.split(",")
+                #flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2 = line.split(", ")
                 flight_with_crew = FlightsModel(flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2)
                 flights_list.append(flight_with_crew)
 
@@ -212,7 +212,7 @@ class GetIO():
                     fsm = ""
                     fa1 = ""
                     fa2 = ""
-                #flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2 = line.split(",")
+                #flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2 = line.split(", ")
                 flight_with_crew = FlightsModel(flight_number, departing_from, arriving_at, departure_time, arrival_time, aircraft_ID, captain, copilot, fsm, fa1, fa2)
                 flights_list.append(flight_with_crew)
 
@@ -268,7 +268,7 @@ class GetIO():
                     fsm = ""
                     fa1 = ""
                     fa2 = ""
-                #flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2 = line.split(",")
+                #flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2 = line.split(", ")
                 flight_with_crew = FlightsModel(flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2)
                 flights_list.append(flight_with_crew)
 

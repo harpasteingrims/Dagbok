@@ -20,7 +20,7 @@ class VoyagesModel():
         pass
 
     def csv_voyage_with_crew_to_string(self):
-        return f"{self.departure_time},{self.arrival_time}, {self.destination}, {self.aircraftID}, {self.crew_list[0]}, {self.crew_list[1]}, {self.crew_list[2]}, {self.crew_list[3]}, {self.crew_list[4]}, {self.crew_list[5]}"
+        return f"{self.departure_time}, {self.arrival_time}, {self.destination}, {self.aircraftID}, {self.crew_list[0]}, {self.crew_list[1]}, {self.crew_list[2]}, {self.crew_list[3]}, {self.crew_list[4]}, {self.crew_list[5]}"
 
     def print_schedule(self, counter):
         departure_time = dateutil.parser.parse(self.departure_time)

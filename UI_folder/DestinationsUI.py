@@ -52,7 +52,7 @@ class DestinationsUI():
         print("OVERVIEW OF DESTINATIONS\n")
         
         destinations = self.llapi.get_destination_overview() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
-        print(destinations)
+        counter = 1 
         #calls the method that makes a list of all destinations and prints it
 
         print("\nB Back\n")
