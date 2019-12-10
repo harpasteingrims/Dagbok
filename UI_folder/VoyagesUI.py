@@ -164,7 +164,6 @@ class VoyagesUI():
         action_str = self.choose_action()
 
         if action_str == "1":
-            #Takes the info and adds it to the voyage list
             print("\n*Voyage successfully created*")
             arrival_time = 0 #format fyrir date time
             new_voyage = VoyagesModel(voyage_date,arrival_time, voyage_airport, voyage_airplane) #Pæling að gera þetta ekki fyrr en í hinu fallinu, eða veit ekki
@@ -174,7 +173,6 @@ class VoyagesUI():
             self.show_assign_staff_form(voyage_date, new_voyage)
 
         elif action_str == "s":
-            #Takes the info and adds it to the voyage list
             print("\n*Voyage successfully created*")
             new_voyage = VoyagesModel(voyage_date, arrival_time, voyage_airport, voyage_airplane)
             self.llapi.calculate_arrival_time(new_voyage)
@@ -197,15 +195,45 @@ class VoyagesUI():
         print("\nB Back") #Kannski sleppa
         #Listi yfir alla lausa pilots og þar þarf IO og fá date til að sjá hverjir eru lausar þennan dag
         available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
+        counter = 1
         for employee_ob in available_employess_ob_list:
-            print(f"\nName: {employee_ob.name}, rank: {employee_ob.rank}")
+            if employee_ob.rank == "Captain":
+                print(employee_ob.print_available_pilot_info(counter))
+                counter += 1
+        print("\n*Pick a number for captain*")
+        captain = self.choose_a_number()
 
-        captain = input("Choose number for captain: ")
-        copilot = input("Choose number for copilot: ")
+        counter = 1
+        for employee_ob in available_employess_ob_list:
+            if employee_ob.rank == "Copilot":
+                print(employee_ob.print_available_pilot_info(counter))
+                counter += 1
+        print("*\nPick a number for copilot*")
+        copilot = self.choose_a_number()
 
-        senior_cabincrew_member = input("Choose number for senior cabin crew member: ")
-        cabincrew_member_1 = input("Choose number for cabincrew member #1: ")
-        cabincrew_member_2 = input("Chooose number for cabincrew member #2: ")
+        counter = 1
+        for employee_ob in available_employess_ob_list:
+            if employee_ob.rank == "FlightServiceManager":
+                print(employee_ob.print_available_crew_info(counter))
+                counter += 1
+        print("\n*Pick a number for senior cabin crew member*")
+        senior_cabincrew_member = self.choose_a_number()
+
+        counter = 1
+        for employee_ob in available_employess_ob_list:
+            if employee_ob.rank == "FlightAttendant":
+                print(employee_ob.print_available_crew_info(counter))
+                counter += 1
+        print("\n*Pick a number for cabincrew member #1*")
+        cabincrew_member_1 = self.choose_a_number()
+        
+        counter = 1
+        for employee_ob in available_employess_ob_list:
+            if employee_ob.rank == "FlightAttendant":
+                print(employee_ob.print_available_crew_info(counter))
+                counter += 1
+        print("\n*Pick a number for cabincrew member #2*")
+        cabincrew_member_2 = self.choose_a_number()
         
         print()
         
