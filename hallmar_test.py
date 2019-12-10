@@ -1,5 +1,5 @@
-from LL_folder.GetVoyagesLL import GetVoyagesLL
+from UI_folder.PilotsUI import PilotsUI
 
-test = GetVoyagesLL
-test.list_not_staffed_voyages()
+test = PilotsUI
+test.show_pilot_create_form()
 
