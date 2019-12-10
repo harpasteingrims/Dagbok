@@ -24,6 +24,17 @@ class GetAirplanesLL():
             if airplane_ob.planeID not in unavailable_airplane_list:
                 available_airplane_list.append(airplane_ob.planeID)
         return available_airplane_list
+    
+    def get_airplane_list(self):
+    
+        airplane_ob_list = self.list_all_airplanes()
+        plane_list = []
+
+        for airplane_ob in airplane_ob_list:
+            if airplane_ob.airplane_type not in plane_list:
+                plane_list.append(airplane_ob.airplane_type)
+
+        return plane_list
 
     #searched_pilot_info = []
 
@@ -52,13 +63,3 @@ class GetAirplanesLL():
     #parsed_date.minute : 35
     #parsed_date.year : 2019
 
-def get_airplane_list(self):
-    
-    airplane_ob_list = self.list_all_airplanes()
-    plane_list = []
-
-    for airplane_ob in airplane_ob_list:
-        if airplane.airplane_type not in plane_list:
-            plane_list.append(airplane_ob.airplane_type)
-
-    return plane_list
