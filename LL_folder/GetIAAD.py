@@ -8,15 +8,13 @@ class GetIAAD():
     def list_available_emp_by_date(self, user_input_date):
         employee_list = self.ioapi.get_list_of_all_employees()
         available_employees_list = []
-        i = 0
         for employee_ob in employee_list:
             if self.list_unavailable_emp_by_date(user_input_date) != []:
-                if employee_ob.ssn not in self.list_unavailable_emp_by_date(user_input_date)[i]:
-                    available_employees_list.append(employee_ob)
-                    i += 1
-
+                for i in range(len(self.list_unavailable_emp_by_date(user_input_date))):
+                    if employee_ob.ssn not in self.list_unavailable_emp_by_date(user_input_date)[i] and employee_ob.ssn not in available_employees_list:
+                        available_employees_list.append(employee_ob)
             else:
-                available_employees_list.append([employee_ob.name, employee_ob.role])
+                available_employees_list.append(employee_ob)
 
         return available_employees_list
 

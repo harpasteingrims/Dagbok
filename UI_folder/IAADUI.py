@@ -92,8 +92,10 @@ class IAADUI():
         print(self.LENGTH_STAR * "*")
         print("AVAILABLE EMPLOYEES")
 
-        available_employess = self.llapi.get_available_emp_by_date(user_input_date)
-        print(available_employess)
+        available_employees_list = self.llapi.get_available_emp_by_date(user_input_date)
+        for employee_ob in available_employees_list:
+            print(f"\nName: {employee_ob.name}, rank: {employee_ob.rank}")
+        
 
         print()
         print("B Back")

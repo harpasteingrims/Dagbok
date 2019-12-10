@@ -47,7 +47,10 @@ class VoyagesUI():
 
         voyages_ob_list = self.llapi.get_voyages_overview() #Kallar á fall i llapanum sem returnar öllum vinnuferðum og prenta út flugnúmer beggja flugferða
         for voyage_ob in voyages_ob_list:
-            print(f"\n{voyage_ob.departure_time}, {voyage_ob.arrival_time}, {voyage_ob.destination}, {voyage_ob.aircraftID}, {voyage_ob.crew_list}")
+            if voyage_ob.crew_list != []:
+                print(f"\n{voyage_ob.departure_time}, {voyage_ob.arrival_time}, {voyage_ob.destination}, {voyage_ob.aircraftID}, {voyage_ob.crew_list}")
+            else:
+                print(f"\n{voyage_ob.departure_time}, {voyage_ob.arrival_time}, {voyage_ob.destination}, {voyage_ob.aircraftID}")
 
         print("B Back\n")
 
@@ -194,9 +197,8 @@ class VoyagesUI():
         print("\nB Back") #Kannski sleppa
         #Listi yfir alla lausa pilots og þar þarf IO og fá date til að sjá hverjir eru lausar þennan dag
         available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
-        for employee_element in available_employess_ob_list:
-            #print(f"\n{employee_element[0]}, {employee_element[1]}")
-            print(employee_element)
+        for employee_ob in available_employess_ob_list:
+            print(f"\nName: {employee_ob.name}, rank: {employee_ob.rank}")
 
         captain = input("Choose number for captain: ")
         copilot = input("Choose number for copilot: ")
