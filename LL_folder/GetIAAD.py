@@ -26,7 +26,7 @@ class GetIAAD():
             user_input_parsed_date = dateutil.parser.parse(user_input_date)
             if [user_input_parsed_date.year, user_input_parsed_date.month, user_input_parsed_date.day] == [parsed_date.year, parsed_date.month, parsed_date.day]:
                 if voyage_ob.crew_list != []:
-                    unavailable_employees_list.append(voyage_ob.crew_list)
+                    unavailable_employees_list.append([voyage_ob.crew_list, voyage_ob.destination])
 
         return unavailable_employees_list
 

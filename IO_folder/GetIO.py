@@ -171,7 +171,7 @@ class GetIO():
                 counter += 1
             elif counter % 2 == 0:
                 arrival_time = flights.arrival_time
-                voyage = VoyagesModel(departure_time, arrival_time, destination, aircraftID, crew_list)
+                voyage = VoyagesModel(departure_time, destination, aircraftID, arrival_time, crew_list)
                 voyages_list.append(voyage)
 
                 counter += 1
