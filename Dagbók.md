@@ -305,5 +305,5 @@ Vika 2: 02.12 - 06.12
     -Hildur: Klárar öll input check kíkja á voyagesUI og það sem þarf að gera þar
     -Viktoría: Laga CreateIO/UpdateIO og láta virka að búa til starfsmann og líka breyta starfsmann 
 
-    Ef einhverjum vantar verkefni þá eru hér nokkur:
+    Ef einhvern vantar verkefni þá eru hér nokkur:
         -SKÝRSLAN: updatea klasa ritið, updatea stöðuritið, búa til kafla í tengslum við virkni í forritinu og skrifa þar ítarlega afhverju við gerum ákveðna hluti í forritinu... Laga líka kröfurnar og skrifa hverjar eru loknar og þannig. Einnig má laga use cases og gera nýjan inngang og byrja á niðurstöðunum.

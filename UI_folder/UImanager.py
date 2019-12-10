@@ -57,4 +57,11 @@ class UImanager():
 
     def choose_a_number(self):
         chosen_number = input("Choose a number: ")
-        return chosen_number
+        number_check_5 = self.llapi.check_number_5(chosen_number)
+
+        if number_check:
+            return airplane_id_check
+
+        else:
+            print("\nInvalid number")
+            self.choose_a_number()
