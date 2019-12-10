@@ -23,14 +23,13 @@ class CabincrewUI():
         while True:
             print()
             print(self.LENGTH_STAR * "*")
-            print("CABIN CREW MENU")
-            print()
+            print("CABIN CREW MENU\n")
+            
             print("1 Print overview of cabin crew")
             print("2 Search for a cabin crew member")
             print("3 Create a new cabin crew member")
-            print("B Back")
-            print()
-
+            print("B Back\n")
+    
             action_str = self.choose_action()
 
             if action_str == "1":

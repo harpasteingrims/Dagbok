@@ -22,13 +22,12 @@ class PilotsUI():
         while True:
             print()
             print(self.LENGTH_STAR * "*")
-            print("PILOT MENU")
-            print()
+            print("PILOT MENU\n")
+            
             print("1 Print overview of pilots")
             print("2 Search for a pilot")
             print("3 Create a new pilot")
-            print("B Back")
-            print()
+            print("B Back\n")
 
             action_str = self.choose_action()
         

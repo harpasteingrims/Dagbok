@@ -13,7 +13,8 @@ class GetEmployeesLL():
         return self.ioapi.get_list_of_all_employees()
     
     
-    def list_schedule_employee_by_date(self, name, date_from, date_to):
+    def list_schedule_employee_by_date(self, employee_ob, date_from, date_to):
+        flights_list = 
         
         
         pass
