@@ -1,6 +1,8 @@
 class GetDestinationsLL():
+
     def __init__(self, ioapi):
         self.ioapi = ioapi
+        self.destiID_number = 0
         
     def list_all_destinations(self):
         """ Calls the IOAPI to get a list of all destinations """
@@ -14,4 +16,9 @@ class GetDestinationsLL():
                 airport_list.append(destination_ob.airport)
         return airport_list
 
-        
+    def make_destiID(self):
+        desti_ob_list = self.list_all_destinations()
+        self.destiID_number = len(desti_ob_list)
+
+        return self.destiID_number - 1
+

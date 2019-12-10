@@ -144,6 +144,9 @@ class LLAPI():
     def check_contact_number(self, contact_number):
         return self.inputcheckll.check_contact_number(contact_number)
 
+    def get_destiID(self):
+        return self.getdestinations.make_destiID()
+
     """AIRPLANES"""
 
     def get_airplanes_overview(self):

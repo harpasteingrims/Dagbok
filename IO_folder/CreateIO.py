@@ -18,14 +18,14 @@ class CreateIO():
         
     def store_airplane(self, new_airplane):
         with open('csv_files\Aircraft.csv', 'a') as f:
-             f.write(new_airplane.to_csv_string())
+            f.write(new_airplane.to_csv_string())
 
     def store_destination(self, new_destination):
         with open('csv_files\Destinations.csv', 'a') as f:
-             f.write(new_destination.to_csv_string())
+            f.write(new_destination.to_csv_string())
 
     def store_voyage(self, new_voyage):
         with open('csv_files\Flights.csv', 'a') as f:
-             f.write(new_voyage.to_csv_string())
+            f.write(new_voyage.to_csv_string())
 
 

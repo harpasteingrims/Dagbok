@@ -113,7 +113,7 @@ class GetIO():
                 contact_name = line[4]
                 contact_phone_number = line[5]
                 country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID = line.split(", ")
-                destination = DestinationsModel(country ,airport ,flight_dur_from_Ice ,dist_from_Ice ,contact_name ,contact_phone_number)
+                destination = DestinationsModel(country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID)
                 destination_list.append(destination)
                 
         dest_file.close()

@@ -18,15 +18,14 @@ class DestinationsUI():
         action_str = ""
 
         while True:
-            print()
+            
             print(self.LENGTH_STAR * "*")
-            print("DESTINATION MENU")
-            print()
+            print("DESTINATION MENU\n")
+
             print("1 Print overview of destinations")
             print("2 Create a new destination")
             print("3 Get emergency contact")
-            print("B Back")
-            print()
+            print("B Back\n")
             
             action_str = self.choose_action()
 
@@ -34,7 +33,7 @@ class DestinationsUI():
                 self.show_destination_overview()
 
             elif action_str == "2":
-                self.show_create_des_form()
+                self.show_create_desti_form()
 
             elif action_str == "3":
                 self.show_emerg_country_menu()
@@ -51,9 +50,12 @@ class DestinationsUI():
         print("*"*self.LENGTH_STAR)
         print("OVERVIEW OF DESTINATIONS\n")
         
-        destinations = self.llapi.get_destination_overview() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
+        destinations_ob_list = self.llapi.get_destination_overview() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
         counter = 1 
-        #calls the method that makes a list of all destinations and prints it
+        
+        for desti_ob in destinations_ob_list:
+            print(desti_ob.print_destinations(counter))
+            counter += 1
 
         print("\nB Back\n")
 
@@ -66,17 +68,19 @@ class DestinationsUI():
             print("Invalid action!")
             action_str = self.choose_action()
 
-    def show_create_des_form(self):
+    def show_create_desti_form(self):
         """ This prints the create a destination form"""
 
-        print("*"*self.LENGTH_STAR)
+        print("*" * self.LENGTH_STAR)
         print("CREATE A NEW DESTINATION\n")
-        country = self.DestinationsUI.get_country
-        airport = self.DestinationsUI.get_airport
-        flight_duration = self.DestinationsUI.get_flight_duration
-        distance = self.DestinationsUI.get_distance
-        contact = self.DestinationsUI.get_contact
-        contact_number = self.DestinationsUI.get_contact_number
+
+        country = self.get_country()
+        airport = self.get_airport()
+        flight_duration = self.get_flight_duration()
+        distance = self.get_distance()
+        contact = self.get_contact()
+        contact_number = self.get_contact_number()
+        destiID = self.llapi.get_destiID()
 
         print("\nS Save \nB Back\n")
 
@@ -84,8 +88,10 @@ class DestinationsUI():
         
         if action_str == "s":
             #Takes the info and adds it to the destination list
-            new_destination_object = DestinationsModel(country, airport, flight_duration, distance, contact, contact_phone)
+            
+            new_destination_object = DestinationsModel(country, airport, flight_duration, distance, contact, contact_number, destiID)
             self.llapi.create_new_destination(new_destination_object)
+            
             print(f"Destination {new_destination_object.country} successfully created\n")
             return
 
@@ -210,7 +216,7 @@ class DestinationsUI():
             self.get_flight_duration()
 
     def get_distance(self):
-        distance = input("Enter distance from Iceland (xkm): ")
+        distance = input("Enter distance from Iceland (x km): ")
         distance_check = self.llapi.check_distance(distance)
 
         if distance_check:
@@ -222,7 +228,7 @@ class DestinationsUI():
 
     def get_contact(self):
         contact = input("Enter emergency contanct name: ")
-        contact_check = self.llapi.check_contact(contact)
+        contact_check = self.llapi.check_name(contact)
 
         if contact_check:
             return contact_check
@@ -232,12 +238,12 @@ class DestinationsUI():
             self.get_contact()
 
     def get_contact_number(self):
-        contact_number = input("Enter emergency contact phone number")
+        contact_number = input("Enter emergency contact phone number: ")
         contact_number_check = self.llapi.check_contact_number(contact_number)
 
         if contact_number_check:
             return contact_number_check
 
         else:
-            print("\nInvalid emergency contact phone number")
+            print("\nInvalid emergency contact phone number: ")
             self.get_contact_number()

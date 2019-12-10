@@ -117,15 +117,31 @@ class InputCheckLL():
 
     def check_country(self, country):
 
-        if country.isalpha():
+        if " " in country:
+            country_list = country.split()
+            for element in country_list:
+                element.isalpha()
+            
             return country.title()
+
+        elif country.isalpha():
+            return country.title()
+
         else:
             return False
 
     def check_airport(self, airport):
 
-        if airport.isalpha():
+        if " " in airport:
+            airport_list = airport.split()
+            for element in airport_list:
+                element.isalpha()
+            
             return airport.title()
+        
+        elif airport.isalpha():
+            return airport.title()
+            
         else:
             return False
 
@@ -138,15 +154,10 @@ class InputCheckLL():
 
     def check_distance(self, distance):
 
-        if distance[-3:] == " km":
-            return distance
-        else:
-            return False
-
-    def check_contact(self, contact):
-
-        if contact.isalpha():
-            return contact.title
+        if distance[-3:] == " km" and distance[:-3].isdigit():
+            return distance 
+        elif distance[-2:] == "km" and distance[:-2].isdigit():
+            return distance[:-2] + " " + distance[-2:]
         else:
             return False
 

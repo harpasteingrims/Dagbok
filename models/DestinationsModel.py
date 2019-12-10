@@ -15,4 +15,4 @@ class DestinationsModel():
         return "Country, Airport, Flight duration from Icelad, Distance from Iceland, Emergency contact name, Emergency contact phone number, Destination ID"
 
     def print_destinations(self, counter):
-        return f"{counter} {self.country}, {self.airport}, {self.destiID}"
+        return f"{counter} {self.country}, {self.airport}, {self.flight_dur_from_Ice}, {self.dist_from_Ice}, {self.contact_name}, {self.contact_phone_number}, {self.destiID}"
