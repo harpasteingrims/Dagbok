@@ -55,13 +55,9 @@ class UImanager():
             elif action_str == "5":
                 self.iaad.show_enter_date_menu()
 
+            else:
+                print("\nInvalid action!\n")
+
     def choose_a_number(self):
         chosen_number = input("Choose a number: ")
-        number_check_5 = self.llapi.check_number_5(chosen_number)
-
-        if number_check:
-            return airplane_id_check
-
-        else:
-            print("\nInvalid number")
-            self.choose_a_number()
+        return chosen_number

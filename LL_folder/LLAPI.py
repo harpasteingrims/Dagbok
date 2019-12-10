@@ -191,3 +191,8 @@ class LLAPI():
 
     def check_iaad_day(self, iaad_day, iaad_month, iaad_year):
         return self.inputcheckll.check_iaad_day(iaad_day, iaad_month, iaad_year)
+
+    """OTHER"""
+
+    def check_number_5(self, chosen_number):
+        return self.inputcheck11.check_number_5(chosen_number)

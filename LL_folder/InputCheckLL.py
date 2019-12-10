@@ -198,3 +198,12 @@ class InputCheckLL():
                 return False
         else:
             return False
+
+    """CHECKING INPUT FOR OTHER"""
+
+    def check_number_5(self, chosen_number):
+
+        if 0 < int(chosen_number) < 6 or chosen_number == "q":
+            return chosen_number
+        else:
+            return False
