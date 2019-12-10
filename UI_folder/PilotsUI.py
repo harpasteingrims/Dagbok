@@ -88,8 +88,8 @@ class PilotsUI():
         try:
             user_input_int = int(user_input)
             if user_input_int and 1 <= user_input_int <= len(common_named_pilots_list):
-                pilot_ob = common_named_pilots_list[user_input_int-1]
-                return pilot_ob
+                chosen_pilot_ob = common_named_pilots_list[user_input_int-1]
+                return chosen_pilot_ob
 
         except ValueError:
             print("\nInvalid input!")
@@ -145,13 +145,16 @@ class PilotsUI():
         
         else:
             print("Invalid action!")
+            action_str = self.choose_action()
     
 
     def show_flight_schedule_of_pilot(self, pilot_ob):
         """Calls a class that makes a list of their voyages and prints it"""
-         
+        
+        print(self.LENGTH_STAR * "*")
+
         print("Enter date from")
-        year_from = input("Enter year from: ")
+        year_from = input("\nEnter year from: ")
         month_from = input("Enter month from: ")
         day_from = input("Enter day from: ")
         date_from = datetime.datetime(year_from, month_from, day_from, 0, 0, 0).isoformat()
@@ -191,7 +194,6 @@ class PilotsUI():
         
         print(f"You are changing the information for pilot:\n")
         print(pilot_ob.print_pilot_info())
-        
         print()
 
         new_address = self.employeesUI.get_address()
