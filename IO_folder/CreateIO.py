@@ -10,8 +10,9 @@ from models.DestinationsModel import DestinationsModel
 class CreateIO():
     def store_pilot(self, new_pilot):
         with open('csv_files\Pilots.csv', 'a') as f:
+            fieldnames = ["ssn","name","role","rank","plane_license","address","mobilenumber","email"]
             print(new_pilot)
-            writer = csv.writer(f)
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writerow(new_pilot.to_csv_string())
 
     def store_cabincrew(self, new_cabincrew):
