@@ -50,10 +50,15 @@ class DestinationsUI():
         print("*"*self.LENGTH_STAR)
         print("OVERVIEW OF DESTINATIONS\n")
         
+        
         destinations_ob_list = self.llapi.get_destination_overview() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
-        counter = 1 
+        counter = 0
         
         for desti_ob in destinations_ob_list:
+            if counter == 0:
+    
+                print(desti_ob.print_header())
+
             print(desti_ob.print_destinations(counter))
             counter += 1
 
@@ -101,6 +106,7 @@ class DestinationsUI():
         else:
             print("Invalid action!")
             action_str = self.choose_action()
+
 
     def show_emerg_country_menu(self):
         """This prints the emergency contact menu"""

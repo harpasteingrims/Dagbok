@@ -170,7 +170,7 @@ class PilotsUI():
         action_str = self.choose_action()
 
         if action_str == "s":
-            updated_pilot_ob = PilotsModel(pilot_ob.ssn, pilot_ob.name, "Pilot", pilot_ob.rank, new_address, mobile_number, new_email, pilot_ob.license_type)
+            updated_pilot_ob = PilotsModel(pilot_ob.ssn, pilot_ob.name, "Pilot", pilot_ob.rank, pilot_ob.license_type, new_address, mobile_number, new_email)
             
             updated_pilot = self.llapi.update_new_pilot_information(updated_pilot_ob)
             

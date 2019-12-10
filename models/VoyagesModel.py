@@ -9,7 +9,7 @@ class VoyagesModel():
         self.crew_list = crew_list
 
     def csv_voyage_to_string(self):
-        return f"{self.departure_time},{self.arrival_time},{self.destination},{self.aircraftID}"
+        return f"\n{self.departure_time},{self.arrival_time},{self.destination},{self.aircraftID}"
     
     def assign_crew_to_voyage(self, captain, copilot, fsm, fa1, fa2): #Held að crewið myndi verða hér listi af listum, en þurfum að hafa það bara sem lista
         staff_list = [captain, copilot, fsm, fa1, fa2]
@@ -20,7 +20,7 @@ class VoyagesModel():
         pass
 
     def csv_voyage_with_crew_to_string(self):
-        return f"{self.departure_time}, {self.arrival_time}, {self.destination}, {self.aircraftID}, {self.crew_list[0]}, {self.crew_list[1]}, {self.crew_list[2]}, {self.crew_list[3]}, {self.crew_list[4]}, {self.crew_list[5]}"
+        return f"\n{self.departure_time}, {self.arrival_time}, {self.destination}, {self.aircraftID}, {self.crew_list[0]}, {self.crew_list[1]}, {self.crew_list[2]}, {self.crew_list[3]}, {self.crew_list[4]}, {self.crew_list[5]}"
 
     def print_schedule(self, counter):
         departure_time = dateutil.parser.parse(self.departure_time)
