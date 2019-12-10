@@ -79,14 +79,9 @@ class PilotsUI():
         print()
 
         common_named_pilots_list = self.llapi.get_common_named_pilots(input_name)
-        try:
-            if common_named_pilots_list:
+    
+        return common_named_pilots_list, input_name
 
-                return common_named_pilots_list, input_name
-        
-        except TypeError:
-        
-            return False
 
     def get_the_right_pilot_ob(self, common_named_pilots):
         """ Gets an number from user and checks if it is right """
@@ -107,18 +102,18 @@ class PilotsUI():
         """ This prints the search for a pilot window """
 
         print(self.LENGTH_STAR * "*")
-        print("SEARCH FOR A PILOT\n")
+        print("\nSEARCH FOR A PILOT\n")
         
         common_named_pilots_list, input_name = self.get_pilot_name_and_common_list()
         
-        if common_named_pilots_list == False:
-            print("\nPilot does not exist")
-            new_common_named_pilots_list, input_name = self.get_pilot_name_and_common_list()
+        while common_named_pilots_list == False:
+            print("Pilot does not exist!\n")
+            common_named_pilots_list, input_name = self.get_pilot_name_and_common_list()
         
-        elif len(common_named_pilots_list) == 1:
-            pilot_object = same_named_pilots[0]
+        if len(common_named_pilots_list) == 1:
+            pilot_ob = same_named_pilots[0]
             print()
-            print(pilot_object.print_pilot_info())
+            print(pilot_ob.print_pilot_info())
 
         else: 
             
@@ -129,13 +124,13 @@ class PilotsUI():
 
                 counter += 1 
 
-            chosen_pilot_ob = self.get_the_right_pilot_ob(common_named_pilots_list)
+            pilot_ob = self.get_the_right_pilot_ob(common_named_pilots_list)
 
             print()
-            print(chosen_pilot_ob.print_pilot_info())
+            print(pilot_ob.print_pilot_info())
 
-        print(f"\n1 {chosen_pilot_ob.name}'s flight schedule")
-        print(f"2 Edit information about {chosen_pilot_ob.name}")
+        print(f"\n1 {pilot_ob.name}'s flight schedule")
+        print(f"2 Edit information about {pilot_ob.name}")
         print("B Back\n")
 
         action_str = self.choose_action()
@@ -173,7 +168,7 @@ class PilotsUI():
         print(self.LENGTH_STAR * "*")
         print(f"{pilot_ob.name}'S FLIGHT SCHEDULE")
         
-        flight_schedule = self.llapi.get_schedule_pilot_by_date(pilot_ob, date_from, date_to)
+        flight_schedule = self.llapi.get_employee_schedule_by_date(pilot_ob, date_from, date_to)
     
         #vantar kóða hér
 

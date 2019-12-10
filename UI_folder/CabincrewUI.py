@@ -169,7 +169,7 @@ class CabincrewUI():
         print(self.LENGTH_STAR * "*")
         print(f"{crew_member_object.name}'S FLIGHT SCHEDULE")
 
-        flights_object = self.llapi.get_schedule_crew_member_by_date(pilot_object, date_from, date_to)
+        flights_object = self.llapi.get_employee_schedule_by_date(pilot_object, date_from, date_to)
         
         #vantar kóða hér
 

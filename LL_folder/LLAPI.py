@@ -23,6 +23,9 @@ class LLAPI():
     def get_employee_overview(self):
         return self.getemployees.list_all_employees() #Þetta kallar á klasann getemployees og fallið þar inni sem nær í alla employees
     
+    def get_employee_schedule_by_date(self, name, date_from, date_to):
+        return self.getemployees.list_schedule_employee_by_date(name, date_from, date_to)
+
     def check_name(self, name):
         return self.inputcheckll.check_name(name)
     
@@ -69,10 +72,7 @@ class LLAPI():
 
     def get_common_named_crew_members(self, name):
         return self.getemployees.find_common_named_crew_members(name)
-
-    def get_schedule_cabincrew_by_date(self, name, date_from, date_to):
-        return self.getemployees.list_schedule_cabincrew_by_date(name, date_from, date_to)
-
+    
     def create_new_cabin_crew(self, new_cabincrew_ob):
         return self.ioapi.create_cabincrew(new_cabincrew_ob)
 
@@ -184,8 +184,3 @@ class LLAPI():
 
     def check_iaad_day(self, iaad_day, iaad_month, iaad_year):
         return self.inputcheckll.check_iaad_day(iaad_day, iaad_month, iaad_year)
-
-    #__init__(self):
-        #self.llayer = LLAPI()
-        #self.mainmenu = MainmenuUI()
-        #...

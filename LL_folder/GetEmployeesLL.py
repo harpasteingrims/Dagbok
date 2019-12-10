@@ -12,23 +12,11 @@ class GetEmployeesLL():
     
         return self.ioapi.get_list_of_all_employees()
     
-    def list_available_employees(self,date_from, date_to):
-        
-        """ Calls the IOAPI to get a list of all employees """
-        all_employee_list = self.get_all_employees()
-
-        # flokka þá sem eru að vinna á ákv dagsetningu.......
-        return avaliable_employees
-
-    def list_unavailable_employees(self,date):
+    
+    def list_schedule_employee_by_date(self, name, date_from, date_to):
         
         
-        #all_employee_list = self.ioapi.get_list_of_all_employees()
-        
-        # flokka þá sem ekki eru að vinna....
-
-        return unavaliable_employees
-
+        pass
 
     """ PILOTS """
 
@@ -47,26 +35,20 @@ class GetEmployeesLL():
 
     def find_common_named_pilots(self, name):
         common_pilot_names = []
+        
         pilot_list = self.list_all_pilots()
         
         for pilot_object in pilot_list:
-            first_name, last_name = pilot_object.name.split()
+            first_name , last_name = pilot_object.name.split()
+            
             if first_name.lower() == name.lower() or last_name.lower() == name.lower():
-                
+
                 common_pilot_names.append(pilot_object)
-        
+    
         if len(common_pilot_names) > 0:
             return common_pilot_names
         else:
             return False
-    
-    
-    def list_schedule_pilot_by_date(self, pilot_object, date_from, date_to):
-        
-        
-
-        pass
-
 
 
     """ CABIN CREW """
@@ -96,7 +78,4 @@ class GetEmployeesLL():
                 return cabin_crew_object
 
         
-    def list_schedule_cabincrew_by_date(self, name, date_from, date_to):
-        # unnið úr date og búið ti lista af voyages sem viðkamandi er á og á gefna tímabilinu
-        
-        pass
+   
