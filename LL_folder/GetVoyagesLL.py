@@ -1,5 +1,6 @@
 import datetime
 import dateutil.parser
+from datetime import datetime
 from models.VoyagesModel import VoyagesModel
 class GetVoyagesLL():
     def __init__(self, ioapi):
@@ -10,11 +11,32 @@ class GetVoyagesLL():
         return self.ioapi.get_all_voyages_list()
 
     def list_all_voyages_overview(self):
-        pass
+        voyages_list = self.list_all_voyages()
+        flights_list = self.ioapi.get_all_flights_list()
+        all_voyage_list = []
+        now = datetime.now()
+        date_time_now = now[0,10] + "T" + [11,]
+        i = 0
+        for voyage_ob in voyages_list:
+            if voyage_ob.departure_time == flights_list[i].departure_time:
+                if date_time_now < flights_list[i].departure_time:
+                    flight_status = "Not started"
+                elif flights_list[i].departure_time <= date_time_now <= flights_list[i].arrival_time:
+                    flight_status = "In the air"
+                elif flights_list[i+1].departure_time <= date_time_now <= flights_list[i+1].arrival_time:
+                    flight_status = "In the air"
+                elif flights_list[i].departure_time < date_time_now:
+                    flight_status = "Finished"
+                else:
+                    flight_status = "Has landed at destination"
+
+                all_voyage_list.append([voyage_ob.departure_time, voyage_ob.arrival_time, voyage_ob.destination, voyage_ob.aircraftID, flights_list[i].flight_number, flights_list[i+1].flight_number, flight_status])
+
+            i += 2
 
     def list_not_staffed_voyages(self):
 
-        voyages_list = self.list_all_voyages()
+        
         unmanned_list = []
         for voyage_ob in voyages_list:
             if voyage_ob.crew_list == []:
