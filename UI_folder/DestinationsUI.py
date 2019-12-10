@@ -24,7 +24,7 @@ class DestinationsUI():
 
             print("1 Print overview of destinations")
             print("2 Create a new destination")
-            print("3 Get emergency contact")
+            print("3 Edit information about destination")
             print("B Back\n")
             
             action_str = self.choose_action()
@@ -36,7 +36,7 @@ class DestinationsUI():
                 self.show_create_desti_form()
 
             elif action_str == "3":
-                self.show_emerg_country_menu()
+                self.show_edit_country_menu()
 
             elif action_str == "b":
                 return
@@ -57,7 +57,8 @@ class DestinationsUI():
             else:
 
                 print(desti_ob.print_destinations(counter))
-                counter += 1
+            
+            counter += 1
 
     def show_destination_overview(self):
         """This prints the overview of all destinations"""
@@ -115,7 +116,7 @@ class DestinationsUI():
     def get_input_number(self):
         """ Gets an number from user and checks if it is right """
         destinations_ob_list = self.llapi.get_destination_overview()
-        user_input = input("\nChoose a number for information about country´s emergency contact: ")
+        user_input = input("\nChoose a number of country to edit the information: ")
         
         try:
             user_input_int = int(user_input)
@@ -127,18 +128,20 @@ class DestinationsUI():
             print("\nInvalid input!")
             return self.get_input_number()
 
-    def show_emerg_country_menu(self):
+    
+    def show_edit_country_menu(self):
         """This prints the emergency contact menu"""
 
         print("*"*self.LENGTH_STAR)
-        print("GET EMERGENCY CONTACT\n")
+        print("EDIT INFORMATION ABOUT DESTINATION\n")
         
         self.print_numbered_desti_list()
         chosen_country_ob = self.get_input_number()
 
-        
+        print("*"*self.LENGTH_STAR)
+        print(chosen_country_ob.print_emergency())
 
-        print("B Back\n")
+        print("\nB Back\n")
         action_str = self.choose_action()
         
         if action_str == "b":
@@ -176,16 +179,12 @@ class DestinationsUI():
             
     def show_emergency_cont_form(self):
         """This prints the edit form for an emergency contact"""
-
-        #ÞARF AÐ FINNA LANDIÐ MEÐ ÞVÍ AÐ SÆKJA LISTA AF CONTACTS Í LL-LAYER
-        #CONTACTS ERU GEYMDIR Í DICT MEÐ LAND SEM KEY, FINN NAFN SEM 
-        #ER SAMA NAFN OG VALUE 
+        
         print("*"*self.LENGTH_STAR)
         print("EDIT CONTACT \n")
         name = input("Name: ")
         phone = input("Phone: ")
-        #ÉG HLÝT AÐ FÁ INN DICT HÉR ÚR LL-LAYER. ÉG ÞARF ÞÁ AÐ BREYTA HENNI EFTIR ÞVÍ HVAÐ NOTANDINN GERÐI
-        #nafniðádict[land] = [name, phone]
+    
         print("S Save \nB Back\n")
         
         action_str = self.choose_action()
