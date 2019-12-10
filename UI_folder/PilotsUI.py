@@ -153,25 +153,33 @@ class PilotsUI():
         
         print(self.LENGTH_STAR * "*")
 
-        print("Enter date from")
-        year_from = input("\nEnter year from: ")
-        month_from = input("Enter month from: ")
-        day_from = input("Enter day from: ")
-        date_from = datetime.datetime(year_from, month_from, day_from, 0, 0, 0).isoformat()
+        print("Enter date from\n")
+        try:
+            day_from = int(input("Enter day from: "))
+            month_from = int(input("Enter month from: "))
+            year_from = int(input("Enter year from: "))
+        
+            date_from = datetime.datetime(year_from, month_from, day_from, 0, 0, 0).isoformat()
 
-        print("Enter date to")
-        year_to = input("Enter year to:")
-        month_to = input("Enter month to: ")
-        day_to = input("Enter day to: ")
-        date_to = datetime.datetime(year_to, month_to, day_to, 23, 59, 0).isoformat()
+            print("Enter date to\n")
+            day_to = int(input("Enter day to: "))
+            month_to = int(input("Enter month to: "))
+            year_to = int(input("Enter year to: "))
+
+            date_to = datetime.datetime(year_to, month_to, day_to, 23, 59, 0).isoformat()
+
+        except ValueError:
+            print("Invalid input!")
 
 
         print(self.LENGTH_STAR * "*")
         print(f"{pilot_ob.name}'S FLIGHT SCHEDULE")
         
-        flight_schedule = self.llapi.get_employee_schedule_by_date(pilot_ob, date_from, date_to)
+        flights_on_asked_time = self.llapi.get_employee_schedule_by_date(pilot_ob, date_from, date_to)
     
-        #vantar kóða hér
+        for flight_ob in flights_on_asked_time:
+            
+            flight_ob.print_schedule()
 
 
         print("B Back")

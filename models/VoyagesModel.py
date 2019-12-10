@@ -17,8 +17,14 @@ class VoyagesModel():
     
     def calculate_arrival_date(self):
         pass
-        
-
 
     def csv_voyage_with_crew_to_string(self):
         return f"{self.departure_time},{self.arrival_time}, {self.destination}, {self.aircraftID}, {self.crew_list[0]}, {self.crew_list[1]}, {self.crew_list[2]}, {self.crew_list[3]}, {self.crew_list[4]}, {self.crew_list[5]}"
+
+    def print_schedule(self):
+        if len(self.crew_list) == 5:
+
+            return f"\n{self.departure_time} - {self.arrival_time}: {self.destination}, fully staffed"
+
+        else:
+            return f"\n{self.departure_time} - {self.arrival_time}: {self.destination}, not fully staffed"

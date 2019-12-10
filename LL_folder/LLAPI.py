@@ -49,7 +49,6 @@ class LLAPI():
     
     def check_license_type(self, license_type):
         return self.inputcheckll.check_license_type(license_type_num, airplane_list)
-        #þarf að klára í getempll
 
     """ PILOTS """
 
