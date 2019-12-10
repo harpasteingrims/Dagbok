@@ -165,6 +165,10 @@ class LLAPI():
     def check_seat_amount(self, seat_amount):
         return self.inputcheckll.check_seat_amount(seat_amount)
 
+    def get_airplanes_for_UI(self):
+        return self.getairplanes.get_airplane_list()
+
+
     """IAAD"""
 
     def get_available_emp_by_date(self, user_input_date):

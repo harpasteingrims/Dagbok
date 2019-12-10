@@ -162,19 +162,19 @@ class EmployeesUI():
 
     def get_license_type(self):
         
-        airplane_ob_list = self.llapi.get_airplanes_overview()
         print("\nOverview of license types:")
+        
+        airplane_list = self.llapi.get_airplanes_for_UI()
+        
         counter = 1
-        for airplane_ob in airplane_ob_list:
-            print(f"{counter} {airplane_ob.airplane_type}")
+        for airplane_type in airplane_list:
+            print(f"{counter} {airplane_type}")
             
             counter += 1
 
         license_type_num = input("\nEnter a number to choose the license type: ").lower()
-
         license_type_check = self.llapi.check_license_type(license_type_num)
-
-
+    
         if license_type_check:
             return license_type_check.capitalize()
         

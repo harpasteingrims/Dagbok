@@ -72,20 +72,20 @@ class InputCheckLL():
         else:
             return False
     
-    def check_license_type(self, license_type_num):
-        airplane_ob_list = self.llapi.get_airplanes_overview()
-        
+    def check_license_type(self, license_type_num, plane_list):
         try:
-            if int(license_type_num) and 1 <= license_type_num <= len(airplane_ob_list):
+            if int(license_type_num) and 1 <= license_type_num <= len(plane_list):
                 chosen_license_ob = airplane_ob_list[license_type_num-1]
                 return chosen_license_ob
 
         except ValueError:
             return False
-       
-    
+
 
     """CHECKING INPUT FOR VOYAGES"""
+    
+    
+    
     def calculate_arrival_time(self,new_voyage_object):
         #kann ekki nóg á datetime til að forrita þetta einmitt núna
         return new_voyage_object
