@@ -10,6 +10,7 @@ from models.DestinationsModel import DestinationsModel
 class CreateIO():
     def store_pilot(self, new_pilot):
         with open('csv_files\Pilots.csv', 'a') as f:
+            print(new_pilot)
             writer = csv.writer(f)
             writer.writerow(new_pilot.to_csv_string())
 
@@ -32,3 +33,5 @@ class CreateIO():
         with open('csv_files\Flights.csv', 'a') as f:
             writer = csv.writer(f)
             writer.writerow(new_voyage.to_csv_string())
+
+
