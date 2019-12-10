@@ -63,8 +63,8 @@ class InputCheckLL():
             address_name = address[1]
             house_number = address[2]
 
-            if len(zip_code) == 3 and zip_code.isdigit() and address_name.isalpha() and house_number.isdigit():
-                return address[0:4] + address[4].upper() + address[5:]
+            if len(zip_code) == 3 and int(zip_code) and address_name.isalpha() and int(house_number):
+                return address_list[0].capitalize() + str(address_list[1]) + str(address_list[2])
             else: 
                 return False
         else: 

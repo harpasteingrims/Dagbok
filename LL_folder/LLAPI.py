@@ -38,8 +38,8 @@ class LLAPI():
     def check_ssn(self, ssn):
         return self.inputcheckll.check_ssn(ssn)
 
-    def check_address(self, address):
-        return self.inputcheckll.check_address(address)
+    def check_address(self, address_list):
+        return self.inputcheckll.check_address(address_list)
 
     def check_mobile_number(self, mobile_number):
         return self.inputcheckll.check_mobile_number(mobile_number)
