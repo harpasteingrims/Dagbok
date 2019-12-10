@@ -49,10 +49,9 @@ class GetVoyagesLL():
         voyages_list = self.list_all_voyages()
         unavailable_voyage_time_list = []
         for voyage_ob in voyages_list:
-            date = voyage_ob.date
-            parsed_date = dateutil.parser.parse(date)
-            if voyage_year == parsed_date.year and voyage_month == parsed_date.month and voyage_day == parsed_date.day:
-                time_str = parsed_date.hour + ":" + parsed_date.minute + ":00"
+            parsed_date = dateutil.parser.parse(voyage_ob.departure_time)
+            if int(voyage_year) == parsed_date.year and int(voyage_month) == parsed_date.month and int(voyage_day) == parsed_date.day:
+                time_str = str(parsed_date.hour) + ":" + str(parsed_date.minute) + ":00"
                 unavailable_voyage_time_list.append(time_str)
         
         return unavailable_voyage_time_list

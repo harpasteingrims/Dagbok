@@ -116,36 +116,37 @@ class VoyagesUI():
         if 1 <= int(airplane_id) <= len(available_airplanes_list):
             chosen_airplane_id = available_airplanes_list[int(airplane_id)-1]
             print("\n*Voyage successfully created*")
-            new_voyage = VoyagesModel(departure_date, voyage_time, chosen_voyage_elem[0], chosen_airplane_id)
+            new_voyage = VoyagesModel(departure_date, voyage_time, chosen_voyage_elem[0], chosen_airplane_id) #Á eftir að klára þetta
         else:
             print("Invalid number!")
             airplane_id = self.choose_a_number()
-        #return chosen_voyage_elem
-        pass #Eftir að klára þetta :)
 
-    def show_create_manually_form(self): #Lista upp alla áfangastaði allar tímasetningar sem eru uppteknar allar flugvélar sem eru lausar
+
+    def show_create_manually_form(self): #Lista upp alla áfangastaði, allar tímasetningar sem eru uppteknar og allar flugvélar sem eru lausar
         """This prints the create a voyage manually form"""
         
-        print(self.LENGTH_STAR*"*")
+        print(self.LENGTH_STAR * "*")
         print("CREATE A VOYAGE MANUALLY")
-        print("\nDate")
-        print("Enter outbound departure date")
+        print("\n*Date*")
+        print("\nEnter outbound departure date")
         voyage_year = input("Enter year: ")
         voyage_month = input("Enter month: ")
         voyage_day = input("Enter day: ")
-        print("\nTime")
+        print("\n*Unavailable time*")
         unavailable_time = self.llapi.get_unavailable_time_for_voyage(voyage_year, voyage_month, voyage_day) #Þetta prentar alla tímasetningar sem eru ekki í boði
-        print(unavailable_time)
-        print("Enter outbound departure time")
+        for time_elem in unavailable_time:
+            print(f"\n{time_elem}")
+        
+        print("\nEnter outbound departure time")
         voyage_hour = input("Enter hour: ")
         voyage_minute = input("Enter minute: ")
         year, month, day, hour, minute = voyage_year, voyage_month, voyage_day, voyage_hour, voyage_minute
         voyage_date = datetime.datetime(year, month, day, hour, minute, 0).isoformat()
-        print("\nDestination")
+        print("\n*Destinatio*n")
         airports = self.llapi.get_airport_overview() #Þetta prentar alla áfangastaði, þetta þarf að vera númerað
         print(airports)
         voyage_airport = input("Choose number of airport: ")
-        print("\nAirplane")
+        print("\n*Airplane*")
         available_airplanes = self.llapi.get_available_airplanes_by_date(voyage_date)
         print(available_airplanes)
         voyage_airplane = input("Choose number of airplane: ")
@@ -227,7 +228,7 @@ class VoyagesUI():
         return chosen_number
                 
         
-    def get_year_month_day(self, chosen_voyage_elem):
+    def get_year_month_day(self, chosen_voyage_elem): #get_date_for_common_voyage
         departure_year = input("Enter departure year: ")
         departure_month = input("Enter departure month: ")
         departure_day = input("Enter departure day: ")
@@ -236,3 +237,6 @@ class VoyagesUI():
 
         return departure_date
         #Hérna þarf að gera villutékk á departure_date bæði á formatinu og líka hvort það sé flug á þessari tímasetningu
+
+    def get_year_month_day_voy(self):
+        pass
