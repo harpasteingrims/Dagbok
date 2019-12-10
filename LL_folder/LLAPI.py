@@ -81,7 +81,7 @@ class LLAPI():
     """VOYAGES"""
 
     def get_voyages_overview(self):
-        return self.getvoyages.list_all_voyages()
+        return self.getvoyages.list_all_voyages_overview()
 
     def get_not_staffed_voyages(self):
         return self.getvoyages.list_not_staffed_voyages()
