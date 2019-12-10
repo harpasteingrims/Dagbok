@@ -9,7 +9,7 @@ class DestinationsModel():
         self.destiID = destiID
 
     def to_csv_string(self):
-        return f"{self.country}, {self.airport}, {self.flight_dur_from_Ice}, {self.dist_from_Ice}, {self.contact_name}, {self.contact_phone_number}, {self.destiID}"
+        return f"\n{self.country}, {self.airport}, {self.flight_dur_from_Ice}, {self.dist_from_Ice}, {self.contact_name}, {self.contact_phone_number}, {self.destiID}"
     
     def print_header(self):
         return "Country, Airport, Flight duration from Icelad, Distance from Iceland, Emergency contact name, Emergency contact phone number, Destination ID"
