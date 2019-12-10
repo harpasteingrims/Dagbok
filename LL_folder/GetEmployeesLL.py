@@ -22,7 +22,10 @@ class GetEmployeesLL():
             if employee_ob.ssn in flight_ob.crew_list:
                 employees_flights.append(flight_ob)
         
-        pass
+
+        #vinna úr tíma hér....
+
+
 
     """ PILOTS """
 
