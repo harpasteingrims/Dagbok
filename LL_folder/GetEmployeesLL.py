@@ -14,8 +14,13 @@ class GetEmployeesLL():
     
     
     def list_schedule_employee_by_date(self, employee_ob, date_from, date_to):
-        flights_list = 
-        
+        flights_ob_list = self.llapi.get_voyages_overview()
+
+        employees_flights = []
+
+        for flight_ob in flights_ob_list:
+            if employee_ob.ssn in flight_ob.crew_list:
+                employees_flights.append(flight_ob)
         
         pass
 
