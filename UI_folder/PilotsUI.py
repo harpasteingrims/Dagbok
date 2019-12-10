@@ -188,16 +188,20 @@ class PilotsUI():
         """This prints the edit form for an employee"""
         
         print(self.LENGTH_STAR * "*")
-        print("EDIT PILOT")
-
-        print(pilot_ob.print_pilot_info())
-
+        print("EDIT PILOT\n")
+        
         print(f"You are changing the information for pilot: {pilot_ob.name}, {pilot_ob.ssn}")
-       
+        print(pilot_ob.print_pilot_info())
+        
+        print(self.LENGTH_STAR * "*")
         new_address = self.employeesUI.get_address()
+        print(self.LENGTH_STAR * "*")
         new_rank = self.employeesUI.get_pilot_rank()
+        print(self.LENGTH_STAR * "*")
         mobile_number = self.employeesUI.get_mobile_number()
+        print(self.LENGTH_STAR * "*")
         new_email = self.employeesUI.get_email()
+        print(self.LENGTH_STAR * "*")
         new_license_type = self.employeesUI.get_license_type()
         
         print("S Save \nB Back\n")

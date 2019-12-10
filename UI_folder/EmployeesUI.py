@@ -124,7 +124,7 @@ class EmployeesUI():
     
 
     def get_address(self):
-        address_list = input("\nEnter address in form \nzip code address name house number\n: ").split()
+        address_list = input("\nEnter address in form \n address name, house number, zip code \n: ").split()
             
         address_check = self.llapi.check_address(address)
 
