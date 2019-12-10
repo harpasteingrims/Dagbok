@@ -272,4 +272,4 @@ class GetIO():
                 flight_with_crew = FlightsModel(flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2)
                 flights_list.append(flight_with_crew)
 
-        return flights_list = []
+        return flights_list
