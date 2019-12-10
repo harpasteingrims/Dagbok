@@ -1,5 +1,4 @@
 from models.PilotModel import PilotsModel
-import datetime
 class PilotsUI():
     LENGTH_STAR = 20
 
@@ -109,7 +108,7 @@ class PilotsUI():
             common_named_pilots_list, input_name = self.get_pilot_name_and_common_list()
         
         if len(common_named_pilots_list) == 1:
-            pilot_ob = same_named_pilots[0]
+            pilot_ob = common_named_pilots_list[0]
             print()
             print(pilot_ob.print_pilot_info())
 
@@ -135,7 +134,7 @@ class PilotsUI():
         action_str = self.choose_action()
 
         if action_str == "1":
-            self.show_flight_schedule_of_pilot(pilot_ob)
+            self.employeesUI.show_flight_schedule_of_employee(pilot_ob)
 
         elif action_str == "2": 
             self.show_pilot_edit_form(pilot_ob)
@@ -145,65 +144,6 @@ class PilotsUI():
         
         else:
             print("Invalid action!")
-            action_str = self.choose_action()
-    
-    def get_date_from(self):
-        print(self.LENGTH_STAR * "*")
-        print("Enter date from\n")
-        try:
-            day_from = int(input("Enter day from: "))
-            month_from = int(input("Enter month from: "))
-            year_from = int(input("Enter year from: "))
-        
-            date_from = datetime.datetime(year_from, month_from, day_from, 0, 0, 0).isoformat()
-            return date_from
-
-        except ValueError:
-            print("Invalid input, try again\n")
-            self.get_date_from()
-
-    def get_date_to(self):
-        print(self.LENGTH_STAR * "*")
-        print("Enter date to\n")
-        try:
-            day_to = int(input("Enter day to: "))
-            month_to = int(input("Enter month to: "))
-            year_to = int(input("Enter year to: "))
-
-            date_to = datetime.datetime(year_to, month_to, day_to, 23, 59, 0).isoformat()
-            return date_to
-
-        except ValueError:
-            print("Invalid input, try again\n")
-            self.get_date_to()
-
-
-    def show_flight_schedule_of_pilot(self, pilot_ob):
-        """Calls a class that makes a list of their voyages and prints it"""
-
-        date_from = self.get_date_from()
-        date_to = self.get_date_to()
-
-        flights_on_asked_time = self.llapi.get_employee_schedule_by_date(pilot_ob, date_from, date_to)
-        
-        print(self.LENGTH_STAR * "*")
-        print(f"{pilot_ob.name}'S FLIGHT SCHEDULE")
-        
-        counter = 1
-        for flight_ob in flights_on_asked_time:
-            
-            print(flight_ob.print_schedule(counter))
-            counter += 1
-
-        print("\nB Back\n")
-
-        action_str = self.choose_action()
-
-        if action_str == "b":
-            return
-        
-        else:
-            print("\nInvalid action!")
             action_str = self.choose_action()
 
 

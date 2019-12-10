@@ -65,7 +65,7 @@ class GetVoyagesLL():
 
         flights_on_asked_time = []
         for voyage_ob in all_flights_of_employee:
-            if date_from <= voyage_ob.departure_time >= date_to:
+            if date_from <= voyage_ob.departure_time <= date_to:
                 flights_on_asked_time.append(voyage_ob)
 
         

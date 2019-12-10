@@ -139,50 +139,12 @@ class CabincrewUI():
         action_str = self.choose_action()
 
         if action_str == "1":
-            self.show_flight_schedule_of_cabincrew_member()
+            self.employeesUI.show_flight_schedule_of_employee(crew_member_ob)
 
         elif action_str == "2":
-            self.show_cabincrew_member_edit_form()
+            self.show_cabincrew_member_edit_form(crew_member_ob)
 
         elif action_str == "b":
-            return
-        
-        else:
-            print("Invalid action!")
-            action_str = self.choose_action()
-
-
-    def show_flight_schedule_of_cabincrew_member(self, crew_member_object):
-        """Calls a class that makes a list of their voyages and prints it"""
-
-        print(self.LENGTH_STAR * "*")
-        
-        print("Enter date from")
-        year_from = input("\nEnter year from: ")
-        month_from = input("Enter month from: ")
-        day_from = input("Enter day from: ")
-        date_from = datetime.datetime(year_from, month_from, day_from, 0, 0, 0).isoformat()
-
-        print("Enter date to")
-        year_to = input("Enter year to:")
-        month_to = input("Enter month to: ")
-        day_to = input("Enter day to: ")
-        date_to = datetime.datetime(year_to, month_to, day_to, 23, 59, 0).isoformat()
-
-
-        print(self.LENGTH_STAR * "*")
-        print(f"{crew_member_object.name}'S FLIGHT SCHEDULE")
-
-        flights_on_asked_time = self.llapi.get_employee_schedule_by_date(pilot_object, date_from, date_to)
-        
-        #vantar kóða hér
-
-
-        print("B Back")
-
-        action_str = self.choose_action()
-
-        if action_str == "b":
             return
         
         else:
