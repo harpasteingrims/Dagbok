@@ -7,9 +7,7 @@ class GetIAAD():
 
     def list_available_emp_by_date(self, user_input_date):
         employee_list = self.ioapi.get_list_of_all_employees()
-        #voyage_list = self.list_voyages_status_by_date(self, user_input_date)
         available_employees_list = []
-        #voyage_list = self.ioapi.get_all_voyages_list()
         i = 0
         for employee_ob in employee_list:
             if self.list_unavailable_emp_by_date(user_input_date) != []:
@@ -20,16 +18,9 @@ class GetIAAD():
             else:
                 available_employees_list.append([employee_ob.name, employee_ob.role])
 
-        #for employee in employee_list:
-            #available_emps_for_selected_day = []
-            #if employee not in (hvernig á ég að athuga allt staff á öllum ferðunum í listanum af objectum?)
-                #available_emps_for_selected_day.append(employee)
-        #return available_emps_for_selected_day
         return available_employees_list
 
     def list_unavailable_emp_by_date(self, user_input_date):
-        #employee_list = self.ioapi.get_list_of_all_employees()
-        #voyage_list = list_voyages_status_by_date(self, user_input_date)
         voyage_list = self.ioapi.get_all_voyages_list()
         unavailable_employees_list = []
         for voyage_ob in voyage_list:
@@ -41,11 +32,6 @@ class GetIAAD():
 
         return unavailable_employees_list
 
-        #for employee in employee_list:
-        #    available_emps_for_selected_day = []
-            #if employee in (hvernig á ég að athuga allt staff á öllum ferðunum í listanum af objectum?)
-         #       available_emps_for_selected_day.append(employee)
-        #return available_emps_for_selected_day
 
     def list_airplane_status_by_date(self, user_input_date):
         """Returns a list of airplanes sorted by available and unavailable"""

@@ -81,6 +81,9 @@ class InputCheckLL():
     
 
     """CHECKING INPUT FOR VOYAGES"""
+    def calculate_arrival_time(self,new_voyage_object):
+        #kann ekki nóg á datetime til að forrita þetta einmitt núna
+        return new_voyage_object
 
     """CHECKING INPUT FOR DESTINATIONS"""
 
