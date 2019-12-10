@@ -1,4 +1,5 @@
 from models.PilotModel import PilotsModel
+from UI_folder.EmployeesUI import EmployeesUI
 
 class InputCheckLL():
     '''Subclass of LLAPI that is designed to create something and error checking the input'''
@@ -45,7 +46,7 @@ class InputCheckLL():
 
     def check_ssn(self, ssn):
         
-        if len(ssn) == 10 and ssn.isdigit():
+        if len(ssn) == 10 and ssn.isdigit() and self.check_iaad_month(ssn[2:4], ) != False and self.check_iaad_day(ssn[0:2], ssn[2:4]) != False:
             return ssn
         else:
             return False
@@ -166,14 +167,14 @@ class InputCheckLL():
         else:
             return False
 
-    def check_iaad_month(self, iaad_month, iaad_year):
+    def check_iaad_month(self, iaad_month, iaad_year = 0):
 
         if len(iaad_month) == 2 and iaad_month.isdigit() and 0 < int(iaad_month) < 13:
             return iaad_month
         else:
             return False
 
-    def check_iaad_day(self, iaad_day, iaad_month, iaad_year):
+    def check_iaad_day(self, iaad_day, iaad_month, iaad_year = 0):
 
         if iaad_month == "01" or iaad_month == "03" or iaad_month == "05" or iaad_month == "07" or iaad_month == "08" or iaad_month == "10" or iaad_month == "12":
             if len(iaad_day) == 2 and iaad_day.isdigit() and 0 < int(iaad_day) < 32:
