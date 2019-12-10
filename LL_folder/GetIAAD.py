@@ -42,6 +42,21 @@ class GetIAAD():
             #if employee in (hvernig á ég að athuga allt staff á öllum ferðunum í listanum af objectum?)
                 #available_planes_for_selected_day.append(airplane)
         #return available_planes_for_selected_day
+        voyage_list = self.ioapi.get_all_voyages_list()
+        parsed_input_date = dateutil.parser.parse(user_input_date)
+        voyages_on_the_day_list = []
+        for voyage_ob in voyage_list:
+            parsed_date = dateutil.parser.parse(voyage_ob.departure_time)
+            if [parsed_input_date.year, parsed_input_date.month, parsed_input_date.day] == [parsed_date.year, parsed_date.month, parsed_date.day]:
+                voyages_on_the_day_list.append(voyage_ob)
+
+            
+        #Dags. og tíma þegar flugvél er aftur laus ef hún er í notkun
+        #Nafn áfangastaðar ef hún er í notkun
+        #Flugnúmer flugferðar ef hún er í loftinu.
+        #Nafn, týpu og sætafjölda.
+
+        
         pass
 
         #Sennilega best að kalla bara á neðsta listann hérna fyrir og samræma employees við þann voyage lista
