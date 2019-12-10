@@ -44,12 +44,8 @@ class DestinationsUI():
             else:
                 print("Invalid action!")
 
-    def show_destination_overview(self):
-        """This prints the overview of all destinations"""
 
-        print("*"*self.LENGTH_STAR)
-        print("OVERVIEW OF DESTINATIONS\n")
-        
+    def print_numbered_desti_list(self):
         
         destinations_ob_list = self.llapi.get_destination_overview() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
         counter = 0
@@ -58,10 +54,19 @@ class DestinationsUI():
             if counter == 0:
     
                 print(desti_ob.print_header())
+            else:
 
-            print(desti_ob.print_destinations(counter))
-            counter += 1
+                print(desti_ob.print_destinations(counter))
+                counter += 1
 
+    def show_destination_overview(self):
+        """This prints the overview of all destinations"""
+
+        print("*"*self.LENGTH_STAR)
+        print("OVERVIEW OF DESTINATIONS\n")
+        
+        self.print_numbered_desti_list()
+    
         print("\nB Back\n")
 
         action_str = self.choose_action()
@@ -107,21 +112,31 @@ class DestinationsUI():
             print("Invalid action!")
             action_str = self.choose_action()
 
+    def get_input_number(self):
+        """ Gets an number from user and checks if it is right """
+        destinations_ob_list = self.llapi.get_destination_overview()
+        user_input = input("\nChoose a number for information about country´s emergency contact: ")
+        
+        try:
+            user_input_int = int(user_input)
+            if user_input_int and 1 <= user_input_int <= len(destinations_ob_list):
+                chosen_country_ob = destinations_ob_list[user_input_int-1]
+                return chosen_country_ob
+
+        except ValueError:
+            print("\nInvalid input!")
+            return self.get_input_number()
 
     def show_emerg_country_menu(self):
         """This prints the emergency contact menu"""
 
         print("*"*self.LENGTH_STAR)
         print("GET EMERGENCY CONTACT\n")
-        #tekur inn countries_list
-        #counter = 1
-        #find_country = {}
-        #finc_country_list = []
-        #for country in countries_list:
-            #print(counter," ",country)
-            #find_country[counter] = country
-            #find_country_list.append(find_country)
-            #country += 1
+        
+        self.print_numbered_desti_list()
+        chosen_country_ob = self.get_input_number()
+
+        
 
         print("B Back\n")
         action_str = self.choose_action()

@@ -16,3 +16,6 @@ class DestinationsModel():
 
     def print_destinations(self, counter):
         return f"{counter} {self.country}, {self.airport}, {self.flight_dur_from_Ice}, {self.dist_from_Ice}, {self.contact_name}, {self.contact_phone_number}, {self.destiID}"
+    
+    def print_emergenct(self):
+        return f"{self.country}´semergency contact on {self.airport}:\nName: {self.contact_name}\nNumber: {self.contact_phone_number}"
