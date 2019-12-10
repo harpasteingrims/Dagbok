@@ -81,18 +81,6 @@ class GetIAAD():
         return airplane_status_list
 
 
-            
-        #Dags. og tíma þegar flugvél er aftur laus ef hún er í notkun
-        #Nafn áfangastaðar ef hún er í notkun
-        #Flugnúmer flugferðar ef hún er í loftinu.
-        #Nafn, týpu og sætafjölda.
-
-        
-        pass
-
-        #Sennilega best að kalla bara á neðsta listann hérna fyrir og samræma employees við þann voyage lista
-         #Líka pæling hérna hvar er best að geyma þessar upplýsingar og hvernig er best að ná í þær og vinna úr þeim
-
     def list_voyages_status_by_date(self, user_input_date):
         """Returns a list of voyages on that day sorted by complete, arrived, in air and not started"""
         voyage_list = self.list_of_all_voyages_for_selected_day(user_input_date)
