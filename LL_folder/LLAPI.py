@@ -47,7 +47,7 @@ class LLAPI():
     def check_email(self, email):
         return self.inputcheckll.check_email(email)
     
-    def check_license_type(self, license_type):
+    def check_license_type(self, license_type_num, airplane_list):
         return self.inputcheckll.check_license_type(license_type_num, airplane_list)
 
     """ PILOTS """

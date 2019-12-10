@@ -97,54 +97,58 @@ class PilotsUI():
     
     def show_enter_name_to_search(self):
         """ This prints the search for a pilot window """
-
+         
         print(self.LENGTH_STAR * "*")
         print("SEARCH FOR A PILOT\n")
         
-        common_named_pilots_list, input_name = self.get_pilot_name_and_common_list()
+        while True:
         
-        while common_named_pilots_list == False:
-            print("Pilot does not exist!\n")
             common_named_pilots_list, input_name = self.get_pilot_name_and_common_list()
-        
-        if len(common_named_pilots_list) == 1:
-            pilot_ob = common_named_pilots_list[0]
-            print()
-            print(pilot_ob.print_pilot_info())
-
-        else: 
-            counter = 1
-            for pilot_ob in common_named_pilots_list:
-
-                print(pilot_ob.print_pilot_info_in_line(counter))
-
-                counter += 1 
-
-            pilot_ob = self.get_input_number(common_named_pilots_list)
             
+            while common_named_pilots_list == False:
+                print("Pilot does not exist!\n")
+                common_named_pilots_list, input_name = self.get_pilot_name_and_common_list()
+            
+            if len(common_named_pilots_list) == 1:
+                pilot_ob = common_named_pilots_list[0]
+                print()
+                print(pilot_ob.print_pilot_info())
+
+            else: 
+                counter = 1
+                for pilot_ob in common_named_pilots_list:
+
+                    print(pilot_ob.print_pilot_info_in_line(counter))
+
+                    counter += 1 
+
+                pilot_ob = self.get_input_number(common_named_pilots_list)
+
+        
             print()
             print(self.LENGTH_STAR * "*")
             print(f"{pilot_ob.name}'S INFO\n")
             print(pilot_ob.print_pilot_info())
-
-        print(f"\n1 {pilot_ob.name}'s flight schedule")
-        print(f"2 Edit information about {pilot_ob.name}")
-        print("B Back\n")
-
-        action_str = self.choose_action()
-
-        if action_str == "1":
-            self.employeesUI.show_flight_schedule_of_employee(pilot_ob)
-
-        elif action_str == "2": 
-            self.show_pilot_edit_form(pilot_ob)
-
-        elif action_str == "b":
-            return
         
-        else:
-            print("Invalid action!")
+        
+            print(f"\n1 {pilot_ob.name}'s flight schedule")
+            print(f"2 Edit information about {pilot_ob.name}")
+            print("B Back\n")
+
             action_str = self.choose_action()
+
+            if action_str == "1":
+                self.employeesUI.show_flight_schedule_of_employee(pilot_ob)
+
+            elif action_str == "2": 
+                self.show_pilot_edit_form(pilot_ob)
+
+            elif action_str == "b":
+                return
+            
+            else:
+                print("Invalid action!")
+                action_str = self.choose_action()
 
 
     def show_pilot_edit_form(self, pilot_ob):

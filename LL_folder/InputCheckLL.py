@@ -87,8 +87,10 @@ class InputCheckLL():
     
     def check_license_type(self, license_type_num, plane_list):
         try:
-            if int(license_type_num) and 1 <= license_type_num <= len(plane_list):
-                chosen_license_ob = airplane_ob_list[license_type_num-1]
+            license_type_int = int(license_type_num)
+            
+            if license_type_int and 1 <= license_type_int <= len(plane_list):
+                chosen_license_ob = plane_list[license_type_int-1]
                 return chosen_license_ob
 
         except ValueError:
