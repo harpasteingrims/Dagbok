@@ -116,7 +116,7 @@ class VoyagesUI():
         if 1 <= int(airplane_id) <= len(available_airplanes_list):
             chosen_airplane_id = available_airplanes_list[int(airplane_id)-1]
             print("\n*Voyage successfully created*")
-            new_voyage = VoyagesModel(departure_date, voyage_time, chosen_voyage_elem[0], chosen_airplane_id) #Á eftir að klára þetta
+            new_voyage = VoyagesModel(departure_date, chosen_voyage_elem[0], chosen_airplane_id) #Á eftir að klára þetta
         else:
             print("Invalid number!")
             airplane_id = self.choose_a_number()
@@ -140,9 +140,8 @@ class VoyagesUI():
         print("\nEnter outbound departure time")
         voyage_hour = input("Enter hour: ")
         voyage_minute = input("Enter minute: ")
-        year, month, day, hour, minute = voyage_year, voyage_month, voyage_day, voyage_hour, voyage_minute
-        voyage_date = datetime.datetime(year, month, day, hour, minute, 0).isoformat()
-        print("\n*Destinatio*n")
+        voyage_date = datetime.datetime(int(voyage_year), int(voyage_month), int(voyage_day), int(voyage_hour), int(voyage_minute), 0).isoformat()
+        print("\n*Destination*")
         airports = self.llapi.get_airport_overview() #Þetta prentar alla áfangastaði, þetta þarf að vera númerað
         print(airports)
         voyage_airport = input("Choose number of airport: ")

@@ -296,3 +296,14 @@ Vika 2: 02.12 - 06.12
             -Hallmar: Finna út úr því hvernig tímareikningurinn virkar í CreateVoyages
             -Viktoría: æj búnað gleyma, hún fór í afmælisdinner og að hitta ömmu og afa.
             -Harpa: VoyagesUI og GetIAAD (láta það heita GetIAADLL)
+
+10.12.2019
+
+    -Nína: Klára licence type í employeesUI, klára flight schedule fyrir pilots og cabincrew. Þegar hún er búin kíkja hvort airplanes og destinations virkar
+    -Hallmar: Arrival time og flightnumber og klára að búa til voyage, bæði í create manually og common
+    -Harpa: Airplane status og voyage status í Getiaad, halda áfram að láta voyagesUI virka
+    -Hildur: Klárar öll input check kíkja á voyagesUI og það sem þarf að gera þar
+    -Viktoría: Laga CreateIO/UpdateIO og láta virka að búa til starfsmann og líka breyta starfsmann 
+
+    Ef einhverjum vantar verkefni þá eru hér nokkur:
+        -SKÝRSLAN: updatea klasa ritið, updatea stöðuritið, búa til kafla í tengslum við virkni í forritinu og skrifa þar ítarlega afhverju við gerum ákveðna hluti í forritinu... Laga líka kröfurnar og skrifa hverjar eru loknar og þannig. Einnig má laga use cases og gera nýjan inngang og byrja á niðurstöðunum.
