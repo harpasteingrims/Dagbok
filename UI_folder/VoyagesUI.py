@@ -152,7 +152,7 @@ class VoyagesUI():
         available_airplanes = self.llapi.get_available_airplanes_by_date(voyage_date)
         count = 1
         for airplane_ob in available_airplanes:
-            print(f"{count} {airplane_ob}")
+            print(f"\n{count} {airplane_ob}")
             count += 1
         voyage_airplane = self.choose_a_number()
 
