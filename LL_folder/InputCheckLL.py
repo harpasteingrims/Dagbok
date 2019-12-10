@@ -7,7 +7,7 @@ class InputCheckLL():
     def __init__(self, ioapi):
         self.ioapi = ioapi
 
-    """ CHECKING INPUT FOR EMPLOYEES"""
+    """CHECKING INPUT FOR EMPLOYEES"""
 
     def check_name(self, name):
         if len(name.split()) > 1:
@@ -43,8 +43,8 @@ class InputCheckLL():
 
     def check_ssn(self, ssn):
         
-        if int(ssn[4:5]) > 20:
-            if len(ssn) == 10 and ssn.isdigit() and self.check_iaad_month(ssn[2:4], ) != False and self.check_iaad_day(ssn[0:2], ssn[2:4], "19" + ssn[4:6]) != False:
+        if int(ssn[4:6]) > 20:
+            if len(ssn) == 10 and ssn.isdigit() and self.check_iaad_month(ssn[2:4], "19" + ssn[4:6]) != False and self.check_iaad_day(ssn[0:2], ssn[2:4], "19" + ssn[4:6]) != False:
                 return ssn
             else:
                 return False
@@ -56,9 +56,9 @@ class InputCheckLL():
         else:
             return False
     
-    def check_address(self, address):
+    def check_address(self, address_list):
 
-        if len(address) == 3:
+        if len(address_list) == 3:
             zip_code = address[0]
             address_name = address[1]
             house_number = address[2]
@@ -93,9 +93,7 @@ class InputCheckLL():
         except ValueError:
             return False
 
-
     """CHECKING INPUT FOR VOYAGES"""
-    
     
     def calculate_arrival_time(self,new_voyage_object):
         #kann ekki nóg á datetime til að forrita þetta einmitt núna
@@ -178,7 +176,7 @@ class InputCheckLL():
         else:
             return False
 
-    def check_iaad_month(self, iaad_month, iaad_year = 0):
+    def check_iaad_month(self, iaad_month, iaad_year):
 
         if len(iaad_month) == 2 and iaad_month.isdigit() and 0 < int(iaad_month) < 13:
             return iaad_month
