@@ -9,12 +9,11 @@ class InputCheckLL():
     """ CHECKING INPUT FOR EMPLOYEES"""
 
     def check_name(self, name):
-
-        first_name, last_name = name.split()
-            
-        if len(name) < 40 and first_name.isalpha() and last_name.isalpha(): 
+        if " " in name and len(name) < 40 and first_name.isalpha() and last_name.isalpha():
+            first_name, last_name = name.split()
             return name.title()
-        else:
+        
+        else: 
             return False
 
     def check_pilot_rank(self, rank):
@@ -68,17 +67,23 @@ class InputCheckLL():
         else:
             return False
     
-    def check_license_type(self, license_type):
-        airplane_object_list = self.llapi.get_airplanes_overview()
+    def check_license_type(self, license_type_num):
+        airplane_ob_list = self.llapi.get_airplanes_overview()
+        
+        try:
+            if int(license_type_num) and 1 <= license_type_num <= len(airplane_ob_list):
+                chosen_license_ob = airplane_ob_list[license_type_num-1]
+                return chosen_license_ob
 
-        if license_type in airplane_object_list:
-            return license_type
-        else:
+        except ValueError:
             return False
-
-        pass
+       
+    
 
     """CHECKING INPUT FOR VOYAGES"""
+    def calculate_arrival_time(self,new_voyage_object):
+        #kann ekki nóg á datetime til að forrita þetta einmitt núna
+        return new_voyage_object
 
     """CHECKING INPUT FOR DESTINATIONS"""
 

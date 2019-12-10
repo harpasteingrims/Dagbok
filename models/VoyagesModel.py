@@ -2,7 +2,7 @@
 class VoyagesModel():
     def __init__(self, departure_time, arrival_time, destination, aircraftID, crew_list = []):
         self.departure_time = departure_time #hér erum við búin í LL-layer að nota datetime þar sem þetta formattast saman í year,month,day,hour,minute
-        self.arrival_time = arrival_time
+        self.arrival_time = "" #leiðréttið ef þetta er vitlaust gert - Hallmar
         self.destination = destination #tilvikið destination, pæling hvort þetta ætti ekki að heita airport?
         self.aircraftID = aircraftID
         self.crew_list = crew_list

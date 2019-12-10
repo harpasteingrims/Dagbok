@@ -160,6 +160,7 @@ class VoyagesUI():
             print("\n*Voyage successfully created*")
             arrival_time = 0 #format fyrir date time
             new_voyage = VoyagesModel(voyage_date,arrival_time, voyage_airport, voyage_airplane) #Pæling að gera þetta ekki fyrr en í hinu fallinu, eða veit ekki
+            self.llapi.calculate_arrival_time(new_voyage)
             #self.voyage.create_voyage(new_voyage)
             #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
             self.show_assign_staff_form(voyage_date, new_voyage)
@@ -167,7 +168,8 @@ class VoyagesUI():
         elif action_str == "s":
             #Takes the info and adds it to the voyage list
             print("\n*Voyage successfully created*")
-            new_voyage = VoyagesModel(voyage_date, voyage_time, voyage_airport, voyage_airplane)
+            new_voyage = VoyagesModel(voyage_date, arrival_time, voyage_airport, voyage_airplane)
+            self.llapi.calculate_arrival_time(new_voyage)
             #self.voyage.create_voyage(new_voyage)
             #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
             return
