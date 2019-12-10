@@ -147,12 +147,8 @@ class PilotsUI():
             print("Invalid action!")
             action_str = self.choose_action()
     
-
-    def show_flight_schedule_of_pilot(self, pilot_ob):
-        """Calls a class that makes a list of their voyages and prints it"""
-        
+    def get_date_from(self):
         print(self.LENGTH_STAR * "*")
-
         print("Enter date from\n")
         try:
             day_from = int(input("Enter day from: "))
@@ -160,29 +156,46 @@ class PilotsUI():
             year_from = int(input("Enter year from: "))
         
             date_from = datetime.datetime(year_from, month_from, day_from, 0, 0, 0).isoformat()
+            return date_from
 
-            print("Enter date to\n")
+        except ValueError:
+            print("Invalid input, try again\n")
+            self.get_date_from()
+
+    def get_date_to(self):
+        print(self.LENGTH_STAR * "*")
+        print("Enter date to\n")
+        try:
             day_to = int(input("Enter day to: "))
             month_to = int(input("Enter month to: "))
             year_to = int(input("Enter year to: "))
 
             date_to = datetime.datetime(year_to, month_to, day_to, 23, 59, 0).isoformat()
+            return date_to
 
         except ValueError:
-            print("Invalid input!")
+            print("Invalid input, try again\n")
+            self.get_date_to()
 
 
+    def show_flight_schedule_of_pilot(self, pilot_ob):
+        """Calls a class that makes a list of their voyages and prints it"""
+
+        date_from = self.get_date_from()
+        date_to = self.get_date_to()
+
+        flights_on_asked_time = self.llapi.get_employee_schedule_by_date(pilot_ob, date_from, date_to)
+        
         print(self.LENGTH_STAR * "*")
         print(f"{pilot_ob.name}'S FLIGHT SCHEDULE")
         
-        flights_on_asked_time = self.llapi.get_employee_schedule_by_date(pilot_ob, date_from, date_to)
-    
+        counter = 1
         for flight_ob in flights_on_asked_time:
             
-            flight_ob.print_schedule()
+            print(flight_ob.print_schedule(counter))
+            counter += 1
 
-
-        print("B Back")
+        print("\nB Back\n")
 
         action_str = self.choose_action()
 
@@ -190,7 +203,7 @@ class PilotsUI():
             return
         
         else:
-            print("Invalid action!")
+            print("\nInvalid action!")
             action_str = self.choose_action()
 
 
