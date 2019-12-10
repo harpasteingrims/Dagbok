@@ -10,6 +10,8 @@ class GetDestinationsLL():
         destination_list = self.ioapi.get_destination_list()
         airport_list = []
         for destination_ob in destination_list:
-            airport_list.append(destination_ob.airport)
+            if destination_ob.airport != "Keflavik":
+                airport_list.append(destination_ob.airport)
+        return airport_list
 
         

@@ -141,14 +141,20 @@ class VoyagesUI():
         voyage_hour = input("Enter hour: ")
         voyage_minute = input("Enter minute: ")
         voyage_date = datetime.datetime(int(voyage_year), int(voyage_month), int(voyage_day), int(voyage_hour), int(voyage_minute), 0).isoformat()
-        print("\n*Destination*")
+        print("\n*Airports*")
         airports = self.llapi.get_airport_overview() #Þetta prentar alla áfangastaði, þetta þarf að vera númerað
-        print(airports)
-        voyage_airport = input("Choose number of airport: ")
+        counter = 1
+        for airports_ob in airports:
+            print(f"\n{counter} {airports_ob}")
+            counter += 1
+        voyage_airport = self.choose_a_number()
         print("\n*Airplane*")
         available_airplanes = self.llapi.get_available_airplanes_by_date(voyage_date)
-        print(available_airplanes)
-        voyage_airplane = input("Choose number of airplane: ")
+        count = 1
+        for airplane_ob in available_airplanes:
+            print(f"{count} {airplane_ob}")
+            count += 1
+        voyage_airplane = self.choose_a_number()
 
         print("\n1 Assign crew to voyage\nS Save\nB Back\n")
 
