@@ -10,13 +10,10 @@ class InputCheckLL():
     """ CHECKING INPUT FOR EMPLOYEES"""
 
     def check_name(self, name):
-        if " " in name:
+        if len(name.split()) > 1:
             first_name, last_name = name.split()
-            
             if len(name) < 40 and first_name.isalpha() and last_name.isalpha():
-            
                 return name.title()
-
             else:
                 return False
         else: 
