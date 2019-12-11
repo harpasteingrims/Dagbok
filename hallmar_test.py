@@ -1,5 +1,4 @@
-from UI_folder.PilotsUI import PilotsUI
+from IO_folder import GetIO, GetIO
 
-test = PilotsUI
-test.show_pilot_create_form()
-
+test = GetIO
+test.load_all_pilots()

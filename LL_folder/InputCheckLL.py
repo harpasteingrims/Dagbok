@@ -106,17 +106,18 @@ class InputCheckLL():
     """CHECKING INPUT FOR VOYAGES"""
     
     def check_time(self, date, unavailable_time_list):
-        print(date)
         date_time = ":".join(date[3:]) + ":00"
+        new_list = []
         for unavailable_time_ob in unavailable_time_list:
-            if date_time != unavailable_time_ob.departure_time[11:]:
-                try:
-                    valid_time = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), int(date[3]), int(date[4]), 0).isoformat()
-                    return valid_time
-                except ValueError:
-                    return False
-            else:
+            new_list.append(unavailable_time_ob.departure_time[11:])
+        if date_time not in new_list:
+            try:
+                valid_time = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), int(date[3]), int(date[4]), 0).isoformat()
+                return valid_time
+            except ValueError:
                 return False
+        else:
+            return False
 
     """CHECKING INPUT FOR DESTINATIONS"""
 

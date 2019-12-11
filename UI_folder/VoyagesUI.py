@@ -285,5 +285,5 @@ class VoyagesUI():
         if time_check:
             return time_check
         else:
-            print("Invalid time")
+            print("\nInvalid time\n")
             self.get_hour_minute_voy(voyage_year, voyage_month,  voyage_day)
