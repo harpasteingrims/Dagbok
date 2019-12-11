@@ -7,20 +7,24 @@ class IAADUI():
     def __init__(self, llapi):
         self.llapi = llapi
 
-    def choose_action(self):
+    def choose_action(self, valid_list):
         action_str = input("Choose action: ").lower()
         print()
-        return action_str
+        
+        if action_str in valid_list:
+            return action_str
+            
+        else:
+            print("Invalid action!")
+            self.choose_action(valid_list)
 
     def show_enter_date_menu(self):
         """This prints the menu for choosing date to get information about""" 
 
         print()
         print(self.LENGTH_STAR * "*")
-        print("INFORMATION ABOUT A DAY")
-        print()
+        print("INFORMATION ABOUT A DAY\n")
         iaad_date = self.get_iaad_date()
-        print()
 
         self.show_IAAD_menu(iaad_date)
         """ This prints out, input date """
@@ -37,10 +41,9 @@ class IAADUI():
             print("1 Available employees")
             print("2 Unavailable employees")
             print("3 Status of airplanes")
-            print("B Back")
-            print()
+            print("B Back\n")
             
-            action_str = self.choose_action()
+            action_str = self.choose_action(["1","2","3","b"])
 
             if action_str == "1":
                 self.show_available_employees(iaad_date)
@@ -53,9 +56,7 @@ class IAADUI():
 
             elif action_str == "b":
                 return
-                
-            else:
-                print("Invalid action!")
+        
 
     def show_enter_time_menu_airplane(self, iaad_date):
         time = self.get_iaad_time()
@@ -73,48 +74,41 @@ class IAADUI():
             print(f"\nName: {employee_ob.name}, rank: {employee_ob.rank}")
         
 
-        print()
         print("\nB Back")
        
-        action_str = self.choose_action()
+        action_str = self.choose_action(["b"])
 
         if action_str == "b":
             return
-        
-        else:
-            print("Invalid action!")
-            action_str = self.choose_action()
+    
 
     def show_unavailable_employees(self, user_input_date): #Hérna þurfa að fylgja til hvaða áfangastaði starfsmennirnar eru að fara
         """This prints the unavailable employees on a certain day"""
 
         print(self.LENGTH_STAR * "*")
-        print("UNAVAILABLE EMPLOYEES")
+        print("UNAVAILABLE EMPLOYEES\n")
 
         unavailable_employess = self.llapi.get_unavailable_emp_by_date(user_input_date)
         for employee_elem in unavailable_employess:
             print(f"\nName: {employee_elem[0]}, destination: {employee_elem[1]}")
 
-        print()
-        print("B Back")
+        print("\nB Back")
 
-        action_str = self.choose_action()
+        action_str = self.choose_action(["b"])
 
         if action_str == "b":
             return
         
-        else:
-            print("Invalid action!")
-            action_str = self.choose_action()
 
     def show_airplane_status(self, user_input_date):
         """This prints the status of airplanes on a certain day"""
 
         print(self.LENGTH_STAR * "*")
-        print("AIRPLANE STATUS")
+        print("AIRPLANE STATUS\n")
 
         airplane_status = self.llapi.get_airplane_status_by_date(user_input_date)
         counter = 1
+        
         if airplane_status != []:
             for airplane_elem in airplane_status:
                     print(f"\n{counter}.\nDestination: {airplane_elem[0]} \nAirplane name: {airplane_elem[1]} \nAirplane type: {airplane_elem[2]} \nSeat amount: {airplane_elem[3]}Flight number: {airplane_elem[4]} \nNext available time: {airplane_elem[5]}")
@@ -123,17 +117,13 @@ class IAADUI():
         else:
             print("\nNo airplane is flying at this time")
 
-        print()
-        print("B Back")
+        print("\nB Back")
 
-        action_str = self.choose_action()
+        action_str = self.choose_action(["b"])
 
         if action_str == "b":
             return
         
-        else:
-            print("Invalid action!")
-            action_str = self.choose_action()
 
     def get_iaad_date(self):
         iaad_year = input("Enter year (yyyy): ")
