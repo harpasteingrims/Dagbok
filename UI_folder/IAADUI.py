@@ -74,7 +74,7 @@ class IAADUI():
         
 
         print()
-        print("B Back")
+        print("\nB Back")
        
         action_str = self.choose_action()
 
