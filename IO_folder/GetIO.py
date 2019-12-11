@@ -35,7 +35,7 @@ class GetIO():
             if counter == 1:
                 counter += 1
             else:
-                ssn, name, role, rank, license_type, address, mobile_number, email = line.strip().split(", ")
+                ssn, name, role, rank, license_type, address, mobile_number, email = line.split(", ")
                 pilot = PilotsModel(ssn, name, role, rank, license_type, address, mobile_number, email)
                 pilot_list.append(pilot)
         
