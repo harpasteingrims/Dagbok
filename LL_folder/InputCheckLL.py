@@ -1,4 +1,4 @@
-from models.PilotModel import PilotsModel
+from models.PilotsModel import PilotsModel
 from UI_folder.EmployeesUI import EmployeesUI
 from datetime import datetime , timedelta
 import datetime
