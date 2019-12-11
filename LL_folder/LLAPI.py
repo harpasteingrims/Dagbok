@@ -113,8 +113,6 @@ class LLAPI():
     def check_date(self, date):
         return self.inputcheckll.check_date(date)
 
-    #Vantar check föll
-
     """DESTINATIONS"""
 
     def get_destination_overview(self): #Þessi listi þarf að vera númeraður
@@ -185,16 +183,13 @@ class LLAPI():
     def get_airplane_status_by_date(self, user_input_date):
         return self.getiaad.list_airplane_status_by_date(user_input_date)
 
-    def check_iaad_year(self, iaad_year):
-        return self.inputcheckll.check_iaad_year(iaad_year)
-
-    def check_iaad_month(self, iaad_month, iaad_year):
-        return self.inputcheckll.check_iaad_month(iaad_month, iaad_year)
-
-    def check_iaad_day(self, iaad_day, iaad_month, iaad_year):
-        return self.inputcheckll.check_iaad_day(iaad_day, iaad_month, iaad_year)
+    def check_clock(self, time):
+        return self.inputcheckll.check_clock(time)
 
     """OTHER"""
+
+    def check_date(self, date):
+        return self.inputcheckll.check_date(date)
 
     def check_number_5(self, chosen_number):
         return self.inputcheck11.check_number_5(chosen_number)

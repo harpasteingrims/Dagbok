@@ -50,20 +50,15 @@ class IAADUI():
         print(self.LENGTH_STAR * "*")
         print("INFORMATION ABOUT A DAY")
         print()
-        iaad_year = self.get_iaad_year()
-        iaad_month = self.get_iaad_month(iaad_year)
-        iaad_day = self.get_iaad_day(iaad_month, iaad_year)
-        year, month, day = int(iaad_year), int(iaad_month), int(iaad_day)
+        iaad_date = self.get_iaad_date()
         print()
-        user_input_date = datetime.datetime(year, month, day, 0, 0, 1).isoformat()
 
-        self.show_IAAD_menu(user_input_date)
+        self.show_IAAD_menu(iaad_date)
         """ This prints out, input date """
-        return user_input_date
+        return iaad_date
 
     def show_enter_time_menu_voyage(self, user_input_date):
-        iaad_hour = input("Enter hour (hh): ")
-        iaad_minute = input("Enter minute(mm): ")
+        iaad_time = self.get_iaad_time()
         print()
         list_user_input_date = list(user_input_date)
         list_user_input_date[11:13] = iaad_hour
@@ -155,32 +150,29 @@ class IAADUI():
             print("Invalid action!")
             action_str = self.choose_action()
 
-    def get_iaad_year(self):
+    def get_iaad_date(self):
         iaad_year = input("Enter year (yyyy): ")
-        iaad_year_check = self.llapi.check_iaad_year(iaad_year)
-
-        if iaad_year_check:
-            return iaad_year_check
-        else:
-            print("\nInvalid year\n")
-            self.get_iaad_year()
-
-    def get_iaad_month(self, iaad_year):
         iaad_month = input("Enter month (mm): ")
-        iaad_month_check = self.llapi.check_iaad_month(iaad_month, iaad_year)
-
-        if iaad_month_check:
-            return iaad_month_check
-        else:
-            print("\nInvalid month\n")
-            self.get_iaad_month(iaad_year)
-
-    def get_iaad_day(self, iaad_month, iaad_year):
         iaad_day = input("Enter day (dd): ")
-        iaad_day_check = self.llapi.check_iaad_day(iaad_day, iaad_month, iaad_year)
+        date = [iaad_year, iaad_month, iaad_day]
 
-        if iaad_day_check:
-            return iaad_day_check
+        date_check = self.llapi.check_date(date)
+
+        if date_check:
+            return date_check
         else:
-            print("\nInvalid day\n")
-            self.get_iaad_day(iaad_month, iaad_year)
+            print("\nInvalid date\n")
+            self.get_iaad_date()
+
+    def get_iaad_time(self):
+        iaad_hour = input("Enter hour (hh): ")
+        iaad_minute = input("Enter minute (mm): ")
+        time = [iaad_hour, iaad_minute]
+
+        time_check = self.llapi.check_clock(time)
+
+        if time_check:
+            return time_check
+        else:
+            print("\nInvalid time\n")
+            self.get_iaad_time()
