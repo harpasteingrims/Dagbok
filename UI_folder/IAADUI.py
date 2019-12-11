@@ -58,11 +58,11 @@ class IAADUI():
                 print("Invalid action!")
 
     def show_enter_time_menu_airplane(self, iaad_date):
-        time = self.get_iaad_time
-        #time_list = list(time)
+        time = self.get_iaad_time()
+        time_list = list(time)
         print()
         date_list = list(iaad_date)
-        date_list[11:13] = time_list[0:2]
+        date_list[11:13] = time[0:2]
         date_list[14:16] = time_list[3:5]
         date_new = "".join(date_list)
         self.show_airplane_status(date_new)
@@ -159,7 +159,7 @@ class IAADUI():
         iaad_minute = input("Enter minute (mm): ")
         time = [iaad_hour, iaad_minute]
 
-        time_check = self.llapi.check_clock(time)
+        time_check = self.llapi.check_time(time)
 
         if time_check:
             return time_check
