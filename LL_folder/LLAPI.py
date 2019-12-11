@@ -110,6 +110,9 @@ class LLAPI():
     def calculate_arrival_time(self, new_voyage_object):
         return self.getvoyages.calculate_arrival_time(new_voyage_object)
 
+    def check_date(self, date):
+        return self.inputcheckll.check_date(date)
+
     #Vantar check föll
 
     """DESTINATIONS"""

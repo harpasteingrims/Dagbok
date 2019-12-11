@@ -1,6 +1,7 @@
 from models.PilotModel import PilotsModel
 from UI_folder.EmployeesUI import EmployeesUI
 from datetime import datetime , timedelta
+import datetime
 
 class InputCheckLL():
     '''Subclass of LLAPI that is designed to create something and error checking the input'''
@@ -181,7 +182,7 @@ class InputCheckLL():
 
     """CHECKING INPUT FOR IAAD"""
 
-    def date_check(self, date):
+    def check_date(self, date):
         try:
             valid_date = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), 00, 00, 0).isoformat()
             return valid_date
