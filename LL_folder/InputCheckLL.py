@@ -98,20 +98,7 @@ class InputCheckLL():
 
     """CHECKING INPUT FOR VOYAGES"""
     
-    def calculate_arrival_time(self, new_voyage_object):
-        departure_time = new_voyage_object.departure_time
-        if new_voyage_object.destination == "Longyearbyean":
-            new_voyage_object.arrival_time = departure_time + timedelta(hours=2,minutes=47)
-        elif new_voyage_object.destination == "Nuuk":
-            new_voyage_object.arrival_time = departure_time + timedelta(hours=2,minutes=7)
-        elif new_voyage_object.destination == "Kulusuk":
-            new_voyage_object.arrival_time = departure_time + timedelta(hours=1,minutes=29)
-        elif new_voyage_object.destination == "Thorshavn":
-           new_voyage_object.arrival_time = departure_time + timedelta(hours=1,minutes=34)
-        elif new_voyage_object.destination == "Tingwall":
-            new_voyage_object.arrival_time = departure_time + timedelta(hours=5,minutes=47)
-
-        return new_voyage_object
+    
 
     """CHECKING INPUT FOR DESTINATIONS"""
 

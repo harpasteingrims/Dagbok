@@ -35,14 +35,6 @@ class GetIO():
             if counter == 1:
                 counter += 1
             else:
-                ssn = line[0]
-                name = line[1]
-                role = line[2]
-                rank = line[3]
-                license_type = line[4]
-                address = line[5]
-                mobile_number = line[6]
-                email = line[7]
                 ssn, name, role , rank, license_type, address, mobile_number, email = line.split(", ")
                 pilot = PilotsModel(ssn, name, role , rank, license_type, address, mobile_number, email)
                 pilot_list.append(pilot)
@@ -61,13 +53,6 @@ class GetIO():
             if counter == 1:
                 counter += 1
             else:
-                ssn = line[0]
-                name = line[1]
-                role = line[2]
-                rank = line[3]
-                address = line[4]
-                mobile_number = line[5]
-                email = line[6]
                 ssn, name, role, rank, address, mobile_number, email = line.split(", ")
                 
                 cabincrew_employee = CabinCrewModel(ssn, name, role, rank, address, mobile_number, email)
@@ -83,13 +68,10 @@ class GetIO():
         airplane_list = []
         counter = 1
         for line in airplane_file:
+            line = line.strip()
             if counter == 1:
                 counter += 1
             else:
-                planeID = line[0]
-                airplane_type = line[1]
-                manufacturer = line[2]
-                seat_amount = line[3]
                 planeID, airplane_type, manufacturer, seat_amount = line.split(", ")
                 airplane = AirplanesModel(planeID, airplane_type, manufacturer, seat_amount)
                 airplane_list.append(airplane)
@@ -104,15 +86,10 @@ class GetIO():
         destination_list = []
         counter = 1
         for line in dest_file:
+            line = line.strip()
             if counter == 1:
                 counter += 1
             else:
-                country = line[0]
-                airport = line[1]
-                flight_dur_from_Ice = line[2]
-                dist_from_Ice = line[3]
-                contact_name = line[4]
-                contact_phone_number = line[5]
                 country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID = line.split(", ")
                 destination = DestinationsModel(country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID)
                 destination_list.append(destination)
@@ -129,7 +106,7 @@ class GetIO():
         
         counter = 1
         for line in flights_with_crew_file:
-            line = line.strip().split(",")
+            line = line.strip().split(", ")
             if counter == 1:
                 counter += 1
             else:   
@@ -190,7 +167,7 @@ class GetIO():
 
         counter = 1
         for line in flights_with_crew_file:
-            line = line.strip().split(",")
+            line = line.strip().split(", ")
             if counter == 1:
                 counter += 1
             else:   
