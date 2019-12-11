@@ -195,24 +195,6 @@ class VoyagesUI():
             return
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     def show_assign_staff_form(self, voyage_date, voyage_ob):
         """This prints the form to assign a staff to a voyage"""
         
