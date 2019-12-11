@@ -22,8 +22,7 @@ class IAADUI():
             print(self.LENGTH_STAR * "*")
             print("1 Available employees")
             print("2 Unavailable employees")
-            print("3 Status of voyages")
-            print("4 Status of airplanes")
+            print("3 Status of airplanes")
             print("B Back")
             print()
             
@@ -36,9 +35,6 @@ class IAADUI():
                 self.show_unavailable_employees(user_input_date)
 
             elif action_str == "3":
-                self.show_enter_time_menu_voyage(user_input_date)
-
-            elif action_str == "4":
                 self.show_enter_time_menu_airplane(user_input_date)
 
             elif action_str == "b":
@@ -146,27 +142,6 @@ class IAADUI():
 
         else:
             print("\nNo airplne is flying at this time")
-
-        print()
-        print("B Back")
-
-        action_str = self.choose_action()
-
-        if action_str == "b":
-            return
-        
-        else:
-            print("Invalid action!")
-            action_str = self.choose_action()
-   
-    def show_voyages_status(self, user_input_date):
-        """This prints the status of a voyage on a certain day"""
-
-        print(self.LENGTH_STAR * "*")
-        print("VOYAGE STATUS")
-        
-        voyage_status = self.llapi.get_voyages_status_by_date(user_input_date)
-        print(voyage_status)
 
         print()
         print("B Back")

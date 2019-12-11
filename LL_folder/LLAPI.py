@@ -182,9 +182,6 @@ class LLAPI():
     def get_airplane_status_by_date(self, user_input_date):
         return self.getiaad.list_airplane_status_by_date(user_input_date)
 
-    def get_voyages_status_by_date(self, user_input_date):
-        return self.getiaad.list_voyages_status_by_date(user_input_date)
-
     def check_iaad_year(self, iaad_year):
         return self.inputcheckll.check_iaad_year(iaad_year)
 
