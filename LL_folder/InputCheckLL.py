@@ -45,7 +45,7 @@ class InputCheckLL():
             return False
 
     def check_ssn(self, ssn):
-        
+    
         employee_list = self.ioapi.get_list_of_all_employees()
         for employee_ob in employee_list:
             if ssn != employee_ob.ssn:
@@ -106,9 +106,10 @@ class InputCheckLL():
     """CHECKING INPUT FOR VOYAGES"""
     
     def check_time(self, date, unavailable_time_list):
-        #unavailable_times_list = self.llapi.get_unavailable_time_for_voyage(voyage_year, voyage_month, voyage_day)
+        print(date)
+        date_time = ":".join(date[3:]) + ":00"
         for unavailable_time_ob in unavailable_time_list:
-            if date[-8:] != unavailable_time_ob:
+            if date_time != unavailable_time_ob.departure_time[11:]:
                 try:
                     valid_time = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), int(date[3]), int(date[4]), 0).isoformat()
                     return valid_time
