@@ -1,5 +1,4 @@
 from UI_folder.UImanager import UImanager
-import dateutil.parser
 
 def main():
     ui = UImanager()

@@ -10,13 +10,13 @@ from LL_folder.InputCheckLL import InputCheckLL
 class LLAPI():
     def __init__(self):
         self.ioapi = IOAPI()
-        self.inputcheckll = InputCheckLL(self.ioapi)
         self.updatell = UpdateLL(self.ioapi)
         self.getvoyages = GetVoyagesLL(self.ioapi)
         self.getairplanes = GetAirplanesLL(self.ioapi)
         self.getdestinations = GetDestinationsLL(self.ioapi)
         self.getemployees = GetEmployeesLL(self.ioapi)
         self.getiaad = GetIAAD(self.ioapi)
+        self.inputcheckll = InputCheckLL(self.ioapi, self.getvoyages)
 
     """ EMPLOYEES """
 
@@ -109,6 +109,10 @@ class LLAPI():
     
     def calculate_arrival_time(self, new_voyage_object):
         return self.getvoyages.calculate_arrival_time(new_voyage_object)
+    
+    def check_time(self, date, voyage_year, voyage_month, voyage_day):
+        unavailable_time_list = self.get_unavailable_time_for_voyage(voyage_year, voyage_month, voyage_day)
+        return self.inputcheckll.check_time(date, unavailable_time_list)
 
     def check_date(self, date):
         return self.inputcheckll.check_date(date)
@@ -120,6 +124,9 @@ class LLAPI():
 
     def get_airport_overview(self):
         return self.getdestinations.list_all_airports()
+
+    def get_destiID(self):
+        return self.getdestinations.make_destiID()
 
     def create_new_destination(self, new_destination_ob):
         return self.ioapi.create_destination(new_destination_ob)
@@ -138,15 +145,6 @@ class LLAPI():
 
     def check_distance(self, distance):
         return self.inputcheckll.check_distance(distance)
-
-    def check_contact(self, contact):
-        return self.inputcheckll.check_contact(contact)
-
-    def check_contact_number(self, contact_number):
-        return self.inputcheckll.check_contact_number(contact_number)
-
-    def get_destiID(self):
-        return self.getdestinations.make_destiID()
 
     """AIRPLANES"""
 
@@ -183,8 +181,8 @@ class LLAPI():
     def get_airplane_status_by_date(self, user_input_date):
         return self.getiaad.list_airplane_status_by_date(user_input_date)
 
-    def check_clock(self, time):
-        return self.inputcheckll.check_clock(time)
+    def check_iaad_time(self, time):
+        return self.inputcheckll.check_iaad_time(time)
 
     """OTHER"""
 

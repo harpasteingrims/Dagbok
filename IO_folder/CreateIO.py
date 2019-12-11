@@ -2,7 +2,7 @@ import sys
 sys.path.insert(1, '~/')
 import csv
 from models.CabinCrewModel import CabinCrewModel
-from models.PilotModel import PilotsModel
+from models.PilotsModel import PilotsModel
 from models.AirplanesModel import AirplanesModel
 from models.VoyagesModel import VoyagesModel
 from models.DestinationsModel import DestinationsModel

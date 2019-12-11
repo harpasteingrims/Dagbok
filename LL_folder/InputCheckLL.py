@@ -1,4 +1,4 @@
-from models.PilotModel import PilotsModel
+from models.PilotsModel import PilotsModel
 from UI_folder.EmployeesUI import EmployeesUI
 from datetime import datetime , timedelta
 import datetime
@@ -6,8 +6,9 @@ import datetime
 class InputCheckLL():
     '''Subclass of LLAPI that is designed to create something and error checking the input'''
     
-    def __init__(self, ioapi):
+    def __init__(self, ioapi, llapi):
         self.ioapi = ioapi
+        self.llapi = llapi
 
     """CHECKING INPUT FOR EMPLOYEES"""
 
@@ -44,15 +45,20 @@ class InputCheckLL():
             return False
 
     def check_ssn(self, ssn):
-        
-        if int(ssn[4:6]) > 20:
-            if len(ssn) == 10 and ssn.isdigit() and self.check_iaad_month(ssn[2:4], "19" + ssn[4:6]) != False and self.check_iaad_day(ssn[0:2], ssn[2:4], "19" + ssn[4:6]) != False:
-                return ssn
-            else:
-                return False
-        elif ssn[4] == "0" and 0 < int(ssn[5]) < 4:
-            if len(ssn) == 10 and ssn.isdigit() and self.check_iaad_month(ssn[2:4], "20" + ssn[4:6]) != False and self.check_iaad_day(ssn[0:2], ssn[2:4], "20" + ssn[4:6]) != False:
-                return ssn
+    
+        employee_list = self.ioapi.get_list_of_all_employees()
+        for employee_ob in employee_list:
+            if ssn != employee_ob.ssn:
+                if int(ssn[4:6]) > 20:
+                    if len(ssn) == 10 and ssn.isdigit() and self.check_date(["19" + ssn[4:6], ssn[2:4], ssn[0:2]]) != False:
+                        return ssn
+                    else:
+                        return False
+                elif ssn[4] == "0" and 0 < int(ssn[5]) < 4:
+                    if len(ssn) == 10 and ssn.isdigit() and self.check_date(["20" + ssn[4:6], ssn[2:4], ssn[0:2]]) != False:
+                        return ssn
+                    else:
+                        return False
             else:
                 return False
         else:
@@ -99,7 +105,18 @@ class InputCheckLL():
 
     """CHECKING INPUT FOR VOYAGES"""
     
-    
+    def check_time(self, date, unavailable_time_list):
+        print(date)
+        date_time = ":".join(date[3:]) + ":00"
+        for unavailable_time_ob in unavailable_time_list:
+            if date_time != unavailable_time_ob.departure_time[11:]:
+                try:
+                    valid_time = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), int(date[3]), int(date[4]), 0).isoformat()
+                    return valid_time
+                except ValueError:
+                    return False
+            else:
+                return False
 
     """CHECKING INPUT FOR DESTINATIONS"""
 
@@ -149,13 +166,6 @@ class InputCheckLL():
         else:
             return False
 
-    def check_contact_number(self, contact_number): 
-
-        if contact_number.replace("+", "").replace(" ", "").isdigit() and len(contact_number) < 14:
-            return contact_number
-        else:
-            return False
-
     """ CHECKING INPUT FOR AIRPLANES"""
 
     def check_airplane_id(self, airplane_id):
@@ -182,23 +192,20 @@ class InputCheckLL():
 
     """CHECKING INPUT FOR IAAD"""
 
-    def check_time(self, time):
+    def check_iaad_time(self, time):
 
         try:
-            valid_time = datetime.datetime(2019, 1, 3, int(time[0]), int(time[1]), 0).isoformat()
+            valid_time = datetime.datetime(2019, 1, 1, int(time[0]), int(time[1]), 0).isoformat()
             return valid_time[-8:]
         except ValueError:
             return False
-
-    def time_check(self, time):
-        pass
 
     """CHECKING INPUT FOR OTHER"""
     
     def check_date(self, date):
         try:
             valid_date = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), 00, 00, 0).isoformat()
-            return valid_date
+            return valid_date[0:10]
         except ValueError:
             return False
 

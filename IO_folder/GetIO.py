@@ -5,7 +5,7 @@ sys.path.insert(0, 'VERKLEGT-1-verkefni/models') #Vorum að prufa þetta til að
 from models.CabinCrewModel import CabinCrewModel
 from models.AirplanesModel import AirplanesModel
 from models.DestinationsModel import DestinationsModel
-from models.PilotModel import PilotsModel
+from models.PilotsModel import PilotsModel
 from models.VoyagesModel import VoyagesModel
 from models.FlightsModel import FlightsModel
 

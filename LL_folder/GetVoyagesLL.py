@@ -1,6 +1,7 @@
 import datetime
 import dateutil.parser
-from datetime import datetime, timedelta
+from datetime import timedelta
+from datetime import datetime
 from models.VoyagesModel import VoyagesModel
 class GetVoyagesLL():
     def __init__(self, ioapi):
@@ -78,8 +79,7 @@ class GetVoyagesLL():
         for voyage_ob in voyages_list:
             parsed_date = dateutil.parser.parse(voyage_ob.departure_time)
             if int(voyage_year) == parsed_date.year and int(voyage_month) == parsed_date.month and int(voyage_day) == parsed_date.day:
-                time_str = str(parsed_date.hour) + ":" + str(parsed_date.minute) + ":00"
-                unavailable_voyage_time_list.append(time_str)
+                unavailable_voyage_time_list.append(voyage_ob)
         
         return unavailable_voyage_time_list
 
@@ -103,15 +103,15 @@ class GetVoyagesLL():
     def calculate_arrival_time(self, new_voyage_object):
         departure_time = new_voyage_object.departure_time
         if new_voyage_object.destination == "Longyearbyean":
-            new_voyage_object.arrival_time = departure_time + timedelta(hours=2,minutes=47)
+            new_voyage_object.arrival_time = datetime.datetime.strptime(departure_time) + timedelta(hours=2,minutes=47)
         elif new_voyage_object.destination == "Nuuk":
-            new_voyage_object.arrival_time = departure_time + timedelta(hours=2,minutes=7)
+            new_voyage_object.arrival_time = datetime.datetime.strptime(departure_time) + timedelta(hours=2,minutes=7)
         elif new_voyage_object.destination == "Kulusuk":
-            new_voyage_object.arrival_time = departure_time + timedelta(hours=1,minutes=29)
+            new_voyage_object.arrival_time = datetime.datetime.strptime(departure_time) + timedelta(hours=1,minutes=29)
         elif new_voyage_object.destination == "Thorshavn":
-           new_voyage_object.arrival_time = departure_time + timedelta(hours=1,minutes=34)
+           new_voyage_object.arrival_time = datetime.datetime.strptime(departure_time) + timedelta(hours=1,minutes=34)
         elif new_voyage_object.destination == "Tingwall":
-            new_voyage_object.arrival_time = departure_time + timedelta(hours=5,minutes=47)
+            new_voyage_object.arrival_time = datetime.datetime.strptime(departure_time) + timedelta(hours=5,minutes=47)
 
         return new_voyage_object
         
