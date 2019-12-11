@@ -13,7 +13,7 @@ class PilotsModel():
         return f"\n{self.ssn}, {self.name}, {self.role}, {self.rank}, {self.license_type}, {self.address}, {self.mobile_number}, {self.email}"
 
     def print_pilot_info(self):
-        return f"Name: {self.name} \nRank: {self.rank} \nSSN: {self.ssn} \nAdress: {self.address} \nMobile number: {self.mobile_number} \nEmail:{self.email}License type: {self.license_type}"
+        return f"Name: {self.name} \nRank: {self.rank} \nSSN: {self.ssn} \nAdress: {self.address} \nMobile number: {self.mobile_number} \nEmail:{self.email} \nLicense type: {self.license_type}"
 
     def print_pilot_info_in_line(self, counter):
         return f"\n{self.name}, {self.ssn}, {self.role}, {self.rank}, {self.license_type}, {self.address}, {self.mobile_number}, {self.email}"
