@@ -19,8 +19,8 @@ class UImanager():
         self.voyages = VoyagesUI(self.llapi)
         self.destinations = DestinationsUI(self.llapi)
         self.airplanes = AirplanesUI(self.llapi)
-        self.cabincrew = CabincrewUI(self.llapi, self.employeesUI)
-        self.pilots = PilotsUI(self.llapi, self.employeesUI)
+        self.cabincrew = CabincrewUI(self.llapi, self.employees)
+        self.pilots = PilotsUI(self.llapi, self.employees)
     
     def choose_action(self):
         action_str = input("Choose action: ").lower()
