@@ -93,7 +93,6 @@ class VoyagesUI():
         chosen_voyage_elem = self.choose_a_number(common_voyages_list)
 
         self.show_create_a_common_voyage_form(chosen_voyage_elem)
-  -
         return chosen_voyage_elem
 
     def show_create_a_common_voyage_form(self, chosen_voyage_elem):
