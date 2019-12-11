@@ -85,7 +85,7 @@ class VoyagesUI():
         
         print(self.LENGTH_STAR * "*")
         print("SEE COMMON VOYAGES")
-        common_voyages = self.llapi.get_common_voyages()
+        common_voyages_list = self.llapi.get_common_voyages()
         counter = 1
         for voyage_elem in common_voyages_list:
             print(f"\n{counter} {voyage_elem[0]}, {voyage_elem[1]}")
@@ -244,8 +244,8 @@ class VoyagesUI():
     
     def choose_a_number(self, ob_list):
         chosen_number = input("\nChoose a number: ")
-        check_number = self.llapi.check_chosen_number(chosen_number, ob_list)
-        if check_number:
+        ob_item = self.llapi.check_chosen_number(chosen_number, ob_list)
+        if ob_item:
             return ob_item
 
         else:
