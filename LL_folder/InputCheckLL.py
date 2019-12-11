@@ -185,8 +185,8 @@ class InputCheckLL():
     def check_clock(self, time):
 
         try:
-            valid_time = datetime.datetime(0, 0, 0, int(time[0]), int(time[1]), 0).isoformat()
-            return valid_time
+            valid_time = datetime.datetime(2019, 1, 3, int(time[0]), int(time[1]), 0).isoformat()
+            return valid_time[-8:]
         except ValueError:
             return False
 
