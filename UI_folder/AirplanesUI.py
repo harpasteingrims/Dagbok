@@ -81,7 +81,7 @@ class AirplanesUI():
             #Takes the info and adds it to the airplane list
             new_airplane_object = AirplanesModel(airplane_id, airplane_type, manufacturer, seat_amount)
             self.llapi.create_new_airplane(new_airplane_object)
-            print(f"Airplane {new_airplane_object.airplane_id} successfully created\n")
+            print(f"Airplane {new_airplane_object, airplane_id} successfully created\n")
             return
 
         elif action_str == "b":
