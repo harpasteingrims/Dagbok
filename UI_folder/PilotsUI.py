@@ -167,15 +167,15 @@ class PilotsUI():
         new_email = self.employeesUI.get_email()
         
         print("\nS Save \nB Back\n")
+        self.check_action_edit_form()
 
+    def check_action_edit_form(self):
         action_str = self.choose_action()
 
         if action_str == "s":
             updated_pilot_ob = PilotsModel(pilot_ob.ssn, pilot_ob.name, "Pilot", pilot_ob.rank, pilot_ob.license_type, new_address, mobile_number, new_email)
             
-            updated_pilot = self.llapi.update_new_pilot_information(updated_pilot_ob)
-            
-            print("Pilot's information successfully changed")
+            print(f"{updated_pilot_ob.name}'s information successfully changed")
             return
 
         elif action_str == "b":
@@ -183,7 +183,7 @@ class PilotsUI():
 
         else:
             print("Invalid action!")
-            action_str = self.choose_action()
+            self.check_action_edit_form()
 
 
     def show_pilot_create_form(self):

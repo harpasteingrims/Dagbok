@@ -14,8 +14,8 @@ class DestinationsModel():
     def print_header(self):
         return "Country, Airport, Flight duration from Icelad, Distance from Iceland, Emergency contact name, Emergency contact phone number, Destination ID\n"
 
-    def print_destinations(self, counter):
-        return f"{counter} {self.country}, {self.airport}, {self.flight_dur_from_Ice}, {self.dist_from_Ice}, {self.contact_name}, {self.contact_phone_number}, {self.destiID}"
+    def print_destinations(self, str_infront):
+        return f"{str_infront} {self.country}, {self.airport}, {self.flight_dur_from_Ice}, {self.dist_from_Ice}, {self.contact_name}, {self.contact_phone_number}, {self.destiID}\n"
     
     def print_emergency(self):
         return f"\n{self.country}´semergency contact on {self.airport}: \n\nName: {self.contact_name}\nNumber: {self.contact_phone_number}"

@@ -70,7 +70,7 @@ class LLAPI():
         return self.getemployees.list_all_cabin_crew()
 
     def get_common_named_crew_members(self, name):
-        return self.getemployees.find_common_named_crew_members(name)
+        return self.getemployees.find_common_named_cabincrew(name)
     
     def create_new_cabin_crew(self, new_cabincrew_ob):
         return self.ioapi.create_cabincrew(new_cabincrew_ob)

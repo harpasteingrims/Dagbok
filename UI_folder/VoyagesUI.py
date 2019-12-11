@@ -87,17 +87,13 @@ class VoyagesUI():
         print("SEE COMMON VOYAGES")
         common_voyages = self.llapi.get_common_voyages()
         counter = 1
-        for voyage_elem in common_voyages:
+        for voyage_elem in common_voyages_list:
             print(f"\n{counter} {voyage_elem[0]}, {voyage_elem[1]}")
             counter += 1
-        chosen_number = self.choose_a_number()
+        chosen_voyage_elem = self.choose_a_number(common_voyages_list)
 
-        if 1 <= int(chosen_number) <= len(common_voyages):
-            chosen_voyage_elem = common_voyages[int(chosen_number)-1]
-            self.show_create_a_common_voyage_form(chosen_voyage_elem)
-        else:
-            print("Invalid number!")
-            chosen_number = self.choose_a_number()
+        self.show_create_a_common_voyage_form(chosen_voyage_elem)
+  -
         return chosen_voyage_elem
 
     def show_create_a_common_voyage_form(self, chosen_voyage_elem):
@@ -106,6 +102,8 @@ class VoyagesUI():
         print(self.LENGTH_STAR * "*")
         print("INPUT DEPARTURE DATE AND ARIPLANE ID")
         print("Enter outbound departure date")
+        departure_hour, departure_minute, departure_second = chosen_voyage_elem[1].split(":")
+        departure_year, departure_month,  departure_day = self.get_year_month_day_voy().split("-")
         departure_date = self.get_common_date(chosen_voyage_elem)
         available_airplanes_list = self.llapi.get_available_airplanes_by_date(departure_date)
         counter = 1
