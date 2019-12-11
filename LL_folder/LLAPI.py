@@ -191,5 +191,5 @@ class LLAPI():
     def check_date(self, date):
         return self.inputcheckll.check_date(date)
 
-    def check_number_5(self, chosen_number):
-        return self.inputcheck11.check_number_5(chosen_number)
+    def check_chosen_number(self, chosen_number, ob_list):
+        return self.inputcheckll.check_input_number(chosen_number, ob_list)
