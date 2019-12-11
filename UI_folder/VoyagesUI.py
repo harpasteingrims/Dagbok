@@ -286,7 +286,7 @@ class VoyagesUI():
         not_staffed_ob_list = self.llapi.get_not_staffed_voyages() #Þessi listi þarf að vera númeraður
         counter = 1
         for voyage_ob in not_staffed_ob_list:
-            print(f"\n{counter}. {voyage_ob.departure_time}, {voyage_ob.destination}, {voyage_ob.aircraftID}") #Pæling að gera þetta öðruvísi með númerin
+            print(f"\n{counter} {voyage_ob.departure_time}, {voyage_ob.destination}, {voyage_ob.aircraftID}") #Pæling að gera þetta öðruvísi með númerin
             counter += 1
         
         voyage_ob = self.choose_a_number(not_staffed_ob_list)
