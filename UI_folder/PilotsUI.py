@@ -90,9 +90,14 @@ class PilotsUI():
                 chosen_pilot_ob = common_named_pilots_list[user_input_int-1]
                 return chosen_pilot_ob
 
+            else:
+                print("\nInvalid input!")
+                self.get_input_number(common_named_pilots_list)
+
+
         except ValueError:
             print("\nInvalid input!")
-            return self.get_input_number(common_named_pilots_list)
+            self.get_input_number(common_named_pilots_list)
         
     
     def show_enter_name_to_search(self):

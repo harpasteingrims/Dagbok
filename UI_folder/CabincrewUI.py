@@ -93,6 +93,11 @@ class CabincrewUI():
             if user_input_int and 1 <= user_input_int <= len(common_named_crew_members_list):
                 chosen_crew_member_ob = common_named_crew_members_list[crew_member_ob_number-1]
                 return chosen_crew_member_ob
+            
+            else:
+                else:
+                print("\nInvalid input!")
+                self.get_input_number(common_named_crew_members_list)
 
         except ValueError:
             print("\nInvalid number!")
