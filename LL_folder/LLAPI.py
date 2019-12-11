@@ -118,6 +118,9 @@ class LLAPI():
     def get_airport_overview(self):
         return self.getdestinations.list_all_airports()
 
+    def get_destiID(self):
+        return self.getdestinations.make_destiID()
+
     def create_new_destination(self, new_destination_ob):
         return self.ioapi.create_destination(new_destination_ob)
 
@@ -135,15 +138,6 @@ class LLAPI():
 
     def check_distance(self, distance):
         return self.inputcheckll.check_distance(distance)
-
-    def check_contact(self, contact):
-        return self.inputcheckll.check_contact(contact)
-
-    def check_contact_number(self, contact_number):
-        return self.inputcheckll.check_contact_number(contact_number)
-
-    def get_destiID(self):
-        return self.getdestinations.make_destiID()
 
     """AIRPLANES"""
 

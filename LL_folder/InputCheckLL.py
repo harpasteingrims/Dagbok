@@ -149,13 +149,6 @@ class InputCheckLL():
         else:
             return False
 
-    def check_contact_number(self, contact_number): 
-
-        if contact_number.replace("+", "").replace(" ", "").isdigit() and len(contact_number) < 14:
-            return contact_number
-        else:
-            return False
-
     """ CHECKING INPUT FOR AIRPLANES"""
 
     def check_airplane_id(self, airplane_id):
