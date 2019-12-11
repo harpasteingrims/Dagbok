@@ -14,9 +14,9 @@ class GetAirplanesLL():
         voyage_list = self.ioapi.get_all_voyages_list()
         unavailable_airplane_list = []
         for voyage_ob in voyage_list:
-            #input_voyage_date = dateutil.parser.parse(voyage_date)
+            input_voyage_date = dateutil.parser.parse(voyage_date)
             parsed_date = dateutil.parser.parse(voyage_ob.departure_time)
-            if [voyage_date.year, voyage_date.month, voyage_date.day] == [parsed_date.year, parsed_date.month, parsed_date.day]:
+            if [input_voyage_date.year, input_voyage_date.month, input_voyage_date.day] == [parsed_date.year, parsed_date.month, parsed_date.day]:
                 unavailable_airplane_list.append(voyage_ob.aircraftID)
 
         available_airplane_list = []
