@@ -224,7 +224,7 @@ class VoyagesUI():
         cabincrew_member_2_ob = self.choose_a_number(available_employess_ob_list)
         
         crew_list = [captain_ob, copilot_ob, senior_cabincrew_member_ob, cabincrew_member_1_ob, cabincrew_member_2_ob]
-        updated_voyage_ob = VoyagesModel(voyage_ob.voyage_date, voyage_ob.voyage_airport, voyage_ob.voyage_airplane, voyage_ob.arrival_time, crew_list)
+        updated_voyage_ob = VoyagesModel(voyage_ob.departure_time, voyage_ob.destination, voyage_ob.aircraftID, voyage_ob.arrival_time, crew_list)
         self.llapi.update_voyage(updated_voyage_ob)
 
 
