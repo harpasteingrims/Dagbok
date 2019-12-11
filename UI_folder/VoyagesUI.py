@@ -160,7 +160,7 @@ class VoyagesUI():
             arrival_time = 0 #format fyrir date time
             new_voyage = VoyagesModel(voyage_date, voyage_airport, voyage_airplane, arrival_time) #Pæling að gera þetta ekki fyrr en í hinu fallinu, eða veit ekki
             self.llapi.calculate_arrival_time(new_voyage)
-            #self.voyage.create_voyage(new_voyage)
+            self.llapi.create_new_voyage(new_voyage)
 
             self.show_assign_staff_form(voyage_date, new_voyage)
 
@@ -169,8 +169,7 @@ class VoyagesUI():
             print("\n*Voyage successfully created*")
             new_voyage = VoyagesModel(voyage_date, voyage_airport, voyage_airplane, arrival_time)
             self.llapi.calculate_arrival_time(new_voyage)
-            #print(new_voyage)
-            #self.voyage.create_voyage(new_voyage)
+            self.llapi.create_new_voyage(new_voyage)
 
             return
 
@@ -231,7 +230,7 @@ class VoyagesUI():
         
         crew_list = [captain_ob, copilot_ob, senior_cabincrew_member_ob, cabincrew_member_1_ob, cabincrew_member_2_ob]
         updated_voyage_ob = VoyagesModel(voyage_ob.voyage_date, voyage_ob.voyage_airport, voyage_ob.voyage_airplane, voyage_ob.arrival_time, crew_list)
-        updated_voyage = self.llapi.update_voyage(updated_voyage_ob)
+        self.llapi.update_voyage(updated_voyage_ob)
 
 
     def show_not_staffed_voyages(self):
@@ -247,7 +246,7 @@ class VoyagesUI():
         
         voyage_ob = self.choose_a_number(not_staffed_ob_list)
         self.show_assign_staff_form(voyage_ob.departure_time, voyage_ob)
-        
+
     
     def choose_a_number(self, ob_list):
         chosen_number = input("\nChoose a number: ")
