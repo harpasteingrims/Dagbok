@@ -1,7 +1,7 @@
 import datetime
 import dateutil.parser
 from datetime import timedelta
-from datetime import datetime
+from datetime import datetime #Þetta á að vera :)
 from models.VoyagesModel import VoyagesModel
 class GetVoyagesLL():
     def __init__(self, ioapi):

@@ -202,7 +202,7 @@ class VoyagesUI():
 
         counter = 1
         for employee_ob in available_employess_ob_list:
-            if employee_ob.rank == "FlightServiceManager":
+            if employee_ob.rank == "Flight Service Manager":
                 print(employee_ob.print_available_crew_info(counter))
                 counter += 1
         print("\n*Pick a number for senior cabin crew member*")
@@ -210,7 +210,7 @@ class VoyagesUI():
 
         counter = 1
         for employee_ob in available_employess_ob_list:
-            if employee_ob.rank == "FlightAttendant":
+            if employee_ob.rank == "Flight Attendant":
                 print(employee_ob.print_available_crew_info(counter))
                 counter += 1
         print("\n*Pick a number for cabincrew member #1*")
@@ -218,14 +218,14 @@ class VoyagesUI():
         
         counter = 1
         for employee_ob in available_employess_ob_list:
-            if employee_ob.rank == "FlightAttendant":
+            if employee_ob.rank == "Flight Attendant":
                 print(employee_ob.print_available_crew_info(counter))
                 counter += 1
         print("\n*Pick a number for cabincrew member #2*")
         cabincrew_member_2_ob = self.choose_a_number(available_employess_ob_list)
         
         crew_list = [captain_ob, copilot_ob, senior_cabincrew_member_ob, cabincrew_member_1_ob, cabincrew_member_2_ob]
-        updated_voyage_ob = VoyagesModel(voyage_ob.voyage_date, voyage_ob.voyage_airport, voyage_ob.voyage_airplane, voyage_ob.arrival_time, crew_list)
+        updated_voyage_ob = VoyagesModel(voyage_ob.departure_time, voyage_ob.destination, voyage_ob.aircraftID, voyage_ob.arrival_time, crew_list)
         self.llapi.update_voyage(updated_voyage_ob)
 
 
@@ -237,7 +237,9 @@ class VoyagesUI():
         not_staffed_ob_list = self.llapi.get_not_staffed_voyages() #Þessi listi þarf að vera númeraður
         counter = 1
         for voyage_ob in not_staffed_ob_list:
-            print(f"\n{counter}. {voyage_ob.departure_time}, {voyage_ob.destination}, {voyage_ob.aircraftID}") #Pæling að gera þetta öðruvísi með númerin
+            date = voyage_ob.departure_time[:10]
+            time = voyage_ob.departure_time[11:]
+            print(f"\n{counter} {date} {time}, {voyage_ob.destination}, {voyage_ob.aircraftID}") #Pæling að gera þetta öðruvísi með númerin
             counter += 1
         
         voyage_ob = self.choose_a_number(not_staffed_ob_list)
