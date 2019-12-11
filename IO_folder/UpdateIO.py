@@ -59,7 +59,7 @@ class UpdateIO:
             writer.writeheader()
 
         for elem in cabincrew_list:
-            if elem.SSN == update_cabincrew.SSN:
+            if elem.ssn == update_cabincrew.ssn:
                 self.createio.store_pilot(update_cabincrew)
             else:
                 self.createio.store_pilot(elem)

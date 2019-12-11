@@ -253,26 +253,26 @@ class EmployeesUI():
             print(self.LENGTH_STAR * "*")
             print(f"You are changing {staff_ob.name}´s address\nNow the address is: {staff_ob.address}")
             new_address = self.get_address()
-            success = self.check_action_edit_form(number, new_address)
+            success = self.check_action_edit_form(staff_ob, number, new_address)
 
         elif number == 2:
             print(self.LENGTH_STAR * "*")
             print(f"You are changing {staff_ob.name}´s mobile number\nNow the mobile number is: {staff_ob.mobile_number}")
             new_mobile_number = self.get_mobile_number()
-            success = self.check_action_edit_form(number, new_mobile_number)
+            success = self.check_action_edit_form(staff_ob, number, new_mobile_number)
         
         elif number == 3:
             print(self.LENGTH_STAR * "*")
             print(f"You are changing {staff_ob.name}´s email\nNow the email is: {staff_ob.email}")
             new_email = self.get_email()
-            success = self.check_action_edit_form(number, new_email)
+            success = self.check_action_edit_form(staff_ob, number, new_email)
     
         if succsess:
             print(f"{staff_ob.name}'s information successfully changed")
             return
 
 
-    def check_action_edit_form(self, number, new_address= "", new_mobile_number= "", new_email = ""):
+    def check_action_edit_form(self,staff_ob, number, new_address= "", new_mobile_number= "", new_email = ""):
         
         print("\nS Save \nB Back\n")
         action_str = self.choose_action(["s","b"])
