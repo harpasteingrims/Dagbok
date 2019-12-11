@@ -54,9 +54,9 @@ class GetIO():
             if counter == 1:
                 counter += 1
             else:
-                ssn, name, role, rank, address, mobile_number, email = line.split(", ")
+                ssn, name, role, rank, address, mobilenumber, email = line.split(", ")
                 
-                cabincrew_employee = CabinCrewModel(ssn, name, role, rank, address, mobile_number, email)
+                cabincrew_employee = CabinCrewModel(ssn, name, role, rank, address, mobilenumber, email)
                 cabincrew_list.append(cabincrew_employee)
         crew_file.close()
 

@@ -85,7 +85,7 @@ class EmployeesUI():
                 self.show_enter_name_to_search(staff_str)
 
             elif action_str == "3" and staff_str == self.PILOT: 
-                self.show_create_form(staff_str)()
+                self.show_create_form(staff_str)
             
             elif action_str == "3" and staff_str == self.CREW:
                 self.show_create_form(staff_str)
@@ -153,14 +153,14 @@ class EmployeesUI():
         """ This prints the search for a pilot window """
          
         print(self.LENGTH_STAR * "*")
-        print(f"SEARCH FOR A {staff_str}\n")
+        print(f"SEARCH FOR A {staff_str.upper()}\n")
         
         while True:
         
             common_named_staff_list, input_name = self.get_input_name_and_common_name_list(staff_str)
             
             while common_named_staff_list == False:
-                print("{staff_str} does not exist!\n")
+                print(f"{staff_str} does not exist!\n")
                 common_named_staff_list, input_name = self.get_input_name_and_common_name_list(staff_str)
             
             if len(common_named_staff_list) == 1:
