@@ -114,12 +114,14 @@ class VoyagesUI():
         departure_hour, departure_minute, departure_second = chosen_voyage_elem[1].split(":")
         departure_year, departure_month,  departure_day = self.get_year_month_day_voy().split("-")
         departure_date = datetime.datetime(int(departure_year), int(departure_month), int(departure_day), int(departure_hour), int(departure_minute), int(departure_second))
+        
         available_airplanes_list = self.llapi.get_available_airplanes_by_date(departure_date)
         counter = 1
         for airplane_elem in available_airplanes_list:
             print(f"{counter} {airplane_elem}")
             counter += 1
         chosen_airplane_id = self.choose_a_number(available_airplanes_list)
+        
         print("\n*Voyage successfully created*")
         arrival_time = 0
         new_voyage = VoyagesModel(departure_date, chosen_voyage_elem[0], chosen_airplane_id, arrival_time) #Á eftir að klára þetta
@@ -140,12 +142,14 @@ class VoyagesUI():
         print("\n*Date*")
         print("\nEnter outbound departure date")
         voyage_year, voyage_month,  voyage_day = self.get_year_month_day_voy().split("-")
+        
         unavailable_time = self.llapi.get_unavailable_time_for_voyage(voyage_year, voyage_month, voyage_day) #Þetta prentar alla tímasetningar sem eru ekki í boði
         if unavailable_time != []:
             print("\n*Unavailable time*")
             for time_ob in unavailable_time:
                 time_str = (time_ob.departure_time)[11:]
                 print(f"\n{time_str}")
+        
         print("\nEnter outbound departure time")
         voyage_date = self.get_hour_minute_voy(voyage_year, voyage_month,  voyage_day)
         #voyage_date = datetime.datetime(int(voyage_year), int(voyage_month), int(voyage_day), int(voyage_hour), int(voyage_minute), 0).isoformat()
@@ -168,7 +172,7 @@ class VoyagesUI():
 
         print("\n1 Assign crew to voyage\nS Save\nB Back\n")
 
-        action_str = self.choose_action()
+        action_str = self.choose_action(["1", "s", "b"])
 
         if action_str == "1":
             arrival_time = 0 #format fyrir date time
@@ -189,17 +193,13 @@ class VoyagesUI():
 
         elif action_str == "b":
             return
-        
-        else:
-            print("Invalid action!")
-            action_str = self.choose_action()
 
     def show_assign_staff_form(self, voyage_date, voyage_ob):
         """This prints the form to assign a staff to a voyage"""
         
         print(self.LENGTH_STAR * "*")
         print("ASSIGN CREW TO VOYAGES")
-        
+
         print("\nB Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
         if action_str == "b":
