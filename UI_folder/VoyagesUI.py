@@ -137,14 +137,14 @@ class VoyagesUI():
         for airports_ob in airports: #Ætti örugglega að vera airports_elem
             print(f"\n{counter} {airports_ob}")
             counter += 1
-        voyage_airport = self.choose_a_number() #Á eftir að villatékka númerið
+        voyage_airport = self.choose_a_number(airports) #Á eftir að villatékka númerið
         print("\n*Airplane*")
         available_airplanes = self.llapi.get_available_airplanes_by_date(voyage_date)
         count = 1
         for airplane_ob in available_airplanes:
             print(f"\n{count} {airplane_ob}")
             count += 1
-        voyage_airplane = self.choose_a_number() #Á eftir að villutékka númerið
+        voyage_airplane = self.choose_a_number(available_airplanes) #Á eftir að villutékka númerið
 
         print("\n1 Assign crew to voyage\nS Save\nB Back\n")
 
