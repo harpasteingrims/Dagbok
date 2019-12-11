@@ -22,12 +22,13 @@ class UImanager():
         action_str = input("Choose action: ")
         print()
         
-        while action_str not in valid_list:
+        if action_str in valid_list:
+            return action_str
+            
+        else:
             print("Invalid action!")
             self.choose_action(valid_list)
             
-        else:
-            return action_str
     
     def mainmenuUI(self):    
         action_str = ""
