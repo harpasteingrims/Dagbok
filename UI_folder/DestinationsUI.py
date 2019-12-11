@@ -45,29 +45,15 @@ class DestinationsUI():
                 print("Invalid action!")
 
 
-    def print_numbered_desti_list(self):
-        
-        destinations_ob_list = self.llapi.get_destination_overview() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
-        counter = 0
-        
-        for desti_ob in destinations_ob_list:
-            if counter == 0:
-    
-                print(desti_ob.print_header())
-            else:
-
-                print(desti_ob.print_destinations(counter))
-            
-            counter += 1
-
     def show_destination_overview(self):
         """This prints the overview of all destinations"""
 
         print("*"*self.LENGTH_STAR)
         print("OVERVIEW OF DESTINATIONS\n")
-        
-        self.print_numbered_desti_list()
-    
+
+        counter = self.print_desti_list("*")
+        print(f"NAN AIR flies to {counter} destinations")
+
         print("\nB Back\n")
 
         action_str = self.choose_action()
@@ -128,19 +114,39 @@ class DestinationsUI():
             print("\nInvalid input!")
             return self.get_input_number()
 
-    
+    def print_desti_list(self, str_infront):
+        
+        destinations_ob_list = self.llapi.get_destination_overview() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
+        
+        counter = 0
+
+        for desti_ob in destinations_ob_list:
+            if str_infront == "*":
+                print(desti_ob.print_destinations(str_infront))
+
+            else:
+                print(desti_ob.print_destinations(str_infront))
+                str_infront += 1
+            
+            counter += 1
+        
+        return counter
+
+
     def show_edit_country_menu(self):
         """This prints the emergency contact menu"""
 
         print("*"*self.LENGTH_STAR)
         print("EDIT INFORMATION ABOUT DESTINATION\n")
         
-        self.print_numbered_desti_list()
+        self.print_desti_list(1)
         chosen_country_ob = self.get_input_number()
 
         print("*"*self.LENGTH_STAR)
         print(chosen_country_ob.print_emergency())
 
+        name = self.llapi.check_name()
+        emergency_num = self.llapi.check_mobile_number()
         print("\nB Back\n")
         action_str = self.choose_action()
         
@@ -247,7 +253,7 @@ class DestinationsUI():
             self.get_distance()
 
     def get_contact(self):
-        contact = input("Enter emergency contanct name: ")
+        contact = input("Enter emergency contact name: ")
         contact_check = self.llapi.check_name(contact)
 
         if contact_check:

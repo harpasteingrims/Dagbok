@@ -58,7 +58,7 @@ class EmployeesUI():
 
                 print(employee.to_csv_string())
 
-            else:
+            elif employee.role == "Pilot" :
                 print(employee.to_csv_string())
         
         print("\nB Back\n")
