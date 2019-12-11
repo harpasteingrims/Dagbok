@@ -68,7 +68,7 @@ class VoyagesUI():
         print()
         print(self.LENGTH_STAR*"*")
         print("CREATE A VOYAGE \n\n1 See common voyages\n2 Create a voyage manually\nB Back\n")
-        
+        print("")
         action_str = self.choose_action(["1", "2", "b"])
 
         if action_str == "1":
@@ -92,7 +92,7 @@ class VoyagesUI():
         common_voyages_list = self.llapi.get_common_voyages()
         counter = 1
         for voyage_elem in common_voyages_list:
-            print(f"\n{counter} {voyage_elem[0]}, {voyage_elem[1]}")
+            print(f"\n{counter} {voyage_elem[0]}, {voyage_elem[1][:-1]}")
             counter += 1
         chosen_voyage_elem = self.choose_a_number(common_voyages_list)
 
@@ -122,7 +122,7 @@ class VoyagesUI():
             counter += 1
         chosen_airplane_id = self.choose_a_number(available_airplanes_list)
         
-        print("\n*Voyage successfully created*")
+        print("\n* Voyage successfully created *")
         arrival_time = 0
         new_voyage = VoyagesModel(departure_date, chosen_voyage_elem[0], chosen_airplane_id, arrival_time) #Á eftir að klára þetta
         self.llapi.calculate_arrival_time(new_voyage)
@@ -193,6 +193,25 @@ class VoyagesUI():
 
         elif action_str == "b":
             return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     def show_assign_staff_form(self, voyage_date, voyage_ob):
         """This prints the form to assign a staff to a voyage"""
