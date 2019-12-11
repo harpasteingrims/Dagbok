@@ -106,7 +106,7 @@ class VoyagesUI():
         print(self.LENGTH_STAR * "*")
         print("INPUT DEPARTURE DATE AND ARIPLANE ID")
         print("Enter outbound departure date")
-        departure_date = self.get_year_month_day(chosen_voyage_elem)
+        departure_date = self.get_common_date(chosen_voyage_elem)
         available_airplanes_list = self.llapi.get_available_airplanes_by_date(departure_date)
         counter = 1
         for airplane_elem in available_airplanes_list:
@@ -129,18 +129,14 @@ class VoyagesUI():
         print("CREATE A VOYAGE MANUALLY")
         print("\n*Date*")
         print("\nEnter outbound departure date")
-        voyage_year = input("Enter year: ")
-        voyage_month = input("Enter month: ")
-        voyage_day = input("Enter day: ")
+        voyage_year, voyage_month,  voyage_day = self.get_year_month_day_voy().split("-")
         print("\n*Unavailable time*")
         unavailable_time = self.llapi.get_unavailable_time_for_voyage(voyage_year, voyage_month, voyage_day) #Þetta prentar alla tímasetningar sem eru ekki í boði
         for time_elem in unavailable_time:
             print(f"\n{time_elem}")
-        
         print("\nEnter outbound departure time")
-        voyage_hour = input("Enter hour: ")
-        voyage_minute = input("Enter minute: ")
-        voyage_date = datetime.datetime(int(voyage_year), int(voyage_month), int(voyage_day), int(voyage_hour), int(voyage_minute), 0).isoformat()
+        voyage_date = self.get_hour_minute_voy(voyage_year, voyage_month,  voyage_day)
+        #voyage_date = datetime.datetime(int(voyage_year), int(voyage_month), int(voyage_day), int(voyage_hour), int(voyage_minute), 0).isoformat()
         print("\n*Airports*")
         airports = self.llapi.get_airport_overview() #Þetta prentar alla áfangastaði, þetta þarf að vera númerað
         counter = 1
@@ -263,7 +259,7 @@ class VoyagesUI():
         return chosen_number
                 
         
-    def get_year_month_day(self, chosen_voyage_elem): #get_date_for_common_voyage
+    def get_common_date(self, chosen_voyage_elem): #get_date_for_common_voyage
         departure_year = input("Enter departure year: ")
         departure_month = input("Enter departure month: ")
         departure_day = input("Enter departure day: ")
@@ -273,5 +269,25 @@ class VoyagesUI():
         return departure_date
         #Hérna þarf að gera villutékk á departure_date bæði á formatinu og líka hvort það sé flug á þessari tímasetningu
 
-    def get_year_month_day_voy(self):
-        pass
+    def get_year_month_day_voy(self): #Checkar hvort þetta sé á réttu formi og hvort þetta séu int tölur
+        voyage_year = input("Enter year (yyyy): ")
+        voyage_month = input("Enter month (mm): ")
+        voyage_day = input("Enter day (dd): ")
+        date = [voyage_year, voyage_month, voyage_day]
+        date_check = self.llapi.check_date(date)
+        if date_check:
+            return date_check
+        else:
+            print("Invalid date")
+            self.get_year_month_day_voy()
+
+    def get_hour_minute_voy(self, voyage_year, voyage_month,  voyage_day): #Checkar hvort þetta sé á réttu formi og hvort þetta séu int tölur, checkar einnig hvort það sé flug á þessum tíma
+        voyage_hour = input("Enter hour (hh): ")
+        voyage_minute = input("Enter minute (mm): ")
+        date = [voyage_year, voyage_month, voyage_day, voyage_hour, voyage_minute]
+        time_check = self.llapi.check_time(date)
+        if time_check:
+            return time_check
+        else:
+            print("Invalid time")
+            self.get_hour_minute_voy(voyage_year, voyage_month,  voyage_day)
