@@ -9,14 +9,14 @@ class PilotsModel():
         self.mobile_number = mobile_number
         self.email = email
         
-    def to_csv_string(self):
+    def to_csv_string(self, ):
         return f"{self.ssn}, {self.name}, {self.role}, {self.rank}, {self.license_type}, {self.address}, {self.mobile_number}, {self.email}\n"
 
     def print_pilot_info(self):
         return f"Name: {self.name} \nRank: {self.rank} \nSSN: {self.ssn} \nAdress: {self.address} \nMobile number: {self.mobile_number} \nEmail:{self.email}License type: {self.license_type}"
 
-    def print_pilot_info_in_line(self, counter):
-        return f"\n{self.name}, {self.ssn}, {self.role}, {self.rank}, {self.license_type}, {self.address}, {self.mobile_number}, {self.email}"
+    def print_info_in_line(self, front_of_str = ""):
+        return f"\n{front_of_str} {self.name}, {self.ssn}, {self.role}, {self.rank}, {self.license_type}, {self.address}, {self.mobile_number}, {self.email}"
 
     def print_available_pilot_info(self, counter):
         return f"\n{counter} {self.name}, {self.rank}"
