@@ -111,7 +111,8 @@ class LLAPI():
         return self.getvoyages.calculate_arrival_time(new_voyage_object)
     
     def check_time(self, date, voyage_year, voyage_month, voyage_day):
-        return self.inputcheckll.check_time(date, voyage_year, voyage_month, voyage_day)
+        unavailable_time_list = self.get_unavailable_time_for_voyage(voyage_year, voyage_month, voyage_day)
+        return self.inputcheckll.check_time(date, unavailable_time_list)
 
     """DESTINATIONS"""
 
