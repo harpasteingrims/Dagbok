@@ -202,7 +202,7 @@ class VoyagesUI():
             if employee_ob.rank == "Copilot":
                 print(employee_ob.print_available_pilot_info(counter))
                 counter += 1
-        print("*\nPick a number for copilot*")
+        print("\n*Pick a number for copilot*")
         copilot = self.choose_a_number()
 
         counter = 1
