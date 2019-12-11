@@ -35,8 +35,8 @@ class GetIO():
             if counter == 1:
                 counter += 1
             else:
-                ssn, name, role , rank, license_type, address, mobile_number, email = line.split(", ")
-                pilot = PilotsModel(ssn, name, role , rank, license_type, address, mobile_number, email)
+                ssn, name, role, rank, license_type, address, mobile_number, email = line.split(", ")
+                pilot = PilotsModel(ssn, name, role, rank, license_type, address, mobile_number, email)
                 pilot_list.append(pilot)
         
         pilot_file.close()
@@ -223,7 +223,7 @@ class GetIO():
         
         counter = 1
         for line in flights_with_crew_file:
-            line = line.strip().split(",")
+            line = line.strip().split(", ")
             if counter == 1:
                 counter += 1
             else:   

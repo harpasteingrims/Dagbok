@@ -12,7 +12,21 @@ class IAADUI():
         print()
         return action_str
 
-    def show_IAAD_menu(self, user_input_date, user_input_time=0):
+    def show_enter_date_menu(self):
+        """This prints the menu for choosing date to get information about""" 
+
+        print()
+        print(self.LENGTH_STAR * "*")
+        print("INFORMATION ABOUT A DAY")
+        print()
+        iaad_date = self.get_iaad_date()
+        print()
+
+        self.show_IAAD_menu(iaad_date)
+        """ This prints out, input date """
+        return iaad_date
+
+    def show_IAAD_menu(self, iaad_date):
         """This prints the employee menu"""
     
         action_str = ""
@@ -22,24 +36,20 @@ class IAADUI():
             print(self.LENGTH_STAR * "*")
             print("1 Available employees")
             print("2 Unavailable employees")
-            print("3 Status of voyages")
-            print("4 Status of airplanes")
+            print("3 Status of airplanes")
             print("B Back")
             print()
             
             action_str = self.choose_action()
 
             if action_str == "1":
-                self.show_available_employees(user_input_date)
+                self.show_available_employees(iaad_date)
 
             elif action_str == "2":
-                self.show_unavailable_employees(user_input_date)
+                self.show_unavailable_employees(iaad_date)
 
             elif action_str == "3":
-                self.show_enter_time_menu_voyage(user_input_date)
-
-            elif action_str == "4":
-                self.show_enter_time_menu_airplane(user_input_date)
+                self.show_enter_time_menu_airplane(iaad_date)
 
             elif action_str == "b":
                 return
@@ -47,44 +57,15 @@ class IAADUI():
             else:
                 print("Invalid action!")
 
-    def show_enter_date_menu(self):
-        """This prints the menu for choosing date to get information about""" 
-
+    def show_enter_time_menu_airplane(self, iaad_date):
+        time = self.get_iaad_time
+        #time_list = list(time)
         print()
-        print(self.LENGTH_STAR * "*")
-        print("INFORMATION ABOUT A DAY")
-        print()
-        iaad_year = self.get_iaad_year()
-        iaad_month = self.get_iaad_month(iaad_year)
-        iaad_day = self.get_iaad_day(iaad_month, iaad_year)
-        year, month, day = int(iaad_year), int(iaad_month), int(iaad_day)
-        print()
-        user_input_date = datetime.datetime(year, month, day, 0, 0, 1).isoformat()
-
-        self.show_IAAD_menu(user_input_date)
-        """ This prints out, input date """
-        return user_input_date
-
-    def show_enter_time_menu_voyage(self, user_input_date):
-        iaad_hour = input("Enter hour (hh): ")
-        iaad_minute = input("Enter minute(mm): ")
-        print()
-        list_user_input_date = list(user_input_date)
-        list_user_input_date[11:13] = iaad_hour
-        list_user_input_date[14:16] = iaad_minute
-        user_input_time = "".join(list_user_input_date)
-        self.show_voyages_status(user_input_time)
-
-    def show_enter_time_menu_airplane(self, user_input_date):
-        iaad_hour = input("Enter hour (hh): ")
-        iaad_minute = input("Enter minute(mm): ")
-        print()
-        list_user_input_date = list(user_input_date)
-        list_user_input_date[11:13] = iaad_hour
-        list_user_input_date[14:16] = iaad_minute
-        list_user_input_date[17:19] = "00"
-        user_input_time = "".join(list_user_input_date)
-        self.show_airplane_status(user_input_time)
+        date_list = list(iaad_date)
+        date_list[11:13] = time_list[0:2]
+        date_list[14:16] = time_list[3:5]
+        date_new = "".join(date_list)
+        self.show_airplane_status(date_new)
     
     def show_available_employees(self, user_input_date):
         """This prints the available employees from a certain day"""
@@ -145,28 +126,7 @@ class IAADUI():
                     counter += 1
 
         else:
-            print("\nNo airplne is flying at this time")
-
-        print()
-        print("B Back")
-
-        action_str = self.choose_action()
-
-        if action_str == "b":
-            return
-        
-        else:
-            print("Invalid action!")
-            action_str = self.choose_action()
-   
-    def show_voyages_status(self, user_input_date):
-        """This prints the status of a voyage on a certain day"""
-
-        print(self.LENGTH_STAR * "*")
-        print("VOYAGE STATUS")
-        
-        voyage_status = self.llapi.get_voyages_status_by_date(user_input_date)
-        print(voyage_status)
+            print("\nNo airplane is flying at this time")
 
         print()
         print("B Back")
@@ -180,32 +140,29 @@ class IAADUI():
             print("Invalid action!")
             action_str = self.choose_action()
 
-    def get_iaad_year(self):
+    def get_iaad_date(self):
         iaad_year = input("Enter year (yyyy): ")
-        iaad_year_check = self.llapi.check_iaad_year(iaad_year)
-
-        if iaad_year_check:
-            return iaad_year_check
-        else:
-            print("\nInvalid year\n")
-            self.get_iaad_year()
-
-    def get_iaad_month(self, iaad_year):
         iaad_month = input("Enter month (mm): ")
-        iaad_month_check = self.llapi.check_iaad_month(iaad_month, iaad_year)
-
-        if iaad_month_check:
-            return iaad_month_check
-        else:
-            print("\nInvalid month\n")
-            self.get_iaad_month(iaad_year)
-
-    def get_iaad_day(self, iaad_month, iaad_year):
         iaad_day = input("Enter day (dd): ")
-        iaad_day_check = self.llapi.check_iaad_day(iaad_day, iaad_month, iaad_year)
+        date = [iaad_year, iaad_month, iaad_day]
 
-        if iaad_day_check:
-            return iaad_day_check
+        date_check = self.llapi.check_date(date)
+
+        if date_check:
+            return date_check
         else:
-            print("\nInvalid day\n")
-            self.get_iaad_day(iaad_month, iaad_year)
+            print("\nInvalid date\n")
+            self.get_iaad_date()
+
+    def get_iaad_time(self):
+        iaad_hour = input("Enter hour (hh): ")
+        iaad_minute = input("Enter minute (mm): ")
+        time = [iaad_hour, iaad_minute]
+
+        time_check = self.llapi.check_clock(time)
+
+        if time_check:
+            return time_check
+        else:
+            print("\nInvalid time\n")
+            self.get_iaad_time()

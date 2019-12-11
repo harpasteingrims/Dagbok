@@ -70,7 +70,7 @@ class LLAPI():
         return self.getemployees.list_all_cabin_crew()
 
     def get_common_named_crew_members(self, name):
-        return self.getemployees.find_common_named_crew_members(name)
+        return self.getemployees.find_common_named_cabincrew(name)
     
     def create_new_cabin_crew(self, new_cabincrew_ob):
         return self.ioapi.create_cabincrew(new_cabincrew_ob)
@@ -110,7 +110,8 @@ class LLAPI():
     def calculate_arrival_time(self, new_voyage_object):
         return self.getvoyages.calculate_arrival_time(new_voyage_object)
 
-    #Vantar check föll
+    def check_date(self, date):
+        return self.inputcheckll.check_date(date)
 
     """DESTINATIONS"""
 
@@ -182,19 +183,13 @@ class LLAPI():
     def get_airplane_status_by_date(self, user_input_date):
         return self.getiaad.list_airplane_status_by_date(user_input_date)
 
-    def get_voyages_status_by_date(self, user_input_date):
-        return self.getiaad.list_voyages_status_by_date(user_input_date)
-
-    def check_iaad_year(self, iaad_year):
-        return self.inputcheckll.check_iaad_year(iaad_year)
-
-    def check_iaad_month(self, iaad_month, iaad_year):
-        return self.inputcheckll.check_iaad_month(iaad_month, iaad_year)
-
-    def check_iaad_day(self, iaad_day, iaad_month, iaad_year):
-        return self.inputcheckll.check_iaad_day(iaad_day, iaad_month, iaad_year)
+    def check_clock(self, time):
+        return self.inputcheckll.check_clock(time)
 
     """OTHER"""
 
-    def check_number_5(self, chosen_number):
-        return self.inputcheck11.check_number_5(chosen_number)
+    def check_date(self, date):
+        return self.inputcheckll.check_date(date)
+
+    def check_chosen_number(self, chosen_number, ob_list):
+        return self.inputcheckll.check_input_number(chosen_number, ob_list)

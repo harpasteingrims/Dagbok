@@ -106,7 +106,7 @@ class VoyagesUI():
         print(self.LENGTH_STAR * "*")
         print("INPUT DEPARTURE DATE AND ARIPLANE ID")
         print("Enter outbound departure date")
-        departure_date = self.get_year_month_day(chosen_voyage_elem)
+        departure_date = self.get_common_date(chosen_voyage_elem)
         available_airplanes_list = self.llapi.get_available_airplanes_by_date(departure_date)
         counter = 1
         for airplane_elem in available_airplanes_list:
@@ -129,18 +129,14 @@ class VoyagesUI():
         print("CREATE A VOYAGE MANUALLY")
         print("\n*Date*")
         print("\nEnter outbound departure date")
-        voyage_year = input("Enter year: ")
-        voyage_month = input("Enter month: ")
-        voyage_day = input("Enter day: ")
+        voyage_year, voyage_month,  voyage_day = self.get_year_month_day_voy().split("-")
         print("\n*Unavailable time*")
         unavailable_time = self.llapi.get_unavailable_time_for_voyage(voyage_year, voyage_month, voyage_day) #Þetta prentar alla tímasetningar sem eru ekki í boði
         for time_elem in unavailable_time:
             print(f"\n{time_elem}")
-        
         print("\nEnter outbound departure time")
-        voyage_hour = input("Enter hour: ")
-        voyage_minute = input("Enter minute: ")
-        voyage_date = datetime.datetime(int(voyage_year), int(voyage_month), int(voyage_day), int(voyage_hour), int(voyage_minute), 0).isoformat()
+        voyage_date = self.get_hour_minute_voy(voyage_year, voyage_month,  voyage_day)
+        #voyage_date = datetime.datetime(int(voyage_year), int(voyage_month), int(voyage_day), int(voyage_hour), int(voyage_minute), 0).isoformat()
         print("\n*Airports*")
         airports = self.llapi.get_airport_overview() #Þetta prentar alla áfangastaði, þetta þarf að vera númerað
         counter = 1
@@ -161,21 +157,20 @@ class VoyagesUI():
         action_str = self.choose_action()
 
         if action_str == "1":
-            print("\n*Voyage successfully created*")
             arrival_time = 0 #format fyrir date time
-            new_voyage = VoyagesModel(voyage_date, voyage_airport, arrival_time, voyage_airport, voyage_airplane) #Pæling að gera þetta ekki fyrr en í hinu fallinu, eða veit ekki
+            new_voyage = VoyagesModel(voyage_date, voyage_airport, voyage_airplane, arrival_time) #Pæling að gera þetta ekki fyrr en í hinu fallinu, eða veit ekki
             self.llapi.calculate_arrival_time(new_voyage)
-            #self.voyage.create_voyage(new_voyage)
-            #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
+            self.llapi.create_new_voyage(new_voyage)
+
             self.show_assign_staff_form(voyage_date, new_voyage)
 
         elif action_str == "s":
+            arrival_time = 0
             print("\n*Voyage successfully created*")
-            new_voyage = VoyagesModel(voyage_date, voyage_airport, arrival_time, voyage_airplane)
+            new_voyage = VoyagesModel(voyage_date, voyage_airport, voyage_airplane, arrival_time)
             self.llapi.calculate_arrival_time(new_voyage)
-            print(new_voyage)
-            #self.voyage.create_voyage(new_voyage)
-            #Hérna þurfum við að skella þessu í lista/dictionary og svo fara einn til baka eða lenda aftur á þessum skjá
+            self.llapi.create_new_voyage(new_voyage)
+
             return
 
         elif action_str == "b":
@@ -185,13 +180,13 @@ class VoyagesUI():
             print("Invalid action!")
             action_str = self.choose_action()
 
-    def show_assign_staff_form(self, voyage_date, voyage):
+    def show_assign_staff_form(self, voyage_date, voyage_ob):
         """This prints the form to assign a staff to a voyage"""
         
         print(self.LENGTH_STAR * "*")
         print("ASSIGN CREW TO VOYAGES")
         print("\nB Back") #Kannski sleppa
-        #Listi yfir alla lausa pilots og þar þarf IO og fá date til að sjá hverjir eru lausar þennan dag
+
         available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
         counter = 1
         for employee_ob in available_employess_ob_list:
@@ -199,15 +194,15 @@ class VoyagesUI():
                 print(employee_ob.print_available_pilot_info(counter))
                 counter += 1
         print("\n*Pick a number for captain*")
-        captain = self.choose_a_number()
+        captain_ob = self.choose_a_number(available_employess_ob_list)
 
         counter = 1
         for employee_ob in available_employess_ob_list:
             if employee_ob.rank == "Copilot":
                 print(employee_ob.print_available_pilot_info(counter))
                 counter += 1
-        print("*\nPick a number for copilot*")
-        copilot = self.choose_a_number()
+        print("\n*Pick a number for copilot*")
+        copilot_ob = self.choose_a_number(available_employess_ob_list)
 
         counter = 1
         for employee_ob in available_employess_ob_list:
@@ -215,7 +210,7 @@ class VoyagesUI():
                 print(employee_ob.print_available_crew_info(counter))
                 counter += 1
         print("\n*Pick a number for senior cabin crew member*")
-        senior_cabincrew_member = self.choose_a_number()
+        senior_cabincrew_member_ob = self.choose_a_number(available_employess_ob_list)
 
         counter = 1
         for employee_ob in available_employess_ob_list:
@@ -223,7 +218,7 @@ class VoyagesUI():
                 print(employee_ob.print_available_crew_info(counter))
                 counter += 1
         print("\n*Pick a number for cabincrew member #1*")
-        cabincrew_member_1 = self.choose_a_number()
+        cabincrew_member_1_ob = self.choose_a_number(available_employess_ob_list)
         
         counter = 1
         for employee_ob in available_employess_ob_list:
@@ -231,11 +226,12 @@ class VoyagesUI():
                 print(employee_ob.print_available_crew_info(counter))
                 counter += 1
         print("\n*Pick a number for cabincrew member #2*")
-        cabincrew_member_2 = self.choose_a_number()
+        cabincrew_member_2_ob = self.choose_a_number(available_employess_ob_list)
         
-        print()
-        
-        #Þurfum meira hér til að klára þetta fall
+        crew_list = [captain_ob, copilot_ob, senior_cabincrew_member_ob, cabincrew_member_1_ob, cabincrew_member_2_ob]
+        updated_voyage_ob = VoyagesModel(voyage_ob.voyage_date, voyage_ob.voyage_airport, voyage_ob.voyage_airplane, voyage_ob.arrival_time, crew_list)
+        self.llapi.update_voyage(updated_voyage_ob)
+
 
     def show_not_staffed_voyages(self):
         """This prints all the not fully staffed voyages that are available"""
@@ -248,22 +244,22 @@ class VoyagesUI():
             print(f"\n{counter}. {voyage_ob.departure_time}, {voyage_ob.destination}, {voyage_ob.aircraftID}") #Pæling að gera þetta öðruvísi með númerin
             counter += 1
         
-        voyage_number = self.choose_a_number()
-
-        if 1 <= int(voyage_number) <= len(not_staffed_ob_list):
-            chosen_voyage_ob = not_staffed_ob_list[int(voyage_number)-1]
-            self.show_assign_staff_form(chosen_voyage_ob.departure_time, chosen_voyage_ob)
-        else:
-            print("Invalid number!")
-            voyage_number = self.choose_a_number()
+        voyage_ob = self.choose_a_number(not_staffed_ob_list)
+        self.show_assign_staff_form(voyage_ob.departure_time, voyage_ob)
 
     
-    def choose_a_number(self):
+    def choose_a_number(self, ob_list):
         chosen_number = input("\nChoose a number: ")
-        return chosen_number
-                
+        check_number = self.llapi.check_chosen_number(chosen_number, ob_list)
+        if check_number:
+            return ob_item
+
+        else:
+            print("Invalid number")
+            self.choose_a_number(ob_list)
+
         
-    def get_year_month_day(self, chosen_voyage_elem): #get_date_for_common_voyage
+    def get_common_date(self, chosen_voyage_elem): #get_date_for_common_voyage
         departure_year = input("Enter departure year: ")
         departure_month = input("Enter departure month: ")
         departure_day = input("Enter departure day: ")
@@ -273,5 +269,25 @@ class VoyagesUI():
         return departure_date
         #Hérna þarf að gera villutékk á departure_date bæði á formatinu og líka hvort það sé flug á þessari tímasetningu
 
-    def get_year_month_day_voy(self):
-        pass
+    def get_year_month_day_voy(self): #Checkar hvort þetta sé á réttu formi og hvort þetta séu int tölur
+        voyage_year = input("Enter year (yyyy): ")
+        voyage_month = input("Enter month (mm): ")
+        voyage_day = input("Enter day (dd): ")
+        date = [voyage_year, voyage_month, voyage_day]
+        date_check = self.llapi.check_date(date)
+        if date_check:
+            return date_check
+        else:
+            print("Invalid date")
+            self.get_year_month_day_voy()
+
+    def get_hour_minute_voy(self, voyage_year, voyage_month,  voyage_day): #Checkar hvort þetta sé á réttu formi og hvort þetta séu int tölur, checkar einnig hvort það sé flug á þessum tíma
+        voyage_hour = input("Enter hour (hh): ")
+        voyage_minute = input("Enter minute (mm): ")
+        date = [voyage_year, voyage_month, voyage_day, voyage_hour, voyage_minute]
+        time_check = self.llapi.check_time(date)
+        if time_check:
+            return time_check
+        else:
+            print("Invalid time")
+            self.get_hour_minute_voy(voyage_year, voyage_month,  voyage_day)

@@ -1,6 +1,7 @@
 from models.PilotModel import PilotsModel
 from UI_folder.EmployeesUI import EmployeesUI
 from datetime import datetime , timedelta
+import datetime
 
 class InputCheckLL():
     '''Subclass of LLAPI that is designed to create something and error checking the input'''
@@ -134,7 +135,7 @@ class InputCheckLL():
 
     def check_flight_duration(self, flight_duration):
 
-        if flight_duration[0:1].isdigit() and flight_duration[3:5].isdigit() and flight_duration[2] == ":":
+        if flight_duration[0:1].isdigit() and flight_duration[3:5].isdigit() and flight_duration[2] == ":" and int(flight_duration[3:5]) < 60:
             return flight_duration
         else:
             return False
@@ -181,41 +182,35 @@ class InputCheckLL():
 
     """CHECKING INPUT FOR IAAD"""
 
-    def check_iaad_year(self, iaad_year):
+    def check_clock(self, time):
 
-        if len(iaad_year) == 4 and iaad_year.isdigit() and int(iaad_year) >= 2019:
-            return iaad_year
-        else:
+        try:
+            valid_time = datetime.datetime(2019, 1, 3, int(time[0]), int(time[1]), 0).isoformat()
+            return valid_time[-8:]
+        except ValueError:
             return False
 
-    def check_iaad_month(self, iaad_month, iaad_year):
+    def time_check(self, time):
+        pass
 
-        if len(iaad_month) == 2 and iaad_month.isdigit() and 0 < int(iaad_month) < 13:
-            return iaad_month
-        else:
+    """CHECKING INPUT FOR OTHER"""
+    
+    def check_date(self, date):
+        try:
+            valid_date = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), 00, 00, 0).isoformat()
+            return valid_date
+        except ValueError:
             return False
 
-    def check_iaad_day(self, iaad_day, iaad_month, iaad_year):
+    def check_input_number(self, chosen_number, ob_list):
+        try:
+            chosen_number = int(chosen_number)
+            if chosen_number and 1 <= chosen_number <= len(ob_list):
+                chosen_ob = ob_list[chosen_number-1]
+                return chosen_ob
 
-        if iaad_month == "01" or iaad_month == "03" or iaad_month == "05" or iaad_month == "07" or iaad_month == "08" or iaad_month == "10" or iaad_month == "12":
-            if len(iaad_day) == 2 and iaad_day.isdigit() and 0 < int(iaad_day) < 32:
-                return iaad_day
             else:
                 return False
-        elif iaad_month == "04" or iaad_month == "06" or iaad_month == "09" or iaad_month == "11":
-            if len(iaad_day) == 2 and iaad_day.isdigit() and 0 < int(iaad_day) < 31:
-                return iaad_day
-            else:
-                return False
-        elif iaad_month == "02" and int(iaad_year) % 4 == 0 and int(iaad_year) % 100 != 0 and int(iaad_year) % 400 != 0:
-            if len(iaad_day) == 2 and iaad_day.isdigit() and 0 < int(iaad_day) < 30:
-                return iaad_day
-            else:
-                return False
-        elif iaad_month == "02":
-            if len(iaad_day) == 2 and iaad_day.isdigit() and 0 < int(iaad_day) < 29:
-                return iaad_day
-            else:
-                return False
-        else:
+        except ValueError:
             return False
+
