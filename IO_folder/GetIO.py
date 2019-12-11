@@ -45,7 +45,7 @@ class GetIO():
 
     def load_all_cabincrew(self):
 
-        crew_file = open("./csv_files/CabinCrew.csv","r")
+        crew_file = open("./csv_files/CabinCrew.csv","r", encoding='utf-8')
         
         cabincrew_list = []
         counter = 1
