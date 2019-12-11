@@ -1,6 +1,7 @@
 import datetime
 import dateutil.parser
 from datetime import timedelta
+from datetime import datetime #Þetta á að vera :)
 from models.VoyagesModel import VoyagesModel
 class GetVoyagesLL():
     def __init__(self, ioapi):
@@ -78,8 +79,7 @@ class GetVoyagesLL():
         for voyage_ob in voyages_list:
             parsed_date = dateutil.parser.parse(voyage_ob.departure_time)
             if int(voyage_year) == parsed_date.year and int(voyage_month) == parsed_date.month and int(voyage_day) == parsed_date.day:
-                time_str = str(parsed_date.hour) + ":" + str(parsed_date.minute) + ":00"
-                unavailable_voyage_time_list.append(time_str)
+                unavailable_voyage_time_list.append(voyage_ob)
         
         return unavailable_voyage_time_list
 

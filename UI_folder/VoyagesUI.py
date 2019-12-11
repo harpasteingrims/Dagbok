@@ -127,8 +127,9 @@ class VoyagesUI():
         unavailable_time = self.llapi.get_unavailable_time_for_voyage(voyage_year, voyage_month, voyage_day) #Þetta prentar alla tímasetningar sem eru ekki í boði
         if unavailable_time != []:
             print("\n*Unavailable time*")
-            for time_elem in unavailable_time:
-                print(f"\n{time_elem}")
+            for time_ob in unavailable_time:
+                time_str = (time_ob.departure_time)[11:]
+                print(f"\n{time_str}")
         print("\nEnter outbound departure time")
         voyage_date = self.get_hour_minute_voy(voyage_year, voyage_month,  voyage_day)
         #voyage_date = datetime.datetime(int(voyage_year), int(voyage_month), int(voyage_day), int(voyage_hour), int(voyage_minute), 0).isoformat()
@@ -201,7 +202,7 @@ class VoyagesUI():
 
         counter = 1
         for employee_ob in available_employess_ob_list:
-            if employee_ob.rank == "FlightServiceManager":
+            if employee_ob.rank == "Flight Service Manager":
                 print(employee_ob.print_available_crew_info(counter))
                 counter += 1
         print("\n*Pick a number for senior cabin crew member*")
@@ -209,7 +210,7 @@ class VoyagesUI():
 
         counter = 1
         for employee_ob in available_employess_ob_list:
-            if employee_ob.rank == "FlightAttendant":
+            if employee_ob.rank == "Flight Attendant":
                 print(employee_ob.print_available_crew_info(counter))
                 counter += 1
         print("\n*Pick a number for cabincrew member #1*")
@@ -217,7 +218,7 @@ class VoyagesUI():
         
         counter = 1
         for employee_ob in available_employess_ob_list:
-            if employee_ob.rank == "FlightAttendant":
+            if employee_ob.rank == "Flight Attendant":
                 print(employee_ob.print_available_crew_info(counter))
                 counter += 1
         print("\n*Pick a number for cabincrew member #2*")
@@ -236,7 +237,9 @@ class VoyagesUI():
         not_staffed_ob_list = self.llapi.get_not_staffed_voyages() #Þessi listi þarf að vera númeraður
         counter = 1
         for voyage_ob in not_staffed_ob_list:
-            print(f"\n{counter}. {voyage_ob.departure_time}, {voyage_ob.destination}, {voyage_ob.aircraftID}") #Pæling að gera þetta öðruvísi með númerin
+            date = voyage_ob.departure_time[:10]
+            time = voyage_ob.departure_time[11:]
+            print(f"\n{counter} {date} {time}, {voyage_ob.destination}, {voyage_ob.aircraftID}") #Pæling að gera þetta öðruvísi með númerin
             counter += 1
         
         voyage_ob = self.choose_a_number(not_staffed_ob_list)

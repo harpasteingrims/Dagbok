@@ -6,9 +6,9 @@ import datetime
 class InputCheckLL():
     '''Subclass of LLAPI that is designed to create something and error checking the input'''
     
-    def __init__(self, ioapi, getvoyages):
+    def __init__(self, ioapi, llapi):
         self.ioapi = ioapi
-        self.getvoyages = getvoyages
+        self.llapi = llapi
 
     """CHECKING INPUT FOR EMPLOYEES"""
 
@@ -45,7 +45,7 @@ class InputCheckLL():
             return False
 
     def check_ssn(self, ssn):
-        
+    
         employee_list = self.ioapi.get_list_of_all_employees()
         for employee_ob in employee_list:
             if ssn != employee_ob.ssn:
@@ -105,17 +105,21 @@ class InputCheckLL():
 
     """CHECKING INPUT FOR VOYAGES"""
     
-    def check_time(self, date, voyage_year, voyage_month, voyage_day):
-        unavailable_times_list = self.getvoyages.list_unavailable_voyage_time( voyage_year, voyage_month, voyage_day)
-        for unavailable_time_ob in unavailable_times_list:
-            if date[-8:] != unavailable_time_ob.date:
+    def check_time(self, date, unavailable_time_list):
+        print(date)
+        date_time = ":".join(date[3:]) + ":00"
+        print(date_time)
+        for unavailable_time_ob in unavailable_time_list:
+            if date_time != unavailable_time_ob.departure_time[11:]:
                 try:
                     valid_time = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), int(date[3]), int(date[4]), 0).isoformat()
                     return valid_time
                 except ValueError:
                     return False
+                break
             else:
                 return False
+                break
 
     """CHECKING INPUT FOR DESTINATIONS"""
 

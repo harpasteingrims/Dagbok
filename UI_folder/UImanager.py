@@ -16,12 +16,11 @@ class UImanager():
         self.llapi = LLAPI()
         self.iaad = IAADUI(self.llapi)
         self.employees = EmployeesUI(self.llapi)
-        self.employeesUI = EmployeesUI(self.llapi, self.employees)
         self.voyages = VoyagesUI(self.llapi)
         self.destinations = DestinationsUI(self.llapi)
         self.airplanes = AirplanesUI(self.llapi)
-        self.cabincrew = CabincrewUI(self.llapi, self.employeesUI)
-        self.pilots = PilotsUI(self.llapi, self.employeesUI)
+        self.cabincrew = CabincrewUI(self.llapi, self.employees)
+        self.pilots = PilotsUI(self.llapi, self.employees)
     
     def choose_action(self):
         action_str = input("Choose action: ").lower()
@@ -45,7 +44,7 @@ class UImanager():
             action_str = self.choose_action()
         
             if action_str == "1":
-                self.employeesUI.show_employee_menu()
+                self.employees.show_employee_menu()
 
             elif action_str == "2":
                 self.voyages.show_voyage_menu()
