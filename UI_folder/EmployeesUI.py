@@ -8,7 +8,6 @@ class EmployeesUI():
     
     def __init__(self , llapi):
         self.llapi = llapi
-        
 
     def choose_action(self, valid_list):
         action_str = input("Choose action: ").lower()
@@ -20,7 +19,6 @@ class EmployeesUI():
         else:
             print("Invalid action!")
             self.choose_action(valid_list)
-
 
     def get_input_number(self, ob_list):
         """ Gets an number from user and checks if it is right """
