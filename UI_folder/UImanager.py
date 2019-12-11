@@ -22,12 +22,12 @@ class UImanager():
         action_str = input("Choose action: ")
         print()
         
-        if action_str in valid_list:
-            return action_str
+        while action_str not in valid_list:
+            print("Invalid action!")
+            self.choose_action(valid_list)
             
         else:
-            print("Invalid action!")
-            self.choose_action(valid_list)   
+            return action_str
     
     def mainmenuUI(self):    
         action_str = ""
@@ -43,7 +43,7 @@ class UImanager():
             print("5 Search a date")
             print("Q Quit\n")
     
-            action_str = self.choose_action(["1", "2", "3", "4", "5"])
+            action_str = self.choose_action(["1", "2", "3", "4", "5","q"])
         
             if action_str == "1":
                 self.employees.show_employee_menu()
@@ -59,3 +59,7 @@ class UImanager():
 
             elif action_str == "5":
                 self.iaad.show_enter_date_menu()
+
+            elif action_str == "q":
+                break
+        
