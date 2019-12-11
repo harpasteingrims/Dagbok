@@ -19,12 +19,10 @@ class AirplanesUI():
         while True:
             print()
             print(self.LENGTH_STAR * "*")
-            print("AIRPLANE MENU")
-            print()
+            print("AIRPLANE MENU\n")
             print("1 Print overview of all airplanes")
             print("2 Create a new airplane")
-            print("B Back")
-            print()
+            print("B Back\n")
             
             action_str = self.choose_action()
 
