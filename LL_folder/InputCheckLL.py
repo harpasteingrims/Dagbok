@@ -182,7 +182,7 @@ class InputCheckLL():
 
     """CHECKING INPUT FOR IAAD"""
 
-    def check_clock(self, time):
+    def check_time(self, time):
 
         try:
             valid_time = datetime.datetime(2019, 1, 3, int(time[0]), int(time[1]), 0).isoformat()

@@ -110,9 +110,6 @@ class LLAPI():
     def calculate_arrival_time(self, new_voyage_object):
         return self.getvoyages.calculate_arrival_time(new_voyage_object)
 
-    def check_date(self, date):
-        return self.inputcheckll.check_date(date)
-
     """DESTINATIONS"""
 
     def get_destination_overview(self): #Þessi listi þarf að vera númeraður
@@ -183,8 +180,8 @@ class LLAPI():
     def get_airplane_status_by_date(self, user_input_date):
         return self.getiaad.list_airplane_status_by_date(user_input_date)
 
-    def check_clock(self, time):
-        return self.inputcheckll.check_clock(time)
+    def check_time(self, time):
+        return self.inputcheckll.check_time(time)
 
     """OTHER"""
 
