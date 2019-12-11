@@ -6,8 +6,9 @@ import datetime
 class InputCheckLL():
     '''Subclass of LLAPI that is designed to create something and error checking the input'''
     
-    def __init__(self, ioapi):
+    def __init__(self, ioapi, getvoyages):
         self.ioapi = ioapi
+        self.getvoyages = getvoyages
 
     """CHECKING INPUT FOR EMPLOYEES"""
 
@@ -49,19 +50,17 @@ class InputCheckLL():
         for employee_ob in employee_list:
             if ssn != employee_ob.ssn:
                 if int(ssn[4:6]) > 20:
-                    if len(ssn) == 10 and ssn.isdigit() and self.check_date("19" + ssn[4:6] + "-" + ssn[4:6]) != False:
+                    if len(ssn) == 10 and ssn.isdigit() and self.check_date(["19" + ssn[4:6], ssn[2:4], ssn[0:2]]) != False:
                         return ssn
                     else:
                         return False
                 elif ssn[4] == "0" and 0 < int(ssn[5]) < 4:
-                    if len(ssn) == 10 and ssn.isdigit() and self.check_iaad_month(ssn[2:4], "20" + ssn[4:6]) != False and self.check_iaad_day(ssn[0:2], ssn[2:4], "20" + ssn[4:6]) != False:
+                    if len(ssn) == 10 and ssn.isdigit() and self.check_date(["20" + ssn[4:6], ssn[2:4], ssn[0:2]]) != False:
                         return ssn
                     else:
                         return False
             else:
                 return False
-
-
         else:
             return False
     
@@ -106,7 +105,17 @@ class InputCheckLL():
 
     """CHECKING INPUT FOR VOYAGES"""
     
-    
+    def check_time(self, date, voyage_year, voyage_month, voyage_day):
+        unavailable_times_list = self.getvoyages.list_unavailable_voyage_time(self, voyage_year, voyage_month, voyage_day)
+        for unavailable_time_ob in unavailable_times_list:
+            if date[-8:] != unavailable_time_ob.date:
+                try:
+                    valid_time = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), int(date[3]), int(date[4]), 0).isoformat()
+                    return valid_time
+                except ValueError:
+                    return False
+            else:
+                return False
 
     """CHECKING INPUT FOR DESTINATIONS"""
 
@@ -182,24 +191,13 @@ class InputCheckLL():
 
     """CHECKING INPUT FOR IAAD"""
 
-    def check_timhe(self, time):
+    def check_iaad_time(self, time):
 
         try:
-            valid_time = datetime.datetime(int(time[0]), int(time[1]), int(time[2]), int(time[3]), int(time[4]), 0).isoformat()
-            return valid_time
+            valid_time = datetime.datetime(2019, 1, 1, int(time[0]), int(time[1]), 0).isoformat()
+            return valid_time[-8:]
         except ValueError:
             return False
-
-    def check_time(self, time):
-
-        try:
-            valid_time = datetime.datetime(int(time[0]), int(time[1]), int(time[2]), int(time[3]), int(time[4]), 0).isoformat()
-            return valid_time
-        except ValueError:
-            return False
-
-    def time_check(self, time):
-        pass
 
     """CHECKING INPUT FOR OTHER"""
     

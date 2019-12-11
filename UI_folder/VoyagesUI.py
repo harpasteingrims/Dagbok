@@ -109,7 +109,7 @@ class VoyagesUI():
         for airplane_elem in available_airplanes_list:
             print(f"{counter} {airplane_elem}")
             counter += 1
-        chosen_airplane_id = self.choose_a_number()
+        chosen_airplane_id = self.choose_a_number(available_airplanes_list)
         print("\n*Voyage successfully created*")
         arrival_time = 0
         new_voyage = VoyagesModel(departure_date, chosen_voyage_elem[0], chosen_airplane_id, arrival_time) #Á eftir að klára þetta
@@ -124,10 +124,11 @@ class VoyagesUI():
         print("\n*Date*")
         print("\nEnter outbound departure date")
         voyage_year, voyage_month,  voyage_day = self.get_year_month_day_voy().split("-")
-        print("\n*Unavailable time*")
         unavailable_time = self.llapi.get_unavailable_time_for_voyage(voyage_year, voyage_month, voyage_day) #Þetta prentar alla tímasetningar sem eru ekki í boði
-        for time_elem in unavailable_time:
-            print(f"\n{time_elem}")
+        if unavailable_time != []:
+            print("\n*Unavailable time*")
+            for time_elem in unavailable_time:
+                print(f"\n{time_elem}")
         print("\nEnter outbound departure time")
         voyage_date = self.get_hour_minute_voy(voyage_year, voyage_month,  voyage_day)
         #voyage_date = datetime.datetime(int(voyage_year), int(voyage_month), int(voyage_day), int(voyage_hour), int(voyage_minute), 0).isoformat()
@@ -275,11 +276,11 @@ class VoyagesUI():
             print("Invalid date")
             self.get_year_month_day_voy()
 
-    def get_hour_minute_voy(self, voyage_year, voyage_month,  voyage_day): #Checkar hvort þetta sé á réttu formi og hvort þetta séu int tölur, checkar einnig hvort það sé flug á þessum tíma
+    def get_hour_minute_voy(self, voyage_year, voyage_month, voyage_day): #Checkar hvort þetta sé á réttu formi og hvort þetta séu int tölur, checkar einnig hvort það sé flug á þessum tíma
         voyage_hour = input("Enter hour (hh): ")
         voyage_minute = input("Enter minute (mm): ")
         date = [voyage_year, voyage_month, voyage_day, voyage_hour, voyage_minute]
-        time_check = self.llapi.check_time(date)
+        time_check = self.llapi.check_time(date, voyage_year, voyage_month, voyage_day)
         if time_check:
             return time_check
         else:
