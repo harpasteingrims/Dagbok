@@ -181,6 +181,16 @@ class InputCheckLL():
 
     """CHECKING INPUT FOR IAAD"""
 
+    def date_check(self, date):
+        try:
+            valid_date = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), 00, 00, 0).isoformat()
+            return valid_date
+        except ValueError:
+            return False
+
+    def time_check(self, time):
+        pass
+
     def check_iaad_year(self, iaad_year):
 
         if len(iaad_year) == 4 and iaad_year.isdigit() and int(iaad_year) >= 2019:
