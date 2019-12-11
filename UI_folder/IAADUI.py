@@ -25,6 +25,8 @@ class IAADUI():
         print(self.LENGTH_STAR * "*")
         print("INFORMATION ABOUT A DAY\n")
         iaad_date = self.get_iaad_date()
+        while iaad_date == -1:
+            iaad_date = self.get_iaad_date()
 
         self.show_IAAD_menu(iaad_date)
         """ This prints out, input date """
@@ -138,7 +140,9 @@ class IAADUI():
         else:
             print("\nInvalid date\n")
             #self.get_iaad_date()
-            self.show_enter_date_menu()
+            date_check = -1
+            return date_check
+
 
     def get_iaad_time(self):
         iaad_hour = input("Enter hour (hh): ")
