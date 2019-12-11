@@ -106,7 +106,7 @@ class InputCheckLL():
     """CHECKING INPUT FOR VOYAGES"""
     
     def check_time(self, date, voyage_year, voyage_month, voyage_day):
-        unavailable_times_list = self.getvoyages.list_unavailable_voyage_time(self, voyage_year, voyage_month, voyage_day)
+        unavailable_times_list = self.getvoyages.list_unavailable_voyage_time( voyage_year, voyage_month, voyage_day)
         for unavailable_time_ob in unavailable_times_list:
             if date[-8:] != unavailable_time_ob.date:
                 try:
