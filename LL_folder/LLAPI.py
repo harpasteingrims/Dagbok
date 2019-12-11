@@ -108,7 +108,7 @@ class LLAPI():
         return self.ioapi.update_voyage(updated_voyage_ob)
     
     def calculate_arrival_time(self, new_voyage_object):
-        return self.inputcheckll.calculate_arrival_time(new_voyage_object)
+        return self.getvoyages.calculate_arrival_time(new_voyage_object)
 
     #Vantar check föll
 
