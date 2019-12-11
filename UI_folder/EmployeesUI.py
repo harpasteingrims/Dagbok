@@ -53,15 +53,13 @@ class EmployeesUI():
 
         employees_ob_list = self.llapi.get_employee_overview() #Hérna kallar hann í fall í llapanum sem heitir get_employee_overview sem returnar lista yfir alla starfsmenn
         
-        counter = 1
         for employee in employees_ob_list:
             if employee.role == "Cabin crew":
 
-                print(employee.print_crew_member_info_in_line(counter))
+                print(employee.to_csv_string())
 
             else:
-                print(employee.print_pilot_info_in_line(counter))
-            counter += 1
+                print(employee.to_csv_string())
         
         print("\nB Back\n")
 

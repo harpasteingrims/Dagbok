@@ -95,7 +95,6 @@ class CabincrewUI():
                 return chosen_crew_member_ob
             
             else:
-                else:
                 print("\nInvalid input!")
                 self.get_input_number(common_named_crew_members_list)
 

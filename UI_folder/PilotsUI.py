@@ -53,10 +53,8 @@ class PilotsUI():
         
         pilots_ob_list = self.llapi.get_pilot_overview() # Calls the class that makes a list of all pilots and prints it
         
-        counter = 1
         for pilot_ob in pilots_ob_list:
-            print(pilot_ob.print_pilot_info_in_line(counter))
-            counter += 1
+            print(pilot_ob.to_csv_string())
         
         print("\nB Back\n")
 
@@ -123,10 +121,8 @@ class PilotsUI():
                 counter = 1
                 for pilot_ob in common_named_pilots_list:
 
-                    print(pilot_ob.print_pilot_info_in_line(counter))
-
-                    counter += 1 
-
+                    print(pilot_ob.print_pilot_info_in_line())
+                    counter += 1
                 pilot_ob = self.get_input_number(common_named_pilots_list)
 
         
