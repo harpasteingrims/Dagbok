@@ -125,7 +125,7 @@ class EmployeesUI():
             staff_ob_list = self.llapi.get_cabin_crew_overview()
 
         for staff_ob in staff_ob_list:
-            print(staff_ob.print_info_in_line)
+            print(staff_ob.print_info_in_line())
         
         print("\nB Back\n")
 
@@ -157,11 +157,11 @@ class EmployeesUI():
         
         while True:
         
-            common_named_staff_list, input_name = self.get_input_name_and_common_name_list()
+            common_named_staff_list, input_name = self.get_input_name_and_common_name_list(staff_str)
             
             while common_named_staff_list == False:
                 print("{staff_str} does not exist!\n")
-                common_named_staff_list, input_name = self.get_input_name_and_common_name_list()
+                common_named_staff_list, input_name = self.get_input_name_and_common_name_list(staff_str)
             
             if len(common_named_staff_list) == 1:
                 staff_ob = common_named_staff_list[0]

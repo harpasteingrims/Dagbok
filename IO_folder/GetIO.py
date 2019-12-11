@@ -31,6 +31,7 @@ class GetIO():
         pilot_list = []
         counter = 1
         for line in pilot_file:
+            line = line.strip()
             if counter == 1:
                 counter += 1
             else:
@@ -49,10 +50,11 @@ class GetIO():
         cabincrew_list = []
         counter = 1
         for line in crew_file:
+            line = line.strip()
             if counter == 1:
                 counter += 1
             else:
-                ssn, name, role, rank, address, mobile_number, email = line.strip().split(", ")
+                ssn, name, role, rank, address, mobile_number, email = line.split(", ")
                 
                 cabincrew_employee = CabinCrewModel(ssn, name, role, rank, address, mobile_number, email)
                 cabincrew_list.append(cabincrew_employee)
