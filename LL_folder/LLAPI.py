@@ -10,13 +10,13 @@ from LL_folder.InputCheckLL import InputCheckLL
 class LLAPI():
     def __init__(self):
         self.ioapi = IOAPI()
-        self.inputcheckll = InputCheckLL(self.ioapi)
         self.updatell = UpdateLL(self.ioapi)
         self.getvoyages = GetVoyagesLL(self.ioapi)
         self.getairplanes = GetAirplanesLL(self.ioapi)
         self.getdestinations = GetDestinationsLL(self.ioapi)
         self.getemployees = GetEmployeesLL(self.ioapi)
         self.getiaad = GetIAAD(self.ioapi)
+        self.inputcheckll = InputCheckLL(self.ioapi, self.getvoyages)
 
     """ EMPLOYEES """
 
@@ -110,8 +110,8 @@ class LLAPI():
     def calculate_arrival_time(self, new_voyage_object):
         return self.getvoyages.calculate_arrival_time(new_voyage_object)
     
-    def check_time(self, time):
-        return self.inputcheckll.check_time(time)
+    def check_time(self, date, voyage_year, voyage_month, voyage_day):
+        return self.inputcheckll.check_time(date, voyage_year, voyage_month, voyage_day)
 
     """DESTINATIONS"""
 

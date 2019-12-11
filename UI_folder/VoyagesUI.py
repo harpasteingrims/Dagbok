@@ -275,11 +275,11 @@ class VoyagesUI():
             print("Invalid date")
             self.get_year_month_day_voy()
 
-    def get_hour_minute_voy(self, voyage_year, voyage_month,  voyage_day): #Checkar hvort þetta sé á réttu formi og hvort þetta séu int tölur, checkar einnig hvort það sé flug á þessum tíma
+    def get_hour_minute_voy(self, voyage_year, voyage_month, voyage_day): #Checkar hvort þetta sé á réttu formi og hvort þetta séu int tölur, checkar einnig hvort það sé flug á þessum tíma
         voyage_hour = input("Enter hour (hh): ")
         voyage_minute = input("Enter minute (mm): ")
         date = [voyage_year, voyage_month, voyage_day, voyage_hour, voyage_minute]
-        time_check = self.llapi.check_time(date)
+        time_check = self.llapi.check_time(date, voyage_year, voyage_month, voyage_day)
         if time_check:
             return time_check
         else:
