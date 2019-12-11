@@ -7,8 +7,6 @@ from UI_folder.VoyagesUI import VoyagesUI
 from UI_folder.EmployeesUI import EmployeesUI
 from UI_folder.AirplanesUI import AirplanesUI
 from UI_folder.IAADUI import IAADUI
-from UI_folder.CabincrewUI import CabincrewUI
-from UI_folder.PilotsUI import PilotsUI
 
 class UImanager():
     LENGTH_STAR = 20
@@ -19,18 +17,22 @@ class UImanager():
         self.voyages = VoyagesUI(self.llapi)
         self.destinations = DestinationsUI(self.llapi)
         self.airplanes = AirplanesUI(self.llapi)
-        self.cabincrew = CabincrewUI(self.llapi, self.employees)
-        self.pilots = PilotsUI(self.llapi, self.employees)
     
-    def choose_action(self):
-        action_str = input("Choose action: ").lower()
+    def choose_action(self, valid_list):
+        action_str = input("Choose action: ")
         print()
-        return action_str    
+        
+        if action_str in valid_list:
+            return action_str
+            
+        else:
+            print("Invalid action!")
+            self.choose_action(valid_list)   
     
     def mainmenuUI(self):    
         action_str = ""
 
-        while action_str != "q":
+        while action_str != "q" or action_str != "Q":
             print(self.LENGTH_STAR * "*")
             print("MAIN MENU\n")
             
@@ -41,7 +43,7 @@ class UImanager():
             print("5 Search a date")
             print("Q Quit\n")
     
-            action_str = self.choose_action()
+            action_str = self.choose_action(["1", "2", "3", "4", "5"])
         
             if action_str == "1":
                 self.employees.show_employee_menu()
@@ -57,6 +59,3 @@ class UImanager():
 
             elif action_str == "5":
                 self.iaad.show_enter_date_menu()
-
-            else:
-                print("\nInvalid action!\n")
