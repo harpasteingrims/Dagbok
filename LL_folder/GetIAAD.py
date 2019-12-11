@@ -78,6 +78,8 @@ class GetIAAD():
                                 if flights_on_day_list[i].aircraftID != voyage_ob.aircraftID:
                                     available_airplane_date = str(parsed_voyage_date.day) + "." + str(parsed_voyage_date.month) + "." + str(parsed_voyage_date.year) + " 00:00:00"
                                     break
+                        if available_airplane_date == "":
+                            available_airplane_date = str((parsed_input_date.day+1)) + "." + str(parsed_input_date.month) + "." + str(parsed_input_date.year) + " 00:00:00"
                             counter += 1
 
                     
