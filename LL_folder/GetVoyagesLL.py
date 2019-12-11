@@ -101,18 +101,22 @@ class GetVoyagesLL():
         return flights_on_asked_time
 
     def calculate_arrival_time(self, new_voyage_object):
+        
         arrival_time = ""
         departure_time = new_voyage_object.departure_time
+        parsed_departure_time = dateutil.parser.parse(departure_time)
+    
         if new_voyage_object.destination == "Longyearbyean":
-            arrival_time = datetime.datetime.strptime(departure_time) + timedelta(hours=2,minutes=47)
+            arrival_time = parsed_departure_time + timedelta(hours=2,minutes=47)
         elif new_voyage_object.destination == "Nuuk":
-            arrival_time = datetime.datetime.strptime(departure_time) + timedelta(hours=2,minutes=7)
+            arrival_time = parsed_departure_time + timedelta(hours=2,minutes=7)
         elif new_voyage_object.destination == "Kulusuk":
-            arrival_time = datetime.datetime.strptime(departure_time) + timedelta(hours=1,minutes=29)
+            arrival_time = parsed_departure_time + timedelta(hours=1,minutes=29)
         elif new_voyage_object.destination == "Thorshavn":
-           arrival_time = datetime.datetime.strptime(departure_time) + timedelta(hours=1,minutes=34)
+           arrival_time = parsed_departure_time + timedelta(hours=1,minutes=34)
         elif new_voyage_object.destination == "Tingwall":
-            arrival_time = datetime.datetime.strptime(departure_time) + timedelta(hours=5,minutes=47)
+            arrival_time = parsed_departure_time + timedelta(hours=5,minutes=47)
+        new_voyage_object.arrival_time = arrival_time
 
         return new_voyage_object
         
