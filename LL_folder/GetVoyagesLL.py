@@ -1,6 +1,7 @@
 import datetime
 import dateutil.parser
 from datetime import timedelta
+from datetime import datetime
 from models.VoyagesModel import VoyagesModel
 class GetVoyagesLL():
     def __init__(self, ioapi):
