@@ -62,6 +62,8 @@ class IAADUI():
 
     def show_enter_time_menu_airplane(self, iaad_date):
         time = self.get_iaad_time()
+        while time == -1:
+            time = self.get_iaad_time()
         date_new = iaad_date + "T" + time
         self.show_airplane_status(date_new)
     
@@ -139,7 +141,6 @@ class IAADUI():
             return date_check
         else:
             print("\nInvalid date\n")
-            #self.get_iaad_date()
             date_check = -1
             return date_check
 
@@ -155,4 +156,5 @@ class IAADUI():
             return time_check
         else:
             print("\nInvalid time\n")
-            self.get_iaad_time()
+            time_check = -1
+            return time_check
