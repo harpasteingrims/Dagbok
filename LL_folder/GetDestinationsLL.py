@@ -20,5 +20,5 @@ class GetDestinationsLL():
         desti_ob_list = self.list_all_destinations()
         self.destiID_number = len(desti_ob_list)
 
-        return self.destiID_number + 1
+        return self.destiID_number - 1
 

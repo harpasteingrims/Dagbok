@@ -141,7 +141,7 @@ class EmployeesUI():
         if staff_str == self.PILOT:
             common_named_staff_list = self.llapi.get_common_named_pilots(input_name)
 
-        if staff_str == self.CREW:
+        elif staff_str == self.CREW:
             common_named_staff_list = self.llapi.get_common_named_crew_members(input_name)
 
         return common_named_staff_list, input_name
@@ -164,7 +164,7 @@ class EmployeesUI():
             if len(common_named_staff_list) == 1:
                 staff_ob = common_named_staff_list[0]
                 print()
-                print(staff_ob.print_pilot_info())
+                print(staff_ob.print_info_in_line())
 
             else: 
                 counter = 1
@@ -178,7 +178,7 @@ class EmployeesUI():
             print()
             print(self.LENGTH_STAR * "*")
             print(f"{staff_ob.name.upper()}'S INFO\n")
-            print(staff_ob.print_pilot_info())
+            print(staff_ob.print_info_in_line())
     
             print(f"\n1 {staff_ob.name}'s flight schedule")
             print(f"2 Edit {staff_ob.name} address")
