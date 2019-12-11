@@ -109,7 +109,7 @@ class VoyagesUI():
         for airplane_elem in available_airplanes_list:
             print(f"{counter} {airplane_elem}")
             counter += 1
-        chosen_airplane_id = self.choose_a_number()
+        chosen_airplane_id = self.choose_a_number(available_airplanes_list)
         print("\n*Voyage successfully created*")
         arrival_time = 0
         new_voyage = VoyagesModel(departure_date, chosen_voyage_elem[0], chosen_airplane_id, arrival_time) #Á eftir að klára þetta
