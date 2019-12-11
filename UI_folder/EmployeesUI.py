@@ -10,6 +10,18 @@ class EmployeesUI():
         self.llapi = llapi
         
 
+    def choose_action(self, valid_list):
+        action_str = input("Choose action: ").lower()
+        print()
+        
+        if action_str in valid_list:
+            return action_str
+            
+        else:
+            print("Invalid action!")
+            self.choose_action(valid_list)
+
+
     def get_input_number(self, ob_list):
         """ Gets an number from user and checks if it is right """
         
@@ -50,18 +62,6 @@ class EmployeesUI():
 
             elif action_str == "b":
                 return
-
-
-    def choose_action(self, valid_list):
-        action_str = input("Choose action: ").lower()
-        print()
-        
-        if action_str in valid_list:
-            return action_str
-            
-        else:
-            print("Invalid action!")
-            self.choose_action(valid_list)
 
     
     def show_pilot_or_crew_menu(self, staff_str):
@@ -209,6 +209,11 @@ class EmployeesUI():
     def show_flight_schedule_of_employee(self, staff_ob):
         """Calls a class that makes a list of their voyages and prints it"""
 
+        print("\nB Back\nC Continue\n")
+        action_str = self.choose_action(["b", "c"])
+        if action_str == "b":
+            return
+
         date_from = self.get_date_from()
         date_to = self.get_date_to()
 
@@ -240,6 +245,11 @@ class EmployeesUI():
 
         print(self.LENGTH_STAR * "*")
         print(f"EDIT {staff_ob.role.upper()}\n")
+
+        print("\nB Back\nC Continue\n")
+        action_str = self.choose_action(["b", "c"])
+        if action_str == "b":
+            return
         
         if number == 1:
             print(f"You are changing {staff_ob.name}´s address\nNow the address is: {staff_ob.address}")
@@ -305,6 +315,11 @@ class EmployeesUI():
 
         print(self.LENGTH_STAR * "*")
         print(f"CREATE A NEW {staff_str}\n")
+        
+        print("\nB Back\nC Continue\n")
+        action_str = self.choose_action(["b", "c"])
+        if action_str == "b":
+            return
 
         name = self.get_name()
         ssn = self.get_ssn()
@@ -342,6 +357,8 @@ class EmployeesUI():
     def get_date_from(self):
         print(self.LENGTH_STAR * "*")
         print("Enter date from\n")
+
+        
         try:
             day_from = int(input("Enter day from: "))
             month_from = int(input("Enter month from: "))

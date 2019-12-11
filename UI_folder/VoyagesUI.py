@@ -7,10 +7,17 @@ class VoyagesUI():
     def __init__(self, llapi):
         self.llapi = llapi
     
-    def choose_action(self):
+    def choose_action(self, valid_list):
         action_str = input("Choose action: ").lower()
         print()
-        return action_str
+        
+        if action_str in valid_list:
+            return action_str
+            
+        else:
+            print("Invalid action!")
+            self.choose_action(valid_list)
+
     
     def show_voyage_menu(self):
         """This prints the voyage menu"""
@@ -20,15 +27,13 @@ class VoyagesUI():
         while True:
             print()
             print(self.LENGTH_STAR * "*")
-            print("VOYAGE MENU")
-            print()
+            print("VOYAGE MENU\n")
             print("1 Print overview of voyages")
             print("2 Create a voyage")
             print("3 Assign crew to flights")
-            print("B Back")
-            print()
+            print("B Back\n")
 
-            action_str = input("Choose action: ").lower()
+            action_str = self.choose_action(["1","2","3","b"])
 
             if action_str == "1":
                 self.show_voyage_overview()
@@ -51,23 +56,20 @@ class VoyagesUI():
 
         print("B Back\n")
 
-        action_str = self.choose_action()
+        action_str = self.choose_action(["b"])
 
         if action_str == "b":
             return
-        
-        else:
-            print("Invalid action!")
-            action_str = self.choose_action()
     
+
     def show_create_voyage_menu(self):
         """This prints the menu for create a voyage"""
         
-        print(self.LENGTH_STAR*"*")
-        print("CREATE A VOYAGE \n\n1 See common voyages\n2 Create a voyage manually\nB Back")
         print()
-
-        action_str = self.choose_action()
+        print(self.LENGTH_STAR*"*")
+        print("CREATE A VOYAGE \n\n1 See common voyages\n2 Create a voyage manually\nB Back\n")
+        
+        action_str = self.choose_action(["1", "2", "b"])
 
         if action_str == "1":
             self.show_see_common()
@@ -75,16 +77,18 @@ class VoyagesUI():
             self.show_create_manually_form()
         elif action_str == "b":
             return
-        
-        else:
-            print("Invalid action!")
-            action_str = self.choose_action()
 
     def show_see_common(self):
         """This prints all the common voyages"""
         
         print(self.LENGTH_STAR * "*")
         print("SEE COMMON VOYAGES")
+        
+        print("\nB Back\nC Continue\n")
+        action_str = self.choose_action(["b", "c"])
+        if action_str == "b":
+            return
+
         common_voyages_list = self.llapi.get_common_voyages()
         counter = 1
         for voyage_elem in common_voyages_list:
@@ -100,7 +104,13 @@ class VoyagesUI():
         
         print(self.LENGTH_STAR * "*")
         print("INPUT DEPARTURE DATE AND ARIPLANE ID")
+        print("\nB Back\nC Continue\n")
+        action_str = self.choose_action(["b", "c"])
+        if action_str == "b":
+            return
+        
         print("Enter outbound departure date")
+    
         departure_hour, departure_minute, departure_second = chosen_voyage_elem[1].split(":")
         departure_year, departure_month,  departure_day = self.get_year_month_day_voy().split("-")
         departure_date = datetime.datetime(int(departure_year), int(departure_month), int(departure_day), int(departure_hour), int(departure_minute), int(departure_second))
@@ -121,6 +131,12 @@ class VoyagesUI():
         
         print(self.LENGTH_STAR * "*")
         print("CREATE A VOYAGE MANUALLY")
+        
+        print("\nB Back\nC Continue\n")
+        action_str = self.choose_action(["b", "c"])
+        if action_str == "b":
+            return
+
         print("\n*Date*")
         print("\nEnter outbound departure date")
         voyage_year, voyage_month,  voyage_day = self.get_year_month_day_voy().split("-")
@@ -133,6 +149,7 @@ class VoyagesUI():
         print("\nEnter outbound departure time")
         voyage_date = self.get_hour_minute_voy(voyage_year, voyage_month,  voyage_day)
         #voyage_date = datetime.datetime(int(voyage_year), int(voyage_month), int(voyage_day), int(voyage_hour), int(voyage_minute), 0).isoformat()
+        
         print("\n*Airports*")
         airports = self.llapi.get_airport_overview() #Þetta prentar alla áfangastaði, þetta þarf að vera númerað
         counter = 1
@@ -140,6 +157,7 @@ class VoyagesUI():
             print(f"\n{counter} {airports_ob}")
             counter += 1
         voyage_airport = self.choose_a_number(airports) #Á eftir að villatékka númerið
+        
         print("\n*Airplane*")
         available_airplanes = self.llapi.get_available_airplanes_by_date(voyage_date)
         count = 1
@@ -181,7 +199,11 @@ class VoyagesUI():
         
         print(self.LENGTH_STAR * "*")
         print("ASSIGN CREW TO VOYAGES")
-        print("\nB Back") #Kannski sleppa
+        
+        print("\nB Back\nC Continue\n")
+        action_str = self.choose_action(["b", "c"])
+        if action_str == "b":
+            return
 
         available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
         counter = 1
