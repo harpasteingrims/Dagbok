@@ -85,7 +85,7 @@ class VoyagesUI():
         
         print(self.LENGTH_STAR * "*")
         print("SEE COMMON VOYAGES")
-        common_voyages = self.llapi.get_common_voyages()
+        common_voyages_list = self.llapi.get_common_voyages()
         counter = 1
         for voyage_elem in common_voyages_list:
             print(f"\n{counter} {voyage_elem[0]}, {voyage_elem[1]}")
@@ -93,7 +93,6 @@ class VoyagesUI():
         chosen_voyage_elem = self.choose_a_number(common_voyages_list)
 
         self.show_create_a_common_voyage_form(chosen_voyage_elem)
-  -
         return chosen_voyage_elem
 
     def show_create_a_common_voyage_form(self, chosen_voyage_elem):
@@ -138,14 +137,14 @@ class VoyagesUI():
         for airports_ob in airports: #Ætti örugglega að vera airports_elem
             print(f"\n{counter} {airports_ob}")
             counter += 1
-        voyage_airport = self.choose_a_number() #Á eftir að villatékka númerið
+        voyage_airport = self.choose_a_number(airports) #Á eftir að villatékka númerið
         print("\n*Airplane*")
         available_airplanes = self.llapi.get_available_airplanes_by_date(voyage_date)
         count = 1
         for airplane_ob in available_airplanes:
             print(f"\n{count} {airplane_ob}")
             count += 1
-        voyage_airplane = self.choose_a_number() #Á eftir að villutékka númerið
+        voyage_airplane = self.choose_a_number(available_airplanes) #Á eftir að villutékka númerið
 
         print("\n1 Assign crew to voyage\nS Save\nB Back\n")
 
@@ -245,8 +244,8 @@ class VoyagesUI():
     
     def choose_a_number(self, ob_list):
         chosen_number = input("\nChoose a number: ")
-        check_number = self.llapi.check_chosen_number(chosen_number, ob_list)
-        if check_number:
+        ob_item = self.llapi.check_chosen_number(chosen_number, ob_list)
+        if ob_item:
             return ob_item
 
         else:

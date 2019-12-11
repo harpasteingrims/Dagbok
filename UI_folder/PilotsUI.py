@@ -1,4 +1,4 @@
-from models.PilotModel import PilotsModel
+from models.PilotsModel import PilotsModel
 class PilotsUI():
     LENGTH_STAR = 20
 
