@@ -6,10 +6,16 @@ class AirplanesUI():
     def __init__(self, llapi):
         self.llapi = llapi
 
-    def choose_action(self):
+    def choose_action(self, valid_list):
         action_str = input("Choose action: ").lower()
         print()
-        return action_str
+        
+        if action_str in valid_list:
+            return action_str
+            
+        else:
+            print("Invalid action!")
+            self.choose_action(valid_list)
         
     def show_airplane_menu(self):
         """This prints the airplane menu"""
@@ -24,7 +30,7 @@ class AirplanesUI():
             print("2 Create a new airplane")
             print("B Back\n")
             
-            action_str = self.choose_action()
+            action_str = self.choose_action(["1","2","b"])
 
             if action_str  == "1":
                 self.show_airplane_overview()
@@ -32,8 +38,6 @@ class AirplanesUI():
                 self.show_create_airplane_form()
             elif action_str == "b":
                 return
-            else:
-                print("Invalid action!")
 
     def show_airplane_overview(self):
         """This prints the overview of all airplanes"""
@@ -43,24 +47,26 @@ class AirplanesUI():
 
         airplanes_ob_list = self.llapi.get_airplanes_overview() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
         for airplane_ob in airplanes_ob_list:
-            print(f"\n{airplane_ob.planeID},{airplane_ob.airplane_type},{airplane_ob.manufacturer},{airplane_ob.seat_amount}")
+            print(airplane_ob.print_out_line("*"))
 
         print("\nB Back\n")
 
-        action_str = self.choose_action()
+        action_str = self.choose_action(["b"])
 
         if action_str == "b":
             return
-            
-        else:
-            print("Invalid action!")
-            action_str = self.choose_action()   
+
 
     def show_create_airplane_form(self):
         """This prints the create an airplane form"""
 
         print(self.LENGTH_STAR * "*")
         print("CREATE A NEW AIRPLANE \n")
+
+        print("\nB Back\nC Continue\n")
+        action_str = self.choose_action(["b", "c"])
+        if action_str == "b":
+            return
 
         airplane_id = self.get_airplane_id()
         airplane_type = self.get_airplane_type()
@@ -69,21 +75,18 @@ class AirplanesUI():
         
         print("\nS Save \nB Back\n")
 
-        action_str = self.choose_action()
+        action_str = self.choose_action(["s","b"])
 
         if action_str == "s":
             #Takes the info and adds it to the airplane list
             new_airplane_object = AirplanesModel(airplane_id, airplane_type, manufacturer, seat_amount)
             self.llapi.create_new_airplane(new_airplane_object)
-            print(f"Airplane {new_airplane_object, airplane_id} successfully created\n")
+            print(f"Airplane {new_airplane_object.airplane_id} successfully created\n")
             return
 
         elif action_str == "b":
             return
-        
-        else:
-            print("Invalid action!")
-            action_str = self.choose_action()
+    
 
     def get_airplane_id(self):
         airplane_id = input("Enter airplane ID: ")
