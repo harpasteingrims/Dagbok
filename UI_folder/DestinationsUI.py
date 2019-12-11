@@ -145,7 +145,7 @@ class DestinationsUI():
         print("*"*self.LENGTH_STAR)
         print(chosen_country_ob.print_emergency())
 
-        name = self.llapi.check_name()
+        name = self.llapi.check_name(name)
         emergency_num = self.llapi.check_mobile_number()
         print("\nB Back\n")
         action_str = self.choose_action()
