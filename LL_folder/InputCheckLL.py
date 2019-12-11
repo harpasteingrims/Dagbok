@@ -202,3 +202,15 @@ class InputCheckLL():
         except ValueError:
             return False
 
+    def check_input_number(self, chosen_number, ob_list):
+        try:
+            chosen_number = int(chosen_number)
+            if chosen_number and 1 <= chosen_number <= len(ob_list):
+                chosen_ob = ob_list[chosen_number-1]
+                return chosen_ob
+
+            else:
+                return False
+        except ValueError:
+            return False
+
