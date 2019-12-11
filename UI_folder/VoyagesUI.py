@@ -298,7 +298,7 @@ class VoyagesUI():
             return date_check
         else:
             print("Invalid date")
-            self.get_year_month_day_voy()
+            self.show_create_manually_form()
 
     def get_hour_minute_voy(self, voyage_year, voyage_month, voyage_day): #Checkar hvort þetta sé á réttu formi og hvort þetta séu int tölur, checkar einnig hvort það sé flug á þessum tíma
         voyage_hour = input("Enter hour (hh): ")

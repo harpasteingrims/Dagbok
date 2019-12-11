@@ -137,7 +137,8 @@ class IAADUI():
             return date_check
         else:
             print("\nInvalid date\n")
-            self.get_iaad_date()
+            #self.get_iaad_date()
+            self.show_enter_date_menu()
 
     def get_iaad_time(self):
         iaad_hour = input("Enter hour (hh): ")
