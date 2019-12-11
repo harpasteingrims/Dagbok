@@ -109,6 +109,9 @@ class LLAPI():
     
     def calculate_arrival_time(self, new_voyage_object):
         return self.getvoyages.calculate_arrival_time(new_voyage_object)
+    
+    def check_time(self, time):
+        return self.inputcheckll.check_time(time)
 
     """DESTINATIONS"""
 
@@ -174,8 +177,8 @@ class LLAPI():
     def get_airplane_status_by_date(self, user_input_date):
         return self.getiaad.list_airplane_status_by_date(user_input_date)
 
-    def check_time(self, time):
-        return self.inputcheckll.check_time(time)
+    def check_iaad_time(self, time):
+        return self.inputcheckll.check_iaad_time(time)
 
     """OTHER"""
 

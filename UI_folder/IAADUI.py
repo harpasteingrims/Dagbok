@@ -159,7 +159,7 @@ class IAADUI():
         iaad_minute = input("Enter minute (mm): ")
         time = [iaad_hour, iaad_minute]
 
-        time_check = self.llapi.check_time(time)
+        time_check = self.llapi.check_iaad_time(time)
 
         if time_check:
             return time_check
