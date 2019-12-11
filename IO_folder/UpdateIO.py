@@ -54,7 +54,7 @@ class UpdateIO:
     def update_cabincrew(self, update_cabincrew):
         cabincrew_list = GetIO.load_all_cabincrew(self)
         with open("./csv_files/CabinCrew.csv","w", newline="") as csvfile:
-            fieldnames = [" ssn", " name", " role", " rank", " address", " mobile number", " email"]
+            fieldnames = [" ssn", " name", " role", " rank", " address", " mobile number", " email\n"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
 
