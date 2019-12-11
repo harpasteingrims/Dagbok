@@ -223,7 +223,7 @@ class GetIO():
         
         counter = 1
         for line in flights_with_crew_file:
-            line = line.strip().split(",")
+            line = line.strip().split(", ")
             if counter == 1:
                 counter += 1
             else:   
