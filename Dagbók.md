@@ -298,12 +298,59 @@ Vika 2: 02.12 - 06.12
             -Harpa: VoyagesUI og GetIAAD (láta það heita GetIAADLL)
 
 10.12.2019
+    Áætlun: Í dag er stormur og því hættum við ekki út fyrir rúmstokkinn. Kennararnir sögðu hvort eð er enga aðstoð að fá í skólanum þar sem þeir ætla að halda sig heima fyrir líka. Við download-uðum discord og héldum morgunfundinn þannig, á sama tíma og venjulega. Heimaverkefni gærdagsins gengu ágætlega. 
+        Nína:
+            -Klára licence type í employeesUI, klára flight schedule fyrir pilots og cabincrew. Þegar hún er búin kíkja hvort airplanes og destinations virkar
+        Hallmar: 
+            -Arrival time og flightnumber og klára að búa til voyage, bæði í create manually og common
+        Harpa: 
+            -Airplane status og voyage status í Getiaad, halda áfram að láta voyagesUI virka
+        Hildur: 
+            -Klárar öll input check kíkja á voyagesUI og það sem þarf að gera þar
+        Viktoría: 
+            -Laga CreateIO/UpdateIO og láta virka að búa til starfsmann og líka breyta starfsmann
 
-    -Nína: Klára licence type í employeesUI, klára flight schedule fyrir pilots og cabincrew. Þegar hún er búin kíkja hvort airplanes og destinations virkar
-    -Hallmar: Arrival time og flightnumber og klára að búa til voyage, bæði í create manually og common
-    -Harpa: Airplane status og voyage status í Getiaad, halda áfram að láta voyagesUI virka
-    -Hildur: Klárar öll input check kíkja á voyagesUI og það sem þarf að gera þar
-    -Viktoría: Laga CreateIO/UpdateIO og láta virka að búa til starfsmann og líka breyta starfsmann 
+    Samantekt
+        Það er dálítið seinlegt að vinna verkefnið svona í sitthvoru lagi. Engu að síður komumst við áfram með verkefnið. Status fyrir voyages var fært og status fyrir airplanes er komið í hús. Alltaf rekumst við á fleiri galla eftir því sem við komumst áfram en með sífelldum ítrunum fikrum við okkur nær markmiðinu. -SKÝRSLAN: updatea klasa ritið, updatea stöðuritið, búa til kafla í tengslum við virkni í forritinu og skrifa þar ítarlega afhverju við gerum ákveðna hluti í forritinu... Laga líka kröfurnar og skrifa hverjar eru loknar og þannig. Einnig má laga use cases og gera nýjan inngang og byrja á niðurstöðunum.
 
-    Ef einhvern vantar verkefni þá eru hér nokkur:
-        -SKÝRSLAN: updatea klasa ritið, updatea stöðuritið, búa til kafla í tengslum við virkni í forritinu og skrifa þar ítarlega afhverju við gerum ákveðna hluti í forritinu... Laga líka kröfurnar og skrifa hverjar eru loknar og þannig. Einnig má laga use cases og gera nýjan inngang og byrja á niðurstöðunum.
+11.12.2019
+    Áætlun: Vonandi þokast verkefnið vel áfram í dag. Það væri auðvitað frábært að geta klárað bróðurpart forritsins í dag og eiga bara fínpússanir á morgun. Sjáum til hvernig dagurinn þróast. 
+
+    Hallmar Orri: 
+        -Klára að uppfæra klasaritið
+        -Laga arrival time
+        -Kíkja á skýrslu
+    Harpa: 
+        -Halda áfram að fínpússa 
+        -Input Check fyrir choose a number
+        -Lagaði CreateVoyage þannig að unavailable times birtast ekki ef allt er laust þann daginn
+        -Reyna að fá CreateVoyage til að virka
+    Hildur: 
+        -Halda áfram með InputCheck-ið
+        -Vinna með Hörpu varðandi datetime og CreateVoyages
+        -Fínpússun kóða
+    Nína Margrét: 
+        -Eyddi og sameinaði klasa til að koma í veg fyrir endurtekinn kóða
+        -Redda choose action villu
+        -Update destination
+        -Overview af destinations og create destinations
+    Viktoría Inga: 
+        -Uppfæra stöðuritið
+        -Kíkja á skýrslu
+        -Gera alls konar sem hún átti ekki að gera
+        -Góð vinna í AirplanesUI
+        
+    Samantekt:
+        -Hluti hópsins var ekki viðstaddur í dag og því allnokkuð um að einstaklingar heima séu að gera eitthvað þvert á okkar aðgerðir hér í skólanum. Kemur sér einkar illa svona á lokametrunum en við vinnum bara með því. Hildi tókst að láta input check virka þannig fyrir kennitölur og tímasetningar að ekki er hægt að nýskrá það. Mikill sigur. 
+
+        -Heimaverkfni
+            -Nína: Gera license_type í Input check. Gera flight_schedule. Laga create number dict.
+            -Hildur: Input check fyrir Voyages
+            -Hallmar: Finna út úr því hvernig tímareikningurinn virkar í CreateVoyages
+            -Viktoría: æj búnað gleyma, hún fór í afmælisdinner og að hitta ömmu og afa.
+            -Harpa: VoyagesUI og GetIAAD (láta það heita GetIAADLL)
+
+
+            setja choose action inn í allt ui
+            klára updatedestination
+            fínpússa voyages kóða
