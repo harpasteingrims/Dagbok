@@ -127,8 +127,9 @@ class VoyagesUI():
         unavailable_time = self.llapi.get_unavailable_time_for_voyage(voyage_year, voyage_month, voyage_day) #Þetta prentar alla tímasetningar sem eru ekki í boði
         if unavailable_time != []:
             print("\n*Unavailable time*")
-            for time_elem in unavailable_time:
-                print(f"\n{time_elem}")
+            for time_ob in unavailable_time:
+                time_str = (time_ob.departure_time)[11:]
+                print(f"\n{time_str}")
         print("\nEnter outbound departure time")
         voyage_date = self.get_hour_minute_voy(voyage_year, voyage_month,  voyage_day)
         #voyage_date = datetime.datetime(int(voyage_year), int(voyage_month), int(voyage_day), int(voyage_hour), int(voyage_minute), 0).isoformat()
