@@ -132,7 +132,7 @@ class VoyagesUI():
             while date == -1:
                 date = self.get_year_month_day_voy()
             departure_year, departure_month,  departure_day = date.split("-")
-            departure_date = datetime.datetime(int(departure_year), int(departure_month), int(departure_day), int(departure_hour), int(departure_minute), int(departure_second))
+            departure_date = datetime.datetime(int(departure_year), int(departure_month), int(departure_day), int(departure_hour), int(departure_minute), int(departure_second)).isoformat()
             
             available_airplanes_list = self.llapi.get_available_airplanes_by_date(departure_date)
             chosen_airplane_id = self.print_objects_in_ob_list(available_airplanes_list)
