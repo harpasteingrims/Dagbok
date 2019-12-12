@@ -265,7 +265,7 @@ class VoyagesUI():
         
         if action_str == "b":
             return
-        elif action_str == "s":
+        elif action_str == "c":
 
             available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
         
