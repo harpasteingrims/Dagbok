@@ -34,11 +34,11 @@ class CreateIO():
             writer = csv.DictWriter(openfile, fieldnames = fieldnames)
             writer.writerow({"country": new_destination.country, "airport": new_destination.airport, "flight_dur_from_Ice": new_destination.flight_dur_from_Ice, "dist_from_Ice": new_destination.dist_from_Ice,"contact_name": new_destination.contact_name,"contact_phone_number": new_destination.contact_phone_number, "destiID": new_destination.destiID})
 
-    def store_voyage(self, outbound_flight, return_flight):
+    def store_voyage(self, new_voyage):
         with open('./csv_files/Flights.csv', 'a', newline = " ") as openfile:
-            fieldnames = ["outbound_flight_num" ,"departure_dest" ,"destination" ,"departure_time" ,"arrival_time" ,"aircraftID" ,"\nreturn_flight_num" ,"destination","departure_dest", "return_departure_time","return_arrival_time","aircraftID" ]
+            fieldnames = ["flight_num" ,"departure_dest" ,"destination" ,"departure_time" ,"arrival_time" ,"aircraftID"]
             writer = csv.DictWriter(openfile, fieldnames = fieldnames)
-            writer.writerow({"outbound_flight_num": outbound_flight.outbound_flight_num, "departure_dest": outbound_flight.departure_dest, "destination": outbound_flight.destination,"departure_time" : outbound_flight.departure_time, "arrival_time": outbound_flight.arrival_time,"aircraftID": outbound_flight.aircraftID,"\nreturn_flight_num": return_flight.return_flight_num, "destination": return_flight.destination, "departure_dest": return_flight.departure_dest, "return_departure_time": return_flight.return_departure_time, "return_arrival_time": return_flight.return_arrival_time, "aircraftID" : return_flight.aircraftID})
+            writer.writerow({"flight_num": new_voyage.outbound_flight_num, "departure_dest": new_voyage.departure_dest, "destination": new_voyage.destination,"departure_time" : new_voyage.departure_time, "arrival_time": new_voyage.arrival_time,"aircraftID": new_voyage.aircraftID,"\nflight_num": new_voyage.return_flight_num, "departure_dest": new_voyage.destination, "destination": new_voyage.departure_dest, "departure_time": new_voyage.return_departure_time, "arrival_time": new_voyage.return_arrival_time, "aircraftID" : new_voyage.aircraftID})
 
             #{self.outbound_flight_num}, {self.departure_dest}, {self.destination}, {self.departure_time}, {self.arrival_time}, {self.aircraftID}"
             #{self.return_flight_num}, {self.destination}, {self.departure_dest}, {self.return_departure_time}, {self.return_arrival_time}, {self.aircraftID}"
