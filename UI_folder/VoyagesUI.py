@@ -222,7 +222,7 @@ class VoyagesUI():
             elif action_str == "b":
                 return
 
-    def go_through_av_employee_list(self, staff_str, voyage_date, number = 0):
+    def process_employee_list(self, staff_str, voyage_date, number = 0):
 
         available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
         counter = 1
