@@ -277,11 +277,11 @@ class VoyagesUI():
 
             available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
         
-            captain_ob = self.go_through_av_employee_list("Captain", voyage_date)
-            copilot_ob = self.go_through_av_employee_list("Copilot", voyage_date)
-            senior_cabincrew_member_ob = self.go_through_av_employee_list("Flight Service Manager", voyage_date)
-            cabincrew_member_1_ob = self.go_through_av_employee_list("Flight Attendant",voyage_date, 1)
-            cabincrew_member_2_ob = self.go_through_av_employee_list("Flight Attendant", voyage_date, 2)
+            captain_ob = self.process_employee_list("Captain", voyage_date)
+            copilot_ob = self.process_employee_list("Copilot", voyage_date)
+            senior_cabincrew_member_ob = self.process_employee_list("Flight Service Manager", voyage_date)
+            cabincrew_member_1_ob = self.process_employee_list("Flight Attendant",voyage_date, 1)
+            cabincrew_member_2_ob = self.process_employee_list("Flight Attendant", voyage_date, 2)
                 
             crew_list = [captain_ob, copilot_ob, senior_cabincrew_member_ob, cabincrew_member_1_ob, cabincrew_member_2_ob]
             updated_voyage_ob = VoyagesModel(voyage_ob.departure_time, voyage_ob.destination, voyage_ob.aircraftID, voyage_ob.arrival_time, crew_list)
