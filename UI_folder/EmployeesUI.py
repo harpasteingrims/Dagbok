@@ -189,7 +189,7 @@ class EmployeesUI():
                 counter = 1
                 for staff_ob in common_named_staff_list:
 
-                    print(staff_ob.print_info_in_line("1"))
+                    print(staff_ob.print_info_in_line(counter))
                     counter += 1
                 
                 staff_ob = self.get_input_number(common_named_staff_list)
@@ -236,7 +236,7 @@ class EmployeesUI():
             return
 
         elif action_str == "c":
-            #valid_interval == ""
+           
             valid_interval = False
             while valid_interval != True:
                 date_from = self.get_date_from()
