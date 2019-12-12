@@ -31,10 +31,11 @@ class GetIO():
         pilot_list = []
         counter = 1
         for line in pilot_file:
+            line = line.strip()
             if counter == 1:
                 counter += 1
             else:
-                ssn, name, role, rank, license_type, address, mobile_number, email = line.replace(", ", ",").split(",")
+                ssn, name, role, rank, license_type, address, mobile_number, email = line.split(", ")
                 pilot = PilotsModel(ssn, name, role, rank, license_type, address, mobile_number, email)
                 pilot_list.append(pilot)
         
@@ -53,7 +54,7 @@ class GetIO():
             if counter == 1:
                 counter += 1
             else:
-                ssn, name, role, rank, address, mobilenumber, email = line.replace(", ", ",").split(",")
+                ssn, name, role, rank, address, mobilenumber, email = line.split(", ")
                 
                 cabincrew_employee = CabinCrewModel(ssn, name, role, rank, address, mobilenumber, email)
                 cabincrew_list.append(cabincrew_employee)
@@ -72,7 +73,7 @@ class GetIO():
             if counter == 1:
                 counter += 1
             else:
-                planeID, airplane_type, manufacturer, seat_amount = line.replace(", ", ",").split(",")
+                planeID, airplane_type, manufacturer, seat_amount = line.split(", ")
                 airplane = AirplanesModel(planeID, airplane_type, manufacturer, seat_amount)
                 airplane_list.append(airplane)
 
@@ -106,8 +107,7 @@ class GetIO():
         
         counter = 1
         for line in flights_with_crew_file:
-            line = line.strip()
-            line = line.replace(", ", ",").split(",")
+            line = line.strip().split(", ")
             if counter == 1:
                 counter += 1
             else:   
@@ -166,7 +166,7 @@ class GetIO():
 
         counter = 1
         for line in flights_with_crew_file:
-            line = line.replace(", ", ",").split(",")
+            line = line.strip().split(", ")
             if counter == 1:
                 counter += 1
             else:   
@@ -222,7 +222,7 @@ class GetIO():
         
         counter = 1
         for line in flights_with_crew_file:
-            line = line.replace(", ", ",").split(",")
+            line = line.strip().split(", ")
             if counter == 1:
                 counter += 1
             else:   
