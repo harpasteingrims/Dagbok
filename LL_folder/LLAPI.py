@@ -50,6 +50,9 @@ class LLAPI():
     def check_license_type(self, license_type_num, airplane_list):
         return self.inputcheckll.check_license_type(license_type_num, airplane_list)
 
+    def check_dates(self, date):
+        return self.inputcheckll.check_dates(date)
+
     """ PILOTS """
 
     def get_pilot_overview(self):
@@ -154,6 +157,9 @@ class LLAPI():
     def get_available_airplanes_by_date(self, voyage_date): #Þessi listi þarf að vera númeraður
         return self.getairplanes.list_available_airplanes_by_date(voyage_date)
 
+    def get_airplanes_for_UI(self):
+        return self.getairplanes.get_airplane_list()
+
     def create_new_airplane(self, new_airplane_object):
         return self.ioapi.create_airplane(new_airplane_object)
 
@@ -168,10 +174,6 @@ class LLAPI():
 
     def check_seat_amount(self, seat_amount):
         return self.inputcheckll.check_seat_amount(seat_amount)
-
-    def get_airplanes_for_UI(self):
-        return self.getairplanes.get_airplane_list()
-
 
     """IAAD"""
 

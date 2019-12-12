@@ -222,7 +222,11 @@ class EmployeesUI():
 
         elif action_str == "c":
             date_from = self.get_date_from()
+            while date_from == False:
+                date_from = self.get_date_from()
             date_to = self.get_date_to()
+            while date_to == False:
+                date_to = self.get_date_to()
 
             flights_on_asked_time = self.llapi.get_employee_schedule_by_date(staff_ob, date_from, date_to)
             
@@ -340,17 +344,33 @@ class EmployeesUI():
             return
         elif action_str == "c":
             name = self.get_name()
+            while name == False:
+                name = self.get_name()
             ssn = self.get_ssn()
+            while ssn == False:
+                ssn = self.get_ssn()
             address = self.get_address()
+            while address == False:
+                address = self.get_address()
             mobile_number = self.get_mobile_number()
+            while mobile_number == False:
+                mobile_number = self.get_mobile_number()
             email = self.get_email()
+            while email == False:
+                email = self.get_email()
             
             if staff_str == self.PILOT:
                 rank = self.get_pilot_rank()
+                while rank == False:
+                    rank = self.get_pilot_rank()
                 license_type = self.get_license_type()
+                while license_type == False:
+                    license_type = self.get_license_type()
 
             else:
                 rank = self.get_cabin_crew_rank()
+                while rank == False:
+                    rank = self.get_cabin_crew_rank()
 
             print("\nS Save \nB Back\n")
 
@@ -377,40 +397,37 @@ class EmployeesUI():
     def get_date_from(self):
         print(self.LENGTH_STAR * "*")
         print("Enter date from\n")
+        year_from = input("Enter year (yyyy): ")
+        month_from = input("Enter month (mm): ")
+        day_from = input("Enter day (dd): ")
+        date = [year_from, month_from, day_from, "00", "00", "00"]
 
-        
-        try:
-            day_from = int(input("Enter day from: "))
-            month_from = int(input("Enter month from: "))
-            year_from = int(input("Enter year from: "))
-        
-            date_from = datetime.datetime(year_from, month_from, day_from, 0, 0, 0).isoformat()
-            return date_from
+        date_check = self.llapi.check_dates(date)
 
-        except ValueError:
-            print("Invalid input, try again\n")
-            self.get_date_from()
+        if date_check:
+            return date_check
+        else:
+            print("\nInvalid date\n")
+            return date_check
 
     def get_date_to(self):
         print(self.LENGTH_STAR * "*")
         print("Enter date to\n")
-        try:
-            day_to = int(input("Enter day to: "))
-            month_to = int(input("Enter month to: "))
-            year_to = int(input("Enter year to: "))
+        year_to = input("Enter year (yyyy): ")
+        month_to = input("Enter month (mm): ")
+        day_to = input("Enter day (dd): ")
+        date = [year_to, month_to, day_to, "23", "59", "00"]
 
-            date_to = datetime.datetime(year_to, month_to, day_to, 23, 59, 0).isoformat()
-            return date_to
+        date_check = self.llapi.check_dates(date)
 
-        except ValueError:
-            print("Invalid input, try again\n")
-            self.get_date_to()
-
+        if date_check:
+            return date_check
+        else:
+            print("\nInvalid date\n")
+            return date_check
 
     def get_name(self):
-        
         name = input("\nEnter full name: ").lower()
-        print()
         name_check = self.llapi.check_name(name)
         
         if name_check:
@@ -418,14 +435,11 @@ class EmployeesUI():
             
         else:
             print("\nInvalid name\n")
-            self.get_name()
+            return name_check
 
 
     def get_pilot_rank(self):
-        
         rank = input("\nEnter number for either \n1 Captain \n2 Copilot\n: ")
-        print()
-
         rank_check = self.llapi.check_pilot_rank(rank)
         
         if rank_check:
@@ -433,13 +447,10 @@ class EmployeesUI():
         
         else:
             print("\nInvalid rank\n")
-            self.get_pilot_rank()
-    
+            return rank_check
+
     def get_cabin_crew_rank(self):
-
         rank = input("\nEnter number for either \n1 Flight Service Manager \n2 Flight Attendant\n: ")
-        print()
-
         rank_check = self.llapi.check_crew_member_rank(rank)
 
         if rank_check:
@@ -447,14 +458,10 @@ class EmployeesUI():
         
         else:
             print("\nInvalid rank")
-            self.get_cabin_crew_rank()
-        
+            return rank_check
 
     def get_ssn(self):
-        
         ssn = input("\nEnter social security number: ")
-        print()
-
         ssn_check = self.llapi.check_ssn(ssn)
 
         if ssn_check:
@@ -462,14 +469,10 @@ class EmployeesUI():
         
         else:
             print("\nInvalid SSN")
-            self.get_ssn()
-    
+            return ssn_check
 
     def get_address(self):
-        
         address = input("\nEnter address in form \n{address name} {house number}, {zip code} \n: ").replace(",", "").split()
-        print()
-
         address_check = self.llapi.check_address(address)
 
         if address_check:
@@ -477,14 +480,11 @@ class EmployeesUI():
         
         else:
             print("\nInvalid address")
-            self.get_address()
+            return address_check
 
 
     def get_mobile_number(self):
-        
         mobile_number = input("\nEnter mobile number: ")
-        print()
-
         mobile_number_check = self.llapi.check_mobile_number(mobile_number)
 
         if mobile_number_check:
@@ -492,41 +492,35 @@ class EmployeesUI():
         
         else:
             print("\nInvalid mobile_number")
-            self.get_mobile_number()
+            return mobile_number_check
     
 
     def get_email(self):
         email = input("Enter email: ")
-        print()
         email_check = self.llapi.check_email(email).lower()
 
         if email_check:
-            return email_check.capitalize()
+            return email_check
         
         else:
             print("\nInvalid email")
-            self.get_email()
-
+            return email_check
 
     def get_license_type(self):
-        
-        print("nOverview of license types:")
-        
+        print("\nOverview of license types:")
         airplane_list = self.llapi.get_airplanes_for_UI()
         
         counter = 1
         for airplane_type in airplane_list:
             print(f"{counter} {airplane_type}")
-            
             counter += 1
 
         license_type_num = input("\nEnter a number to choose the license type: ")
-        print()
         license_type_check = self.llapi.check_license_type(license_type_num, airplane_list)
     
         if license_type_check:
-            return license_type_check.capitalize()
+            return license_type_check
         
         else:
             print("\nInvalid license_type")
-            self.get_license_type()
+            return license_type_check
