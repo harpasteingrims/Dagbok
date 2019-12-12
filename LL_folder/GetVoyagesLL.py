@@ -100,24 +100,51 @@ class GetVoyagesLL():
         
         return flights_on_asked_time
 
-    def calculate_arrival_time(self, new_voyage_object):
+    def calculate_outbound_arrival_time(self, new_voyage_object):
         
         arrival_time = ""
         departure_time = new_voyage_object.departure_time
         parsed_departure_time = dateutil.parser.parse(departure_time)
-    
-        if new_voyage_object.destination == "Longyearbyean":
-            arrival_time = parsed_departure_time + timedelta(hours=2,minutes=47)
-        elif new_voyage_object.destination == "Nuuk":
-            arrival_time = parsed_departure_time + timedelta(hours=2,minutes=7)
-        elif new_voyage_object.destination == "Kulusuk":
-            arrival_time = parsed_departure_time + timedelta(hours=1,minutes=29)
-        elif new_voyage_object.destination == "Thorshavn":
-           arrival_time = parsed_departure_time + timedelta(hours=1,minutes=34)
-        elif new_voyage_object.destination == "Tingwall":
-            arrival_time = parsed_departure_time + timedelta(hours=5,minutes=47)
+
+        destination_list = self.ioapi.get_destination_list()
+
+        for destination_ob in destination_list:
+            if new_voyage_object.destination == destination_ob.airport:
+                distance = destination_ob.flight_dur_from_Ice
+                hours = distance[:2]
+                minutes = distance[3:]
+                arrival_time = (parsed_departure_time + timedelta(hours=int(hours),minutes=int(minutes))).isoformat()
         new_voyage_object.arrival_time = arrival_time
 
         return new_voyage_object
-        
+
+    def calculate_flight_num(self, new_voyage_object): #Þetta þarf að reikna bæði outbound flight num og return flight num
+        pass
+
+    def calculate_return_departure_time(self, new_voyage_object): #Þetta þarf að reikna return departure time, sem er einni klst meira en arrival_time
+        return_departure_time = ""
+        arrival_time = new_voyage_object.arrival_time
+        parsed_arrival_time = dateutil.parser.parse(arrival_time)
+
+        return_departure_time = (parsed_arrival_time + timedelta(hours = 1, minutes = 0)).isoformat()
+        new_voyage_object.return_departure_time = return_departure_time
+
+        return new_voyage_object
+
+    def calculate_return_arrival_time(self, new_voyage_object): #Þetta þarf að reikna return arrival time sem er svipað og hitt fallið
+        return_arrival_time = ""
+        return_departure_time = new_voyage_object.return_departure_time
+        parsed_return_departure_time = dateutil.parser.parse(return_departure_time)
+
+        destination_list = self.ioapi.get_destination_list()
+
+        for destination_ob in destination_list:
+            if new_voyage_object.destination == destination_ob.airport:
+                distance = destination_ob.flight_dur_from_Ice
+                hours = distance[:2]
+                minutes = distance[3:]
+                return_arrival_time = (parsed_return_departure_time + timedelta(hours=int(hours),minutes=int(minutes))).isoformat()
+        new_voyage_object.return_arrival_time = return_arrival_time
+
+        return new_voyage_object
     
