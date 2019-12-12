@@ -118,7 +118,7 @@ class EmployeesUI():
         """ Prints the overview of either """
         
         print(self.LENGTH_STAR * "*")
-        print(f"OVERVIEW OF {staff_str.upper()}S\n")
+        print(f"OVERVIEW OF {staff_str.upper()}S")
         
         if staff_str == self.PILOT:
             staff_ob_list = self.llapi.get_pilot_overview() # Calls the class that makes a list of all pilots and prints it
@@ -130,7 +130,7 @@ class EmployeesUI():
             print(staff_ob.print_info_in_line("*"))
         
         print(f"\nNAN AIR has {len(staff_ob_list)} {staff_str}s")
-        print("\nB Back\n")
+        print("\n\nB Back\n")
 
         action_str = self.choose_action(["b"])
         while action_str == False:
@@ -361,6 +361,7 @@ class EmployeesUI():
         if action_str == "b":
             return
         elif action_str == "c":
+            print(f"\nCreating a new {staff_str}\n")
             name = self.get_name()
             while name == False:
                 name = self.get_name()
@@ -426,7 +427,7 @@ class EmployeesUI():
         if date_check:
             return date_check
         else:
-            print("\nInvalid date\n")
+            print("\nInvalid date!\n")
             return date_check
 
     def get_date_to(self):
@@ -442,7 +443,7 @@ class EmployeesUI():
         if date_check:
             return date_check
         else:
-            print("\nInvalid date\n")
+            print("\nInvalid date!\n")
             return date_check
 
     def get_valid_interval(self, date_from, date_to):
@@ -450,7 +451,7 @@ class EmployeesUI():
         if valid_check == True:
             return valid_check
         else:
-            print("\nInvalid interval\n")
+            print("\nInvalid interval!\n")
             return valid_check
 
     def get_name(self):
@@ -461,7 +462,7 @@ class EmployeesUI():
             return name_check
             
         else:
-            print("\nInvalid name")
+            print("\nInvalid name!")
             return name_check
 
 
@@ -473,7 +474,7 @@ class EmployeesUI():
             return rank_check
         
         else:
-            print("\nInvalid rank\n")
+            print("\nInvalid rank!\n")
             return rank_check
 
     def get_cabin_crew_rank(self):
@@ -484,7 +485,7 @@ class EmployeesUI():
             return rank_check
         
         else:
-            print("\nInvalid rank")
+            print("\nInvalid rank!")
             return rank_check
 
     def get_ssn(self):
@@ -495,7 +496,7 @@ class EmployeesUI():
             return ssn_check
         
         else:
-            print("\nInvalid SSN")
+            print("\nInvalid ssn!")
             return ssn_check
 
     def get_address(self):
@@ -506,7 +507,7 @@ class EmployeesUI():
             return address_check
         
         else:
-            print("\nInvalid address")
+            print("\nInvalid address!")
             return address_check
 
 
@@ -518,7 +519,7 @@ class EmployeesUI():
             return mobile_number_check
         
         else:
-            print("\nInvalid mobile_number")
+            print("\nInvalid mobile_number!")
             return mobile_number_check
     
 
@@ -530,7 +531,7 @@ class EmployeesUI():
             return email_check
         
         else:
-            print("\nInvalid email")
+            print("\nInvalid email!")
             return email_check
 
     def get_license_type(self):
@@ -549,5 +550,5 @@ class EmployeesUI():
             return license_type_check
         
         else:
-            print("\nInvalid license_type")
+            print("\nInvalid license_type!")
             return license_type_check
