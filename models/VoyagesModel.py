@@ -10,7 +10,7 @@ class VoyagesModel():
         self.crew_list = crew_list
         self.outbound_flight_num = outbound_flight_num
         self.return_flight_num = return_flight_num
-        self return_departure_time = return_departure_time
+        self.return_departure_time = return_departure_time
         self.return_arrival_time = return_arrival_time
         self.departure_dest = departure_dest
 
@@ -21,7 +21,7 @@ class VoyagesModel():
         return f"\n{self.outbound_flight_num}, {self.departure_dest}, {self.destination}, {self.departure_time}, {self.arrival_time}, {self.aircraftID}"
 
     def return_flight_csv_string(self):
-        return f"\n{self.return_flight_num}, {self.destination}, {self.departure_dest}, {self return_departure_time}, {self.return_arrival_time}, {self.aircraftID}"
+        return f"\n{self.return_flight_num}, {self.destination}, {self.departure_dest}, {self.return_departure_time}, {self.return_arrival_time}, {self.aircraftID}"
  
     def print_voy_out(self, counter):
         return f"\n{counter} {self.departure_time}, {self.destination}, {self.aircraftID}"

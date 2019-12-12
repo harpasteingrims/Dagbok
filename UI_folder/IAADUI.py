@@ -1,5 +1,6 @@
 from LL_folder.LLAPI import LLAPI
 import datetime
+import dateutil.parser
 
 class IAADUI():
     LENGTH_STAR = 20
@@ -79,7 +80,7 @@ class IAADUI():
         for employee_ob in available_employees_list:
             print(f"\nName: {employee_ob.name}, rank: {employee_ob.rank}")
         
-
+        print(f"\nNAN AIR has {len(available_employees_list)} avaliable employees on {user_input_date.day}/{user_input_date.month}/{user_input_date.year}")
         print("\nB Back")
        
         action_str = self.choose_action(["b"])
@@ -98,7 +99,11 @@ class IAADUI():
 
         unavailable_employess = self.llapi.get_unavailable_emp_by_date(user_input_date)
         for employee_elem in unavailable_employess:
-            print(f"\nName: {employee_elem[0]}, destination: {employee_elem[1]}")
+            if unavailable_employess != []:
+                print(f"\nName: {employee_elem[0]}, destination: {employee_elem[1]}")
+                print(f"\nNAN AIR has {len(unavailable_employess)} unavaliable employees on {user_input_date.day}/{user_input_date.month}/{user_input_date.year}")
+            else:
+                print("There are no unavailable employess for that day")
 
         print("\nB Back")
 
