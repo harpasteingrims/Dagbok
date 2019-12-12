@@ -131,10 +131,10 @@ class GetVoyagesLL():
         voyage_list = self.list_all_voyages()
         highest_number = 0
         for voyage_ob in voyage_list:
-            if new_voyage_object.departure_time[0:9] == voyage_ob.departure_time[0:9] and new_voyage_object.destination == voyage_ob.destination:
+            if new_voyage_object.destination == voyage_ob.destination:
                 
-                if int(voyage_ob.return_flight_num[-1]) > highest_number:
-                    highest_number = int(voyage_ob.return_flight_num[-1])
+                if int(voyage_ob.return_flight_num[-2:]) > highest_number:
+                    highest_number = int(voyage_ob.return_flight_num[-2:])
         highest_number += 1
         outbound_flight_num = outbound_flight_num + str(highest_number)
         highest_number = int(highest_number)
