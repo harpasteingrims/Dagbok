@@ -420,6 +420,7 @@ class EmployeesUI():
             elif action_str == "b":
                 return
         
+        
     def get_date_from(self):
         print(self.LENGTH_STAR * "*")
         print("Enter date from\n")
