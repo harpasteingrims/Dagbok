@@ -136,7 +136,6 @@ class EmployeesUI():
     def get_input_name_and_common_name_list(self, staff_str):
         
         input_name = input(f"Enter name of {staff_str}: ").lower()
-        print()
 
         if staff_str == self.PILOT:
             common_named_staff_list = self.llapi.get_common_named_pilots(input_name)
@@ -164,7 +163,6 @@ class EmployeesUI():
             if len(common_named_staff_list) == 1:
                 staff_ob = common_named_staff_list[0]
                 print()
-                print(staff_ob.print_info_in_line())
 
             else: 
                 counter = 1
