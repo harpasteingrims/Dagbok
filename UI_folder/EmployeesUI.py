@@ -146,7 +146,8 @@ class EmployeesUI():
 
     def get_input_name_and_common_name_list(self, staff_str):
         
-        input_name = input(f"Enter name of {staff_str}: ").lower()    
+        input_name = input(f"Enter name of {staff_str}: ").lower() 
+        print()   
 
         if staff_str == self.PILOT:
             common_named_staff_list = self.llapi.get_common_named_pilots(input_name)
@@ -288,20 +289,26 @@ class EmployeesUI():
 
             if number == 1:
                 print(self.LENGTH_STAR * "*")
-                print(f"You are changing {staff_ob.name}´s address\nNow the address is: {staff_ob.address}")
+                print(f"You are changing {staff_ob.name}´s address\nThe current address is: {staff_ob.address}")
                 new_address = self.get_address()
+                while new_address == False:
+                    new_address = self.get_address()
                 success = self.check_action_edit_form(staff_ob, number, new_address)
 
             elif number == 2:
                 print(self.LENGTH_STAR * "*")
-                print(f"You are changing {staff_ob.name}´s mobile number\nNow the mobile number is: {staff_ob.mobile_number}")
+                print(f"You are changing {staff_ob.name}´s mobile number\nThe current mobile number is: {staff_ob.mobile_number}")
                 new_mobile_number = self.get_mobile_number()
+                while new_mobile_number == False:
+                    new_mobile_number = self.get_mobile_number
                 success = self.check_action_edit_form(staff_ob, number, new_mobile_number)
             
             elif number == 3:
                 print(self.LENGTH_STAR * "*")
-                print(f"You are changing {staff_ob.name}´s email\nNow the email is: {staff_ob.email}")
+                print(f"You are changing {staff_ob.name}´s email\nThe current the email is: {staff_ob.email}")
                 new_email = self.get_email()
+                while new_email == False:
+                    new_email = self.get_email()
                 success = self.check_action_edit_form(staff_ob, number, new_email)
         
             if success:
