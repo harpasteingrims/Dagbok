@@ -15,7 +15,7 @@ class AirplanesUI():
             
         else:
             print("Invalid action!")
-            self.choose_action(valid_list)
+            return False
         
     def show_airplane_menu(self):
         """This prints the airplane menu"""

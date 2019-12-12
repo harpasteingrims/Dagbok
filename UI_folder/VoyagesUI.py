@@ -35,7 +35,7 @@ class VoyagesUI():
 
             action_str = self.choose_action(["1","2","3","b"])
             while action_str == False:
-                action_str = self.choose_action(["1", "2", "3", "4", "5","q"])
+                action_str = self.choose_action(["1", "2", "3", "b"])
 
             if action_str == "1":
                 self.show_voyage_overview()
@@ -60,7 +60,7 @@ class VoyagesUI():
 
         action_str = self.choose_action(["b"])
         while action_str == False:
-                action_str = self.choose_action(["1", "2", "3", "4", "5","q"])
+                action_str = self.choose_action(["b"])
 
         if action_str == "b":
             return
@@ -74,7 +74,7 @@ class VoyagesUI():
         print("CREATE A VOYAGE \n\n1 See common voyages\n2 Create a voyage manually\nB Back\n")
         action_str = self.choose_action(["1", "2", "b"])
         while action_str == False:
-                action_str = self.choose_action(["1", "2", "3", "4", "5","q"])
+                action_str = self.choose_action(["1", "2", "b"])
 
         if action_str == "1":
             self.show_see_common()
@@ -92,21 +92,23 @@ class VoyagesUI():
         print("\nB Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
         while action_str == False:
-                action_str = self.choose_action(["1", "2", "3", "4", "5","q"])
+                action_str = self.choose_action(["b", "c"])
         if action_str == "b":
             return
+        
+        elif action_str == "c":
 
-        common_voyages_list = self.llapi.get_common_voyages()
-        counter = 1
-        for voyage_elem in common_voyages_list:
-            print(f"\n{counter} {voyage_elem[0]}, {voyage_elem[1][:-1]}")
-            counter += 1
-        chosen_voyage_elem = self.choose_a_number(common_voyages_list)
-        while chosen_voyage_elem == -1:
+            common_voyages_list = self.llapi.get_common_voyages()
+            counter = 1
+            for voyage_elem in common_voyages_list:
+                print(f"\n{counter} {voyage_elem[0]}, {voyage_elem[1][:-1]}")
+                counter += 1
             chosen_voyage_elem = self.choose_a_number(common_voyages_list)
+            while chosen_voyage_elem == -1:
+                chosen_voyage_elem = self.choose_a_number(common_voyages_list)
 
-        self.show_create_a_common_voyage_form(chosen_voyage_elem)
-        return chosen_voyage_elem
+            self.show_create_a_common_voyage_form(chosen_voyage_elem)
+            return chosen_voyage_elem
 
     def show_create_a_common_voyage_form(self, chosen_voyage_elem):
         """This creates a voyage from the common voyages but with a new date and a new id"""
@@ -116,27 +118,29 @@ class VoyagesUI():
         print("\nB Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
         while action_str == False:
-                action_str = self.choose_action(["1", "2", "3", "4", "5","q"])
+                action_str = self.choose_action(["b", "c"])
+        
         if action_str == "b":
             return
+        elif action_str == "c":
+
+            print("Enter outbound departure date")
         
-        print("Enter outbound departure date")
-    
-        departure_hour, departure_minute, departure_second = chosen_voyage_elem[1].split(":")
-        date = self.get_year_month_day_voy()
-        while date == -1:
+            departure_hour, departure_minute, departure_second = chosen_voyage_elem[1].split(":")
             date = self.get_year_month_day_voy()
-        departure_year, departure_month,  departure_day = date.split("-")
-        departure_date = datetime.datetime(int(departure_year), int(departure_month), int(departure_day), int(departure_hour), int(departure_minute), int(departure_second))
-        
-        available_airplanes_list = self.llapi.get_available_airplanes_by_date(departure_date)
-        chosen_airplane_id = self.print_objects_in_ob_list(available_airplanes_list)
-        
-        print("\n* Voyage successfully created *")
-        arrival_time = 0
-        new_voyage = VoyagesModel(departure_date, chosen_voyage_elem[0], chosen_airplane_id, arrival_time) #Á eftir að klára þetta
-        self.llapi.calculate_arrival_time(new_voyage)
-        self.llapi.create_new_voyage(new_voyage)
+            while date == -1:
+                date = self.get_year_month_day_voy()
+            departure_year, departure_month,  departure_day = date.split("-")
+            departure_date = datetime.datetime(int(departure_year), int(departure_month), int(departure_day), int(departure_hour), int(departure_minute), int(departure_second))
+            
+            available_airplanes_list = self.llapi.get_available_airplanes_by_date(departure_date)
+            chosen_airplane_id = self.print_objects_in_ob_list(available_airplanes_list)
+            
+            print("\n* Voyage successfully created *")
+            arrival_time = 0
+            new_voyage = VoyagesModel(departure_date, chosen_voyage_elem[0], chosen_airplane_id, arrival_time) #Á eftir að klára þetta
+            self.llapi.calculate_arrival_time(new_voyage)
+            self.llapi.create_new_voyage(new_voyage)
 
     def print_objects_in_ob_list(self, ob_list):
         counter = 1
@@ -160,57 +164,62 @@ class VoyagesUI():
         
         print("\nB Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
+        while action_str == False:
+            action_str = self.choose_action(["b", "c"])
+
         if action_str == "b":
             return
+        
+        elif action_str == "c":
 
-        print("* Date *\nEnter outbound departure date")
-        date = self.get_year_month_day_voy()
-        while date == -1:
-            print("Invalid date")
+            print("* Date *\nEnter outbound departure date")
             date = self.get_year_month_day_voy()
-        voyage_year, voyage_month,  voyage_day = date.split("-")
-        
-        unavailable_time = self.llapi.get_unavailable_time_for_voyage(voyage_year, voyage_month, voyage_day) #Þetta prentar alla tímasetningar sem eru ekki í boði
-        if unavailable_time != []:
-            print("\n* Unavailable time *")
-            for time_ob in unavailable_time:
-                time_str = (time_ob.departure_time)[11:]
-                print(f"\n{time_str}")
-        
-        print("\nEnter outbound departure time")
-        voyage_date = self.get_hour_minute_voy(voyage_year, voyage_month,  voyage_day)
-        while voyage_date == -1:
+            while date == -1:
+                print("Invalid date")
+                date = self.get_year_month_day_voy()
+            voyage_year, voyage_month,  voyage_day = date.split("-")
+            
+            unavailable_time = self.llapi.get_unavailable_time_for_voyage(voyage_year, voyage_month, voyage_day) #Þetta prentar alla tímasetningar sem eru ekki í boði
+            if unavailable_time != []:
+                print("\n* Unavailable time *")
+                for time_ob in unavailable_time:
+                    time_str = (time_ob.departure_time)[11:]
+                    print(f"\n{time_str}")
+            
+            print("\nEnter outbound departure time")
             voyage_date = self.get_hour_minute_voy(voyage_year, voyage_month,  voyage_day)
-        #voyage_date = datetime.datetime(int(voyage_year), int(voyage_month), int(voyage_day), int(voyage_hour), int(voyage_minute), 0).isoformat()
-        
-        print("\n* Airports *")
-        airports = self.llapi.get_airport_overview() #Þetta prentar alla áfangastaði, þetta þarf að vera númerað
-        voyage_airport = self.print_objects_in_ob_list(airports)
-        
-        print("\n* Airplane *")
-        available_airplanes = self.llapi.get_available_airplanes_by_date(voyage_date)
-        voyage_airplane = self.print_objects_in_ob_list(available_airplanes)
+            while voyage_date == -1:
+                voyage_date = self.get_hour_minute_voy(voyage_year, voyage_month,  voyage_day)
+            #voyage_date = datetime.datetime(int(voyage_year), int(voyage_month), int(voyage_day), int(voyage_hour), int(voyage_minute), 0).isoformat()
+            
+            print("\n* Airports *")
+            airports = self.llapi.get_airport_overview() #Þetta prentar alla áfangastaði, þetta þarf að vera númerað
+            voyage_airport = self.print_objects_in_ob_list(airports)
+            
+            print("\n* Airplane *")
+            available_airplanes = self.llapi.get_available_airplanes_by_date(voyage_date)
+            voyage_airplane = self.print_objects_in_ob_list(available_airplanes)
 
-        print("\n1 Assign crew to voyage\nS Save\nB Back\n")
+            print("\n1 Assign crew to voyage\nS Save\nB Back\n")
 
-        action_str = self.choose_action(["1", "s", "b"])
-        while chosen_voyage_elem == -1:
-            chosen_voyage_elem = self.choose_a_number(common_voyages_list)
+            action_str = self.choose_action(["1", "s", "b"])
+            while action_str == False:
+                action_str = self.choose_action(["1", "s", "b"])
 
-        if action_str == "1" or action_str == "s":
-            arrival_time = 0 #format fyrir date time
-            new_voyage = VoyagesModel(voyage_date, voyage_airport, voyage_airplane, arrival_time)
-            self.llapi.calculate_arrival_time(new_voyage)
-            self.llapi.create_new_voyage(new_voyage)
+            if action_str == "1" or action_str == "s":
+                arrival_time = 0 #format fyrir date time
+                new_voyage = VoyagesModel(voyage_date, voyage_airport, voyage_airplane, arrival_time)
+                self.llapi.calculate_arrival_time(new_voyage)
+                self.llapi.create_new_voyage(new_voyage)
 
-            if action_str == "1":
-                self.show_assign_staff_form(voyage_date, new_voyage)
-            elif action_str == "s":
-                print("\n* Voyage successfully created *")
+                if action_str == "1":
+                    self.show_assign_staff_form(voyage_date, new_voyage)
+                elif action_str == "s":
+                    print("\n* Voyage successfully created *")
+                    return
+
+            elif action_str == "b":
                 return
-
-        elif action_str == "b":
-            return
 
     def go_through_av_employee_list(self, staff_str, voyage_date, number = 0):
 
@@ -250,22 +259,24 @@ class VoyagesUI():
 
         print("\nB Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
-        while chosen_voyage_elem == -1:
-            chosen_voyage_elem = self.choose_a_number(common_voyages_list)
+        while action_str == False:
+                action_str = self.choose_action(["c", "b"])
+        
         if action_str == "b":
             return
+        elif action_str == "s":
 
-        available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
-       
-        captain_ob = self.go_through_av_employee_list("Captain", voyage_date)
-        copilot_ob = self.go_through_av_employee_list("Copilot", voyage_date)
-        senior_cabincrew_member_ob = self.go_through_av_employee_list("Flight Service Manager", voyage_date)
-        cabincrew_member_1_ob = self.go_through_av_employee_list("Flight Attendant",voyage_date, 1)
-        cabincrew_member_2_ob = self.choose_a_number("Flight Attendant", voyage_date, 2)
-            
-        crew_list = [captain_ob, copilot_ob, senior_cabincrew_member_ob, cabincrew_member_1_ob, cabincrew_member_2_ob]
-        updated_voyage_ob = VoyagesModel(voyage_ob.departure_time, voyage_ob.destination, voyage_ob.aircraftID, voyage_ob.arrival_time, crew_list)
-        self.llapi.update_voyage(updated_voyage_ob)
+            available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
+        
+            captain_ob = self.go_through_av_employee_list("Captain", voyage_date)
+            copilot_ob = self.go_through_av_employee_list("Copilot", voyage_date)
+            senior_cabincrew_member_ob = self.go_through_av_employee_list("Flight Service Manager", voyage_date)
+            cabincrew_member_1_ob = self.go_through_av_employee_list("Flight Attendant",voyage_date, 1)
+            cabincrew_member_2_ob = self.choose_a_number("Flight Attendant", voyage_date, 2)
+                
+            crew_list = [captain_ob, copilot_ob, senior_cabincrew_member_ob, cabincrew_member_1_ob, cabincrew_member_2_ob]
+            updated_voyage_ob = VoyagesModel(voyage_ob.departure_time, voyage_ob.destination, voyage_ob.aircraftID, voyage_ob.arrival_time, crew_list)
+            self.llapi.update_voyage(updated_voyage_ob)
 
 
     def show_not_staffed_voyages(self):
