@@ -62,6 +62,28 @@ class IAADUI():
         """ This prints out, input date """
         return iaad_date
 
+    def show_enter_date_menu_from(self):
+        """This prints the menu for choosing date to get information about""" 
+
+        print()
+        iaad_date = self.get_iaad_date()
+        while iaad_date == False:
+            print("Enter date from\n")
+            iaad_date = self.get_iaad_date()
+        """ This prints out, input date """
+        return iaad_date
+
+    def show_enter_date_menu_to(self):
+        """This prints the menu for choosing date to get information about""" 
+
+        print()
+        iaad_date = self.get_iaad_date()
+        while iaad_date == False:
+            print("Enter date to\n")
+            iaad_date = self.get_iaad_date()
+        """ This prints out, input date """
+        return iaad_date
+
     def show_enter_time_menu_airplane(self, iaad_date):
         time = self.get_iaad_time()
         while time == False:
@@ -154,8 +176,11 @@ class IAADUI():
         print(self.LENGTH_STAR * "*")
         print("VOYAGE STATUS\n")
 
-        iaad_date_to = self.show_enter_date_menu
-        iaad_date_from = self.show_enter_date_menu
+        print("Enter date from")
+        iaad_date_to = self.show_enter_date_menu_from()
+        print("\nEnter date to")
+        iaad_date_from = self.show_enter_date_menu_to()
+        print()
         
         voyage_status = self.llapi.get_voyages_status_by_date(iaad_date_to, iaad_date_from)
         print(voyage_status)
