@@ -10,24 +10,24 @@ import os
 
 class CreateIO():
     def store_pilot(self, new_pilot):
-        with open('./csv_files/Pilots.csv', 'a', newline = "") as fileToOpen:
+        with open('./csv_files/Pilots.csv', 'a', encoding= "utf8", newline = "") as fileToOpen:
             fieldnames = ["ssn", "name", "role", "rank", "plane license", "address", "mobile number", "email"]
             writer = csv.DictWriter(fileToOpen, fieldnames = fieldnames)
             writer.writerow({"ssn": new_pilot.ssn, "name": new_pilot.name, "role": new_pilot.role, "rank": new_pilot.rank, "plane license": new_pilot.license_type, "address": new_pilot.address, "mobile number": new_pilot.mobile_number, "email": new_pilot.email})
 
     def store_cabincrew(self, new_cabincrew):
-        with open('./csv_files/CabinCrew.csv', 'a', newline = None) as f:
+        with open('./csv_files/CabinCrew.csv', 'a', encoding= "utf8", newline = None) as f:
             f.write(new_cabincrew.to_csv_string())
         
     def store_airplane(self, new_airplane):
-        with open('./csv_files/Aircraft.csv', 'a', newline = None) as f:
+        with open('./csv_files/Aircraft.csv', 'a', encoding= "utf8", newline = None) as f:
             f.write(new_airplane.to_csv_string())
 
     def store_destination(self, new_destination):
-        with open('./csv_files/Destinations.csv', 'a', newline = None) as f:
+        with open('./csv_files/Destinations.csv', 'a', encoding= "utf8", newline = None) as f:
             f.write(new_destination.to_csv_string())
 
     def store_voyage(self, new_voyage):
-        with open('./csv_files/Flights.csv', 'a', newline = None) as f:
+        with open('./csv_files/Flights.csv', 'a', encoding= "utf8", newline = None) as f:
             f.write(new_voyage.outbound_flight_csv_string())
             f.write(new_voyage.return_flight_csv_string())
