@@ -13,17 +13,12 @@ class InputCheckLL():
     """CHECKING INPUT FOR EMPLOYEES"""
 
     def check_name(self, name):
-        if len(name.split()) > 1:
-            first_name, last_name = name.split()
-            if len(name) < 40 and first_name.isalpha() and last_name.isalpha():
-                return name.title()
-            else:
-                return False
+        if len(name.split()) > 1 and name.replace(" ", "").isalpha() and len(name) < 40:
+            return name.title()
         else: 
             return False
 
     def check_pilot_rank(self, rank):
-
         if rank == "1":
             rank = "Captain"
             return rank
@@ -34,7 +29,6 @@ class InputCheckLL():
             return False
         
     def check_crew_member_rank(self, rank):
-
         if rank == "1":
             rank = "Flight Service Manager"
             return rank
@@ -45,7 +39,6 @@ class InputCheckLL():
             return False
 
     def check_ssn(self, ssn):
-    
         employee_list = self.ioapi.get_list_of_all_employees()
         for employee_ob in employee_list:
             if ssn != employee_ob.ssn:
@@ -65,28 +58,18 @@ class InputCheckLL():
             return False
     
     def check_address(self, address):
-
-        if len(address) == 3:
-            address_name = address[0]
-            house_number = address[1]
-            zip_code = address[2]
-
-            if len(zip_code) == 3 and address_name.isalpha() and house_number.isdigit() and zip_code.isdigit():
+        if len(address) == 3 and len(address[2]) == 3 and address[0].isalpha() and address[1].isdigit() and address[2].isdigit():
                 return address[0].capitalize() + " " + str(address[1]) + " " + str(address[2])
-            else: 
-                return False
         else: 
             return False
 
     def check_mobile_number(self, mobile_number):
-        
         if len(mobile_number) == 7 and mobile_number.isdigit():
             return mobile_number
         else:
             return False
 
     def check_email(self, email):
-
         if "@" in email and "." in email:
             return email.lower()
         else:

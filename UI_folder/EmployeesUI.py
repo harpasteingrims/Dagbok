@@ -225,7 +225,6 @@ class EmployeesUI():
             elif action_str == "b":
                 return
 
-
     def show_flight_schedule_of_employee(self, staff_ob):
         """Calls a class that makes a list of their voyages and prints it"""
         print("Continue to pick dates")
@@ -271,7 +270,6 @@ class EmployeesUI():
 
             if action_str == "b":
                 return
-        
 
     def show_employee_edit_form(self, staff_ob, number):
         """This prints the edit form for an employee"""
@@ -314,7 +312,6 @@ class EmployeesUI():
         print(f"{staff_ob.name}'s information successfully changed")
         
         return
-
 
     def check_action_edit_form(self, staff_ob, number, new_info):
         
@@ -360,9 +357,9 @@ class EmployeesUI():
         """ This prints the create a pilot form """
 
         print(self.LENGTH_STAR * "*")
-        print(f"CREATE A NEW {staff_str}\n")
+        print(f"CREATE A NEW {staff_str.upper()}\n")
         
-        print("\nB Back\nC Continue\n")
+        print("B Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
         while action_str == False:
             action_str = self.choose_action(["b", "c"])
@@ -461,14 +458,14 @@ class EmployeesUI():
             return valid_check
 
     def get_name(self):
-        name = input("\nEnter full name: ").lower()
+        name = input("Enter full name: ").lower()
         name_check = self.llapi.check_name(name)
         
         if name_check:
             return name_check
             
         else:
-            print("\nInvalid name\n")
+            print("\nInvalid name")
             return name_check
 
 
@@ -530,7 +527,7 @@ class EmployeesUI():
     
 
     def get_email(self):
-        email = input("Enter email: ")
+        email = input("\nEnter email: ")
         email_check = self.llapi.check_email(email)
 
         if email_check:
