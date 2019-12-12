@@ -163,6 +163,9 @@ class LLAPI():
     def check_manufacturer(self, manufacturer):
         return self.inputcheckll.check_manufacturer(manufacturer)
 
+    def check_airplane_type(self, airplane_type):
+        return self.inputcheckll.check_airplane_type(airplane_type)
+
     def check_seat_amount(self, seat_amount):
         return self.inputcheckll.check_seat_amount(seat_amount)
 

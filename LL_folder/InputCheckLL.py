@@ -153,16 +153,16 @@ class InputCheckLL():
 
     def check_flight_duration(self, flight_duration):
 
-        if flight_duration[0:1].isdigit() and flight_duration[3:5].isdigit() and flight_duration[2] == ":" and int(flight_duration[3:5]) < 60:
+        if len(flight_duration) == 5 and flight_duration[0:1].isdigit() and flight_duration[3:5].isdigit() and flight_duration[2] == ":" and int(flight_duration[3:5]) < 60:
             return flight_duration
         else:
             return False
 
     def check_distance(self, distance):
 
-        if distance[-3:] == " km" and distance[:-3].isdigit():
+        if distance[-3:] == " km" and distance[:-3].isdigit() and int(distance[:-3]) > 50:
             return distance 
-        elif distance[-2:] == "km" and distance[:-2].isdigit():
+        elif distance[-2:] == "km" and distance[:-2].isdigit() and int(distance[:-2]) > 50:
             return distance[:-2] + " " + distance[-2:]
         else:
             return False
@@ -174,6 +174,13 @@ class InputCheckLL():
         if len(airplane_id) == 6 and airplane_id[2] == "-":
             return airplane_id.upper()
         else: 
+            return False
+
+    def check_airplane_type(self, airplane_type):
+
+        if any(char.isdigit() for char in airplane_type) and any(char.isalpha() for char in airplane_type):
+            return airplane_type.capitalize()
+        else:
             return False
 
     def check_manufacturer(self, manufacturer):

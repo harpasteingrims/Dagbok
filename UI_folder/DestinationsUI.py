@@ -97,11 +97,23 @@ class DestinationsUI():
         elif action_str == "c":
 
             country = self.get_country()
+            while country == False:
+                country = self.get_country()
             airport = self.get_airport()
+            while airport == False:
+                airport = self.get_airport()
             flight_duration = self.get_flight_duration()
+            while flight_duration == False:
+                flight_duration = self.get_flight_duration()
             distance = self.get_distance()
+            while distance == False:
+                distance = self.get_distance()
             contact = self.get_contact()
+            while contact == False:
+                contact = self.get_contact()
             contact_number = self.get_contact_number()
+            while contact_number == False:
+                contact_number = self.get_contact_number()
             destiID = self.llapi.get_destiID()
 
             print("\nS Save \nB Back\n")
@@ -185,7 +197,7 @@ class DestinationsUI():
 
         else:
             print("\nInvalid country")
-            self.get_country()
+            return country_check
 
     def get_airport(self):
         airport = input("Enter airport: ")
@@ -196,21 +208,21 @@ class DestinationsUI():
 
         else:
             print("\nInvalid airport")
-            self.get_airport()
+            return airport_check
 
     def get_flight_duration(self):
-        flight_duration = input("Enter flight duration (hh:mm): ")
+        flight_duration = input("Enter flight duration {hh:mm}: ")
         flight_duration_check = self.llapi.check_flight_duration(flight_duration)
 
-        if flight_duration:
-            return flight_duration
+        if flight_duration_check:
+            return flight_duration_check
 
         else:
             print("\nInvalid flight duration")
-            self.get_flight_duration()
+            return flight_duration_check
 
     def get_distance(self):
-        distance = input("Enter distance from Iceland (x km): ")
+        distance = input("Enter distance from Iceland {x km}: ")
         distance_check = self.llapi.check_distance(distance)
 
         if distance_check:
@@ -218,10 +230,10 @@ class DestinationsUI():
 
         else:
             print("\nInvalid distance")
-            self.get_distance()
+            return distance_check
 
     def get_contact(self):
-        contact = input("Enter emergency contact name: ")
+        contact = input("Enter emergency contact name {first name} {last name}: ")
         contact_check = self.llapi.check_name(contact)
 
         if contact_check:
@@ -229,7 +241,7 @@ class DestinationsUI():
 
         else:
             print("\nInvalid contact")
-            self.get_contact()
+            return contact_check
 
     def get_contact_number(self):
         contact_number = input("Enter emergency contact phone number: ")
@@ -240,4 +252,4 @@ class DestinationsUI():
 
         else:
             print("\nInvalid emergency contact phone number: ")
-            self.get_contact_number()
+            return contact_number_check

@@ -23,7 +23,7 @@ class VoyagesModel():
         return f"\n{self.return_flight_num}, {self.destination}, {self.departure_dest}, {self.outbound_departure_time}, {self.outbound_arrival_time}, {self.aircraftID}"
  
     def print_voy_out(self, counter):
-        return f"\n{counter} {self.departure_time}, {self.destination}, {self.aircraftID}"
+        return f"\r\n{counter} {self.departure_time}, {self.destination}, {self.aircraftID}"
     
     def assign_crew_to_voyage(self, captain, copilot, fsm, fa1, fa2): #Held að crewið myndi verða hér listi af listum, en þurfum að hafa það bara sem lista
         staff_list = [captain, copilot, fsm, fa1, fa2]
@@ -34,7 +34,7 @@ class VoyagesModel():
         pass
 
     def csv_voyage_with_crew_to_string(self):
-        return f"\n{self.departure_time}, {self.arrival_time}, {self.destination}, {self.aircraftID}, {self.crew_list[0]}, {self.crew_list[1]}, {self.crew_list[2]}, {self.crew_list[3]}, {self.crew_list[4]}, {self.crew_list[5]}"
+        return f"\r\n{self.departure_time}, {self.arrival_time}, {self.destination}, {self.aircraftID}, {self.crew_list[0]}, {self.crew_list[1]}, {self.crew_list[2]}, {self.crew_list[3]}, {self.crew_list[4]}, {self.crew_list[5]}"
 
     def print_schedule(self, counter):
         departure_time = dateutil.parser.parse(self.departure_time)
@@ -42,7 +42,7 @@ class VoyagesModel():
 
         if len(self.crew_list) == 5:
 
-            return f"\n{counter} {self.destination}: {departure_time.day}/{departure_time.month}/{departure_time.year} - {arrival_time.day}/{arrival_time.month}/{arrival_time.year}, fully staffed"
+            return f"\r\n{counter} {self.destination}: {departure_time.day}/{departure_time.month}/{departure_time.year} - {arrival_time.day}/{arrival_time.month}/{arrival_time.year}, fully staffed"
 
         else:
-            return f"\n{counter} {self.destination}: {departure_time.day}/{departure_time.month}/{departure_time.year} - {arrival_time.day}/{arrival_time.month}/ {arrival_time.year}, not fully staffed"
+            return f"\r\n{counter} {self.destination}: {departure_time.day}/{departure_time.month}/{departure_time.year} - {arrival_time.day}/{arrival_time.month}/ {arrival_time.year}, not fully staffed"
