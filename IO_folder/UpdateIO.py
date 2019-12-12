@@ -24,14 +24,14 @@ class UpdateIO:
 
     def update_voyage(self, voyage_object):                    
         '''Updates a voyage'''
-        flights_list = GetIO.load_all_voyages(self)
+        voyages_list = GetIO.load_all_voyages(self)
         with open("./csv_files/Flights.csv","w", encoding= "utf8", newline="") as csvfile:
             fieldnames = ["flightNumber", " departingFrom", " arrivingAt", " departure", " arrival", " aircraftID", " captain", " copilot", " fsm", " fa1", " fa2"] 
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
         
-        for elem in flights_list:
-            if elem.departure_time == voyage_object.departure_time and elem.departingFrom == voyage_object.destination:
+        for elem in voyages_list:
+            if elem.departure_time == voyage_object.departure_time and elem.departingfrom == voyage_object.destination:
                 self.createio.store_voyage(voyage_object)
             else:
                 self.createio.store_voyage(elem)
