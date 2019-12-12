@@ -1,8 +1,8 @@
-ssn, name, role, rank, plane license, address, mobile number, email
+ssn, name, role,rank,plane license,address,mobile number,email
 3009907461, William Carillo, Pilot, Captain, NAFokkerF100, Lundur 12 200, 8958422, Williamca@gmail.com
 2910858778, Virginia Ho, Pilot, Captain, NABAE146, Birkigrund 5 200, 7612431, HoVirginia@gmail.com
 2706838569, Gerard Nelson, Pilot, Captain, NAFokkerF100, Storhofði 2 102, 8760098, GerardNel1@gmail.com
-2209955782, Allen Ley, Pilot, Captain, NABAE146, Suðurgata 89 220, 8778698, Leyallen3@gmail.com
+2209955782, Allen Ley, Pilot, Captain, NABAE146, Suðurgata 89 220, , Leyallen3@gmail.com
 2907675667, Felecia Moye, Pilot, Captain, NABAE146, Þonglabakki 20 109, 8104936, FeleciaMo9@gmail.com
 1309797899, Tyler Anderson, Pilot, Captain, NAFokkerF28, Hverafold 2 112, 7970649, TyAnderson@gmail.com
 2410876598, Nan Gage, Pilot, Copilot, NAFokkerF100, Fjarðargata 11 220, 7640926, NanGage12@gmail.com
@@ -16,4 +16,3 @@ ssn, name, role, rank, plane license, address, mobile number, email
 1809765645, Unnur Hall, Pilot, Captain, Nafokker134, Haukalind 9 201, 7879898, Unnur@hotmail.com
 2304981234, Massa Dodo, Pilot, Captain, Nafokker121, Halli 19 123, 1346445, Massa@gidj.com
 0912992222, Dfs Dfsj, Pilot, Captain, NAFokkerF28, Dsf 8 200, 8493029, vdfs@gmail.coom
-
