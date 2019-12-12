@@ -66,22 +66,21 @@ class IAADUI():
         """This prints the menu for choosing date to get information about""" 
 
         print()
-        iaad_date = self.get_iaad_date()
+        iaad_date = self.get_iaad_voyage_date()
         while iaad_date == False:
             print("Enter date from\n")
             iaad_date = self.get_iaad_date()
-        """ This prints out, input date """
+
         return iaad_date
 
     def show_enter_date_menu_to(self):
         """This prints the menu for choosing date to get information about""" 
 
         print()
-        iaad_date = self.get_iaad_date()
+        iaad_date = self.get_iaad_voyage_date()
         while iaad_date == False:
             print("Enter date to\n")
             iaad_date = self.get_iaad_date()
-        """ This prints out, input date """
         return iaad_date
 
     def show_enter_time_menu_airplane(self, iaad_date):
@@ -177,12 +176,15 @@ class IAADUI():
         print("VOYAGE STATUS\n")
 
         print("Enter date from")
-        iaad_date_from = self.show_enter_date_menu_from()
-        print("\nEnter date to")
-        iaad_date_to = self.show_enter_date_menu_to()
-        print()
+        valid_interval = False
+        while valid_interval != True:
+            iaad_date_from = self.show_enter_date_menu_from()
+            print("\nEnter date to")
+            iaad_date_to = self.show_enter_date_menu_to()
+            print()
+            valid_interval = self.get_valid_interval(iaad_date_from, iaad_date_to)
         
-        voyage_status_ob_list = self.llapi.get_voyages_status_by_date(iaad_date_to, iaad_date_from)
+        voyage_status_ob_list = self.llapi.get_voyages_status_by_date(iaad_date_from, iaad_date_to)
         if voyage_status_ob_list != []:
             for voyage_ob in voyage_status_ob_list:
                 if voyage_ob.crew_list == []:
@@ -212,6 +214,28 @@ class IAADUI():
         else:
             print("\nInvalid date\n")
             return date_check
+
+    def get_iaad_voyage_date(self):
+        iaad_year = input("Enter year (yyyy): ")
+        iaad_month = input("Enter month (mm): ")
+        iaad_day = input("Enter day (dd): ")
+        date = [iaad_year, iaad_month, iaad_day]
+
+        date_check = self.llapi.check_iaad_voyage_date(date)
+
+        if date_check:
+            return date_check
+        else:
+            print("\nInvalid date\n")
+            return date_check
+    
+    def get_valid_interval(self, date_from, date_to):
+        valid_check = self.llapi.check_date_interval(date_from, date_to)
+        if valid_check == True:
+            return valid_check
+        else:
+            print("\nInvalid interval\n")
+            return valid_check
 
     def get_iaad_time(self):
         iaad_hour = input("Enter hour (hh): ")
