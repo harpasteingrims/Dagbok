@@ -487,7 +487,7 @@ class EmployeesUI():
             return ssn_check
 
     def get_address(self):
-        address = input("\nEnter address in form \n{address name} {house number}, {zip code} \n: ").replace(",", "").split()
+        address = input("\nEnter address in form \n(address name) (house number), (zip code)\n: ").replace(",", "").split()
         address_check = self.llapi.check_address(address)
 
         if address_check:
@@ -527,7 +527,7 @@ class EmployeesUI():
         
         counter = 1
         for airplane_type in airplane_list:
-            print(f"{counter} {airplane_type}")
+            print(f"\n{counter} {airplane_type}")
             counter += 1
 
         license_type_num = input("\nEnter a number to choose the license type: ")
