@@ -353,21 +353,23 @@ Vika 2: 02.12 - 06.12
 12.12.2019
     Áætlun: Hörpu tókst að laga vandamálið með Inputcheck. Nína gerði alla heimavinnuna sína; choose action, update destination og sameina kóða í VoyagesUI. Viktoría gerði AirplanesUI, UpdateIO og skrásetti alla errora í docs skjal. Í dag ætlum við að leggja lokahönd á forritið og byrja að skipuleggja videoið. Seinni hluti dagsins á að fara í skýrsluvinnu og svoleiðis. 
 
-    Hallmar Orri: 
-        -tba
-    Harpa: 
+    Hallmar Orri:
+        -Búa til calculate flight number fall
+    Harpa:
         -Byrja að skipuleggja video
         -Fara yfir villur
-    Hildur: 
+    Hildur:
         -Skýrsluvinna
         -Uppfæra wireframes
         -Fara yfir stafsetningu og smáatriði
-    Nína Margrét: 
+    Nína Margrét:
         -Implementa lausnina hennar Hörpu í allt UI
         -Fara yfir villur
-    Viktoría Inga: 
+    Viktoría Inga:
         -Tilfallandi verkefni
         -Laga errora
+        -Klára stöðuritið
+        -Laga GetIO og CreateIO
         
     Samantekt:
         -

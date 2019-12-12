@@ -35,7 +35,7 @@ class GetIO():
             if counter == 1:
                 counter += 1
             else:
-                ssn, name, role, rank, license_type, address, mobile_number, email = line.split(", ")
+                ssn, name, role, rank, license_type, address, mobile_number, email = line.replace(", ", ",").split(",")
                 pilot = PilotsModel(ssn, name, role, rank, license_type, address, mobile_number, email)
                 pilot_list.append(pilot)
         
@@ -45,7 +45,7 @@ class GetIO():
 
     def load_all_cabincrew(self):
 
-        crew_file = open("./csv_files/CabinCrew.csv","r", encoding='utf-8')
+        crew_file = open("./csv_files/CabinCrew.csv","r")
         
         cabincrew_list = []
         counter = 1
@@ -64,7 +64,7 @@ class GetIO():
         
     def load_all_airplanes(self):
         '''Retrieves airplanes and sends to Get LL'''
-        airplane_file = open("./csv_files/Aircraft.csv", "r")
+        airplane_file = open("./csv_files/Aircraft.csv", "rU")
 
         airplane_list = []
         counter = 1
@@ -82,7 +82,7 @@ class GetIO():
         return airplane_list
 
     def load_all_destinations(self):
-        dest_file = open("./csv_files/Destinations.csv", "r")
+        dest_file = open("./csv_files/Destinations.csv", "rU")
 
         destination_list = []
         counter = 1
@@ -101,7 +101,7 @@ class GetIO():
         return destination_list  
     
     def load_all_voyages(self):
-        flights_with_crew_file = open("./csv_files/Flights.csv","r")
+        flights_with_crew_file = open("./csv_files/Flights.csv","rU")
         flights_list = []
         voyages_list = []
         
@@ -161,7 +161,7 @@ class GetIO():
 
 
     def load_all_voyages_with_crew(self):
-        flights_with_crew_file = open("./csv_files/Flights.csv","r")
+        flights_with_crew_file = open("./csv_files/Flights.csv","rU")
         flights_list = []
         voyages_list = []
 
@@ -218,7 +218,7 @@ class GetIO():
         return voyages_list
 
     def load_all_flights(self):
-        flights_with_crew_file = open("./csv_files/Flights.csv","r")
+        flights_with_crew_file = open("./csv_files/Flights.csv","rU")
         flights_list = []
         
         counter = 1
