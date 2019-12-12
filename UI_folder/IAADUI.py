@@ -187,11 +187,17 @@ class IAADUI():
         voyage_status_ob_list = self.llapi.get_voyages_status_by_date(iaad_date_from, iaad_date_to)
         if voyage_status_ob_list != []:
             for voyage_ob in voyage_status_ob_list:
+                departure_time = dateutil.parser.parse(voyage_ob.departure_time)
+                arrival_time = dateutil.parser.parse(voyage_ob.return_arrival_time)
+                dep_date = str(departure_time.year) + "/" + str(departure_time.month) + "/" + str(departure_time.day)
+                dep_time = str(departure_time.hour) + ":" + str(departure_time.minute) + ":" + str(departure_time.second)
+                arriv_date = str(arrival_time.year) + "/" + str(arrival_time.month) + "/" + str(arrival_time.day)
+                arriv_time = str(arrival_time.hour) + ":" + str(arrival_time.minute) + ":" + str(arrival_time.second)
                 if voyage_ob.crew_list == []:
                     crew = "Not fully staffed"
                 else:
                     crew = "Fully staffed"
-                print(f"Outbound flight number: {voyage_ob.outbound_flight_num}, return flight number: {voyage_ob.return_flight_num}, destination: {voyage_ob.destination}, departure time from Iceland: {voyage_ob.departure_time}, arrival time in Iceland{voyage_ob.return_arrival_time}, {crew}")
+                print(f"Outbound flight number: {voyage_ob.outbound_flight_num}, return flight number: {voyage_ob.return_flight_num}, destination: {voyage_ob.destination}, departure time from Iceland: {dep_date} {dep_time}, arrival time in Iceland {arriv_date} {arriv_time}, {crew}\n")
 
 
         print()

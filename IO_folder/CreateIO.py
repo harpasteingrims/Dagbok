@@ -36,8 +36,6 @@ class CreateIO():
 
     def store_voyage(self, new_voyage):
         with open('./csv_files/Flights.csv', 'a', newline = "") as openfile:
-            #fieldnames = ["flight_num","departure_dest","destination","departure_time","arrival_time","aircraftID"]
-            #writer = csv.DictWriter(openfile, fieldnames = fieldnames)
             if new_voyage.crew_list == []:
                 fieldnames = ["flight_num","departure_dest","destination","departure_time","arrival_time","aircraftID"]
                 writer = csv.DictWriter(openfile, fieldnames = fieldnames)
