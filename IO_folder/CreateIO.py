@@ -26,7 +26,6 @@ class CreateIO():
         with open('./csv_files/Aircraft.csv', 'a', newline = "") as openfile:
             fieldnames = ["planeID", "airplane_type", "manufacturer", "seat_amount"]
             writer = csv.DictWriter(openfile, fieldnames = fieldnames)
-            self, planeID, airplane_type, manufacturer, seat_amount
             writer.writerow({"planeID": new_airplane.planeID, "airplane_type": new_airplane.airplane_type, "manufacturer": new_airplane.manufacturer, "seat_amount": new_airplane.seat_amount})
 
     def store_destination(self, new_destination):
