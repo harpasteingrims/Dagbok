@@ -219,7 +219,7 @@ class EmployeesUI():
         
         counter = 1
         if len(flights_on_asked_time) < 1:
-            print(f"{staff_ob.name} has no flights on selected period")
+            print(f"\n{staff_ob.name} has no flights on selected period")
 
         else:
             print(self.LENGTH_STAR * "*")
