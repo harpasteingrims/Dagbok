@@ -111,7 +111,7 @@ class LLAPI():
         return self.ioapi.update_voyage(updated_voyage_ob)
     
     def calculate_arrival_time(self, new_voyage_object):
-        return self.getvoyages.calculate_arrival_time(new_voyage_object)
+        return self.getvoyages.calculate_outbound_arrival_time(new_voyage_object)
     
     def check_time(self, date, voyage_year, voyage_month, voyage_day):
         unavailable_time_list = self.get_unavailable_time_for_voyage(voyage_year, voyage_month, voyage_day)
