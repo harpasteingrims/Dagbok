@@ -51,6 +51,8 @@ class AirplanesUI():
         for airplane_ob in airplanes_ob_list:
             print(airplane_ob.print_out_line("*"))
 
+        print(f"\nNAN AIR has {len(airplanes_ob_list)}")
+
         print("\nB Back\n")
 
         action_str = self.choose_action(["b"])
@@ -100,7 +102,7 @@ class AirplanesUI():
             
                 new_airplane_object = AirplanesModel(airplane_id, airplane_type, manufacturer, seat_amount)
                 self.llapi.create_new_airplane(new_airplane_object)
-                print(f"Airplane {new_airplane_object, airplane_id} successfully created\n")
+                print(f"Airplane {new_airplane_object.planeID} successfully created\n")
                 return
 
             elif action_str == "b":

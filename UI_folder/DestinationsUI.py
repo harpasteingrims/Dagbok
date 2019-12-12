@@ -70,7 +70,7 @@ class DestinationsUI():
         print("OVERVIEW OF DESTINATIONS\n")
 
         counter = self.print_desti_list("*")
-        print(f"NAN AIR flies to {counter} destinations")
+        print(f"\nNAN AIR flies to {counter} destinations")
 
         print("\nB Back\n")
 
