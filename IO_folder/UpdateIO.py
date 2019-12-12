@@ -31,10 +31,10 @@ class UpdateIO:
             writer.writeheader()
         
         for elem in voyages_list:
-            if elem.departure_time == voyage_object.departure_time and elem.departingfrom == voyage_object.destination:
-                self.createio.store_voyage(voyage_object)
+            if elem.departure_time == voyage_object.departure_time and elem.destination == voyage_object.destination:
+                self.createio.store_voyage_with_crew(voyage_object)
             else:
-                self.createio.store_voyage(elem)
+                self.createio.store_voyage_with_crew(elem)
 
     def update_pilot(self, update_pilot):
         ''' Updates a pilot '''
