@@ -67,7 +67,7 @@ class DestinationsUI():
         """This prints the overview of all destinations"""
 
         print("*"*self.LENGTH_STAR)
-        print("OVERVIEW OF DESTINATIONS\n")
+        print("OVERVIEW OF DESTINATIONS")
 
         counter = self.print_desti_list("*")
         print(f"\nNAN AIR flies to {counter} destinations")
