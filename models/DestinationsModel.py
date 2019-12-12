@@ -15,4 +15,4 @@ class DestinationsModel():
         return f"\n{str_infront} {self.country}, {self.airport}, {self.flight_dur_from_Ice}, {self.dist_from_Ice}, {self.contact_name}, {self.contact_phone_number}, {self.destiID}"
     
     def print_emergency(self):
-        return f"\n{self.country}´semergency contact on {self.airport}: \n\nName: {self.contact_name}\nNumber: {self.contact_phone_number}"
+        return f"\n{self.country}´s emergency contact in {self.airport}: \n\nName: {self.contact_name}\nNumber: {self.contact_phone_number}"

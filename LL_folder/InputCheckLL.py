@@ -105,7 +105,7 @@ class InputCheckLL():
 
     def check_dates(self, date):
         """Fær dag og tíma á formi lista og skila á datetime formi ef hann er valid"""
-        if len(date[0]) == 4:
+        if len(date[0]) == 4:   #Fyrsta stakið er árið, það verður að koma á formi fjögurra stafa því annars bætir datetime 0 við og úr verður algjört bull
             try:
                 valid_date = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), int(date[3]), int(date[4]), int(date[5])).isoformat()
                 return valid_date

@@ -149,7 +149,6 @@ class DestinationsUI():
             counter += 1
         return counter
 
-
     def show_edit_country_menu(self):
         """This prints the emergency contact menu"""
 
@@ -159,7 +158,7 @@ class DestinationsUI():
         print("B Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
         while action_str == False:
-                action_str = self.choose_action(["c", "b"])
+                action_str = self.choose_action(["b", "c"])
         
         if action_str == "b":
             return
@@ -167,6 +166,7 @@ class DestinationsUI():
             destinations_ob_list = self.llapi.get_destination_overview()
             self.print_desti_list(1)
             chosen_country_ob = self.get_input_number(destinations_ob_list)
+            print(chosen_country_ob)
 
             print(chosen_country_ob.print_emergency())
             
