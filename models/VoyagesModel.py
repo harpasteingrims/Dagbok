@@ -9,7 +9,7 @@ class VoyagesModel():
         self.crew_list = crew_list
 
     def to_csv_string(self):
-        return f"{self.departure_time}, {self.arrival_time}, {self.destination}, {self.aircraftID}"
+        return f"\n{self.departure_time}, {self.arrival_time}, {self.destination}, {self.aircraftID}"
  
     def print_voy_out(self, counter):
         return f"\n{counter} {self.departure_time}, {self.destination}, {self.aircraftID}"
