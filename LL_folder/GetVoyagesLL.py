@@ -122,8 +122,29 @@ class GetVoyagesLL():
         pass
 
     def calculate_return_departure_time(self, new_voyage_object): #Þetta þarf að reikna return departure time, sem er einni klst meira en arrival_time
-        pass
+        return_departure_time = ""
+        arrival_time = new_voyage_object.arrival_time
+        parsed_arrival_time = dateutil.parser.parse(arrival_time)
+
+        return_departure_time = (parsed_arrival_time + timedelta(hours = 1, minutes = 0)).isoformat()
+        new_voyage_object.return_departure_time = return_departure_time
+
+        return new_voyage_object
 
     def calculate_return_arrival_time(self, new_voyage_object): #Þetta þarf að reikna return arrival time sem er svipað og hitt fallið
-        pass
+        return_arrival_time = ""
+        return_departure_time = new_voyage_object.return_departure_time
+        parsed_return_departure_time = dateutil.parser.parse(return_departure_time)
+
+        destination_list = self.ioapi.get_destination_list()
+
+        for destination_ob in destination_list:
+            if new_voyage_object.destination == destination_ob.airport:
+                distance = destination_ob.flight_dur_from_Ice
+                hours = distance[:2]
+                minutes = distance[3:]
+                return_arrival_time = (parsed_return_departure_time + timedelta(hours=int(hours),minutes=int(minutes))).isoformat()
+        new_voyage_object.return_arrival_time = return_arrival_time
+
+        return new_voyage_object
     
