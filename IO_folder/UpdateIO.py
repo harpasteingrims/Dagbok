@@ -26,15 +26,15 @@ class UpdateIO:
         '''Updates a voyage'''
         voyages_list = GetIO.load_all_voyages(self)
         with open("./csv_files/Flights.csv","w", encoding= "utf8", newline="") as csvfile:
-            fieldnames = ["flightNumber", " departingFrom", " arrivingAt", " departure", " arrival", " aircraftID", " captain", " copilot", " fsm", " fa1", " fa2"] 
+            fieldnames = ["flightNumber", "departingFrom", "arrivingAt", "departure", "arrival", "aircraftID", "captain", "copilot", " fsm", "fa1", "fa2"] 
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
         
         for elem in voyages_list:
             if elem.departure_time == voyage_object.departure_time and elem.destination == voyage_object.destination:
-                self.createio.store_voyage_with_crew(voyage_object)
+                self.createio.store_voyage(voyage_object)
             else:
-                self.createio.store_voyage_with_crew(elem)
+                self.createio.store_voyage(elem)
 
     def update_pilot(self, update_pilot):
         ''' Updates a pilot '''
@@ -54,7 +54,7 @@ class UpdateIO:
     def update_cabincrew(self, update_cabincrew):
         cabincrew_list = GetIO.load_all_cabincrew(self)
         with open("./csv_files/CabinCrew.csv","w", encoding= "utf8", newline="") as csvfile:
-            fieldnames = [" ssn", " name", " role", " rank", " address", " mobile number", "email"]
+            fieldnames = ["ssn", " name", " role", " rank", " address", " mobile number", "email"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
 
