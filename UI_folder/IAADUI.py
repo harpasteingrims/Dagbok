@@ -198,6 +198,8 @@ class IAADUI():
                 else:
                     crew = "Fully staffed"
                 print(f"Outbound flight number: {voyage_ob.outbound_flight_num}, return flight number: {voyage_ob.return_flight_num}, destination: {voyage_ob.destination}, departure time from Iceland: {dep_date} {dep_time}, arrival time in Iceland {arriv_date} {arriv_time}, {crew}\n")
+        else:
+            print("There are no voyages for that time")
 
 
         print()
