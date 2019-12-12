@@ -177,13 +177,20 @@ class IAADUI():
         print("VOYAGE STATUS\n")
 
         print("Enter date from")
-        iaad_date_to = self.show_enter_date_menu_from()
+        iaad_date_from = self.show_enter_date_menu_from()
         print("\nEnter date to")
-        iaad_date_from = self.show_enter_date_menu_to()
+        iaad_date_to = self.show_enter_date_menu_to()
         print()
         
-        voyage_status = self.llapi.get_voyages_status_by_date(iaad_date_to, iaad_date_from)
-        print(voyage_status)
+        voyage_status_ob_list = self.llapi.get_voyages_status_by_date(iaad_date_to, iaad_date_from)
+        if voyage_status_ob_list != []:
+            for voyage_ob in voyage_status_ob_list:
+                if voyage_ob.crew_list == []:
+                    crew = "Not fully staffed"
+                else:
+                    crew = "Fully staffed"
+                print(f"Outbound flight number: {voyage_ob.outbound_flight_num}, return flight number: {voyage_ob.return_flight_num}, destination: {voyage_ob.destination}, departure time from Iceland: {voyage_ob.departure_time}, arrival time in Iceland{voyage_ob.return_arrival_time}, {crew}")
+
 
         print()
         print("B Back")
