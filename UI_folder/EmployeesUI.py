@@ -272,7 +272,7 @@ class EmployeesUI():
         print(self.LENGTH_STAR * "*")
         print(f"EDIT {staff_ob.role.upper()}\n")
 
-        print("\nB Back\nC Continue\n")
+        print("B Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
         while action_str == False:
             action_str = self.choose_action(["b", "c"])
