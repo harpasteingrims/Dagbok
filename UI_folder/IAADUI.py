@@ -69,7 +69,7 @@ class IAADUI():
         iaad_date = self.get_iaad_voyage_date()
         while iaad_date == False:
             print("Enter date from\n")
-            iaad_date = self.get_iaad_date()
+            iaad_date = self.get_iaad_voyage_date()
 
         return iaad_date
 
@@ -80,7 +80,7 @@ class IAADUI():
         iaad_date = self.get_iaad_voyage_date()
         while iaad_date == False:
             print("Enter date to\n")
-            iaad_date = self.get_iaad_date()
+            iaad_date = self.get_iaad_voyage_date()
         return iaad_date
 
     def show_enter_time_menu_airplane(self, iaad_date):
@@ -173,11 +173,11 @@ class IAADUI():
         """This prints the status of a voyage on a certain day"""
 
         print(self.LENGTH_STAR * "*")
-        print("VOYAGE STATUS\n")
+        print("VOYAGE STATUS")
 
-        print("Enter date from")
         valid_interval = False
         while valid_interval != True:
+            print("\nEnter date from")
             iaad_date_from = self.show_enter_date_menu_from()
             print("\nEnter date to")
             iaad_date_to = self.show_enter_date_menu_to()
