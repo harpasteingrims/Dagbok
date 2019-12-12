@@ -294,7 +294,7 @@ class VoyagesUI():
             updated_voyage_ob = VoyagesModel(voyage_ob.departure_time, voyage_ob.destination, voyage_ob.aircraftID, voyage_ob.arrival_time, crew_list, voyage_ob.outbound_flight_num, voyage_ob.return_flight_num, voyage_ob.return_departure_time, voyage_ob.return_arrival_time)
             self.llapi.update_voyage(updated_voyage_ob)
         
-            print("Staff assigned to voyage!")
+            print("Staff assigned to voyage!\n")
 
 
     def show_not_staffed_voyages(self):
