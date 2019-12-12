@@ -29,8 +29,8 @@ class CreateIO():
             writer.writerow({"planeID": new_airplane.planeID, "airplane_type": new_airplane.airplane_type, "manufacturer": new_airplane.manufacturer, "seat_amount": new_airplane.seat_amount})
 
     def store_destination(self, new_destination):
-        with open('./csv_files/Destinations.csv', 'a', newline = " ") as openfile:
-            fieldnames = ["country" ,"airport" ,"manufacturer" ,"flight_dur_from_Ice" ,"dist_from_Ice" ,"contact_name, contact_phone_number" ,"destiID" ]
+        with open('./csv_files/Destinations.csv', 'a', newline = "") as openfile:
+            fieldnames = ["country" ,"airport" ,"manufacturer" ,"flight_dur_from_Ice" ,"dist_from_Ice" ,"contact_name", "contact_phone_number" ,"destiID" ]
             writer = csv.DictWriter(openfile, fieldnames = fieldnames)
             writer.writerow({"country": new_destination.country, "airport": new_destination.airport, "flight_dur_from_Ice": new_destination.flight_dur_from_Ice, "dist_from_Ice": new_destination.dist_from_Ice,"contact_name": new_destination.contact_name,"contact_phone_number": new_destination.contact_phone_number, "destiID": new_destination.destiID})
 
@@ -50,8 +50,6 @@ class CreateIO():
                 writer.writerow({"flight_num": new_voyage.return_flight_num, "departure_dest": " " + new_voyage.destination, "destination": " " + new_voyage.departure_dest, "departure_time": " " + new_voyage.return_departure_time, "arrival_time": " " + new_voyage.return_arrival_time, "aircraftID" : " " + new_voyage.aircraftID, "captain": " " + new_voyage.crew_list[0], "copilot": " " + new_voyage.crew_list[1], "fsm": " " + new_voyage.crew_list[2], "fa1": " " + new_voyage.crew_list[3], "fa2": " " + new_voyage.crew_list[4]})
 
 
-            #{self.outbound_flight_num}, {self.departure_dest}, {self.destination}, {self.departure_time}, {self.arrival_time}, {self.aircraftID}"
-            #{self.return_flight_num}, {self.destination}, {self.departure_dest}, {self.return_departure_time}, {self.return_arrival_time}, {self.aircraftID}"
 
     def store_voyage_with_crew(self, new_voyage):
         with open('./csv_files/Flights.csv', 'a', newline = "") as openfile:

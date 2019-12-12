@@ -100,12 +100,11 @@ class AirplanesUI():
         if action_str == "b":
             return
 
-
     def show_create_airplane_form(self):
         """This prints the create an airplane form"""
 
         print(self.LENGTH_STAR * "*")
-        print("CREATE A NEW AIRPLANE \n")
+        print("CREATE A NEW AIRPLANE")
 
         print("\nB Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
@@ -147,7 +146,8 @@ class AirplanesUI():
                 return
     
     def get_airplane_id(self):
-        airplane_id = input("Enter airplane ID: ")
+        print("L for letter, n for number")
+        airplane_id = input("Enter airplane ID {LL-nnn}: ")
         airplane_id_check = self.llapi.check_airplane_id(airplane_id)
 
         if airplane_id_check:
