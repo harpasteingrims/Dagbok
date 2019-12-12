@@ -173,7 +173,11 @@ class DestinationsUI():
             print("*"*self.LENGTH_STAR)
             print("EDIT CONTACT\n")
             new_name = self.get_contact()
+            while new_name == False:
+                new_name = self.get_contact()
             new_emergency_num = self.get_contact_number()
+            while new_emergency_num == False:
+                new_emergency_num = self.get_contact_number()
         
             print("S Save \nB Back\n")
             action_str = self.choose_action(["b","s"])
