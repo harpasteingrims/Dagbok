@@ -18,7 +18,8 @@ class GetDestinationsLL():
 
     def make_destiID(self):
         desti_ob_list = self.list_all_destinations()
-        self.destiID_number = len(desti_ob_list)
+        number =  1 + len(desti_ob_list)
+        self.destiID_number = "0" + str(number)
 
-        return self.destiID_number - 1
+        return self.destiID_number
 
