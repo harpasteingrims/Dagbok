@@ -41,26 +41,65 @@ class AirplanesUI():
             elif action_str == "b":
                 return
 
+    def get_input_number(self, ob_list):
+        """ Gets an number from user and checks if it is right """
+        
+        chosen_number = input("\nChoose a number \nB for back\n\nEnter here: ")
+        if chosen_number == "b" or chosen_number == "B":
+            return "Back"
+        
+        else:
+            chosen_object = self.llapi.check_chosen_number(chosen_number, ob_list)
+            
+            if chosen_object:
+                return chosen_object
+
+            else:
+                print("\nInvalid input!")
+                self.get_input_number(ob_list)
+
     def show_airplane_overview(self):
         """This prints the overview of all airplanes"""
 
         print(self.LENGTH_STAR * "*")
         print("OVERVIEW OF AIRPLANES")
 
-        airplanes_ob_list = self.llapi.get_airplanes_overview() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
+        airplanes_ob_list = self.llapi.get_airplanes_overview() 
+        counter = 1
         for airplane_ob in airplanes_ob_list:
-            print(airplane_ob.print_out_line("*"))
+            print(airplane_ob.print_out_line(counter))
+            counter += 1
 
         print(f"\nNAN AIR has {len(airplanes_ob_list)} airplanes")
+
+        chosen_ob = self.get_input_number(airplanes_ob_list)
+        while chosen_ob == False:
+            chosen_ob = get_input_number(airplanes_ob_list)
+        
+        if chosen_ob == "Back":
+            return 
+        
+        elif chosen_ob:
+            self.list_pilots_with_licence_of_picked_airplane(chosen_ob)
+       
+
+    def list_pilots_with_licence_of_picked_airplane(self, chosen_airplane_ob):
+
+        all_pilots_list = self.llapi.get_pilot_overview()
+        print(f"\nOVERVIEW OF PILOTS WITH LICENCE FOR {chosen_airplane_ob.airplane_type} ")
+        for pilot_ob in all_pilots_list:
+            if chosen_airplane_ob.airplane_type == pilot_ob.license_type:
+                print(pilot_ob.print_available())
 
         print("\nB Back\n")
 
         action_str = self.choose_action(["b"])
         while action_str == False:
                 action_str = self.choose_action(["b"])
-
+        
         if action_str == "b":
             return
+
 
     def show_create_airplane_form(self):
         """This prints the create an airplane form"""
@@ -90,7 +129,6 @@ class AirplanesUI():
             while seat_amount == False:
                 seat_amount = self.get_seat_amount()
 
-            
             print("\nS Save \nB Back\n")
 
             action_str = self.choose_action(["s","b"])
