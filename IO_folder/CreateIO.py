@@ -1,5 +1,3 @@
-import sys
-sys.path.insert(1, '~/')
 import csv
 from models.CabinCrewModel import CabinCrewModel
 from models.PilotsModel import PilotsModel
