@@ -106,6 +106,7 @@ class GetIO():
         
         counter = 1
         for line in flights_with_crew_file:
+            line = line.strip()
             line = line.replace(", ", ",").split(",")
             if counter == 1:
                 counter += 1
@@ -132,28 +133,26 @@ class GetIO():
                 flight_with_crew = FlightsModel(flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2)
                 flights_list.append(flight_with_crew)
 
-        counter = 1
+        i = 0
+        for j in range(len(flights_list)//2):
+            outbound_flight_num = flights_list[i].flight_number
+            departure_time = flights_list[i].departure_time
+            destination = flights_list[i].arriving_at
+            aircraftID = flights_list[i].aircraftID
+            return_flight_num = flights_list[i+1].flight_number
+            arrival_time = flights_list[i].arrival_time
+            departure_dest = flights_list[i+1].arriving_at
+            return_departure_time = flights_list[i+1].departure_time
+            return_arrival_time = flights_list[i+1].arrival_time
+            if flights_list[i].captain == "":
+                crew_list = []
+            else:
+                crew_list = [flights_list[i].captain, flights_list[i].copilot, flights_list[i].fsm, flights_list[i].fa1, flights_list[i].fa2]
 
-        for flights in flights_list:
-            if counter % 2 != 0:
-                outbound_flight_num = flights.flight_number
-                departure_time = flights.departure_time
-                destination = flights.arriving_at
-                aircraftID = flights.aircraftID
-                if flights.captain == "":
-                    crew_list = []
-                else:
-                    crew_list = [flights.captain, flights.copilot, flights.fsm, flights.fa1, flights.fa2]
+            voyage = VoyagesModel(departure_time, destination, aircraftID, arrival_time, crew_list, outbound_flight_num, return_flight_num, return_departure_time, return_arrival_time, departure_dest)
+            voyages_list.append(voyage)
 
-
-                counter += 1
-            elif counter % 2 == 0:
-                return_flight_num = flights.flight_number
-                arrival_time = flights.arrival_time
-                voyage = VoyagesModel(departure_time, destination, aircraftID, arrival_time, crew_list,outbound_flight_num,return_flight_num)
-                voyages_list.append(voyage)
-
-                counter += 1
+            i += 2
 
 
         flights_with_crew_file.close()
