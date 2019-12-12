@@ -105,10 +105,13 @@ class InputCheckLL():
 
     def check_dates(self, date):
         """Fær dag og tíma á formi lista og skila á datetime formi ef hann er valid"""
-        try:
-            valid_date = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), int(date[3]), int(date[4]), int(date[5])).isoformat()
-            return valid_date
-        except ValueError:
+        if len(date[0]) == 4:
+            try:
+                valid_date = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), int(date[3]), int(date[4]), int(date[5])).isoformat()
+                return valid_date
+            except ValueError:
+                return False
+        else:
             return False
 
     """CHECKING INPUT FOR VOYAGES"""
@@ -211,7 +214,6 @@ class InputCheckLL():
 
     def check_iaad_time(self, time):
         """Fær tíma á formi 00:00:00 og skilar honum ef hann er valid á formi 00:00:00"""
-
         try:
             valid_time = datetime.datetime(2019, 1, 1, int(time[0]), int(time[1]), 0).isoformat()
             return valid_time[-8:]
