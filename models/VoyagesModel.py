@@ -1,4 +1,5 @@
 import datetime
+from datetime import timedelta
 import dateutil.parser
 class VoyagesModel():
     def __init__(self, departure_time, destination, aircraftID, arrival_time = "", crew_list = []):
@@ -8,8 +9,13 @@ class VoyagesModel():
         self.arrival_time = arrival_time #leiðréttið ef þetta er vitlaust gert - Hallmar
         self.crew_list = crew_list
 
-    def csv_voyage_to_string(self):
-        return f"\n{self.departure_time},{self.arrival_time},{self.destination},{self.aircraftID}"
+    def to_csv_string_1(self):
+        return f"\n{flightNumber},{"Keflavík"},{self.destination},{self.departure_time},{self.arrival_time}"
+    def to_csv_string_2(self):
+        parsed_arrival_time = dateutil.parser.parse(self.arrival_time)
+        departure_from_dest = parsed_arrival_time + timedelta(hours=1)
+        return f"\n{flightNumber},{self.destination},{"Keflavík"},{departure_from_dest}"
+
     
     def assign_crew_to_voyage(self, captain, copilot, fsm, fa1, fa2): #Held að crewið myndi verða hér listi af listum, en þurfum að hafa það bara sem lista
         staff_list = [captain, copilot, fsm, fa1, fa2]
