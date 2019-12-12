@@ -165,10 +165,11 @@ class DestinationsUI():
         elif action_str == "c":
             destinations_ob_list = self.llapi.get_destination_overview()
             self.print_desti_list(1)
-            chosen_country_ob = self.get_input_number(destinations_ob_list)
-            print(chosen_country_ob)
+            print(f"{chosen_destination_ob.country.upper()},{chosen_destination_ob.airport.upper()}'S INFO\n")
+            chosen_destination_ob = self.get_input_number(destinations_ob_list)
+            print(chosen_destination_ob.contact_name)
 
-            print(chosen_country_ob.print_emergency())
+            print(chosen_destination_ob.print_emergency())
             
             print("*"*self.LENGTH_STAR)
             print("EDIT CONTACT\n")
@@ -185,8 +186,8 @@ class DestinationsUI():
                 action_str = self.choose_action(["s", "b"])
 
             if action_str == "s":
-                chosen_country_ob = DestinationsModel(chosen_country_ob.country, chosen_country_ob.airport, chosen_country_ob.flight_dur_from_Ice, chosen_country_ob.dist_from_Ice, new_name, new_emergency_num, chosen_country_obdestiID)
-                print(f"Emergency contact of {chosen_country_ob.country} information successfully changed")
+                chosen_destination_ob = DestinationsModel(chosen_destination_ob.country, chosen_destination_ob.airport, chosen_destination_ob.flight_dur_from_Ice, chosen_destination_ob.dist_from_Ice, new_name, new_emergency_num, chosen_destination_ob.destiID)
+                print(f"Emergency contact of {chosen_destination_ob.country} information successfully changed")
                 return
 
             elif action_str == "b":

@@ -201,9 +201,9 @@ class EmployeesUI():
             print(staff_ob.print_info_new_line())
     
             print(f"\n1 {staff_ob.name}'s flight schedule")
-            print(f"2 Edit {staff_ob.name} address")
-            print(f"3 Edit {staff_ob.name} mobile number")
-            print(f"4 Edit {staff_ob.name} email")
+            print(f"2 Edit {staff_ob.name}'s address")
+            print(f"3 Edit {staff_ob.name}'s mobile number")
+            print(f"4 Edit {staff_ob.name}'s email")
             print("B Back\n")
 
             action_str = self.choose_action(["1","2","3","4","b"])
@@ -532,7 +532,7 @@ class EmployeesUI():
 
     def get_email(self):
         email = input("Enter email: ")
-        email_check = self.llapi.check_email(email).lower()
+        email_check = self.llapi.check_email(email)
 
         if email_check:
             return email_check
