@@ -28,5 +28,3 @@ class CreateIO():
         with open('./csv_files/Flights.csv', 'a', newline = None) as f:
             f.write(new_voyage.outbound_flight_csv_string())
             f.write(new_voyage.return_flight_csv_string())
-
-
