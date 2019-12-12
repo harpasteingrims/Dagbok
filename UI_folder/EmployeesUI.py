@@ -105,7 +105,9 @@ class EmployeesUI():
         
         for employee_ob in employees_ob_list:
             print(employee_ob.print_info_in_line("*"))
-        
+                
+        print(f"\nNAN AIR has {len(employees_ob_list)} employees")
+
         print("\nB Back\n")
 
         action_str = self.choose_action(["b"])
@@ -129,8 +131,9 @@ class EmployeesUI():
             staff_ob_list = self.llapi.get_cabin_crew_overview()
 
         for staff_ob in staff_ob_list:
-            print(staff_ob.print_info_in_line())
+            print(staff_ob.print_info_in_line("*"))
         
+        print(f"\nNAN AIR has {len(staff_ob_list)} {staff_str}s")
         print("\nB Back\n")
 
         action_str = self.choose_action(["b"])

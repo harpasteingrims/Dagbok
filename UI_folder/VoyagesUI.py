@@ -139,9 +139,13 @@ class VoyagesUI():
             
             print("\n* Voyage successfully created *")
             arrival_time = 0
-            new_voyage = VoyagesModel(departure_date, chosen_voyage_elem[0], chosen_airplane_id, arrival_time) #Á eftir að klára þetta
-            self.llapi.calculate_arrival_time(new_voyage)
+            new_voyage = VoyagesModel(departure_date, chosen_voyage_elem[0], chosen_airplane_id, arrival_time)
+            self.llapi.calculate_outbound_arriv_time(new_voyage)
+            self.llapi.calculate_flight_number(new_voyage)
+            self.llapi.calculate_return_depart_time(new_voyage)
+            self.llapi.calculate_return_arriv_time(new_voyage)
             self.llapi.create_new_voyage(new_voyage)
+
 
     def print_objects_in_ob_list(self, ob_list):
         counter = 1
@@ -210,7 +214,10 @@ class VoyagesUI():
             if action_str == "1" or action_str == "s":
                 arrival_time = 0 #format fyrir date time
                 new_voyage = VoyagesModel(voyage_date, voyage_airport, voyage_airplane, arrival_time)
-                self.llapi.calculate_arrival_time(new_voyage)
+                self.llapi.calculate_outbound_arriv_time(new_voyage)
+                self.llapi.calculate_flight_number(new_voyage)
+                self.llapi.calculate_return_depart_time(new_voyage)
+                self.llapi.calculate_return_arriv_time(new_voyage)
                 self.llapi.create_new_voyage(new_voyage)
 
                 if action_str == "1":

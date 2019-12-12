@@ -54,7 +54,7 @@ class GetIO():
             if counter == 1:
                 counter += 1
             else:
-                ssn, name, role, rank, address, mobilenumber, email = line.split(", ")
+                ssn, name, role, rank, address, mobilenumber, email = line.replace(", ", ",").split(",")
                 
                 cabincrew_employee = CabinCrewModel(ssn, name, role, rank, address, mobilenumber, email)
                 cabincrew_list.append(cabincrew_employee)
@@ -64,7 +64,7 @@ class GetIO():
         
     def load_all_airplanes(self):
         '''Retrieves airplanes and sends to Get LL'''
-        airplane_file = open("./csv_files/Aircraft.csv", "rU")
+        airplane_file = open("./csv_files/Aircraft.csv", "r")
 
         airplane_list = []
         counter = 1
@@ -73,7 +73,7 @@ class GetIO():
             if counter == 1:
                 counter += 1
             else:
-                planeID, airplane_type, manufacturer, seat_amount = line.split(", ")
+                planeID, airplane_type, manufacturer, seat_amount = line.replace(", ", ",").split(",")
                 airplane = AirplanesModel(planeID, airplane_type, manufacturer, seat_amount)
                 airplane_list.append(airplane)
 
@@ -82,7 +82,7 @@ class GetIO():
         return airplane_list
 
     def load_all_destinations(self):
-        dest_file = open("./csv_files/Destinations.csv", "rU")
+        dest_file = open("./csv_files/Destinations.csv", "r")
 
         destination_list = []
         counter = 1
@@ -91,7 +91,7 @@ class GetIO():
             if counter == 1:
                 counter += 1
             else:
-                country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID = line.split(", ")
+                country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID = line.replace(", ", ",").split(",")
                 destination = DestinationsModel(country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID)
                 destination_list.append(destination)
                 
@@ -101,13 +101,13 @@ class GetIO():
         return destination_list  
     
     def load_all_voyages(self):
-        flights_with_crew_file = open("./csv_files/Flights.csv","rU")
+        flights_with_crew_file = open("./csv_files/Flights.csv","r")
         flights_list = []
         voyages_list = []
         
         counter = 1
         for line in flights_with_crew_file:
-            line = line.strip().split(", ")
+            line = line.replace(", ", ",").split(",")
             if counter == 1:
                 counter += 1
             else:   
@@ -161,13 +161,13 @@ class GetIO():
 
 
     def load_all_voyages_with_crew(self):
-        flights_with_crew_file = open("./csv_files/Flights.csv","rU")
+        flights_with_crew_file = open("./csv_files/Flights.csv","r")
         flights_list = []
         voyages_list = []
 
         counter = 1
         for line in flights_with_crew_file:
-            line = line.strip().split(", ")
+            line = line.replace(", ", ",").split(",")
             if counter == 1:
                 counter += 1
             else:   
@@ -218,12 +218,12 @@ class GetIO():
         return voyages_list
 
     def load_all_flights(self):
-        flights_with_crew_file = open("./csv_files/Flights.csv","rU")
+        flights_with_crew_file = open("./csv_files/Flights.csv","r")
         flights_list = []
         
         counter = 1
         for line in flights_with_crew_file:
-            line = line.strip().split(", ")
+            line = line.replace(", ", ",").split(",")
             if counter == 1:
                 counter += 1
             else:   
