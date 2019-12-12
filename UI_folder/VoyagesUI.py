@@ -56,6 +56,7 @@ class VoyagesUI():
         for voyage_elem in voyages_elem_list:
             print(f"\nDeparture time: {voyage_elem[0]}, arrival time: {voyage_elem[1]}, destination: {voyage_elem[2]}, aircraftID: {voyage_elem[3]}, #1 flight number: {voyage_elem[4]}, #2 flight number: {voyage_elem[5]}, flight status: {voyage_elem[6]}")
 
+        print(f"\nNAN AIR has {len(voyages_elem_list)} voyages")
         print("\nB Back\n")
 
         action_str = self.choose_action(["b"])

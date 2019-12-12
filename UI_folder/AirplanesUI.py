@@ -51,7 +51,7 @@ class AirplanesUI():
         for airplane_ob in airplanes_ob_list:
             print(airplane_ob.print_out_line("*"))
 
-        print(f"\nNAN AIR has {len(airplanes_ob_list)}")
+        print(f"\nNAN AIR has {len(airplanes_ob_list)} airplanes")
 
         print("\nB Back\n")
 
