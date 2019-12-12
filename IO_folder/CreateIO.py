@@ -38,7 +38,8 @@ class CreateIO():
         with open('./csv_files/Flights.csv', 'a', newline = "") as openfile:
             fieldnames = ["flight_num" ,"departure_dest" ,"destination" ,"departure_time" ,"arrival_time" ,"aircraftID"]
             writer = csv.DictWriter(openfile, fieldnames = fieldnames)
-            writer.writerow({"flight_num": new_voyage.outbound_flight_num, "departure_dest": new_voyage.departure_dest, "destination": new_voyage.destination,"departure_time" : new_voyage.departure_time, "arrival_time": new_voyage.arrival_time,"aircraftID": new_voyage.aircraftID,"\nflight_num": new_voyage.return_flight_num, "departure_dest": new_voyage.destination, "destination": new_voyage.departure_dest, "departure_time": new_voyage.return_departure_time, "arrival_time": new_voyage.return_arrival_time, "aircraftID" : new_voyage.aircraftID})
+            writer.writerow({"flight_num": new_voyage.outbound_flight_num, "departure_dest": new_voyage.departure_dest, "destination": new_voyage.destination,"departure_time" : new_voyage.departure_time, "arrival_time": new_voyage.arrival_time,"aircraftID": new_voyage.aircraftID})
+            writer.writerow({"flight_num": new_voyage.return_flight_num, "departure_dest": new_voyage.destination, "destination": new_voyage.departure_dest, "departure_time": new_voyage.return_departure_time, "arrival_time": new_voyage.return_arrival_time, "aircraftID" : new_voyage.aircraftID})
 
             #{self.outbound_flight_num}, {self.departure_dest}, {self.destination}, {self.departure_time}, {self.arrival_time}, {self.aircraftID}"
             #{self.return_flight_num}, {self.destination}, {self.departure_dest}, {self.return_departure_time}, {self.return_arrival_time}, {self.aircraftID}"
