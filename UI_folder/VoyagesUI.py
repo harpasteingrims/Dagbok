@@ -42,7 +42,14 @@ class VoyagesUI():
             elif action_str == "2":
                 self.show_create_voyage_menu()
             elif action_str == "3":
-                self.show_not_staffed_voyages()
+                print("B Back\nC Continue\n")
+                action_str = self.choose_action(["b", "c"])
+                while action_str == False:
+                        action_str = self.choose_action(["b", "c"])
+                if action_str == "b":
+                    return
+                elif action_str == "c":
+                    self.show_not_staffed_voyages()
             elif action_str == "b":
                 return
 
@@ -202,7 +209,7 @@ class VoyagesUI():
             available_airplanes = self.llapi.get_available_airplanes_by_date(voyage_date)
             voyage_airplane = self.print_objects_in_ob_list(available_airplanes)
 
-            print("\n1 Assign crew to voyage\nS Save\nB Back\n")
+            print("1 Assign crew to voyage\nS Save\nB Back\n")
 
             action_str = self.choose_action(["1", "s", "b"])
             while action_str == False:
@@ -219,6 +226,7 @@ class VoyagesUI():
 
                 if action_str == "1":
                     self.show_assign_staff_form(voyage_date, new_voyage)
+                    print("\n* Voyage successfully created *")
                 elif action_str == "s":
                     print("\n* Voyage successfully created *")
                     return
@@ -250,6 +258,7 @@ class VoyagesUI():
         print(f"\n\n* Pick a number for {staff_str.lower()} *")
         
         chosen_ob = self.get_a_number(available_employess_ob_list)
+        print(len(available_employess_ob_list))
         
         while chosen_ob == False:
             chosen_ob = self.get_a_number(available_employess_ob_list)
@@ -266,7 +275,7 @@ class VoyagesUI():
         print("\nB Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
         while action_str == False:
-                action_str = self.choose_action(["c", "b"])
+                action_str = self.choose_action(["b", "c"])
         
         if action_str == "b":
             return
