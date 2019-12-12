@@ -25,6 +25,7 @@ class CreateIO():
             f.write(new_destination.to_csv_string())
 
     def store_voyage(self, new_voyage):
+        counter = 1
         with open('./csv_files/Flights.csv', 'a') as f:
             f.write(new_voyage.to_csv_string())
 
