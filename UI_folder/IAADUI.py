@@ -154,8 +154,11 @@ class IAADUI():
         print(self.LENGTH_STAR * "*")
         print("VOYAGE STATUS\n")
 
-        iaad_date_to = self.show_enter_date_menu
-        iaad_date_from = self.show_enter_date_menu
+        print("Enter date from")
+        iaad_date_to = self.show_enter_date_menu()
+        print("\nEnter date to")
+        iaad_date_from = self.show_enter_date_menu()
+        print()
         
         voyage_status = self.llapi.get_voyages_status_by_date(iaad_date_to, iaad_date_from)
         print(voyage_status)
