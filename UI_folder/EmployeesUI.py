@@ -146,13 +146,16 @@ class EmployeesUI():
 
     def get_input_name_and_common_name_list(self, staff_str):
         
-        input_name = input(f"Enter name of {staff_str}: ").lower()
+        input_name = input(f"Enter name of {staff_str}: ").lower()    
 
         if staff_str == self.PILOT:
             common_named_staff_list = self.llapi.get_common_named_pilots(input_name)
 
         elif staff_str == self.CREW:
             common_named_staff_list = self.llapi.get_common_named_crew_members(input_name)
+
+        else: 
+            return False
 
         return common_named_staff_list, input_name
 
@@ -163,7 +166,15 @@ class EmployeesUI():
         print(self.LENGTH_STAR * "*")
         print(f"SEARCH FOR A {staff_str.upper()}\n")
         
-        while True:
+        print("B Back \nC Continue\n")
+        action_str = self.choose_action(["b", "c"])
+        while action_str == False:
+            action_str = self.choose_action(["b", "c"])
+        
+        if action_str == "b":
+            return
+
+        elif action_str == "c":
         
             common_named_staff_list, input_name = self.get_input_name_and_common_name_list(staff_str)
             
@@ -173,13 +184,14 @@ class EmployeesUI():
             
             if len(common_named_staff_list) == 1:
                 staff_ob = common_named_staff_list[0]
-
+    
             else: 
                 counter = 1
                 for staff_ob in common_named_staff_list:
 
-                    print(staff_ob.print_info_new_line())
+                    print(staff_ob.print_info_in_line("1"))
                     counter += 1
+                
                 staff_ob = self.get_input_number(common_named_staff_list)
 
             print()
