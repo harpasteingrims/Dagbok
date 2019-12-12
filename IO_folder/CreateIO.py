@@ -34,7 +34,7 @@ class CreateIO():
             writer = csv.DictWriter(openfile, fieldnames = fieldnames)
             writer.writerow({"country": new_destination.country, "airport": new_destination.airport, "flight_dur_from_Ice": new_destination.flight_dur_from_Ice, "dist_from_Ice": new_destination.dist_from_Ice,"contact_name": new_destination.contact_name,"contact_phone_number": new_destination.contact_phone_number, "destiID": new_destination.destiID})
 
-    def store_voyage(self, outbound_flight, return_flight):
+    def store_voyage(self,  ):
         with open('./csv_files/Flights.csv', 'a', newline = " ") as openfile:
             fieldnames = ["outbound_flight_num" ,"departure_dest" ,"destination" ,"departure_time" ,"arrival_time" ,"aircraftID" ,"\nreturn_flight_num" ,"destination","departure_dest", "return_departure_time","return_arrival_time","aircraftID" ]
             writer = csv.DictWriter(openfile, fieldnames = fieldnames)
