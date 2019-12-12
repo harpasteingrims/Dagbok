@@ -72,7 +72,7 @@ class IOAPI():
     def update_voyage(self, voyage_ob):
         return self.updateio.update_voyage(voyage_ob)
         
-    def create_voyage(self, new_voyage):
-        return self.createio.store_voyage(new_voyage)
+    def create_voyage(self, outbound_flight, return_flight):
+        return self.createio.store_voyage(outbound_flight, return_flight)
     
     
