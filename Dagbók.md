@@ -372,11 +372,16 @@ Vika 2: 02.12 - 06.12
         -Laga GetIO og CreateIO
         
     Samantekt:
-        -
+        -Lentum í þvílíkum vandræðum með UpdateIO og sendum Hallmar á fund með Arnari, en svo kom í ljós að þetta vandamál var bara út af strip. Hlupum upp og afturkölluðum aðstoðina. 
+        -Fengum jólagjöf frá hópi 2 hérna hægra megin við okkur. Hann Þórarinn hafði prentað 3D debugging ducks fyrir hvert okkar. Hann alveg krúttaði yfir sig. Við komum að sjálfsögðu til með að þakka fyrir okkur á einn eða annan hátt.
+        -Náðum öllum A kröfum í dag. Nú virkar forritið alveg sem skyldi og aðeins fínpússanir. 
+        -Margir stórir sigrar, overall mjög afkastamikill dagur.
+        -Andri, kærasti Hörpu, bjó til digital apa fyrir okkur sem mun vera í aðalhlutverki í myndbandinu okkar.
+
 
         -Heimaverkfni
-            -Nína:
-            -Hildur: 
-            -Hallmar:-
-            -Viktoría: -
-            -Harpa: 
+            -Nína: Klára og lagfæra kröfulista. Bæta nýjum köflum í skýrslu. Voice record yfir myndbandið.
+            -Hildur: Fara yfir InputCheck alls staðar, stafsetningu, smáatriði, docstringi o.fl.
+            -Hallmar: 1 klst. cod og bjór. Klára klasaritið.
+            -Viktoría: Uppfæra use cases
+            -Harpa: Taka upp video.
