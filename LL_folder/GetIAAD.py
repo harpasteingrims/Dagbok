@@ -88,6 +88,16 @@ class GetIAAD():
                 i += 2
         return airplane_status_list
 
+    def list_voyages_status_by_date(self, user_input_date):
+        """Returns a list of voyages on that day sorted by complete, arrived, in air and not started"""
+        voyage_list = self.list_of_all_voyages_for_selected_day(user_input_date)
+        
+        for voyage in voyage_list:
+           voyages_for_selected_day = []
+        #    if 
+        #Þurfum að finna aðferð til þess að sortera þennan lista af voyages þessa dags eftir complete, arrived, in air og not started
+        pass
+
     def list_of_all_voyages_for_selected_day(self, user_input_date):
         """Returns an unsorted list of voyages on that day that the other functions in this class wil be using. The outcome of this function will never appear in the interface"""
         #voyage_list = self.ioapi.get_all_voyages_list()
