@@ -192,8 +192,8 @@ class LLAPI():
     def get_unavailable_emp_by_date(self, user_input_date):
         return self.getiaad.list_unavailable_emp_by_date(user_input_date)
 
-    def get_voyages_status_by_date(self, user_input_date):
-        return self.getiaad.list_voyages_status_by_date(user_input_date)
+    def get_voyages_status_by_date(self, user_input_date, user_input_date_to):
+        return self.getiaad.list_voyages_status_by_date(user_input_date, user_input_date_to)
 
     def get_airplane_status_by_date(self, user_input_date):
         return self.getiaad.list_airplane_status_by_date(user_input_date)
