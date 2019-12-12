@@ -56,6 +56,7 @@ class VoyagesUI():
         for voyage_elem in voyages_elem_list:
             print(f"\nDeparture time: {voyage_elem[0]}, arrival time: {voyage_elem[1]}, destination: {voyage_elem[2]}, aircraftID: {voyage_elem[3]}, #1 flight number: {voyage_elem[4]}, #2 flight number: {voyage_elem[5]}, flight status: {voyage_elem[6]}")
 
+        print(f"\nNAN AIR has {len(voyages_elem_list)} voyages")
         print("\nB Back\n")
 
         action_str = self.choose_action(["b"])
@@ -221,11 +222,12 @@ class VoyagesUI():
             elif action_str == "b":
                 return
 
-    def go_through_av_employee_list(self, staff_str, voyage_date, number = 0):
+    def process_employee_list(self, staff_str, voyage_date, number = 0):
 
         available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
         counter = 1
 
+        print(f"\nAvaliable {staff_str.lower()}s\n")
         for employee_ob in available_employess_ob_list:
             if employee_ob.rank == staff_str:
                 print(employee_ob.print_available(counter))
@@ -234,21 +236,21 @@ class VoyagesUI():
         if staff_str == "Flight Service Manager":
             staff_str = "senior cabin crew member"
 
-        elif "Flight Attendant" and number == 1:
-            staff_str == "cabincrew member #1"
+        elif staff_str == "Flight Attendant" and number == 1:
+            staff_str = "flight attendant #1"
 
-        elif "Flight Attendant" and number == 2:
-            staff_str == "cabincrew member #2"
+        elif staff_str == "Flight Attendant" and number == 2:
+            staff_str = "flight attendant #2"
         
-        else:
-            print(f"\n* Pick a number for {staff_str.lower()} *")
-            
+        
+        print(f"\n\n* Pick a number for {staff_str.lower()} *")
+        
+        chosen_ob = self.choose_a_number(available_employess_ob_list)
+        
+        while chosen_ob == -1:
             chosen_ob = self.choose_a_number(available_employess_ob_list)
-            
-            while chosen_ob == -1:
-                chosen_ob = self.choose_a_number(available_employess_ob_list)
 
-            return chosen_ob
+        return chosen_ob
 
 
     def show_assign_staff_form(self, voyage_date, voyage_ob):
@@ -264,7 +266,7 @@ class VoyagesUI():
         
         if action_str == "b":
             return
-        elif action_str == "s":
+        elif action_str == "c":
 
             available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
         
@@ -272,7 +274,7 @@ class VoyagesUI():
             copilot_ob = self.go_through_av_employee_list("Copilot", voyage_date)
             senior_cabincrew_member_ob = self.go_through_av_employee_list("Flight Service Manager", voyage_date)
             cabincrew_member_1_ob = self.go_through_av_employee_list("Flight Attendant",voyage_date, 1)
-            cabincrew_member_2_ob = self.choose_a_number("Flight Attendant", voyage_date, 2)
+            cabincrew_member_2_ob = self.go_through_av_employee_list("Flight Attendant", voyage_date, 2)
                 
             crew_list = [captain_ob, copilot_ob, senior_cabincrew_member_ob, cabincrew_member_1_ob, cabincrew_member_2_ob]
             updated_voyage_ob = VoyagesModel(voyage_ob.departure_time, voyage_ob.destination, voyage_ob.aircraftID, voyage_ob.arrival_time, crew_list)
@@ -298,6 +300,7 @@ class VoyagesUI():
     
     def choose_a_number(self, ob_list):
         chosen_number = input("\nChoose a number: ")
+        print()
         ob_item = self.llapi.check_chosen_number(chosen_number, ob_list)
         if ob_item:
             return ob_item

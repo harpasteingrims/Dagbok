@@ -103,6 +103,13 @@ class InputCheckLL():
         except ValueError:
             return False
 
+    def check_dates(self, date):
+        try:
+            valid_date = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), int(date[3]), int(date[4]), int(date[5])).isoformat()
+            return valid_date
+        except ValueError:
+            return False
+
     """CHECKING INPUT FOR VOYAGES"""
     
     def check_time(self, date, unavailable_time_list):
@@ -171,7 +178,7 @@ class InputCheckLL():
 
     def check_airplane_id(self, airplane_id):
         
-        if len(airplane_id) == 6 and airplane_id[2] == "-":
+        if len(airplane_id) == 6 and airplane_id[2] == "-" and airplane_id[0:2].isalpha() and airplane_id[3:6].isdigit():
             return airplane_id.upper()
         else: 
             return False

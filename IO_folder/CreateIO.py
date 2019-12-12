@@ -29,6 +29,5 @@ class CreateIO():
 
     def store_voyage(self, new_voyage):
         with open('./csv_files/Flights.csv', 'a', newline = None) as f:
-            f.write(new_voyage.to_csv_string())
-
-
+            f.write(new_voyage.outbound_flight_csv_string())
+            f.write(new_voyage.return_flight_csv_string())

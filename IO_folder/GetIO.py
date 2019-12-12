@@ -124,7 +124,6 @@ class GetIO():
                     fa1 = line[9]
                     fa2 = line[10]
                 except IndexError:
-                    aircraft_ID = ""
                     captain = ""
                     copilot = ""                    
                     fsm = ""
