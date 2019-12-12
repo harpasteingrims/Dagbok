@@ -153,7 +153,7 @@ class InputCheckLL():
 
     def check_flight_duration(self, flight_duration):
 
-        if flight_duration[0:1].isdigit() and flight_duration[3:5].isdigit() and flight_duration[2] == ":" and int(flight_duration[3:5]) < 60:
+        if len(flight_duration) == 5 and flight_duration[0:1].isdigit() and flight_duration[3:5].isdigit() and flight_duration[2] == ":" and int(flight_duration[3:5]) < 60:
             return flight_duration
         else:
             return False
