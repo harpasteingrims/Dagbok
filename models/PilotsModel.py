@@ -16,7 +16,7 @@ class PilotsModel():
         return f"Name: {self.name} \nRank: {self.rank} \nSSN: {self.ssn} \nAdress: {self.address} \nMobile number: {self.mobile_number} \nEmail:{self.email} \nLicense type: {self.license_type}"
 
     def print_info_in_line(self, front_of_str = ""):
-        return f"{front_of_str} {self.name}, {self.ssn}, {self.role}, {self.rank}, {self.license_type}, {self.address}, {self.mobile_number}, {self.email}"
+        return f"\n{front_of_str} {self.name}, {self.ssn}, {self.role}, {self.rank}, {self.license_type}, {self.address}, {self.mobile_number}, {self.email}"
 
     def print_available(self, counter= ""):
         if counter == "":

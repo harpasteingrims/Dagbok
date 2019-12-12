@@ -311,13 +311,12 @@ class EmployeesUI():
                     new_email = self.get_email()
                 success = self.check_action_edit_form(staff_ob, number, new_email)
         
-        if success:
-            print(f"{staff_ob.name}'s information successfully changed")
+        print(f"{staff_ob.name}'s information successfully changed")
         
-            return
+        return
 
 
-    def check_action_edit_form(self, staff_ob, number, new_address= "", new_mobile_number= "", new_email = ""):
+    def check_action_edit_form(self, staff_ob, number, new_info):
         
         print("\nS Save \nB Back\n")
         action_str = self.choose_action(["s","b"])
@@ -327,23 +326,23 @@ class EmployeesUI():
         if action_str == "s" and number == 1:
 
             if staff_ob.role == self.PILOT.capitalize():
-                updated_staff_ob = PilotsModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.license_type, new_address, staff_ob.mobile_number, staff_ob.email)
+                updated_staff_ob = PilotsModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.license_type, new_info, staff_ob.mobile_number, staff_ob.email)
             else:
-                updated_staff_ob = CabinCrewModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, new_address, staff_ob.mobile_number, staff_ob.email)
+                updated_staff_ob = CabinCrewModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, new_info, staff_ob.mobile_number, staff_ob.email)
             
         elif action_str == "s" and number == 2:
 
             if staff_ob.role == self.PILOT.capitalize():
-                updated_staff_ob = PilotsModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.license_type, staff_ob.address, new_mobile_number, staff_ob.email)
+                updated_staff_ob = PilotsModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.license_type, staff_ob.address, new_info, staff_ob.email)
             else:
-                updated_staff_ob = CabinCrewModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.address, new_mobile_number, staff_ob.email)
+                updated_staff_ob = CabinCrewModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.address, new_info, staff_ob.email)
         
         elif action_str == "s" and number == 3:
 
             if staff_ob.role == self.PILOT.capitalize():
-                updated_staff_ob = PilotsModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.license_type, staff_ob.address, staff_ob.mobile_number, new_email)
+                updated_staff_ob = PilotsModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.license_type, staff_ob.address, staff_ob.mobile_number, new_info)
             else:
-                updated_staff_ob = CabinCrewModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.address, staff_ob.mobile_number, new_email)
+                updated_staff_ob = CabinCrewModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.address, staff_ob.mobile_number, new_info)
         
         elif action_str == "b":
             return

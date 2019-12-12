@@ -11,7 +11,7 @@ class CreateIO():
         with open('./csv_files/Pilots.csv', 'a', newline = "") as openfile:
             fieldnames = ["ssn", "name", "role", "rank", "plane license", "address", "mobile_number", "email"]
             writer = csv.DictWriter(openfile, fieldnames = fieldnames)
-            writer.writerow({"ssn": new_pilot.ssn,"name": " " + new_pilot.name,"role": " " + new_pilot.role,"rank": " " + new_pilot.rank,"plane license": " " + new_pilot.license_type,"address": " " + new_pilot.address,"mobile_number": " " + new_pilot.mobile_number,"email": " " + new_pilot.email})
+            writer.writerow({"ssn": new_pilot.ssn,"name": " " + new_pilot.name,"role": " " + new_pilot.role,"rank": " " + new_pilot.rank, "plane license": " " + new_pilot.license_type, "address": " " + new_pilot.address, "mobile_number": " " + new_pilot.mobile_number,"email": " " + new_pilot.email})
 
     def store_cabincrew(self, new_cabincrew):
         with open('./csv_files/CabinCrew.csv', 'a', newline = "") as openfile:
@@ -34,8 +34,6 @@ class CreateIO():
 
     def store_voyage(self, new_voyage):
         with open('./csv_files/Flights.csv', 'a', newline = "") as openfile:
-            #fieldnames = ["flight_num","departure_dest","destination","departure_time","arrival_time","aircraftID"]
-            #writer = csv.DictWriter(openfile, fieldnames = fieldnames)
             if new_voyage.crew_list == []:
                 fieldnames = ["flight_num","departure_dest","destination","departure_time","arrival_time","aircraftID"]
                 writer = csv.DictWriter(openfile, fieldnames = fieldnames)
