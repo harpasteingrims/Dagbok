@@ -53,7 +53,9 @@ class GetEmployeesLL():
         cabin_crew_list = self.list_all_cabin_crew()
         
         for cabin_crew_object in cabin_crew_list:
-            if cabin_crew_object.name == name:
+            first_name , last_name = cabin_crew_object.name.split()
+            
+            if first_name.lower() == name.lower() or last_name.lower() == name.lower():
                 
                 common_crew_names.append(cabin_crew_object)
 

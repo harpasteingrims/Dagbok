@@ -16,7 +16,7 @@ class IAADUI():
             
         else:
             print("Invalid action!")
-            self.choose_action(valid_list)
+            return False
 
     def show_enter_date_menu(self):
         """This prints the menu for choosing date to get information about""" 
@@ -25,6 +25,8 @@ class IAADUI():
         print(self.LENGTH_STAR * "*")
         print("INFORMATION ABOUT A DAY\n")
         iaad_date = self.get_iaad_date()
+        while iaad_date == -1:
+            iaad_date = self.get_iaad_date()
 
         self.show_IAAD_menu(iaad_date)
         """ This prints out, input date """
@@ -44,6 +46,8 @@ class IAADUI():
             print("B Back\n")
             
             action_str = self.choose_action(["1","2","3","b"])
+            while action_str == False:
+                action_str = self.choose_action(["1", "2", "3", "b"])
 
             if action_str == "1":
                 self.show_available_employees(iaad_date)
@@ -60,6 +64,8 @@ class IAADUI():
 
     def show_enter_time_menu_airplane(self, iaad_date):
         time = self.get_iaad_time()
+        while time == -1:
+            time = self.get_iaad_time()
         date_new = iaad_date + "T" + time
         self.show_airplane_status(date_new)
     
@@ -77,6 +83,8 @@ class IAADUI():
         print("\nB Back")
        
         action_str = self.choose_action(["b"])
+        while action_str == False:
+            action_str = self.choose_action(["b"])
 
         if action_str == "b":
             return
@@ -95,6 +103,8 @@ class IAADUI():
         print("\nB Back")
 
         action_str = self.choose_action(["b"])
+        while action_str == False:
+            action_str = self.choose_action(["b"])
 
         if action_str == "b":
             return
@@ -111,7 +121,7 @@ class IAADUI():
         
         if airplane_status != []:
             for airplane_elem in airplane_status:
-                    print(f"\n{counter}.\nDestination: {airplane_elem[0]} \nAirplane name: {airplane_elem[1]} \nAirplane type: {airplane_elem[2]} \nSeat amount: {airplane_elem[3]}Flight number: {airplane_elem[4]} \nNext available time: {airplane_elem[5]}")
+                    print(f"\n{counter}.\nDestination: {airplane_elem[0]} \nAirplane name: {airplane_elem[1]} \nAirplane type: {airplane_elem[2]} \nSeat amount: {airplane_elem[3]} \nFlight number: {airplane_elem[4]} \nNext available time: {airplane_elem[5]}")
                     counter += 1
 
         else:
@@ -120,6 +130,8 @@ class IAADUI():
         print("\nB Back")
 
         action_str = self.choose_action(["b"])
+        while action_str == False:
+            action_str = self.choose_action(["b"])
 
         if action_str == "b":
             return
@@ -137,7 +149,9 @@ class IAADUI():
             return date_check
         else:
             print("\nInvalid date\n")
-            self.get_iaad_date()
+            date_check = -1
+            return date_check
+
 
     def get_iaad_time(self):
         iaad_hour = input("Enter hour (hh): ")
@@ -150,4 +164,5 @@ class IAADUI():
             return time_check
         else:
             print("\nInvalid time\n")
-            self.get_iaad_time()
+            time_check = -1
+            return time_check

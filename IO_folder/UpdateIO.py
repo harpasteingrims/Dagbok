@@ -31,7 +31,7 @@ class UpdateIO:
             writer.writeheader()
         
         for elem in flights_list:
-            if elem.departure == voyage_object.departure_time and elem.departingFrom == voyage_object.destination:
+            if elem.departure_time == voyage_object.departure_time and elem.departingFrom == voyage_object.destination:
                 self.createio.store_voyage(voyage_object)
             else:
                 self.createio.store_voyage(elem)
@@ -59,7 +59,7 @@ class UpdateIO:
             writer.writeheader()
 
         for elem in cabincrew_list:
-            if elem.SSN == update_cabincrew.SSN:
+            if elem.ssn == update_cabincrew.ssn:
                 self.createio.store_pilot(update_cabincrew)
             else:
                 self.createio.store_pilot(elem)

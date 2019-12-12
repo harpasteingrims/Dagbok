@@ -341,16 +341,40 @@ Vika 2: 02.12 - 06.12
         -Góð vinna í AirplanesUI
         
     Samantekt:
-        -Hluti hópsins var ekki viðstaddur í dag og því allnokkuð um að einstaklingar heima séu að gera eitthvað þvert á okkar aðgerðir hér í skólanum. Kemur sér einkar illa svona á lokametrunum en við vinnum bara með því. Hildi tókst að láta input check virka þannig fyrir kennitölur og tímasetningar að ekki er hægt að nýskrá það. Mikill sigur. 
+        -Hluti hópsins var ekki viðstaddur í dag og því allnokkuð um að einstaklingar heima séu að gera eitthvað þvert á okkar aðgerðir hér í skólanum. Kemur sér einkar illa svona á lokametrunum en við vinnum bara með því. Hildi tókst að láta input check virka þannig fyrir kennitölur og tímasetningar að ekki er hægt að nýskrá það. Mikill sigur. Viktoría uppfærði stöðuritið og Hallmar klasaritið. 
 
         -Heimaverkfni
-            -Nína: Gera license_type í Input check. Gera flight_schedule. Laga create number dict.
-            -Hildur: Input check fyrir Voyages
-            -Hallmar: Finna út úr því hvernig tímareikningurinn virkar í CreateVoyages
-            -Viktoría: æj búnað gleyma, hún fór í afmælisdinner og að hitta ömmu og afa.
-            -Harpa: VoyagesUI og GetIAAD (láta það heita GetIAADLL)
+            -Nína: Setja choose action í allt UI. Klára update destination og fínpússa voyages kóða
+            -Hildur: Input check
+            -Hallmar: Flugnúmer
+            -Viktoría: Skrásetja errora í docs skjal. 
+            -Harpa: Laga vandamálið með inputcheck þegar slegið er inn vitlaust og svo rétt
 
+12.12.2019
+    Áætlun: Hörpu tókst að laga vandamálið með Inputcheck. Nína gerði alla heimavinnuna sína; choose action, update destination og sameina kóða í VoyagesUI. Viktoría gerði AirplanesUI, UpdateIO og skrásetti alla errora í docs skjal. Í dag ætlum við að leggja lokahönd á forritið og byrja að skipuleggja videoið. Seinni hluti dagsins á að fara í skýrsluvinnu og svoleiðis. 
 
-            setja choose action inn í allt ui
-            klára updatedestination
-            fínpússa voyages kóða
+    Hallmar Orri: 
+        -tba
+    Harpa: 
+        -Byrja að skipuleggja video
+        -Fara yfir villur
+    Hildur: 
+        -Skýrsluvinna
+        -Uppfæra wireframes
+        -Fara yfir stafsetningu og smáatriði
+    Nína Margrét: 
+        -Implementa lausnina hennar Hörpu í allt UI
+        -Fara yfir villur
+    Viktoría Inga: 
+        -Tilfallandi verkefni
+        -Laga errora
+        
+    Samantekt:
+        -
+
+        -Heimaverkfni
+            -Nína:
+            -Hildur: 
+            -Hallmar:-
+            -Viktoría: -
+            -Harpa: 

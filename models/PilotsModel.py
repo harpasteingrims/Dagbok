@@ -12,11 +12,11 @@ class PilotsModel():
     def to_csv_string(self, ):
         return f"\n{self.ssn}, {self.name}, {self.role}, {self.rank}, {self.license_type}, {self.address}, {self.mobile_number}, {self.email}"
 
-    def print_pilot_info(self):
+    def print_info_new_line(self):
         return f"Name: {self.name} \nRank: {self.rank} \nSSN: {self.ssn} \nAdress: {self.address} \nMobile number: {self.mobile_number} \nEmail:{self.email} \nLicense type: {self.license_type}"
 
     def print_info_in_line(self, front_of_str = ""):
         return f"\n{front_of_str} {self.name}, {self.ssn}, {self.role}, {self.rank}, {self.license_type}, {self.address}, {self.mobile_number}, {self.email}"
 
-    def print_available_pilot_info(self, counter):
+    def print_available(self, counter):
         return f"\n{counter} {self.name}, {self.rank}"
