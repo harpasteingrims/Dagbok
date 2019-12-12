@@ -170,7 +170,6 @@ class EmployeesUI():
             
             if len(common_named_staff_list) == 1:
                 staff_ob = common_named_staff_list[0]
-                print(staff_ob.print_info_new_line())
 
             else: 
                 counter = 1
@@ -287,7 +286,7 @@ class EmployeesUI():
                 return
 
 
-    def check_action_edit_form(self,staff_ob, number, new_address= "", new_mobile_number= "", new_email = ""):
+    def check_action_edit_form(self, staff_ob, number, new_address= "", new_mobile_number= "", new_email = ""):
         
         print("\nS Save \nB Back\n")
         action_str = self.choose_action(["s","b"])
