@@ -39,7 +39,6 @@ class EmployeesUI():
         action_str = ""
 
         while True:
-    
             print(self.LENGTH_STAR * "*")
             print("EMPLOYEES MENU\n")
             print("1 Print overview of all employees")
@@ -63,7 +62,6 @@ class EmployeesUI():
             elif action_str == "b":
                 return
 
-    
     def show_pilot_or_crew_menu(self, staff_str):
         """ Prints either the menu and calls appropriate functions or prints Invalid action"""
 
@@ -95,7 +93,6 @@ class EmployeesUI():
             elif action_str == "b":
                 return
 
-
     def show_overview_of_all_employees(self):
         """This prints the overview of all employees"""
 
@@ -116,7 +113,6 @@ class EmployeesUI():
 
         if action_str == "b":
             return 
-
 
     def show_either_crew_or_pilots_overview(self, staff_str):
         """ Prints the overview of either """
@@ -142,7 +138,6 @@ class EmployeesUI():
         
         if action_str == "b":
             return
-
 
     def get_input_name_and_common_name_list(self, staff_str):
         
