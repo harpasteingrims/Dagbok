@@ -135,7 +135,6 @@ class GetVoyagesLL():
                 
                 if int(voyage_ob.return_flight_num[-2:]) > highest_number:
                     highest_number = int(voyage_ob.return_flight_num[-2:])
-        print(highest_number)
         highest_number += 1
         outbound_flight_num = outbound_flight_num + str(highest_number)
         highest_number = int(highest_number)
