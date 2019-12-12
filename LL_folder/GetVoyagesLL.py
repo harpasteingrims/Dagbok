@@ -119,7 +119,31 @@ class GetVoyagesLL():
         return new_voyage_object
 
     def calculate_flight_num(self, new_voyage_object): #Þetta þarf að reikna bæði outbound flight num og return flight num
-        pass
+        outbound_flight_num = "NA"
+        return_flight_num = "NA"
+        destination_list = self.ioapi.get_destination_list()
+
+        for destination_ob in destination_list:
+            if new_voyage_object.destination == destination_ob.airport:
+                dest_ID = str(destination_ob.destiID)
+        outbound_flight_num = outbound_flight_num + dest_ID
+        return_flight_num = return_flight_num + dest_ID
+        voyage_list = self.ioapi.get_all_voyages_list
+        highest_number = 0
+        for voyage_ob in voyage_list:
+            if new_voyage_object.departure_time[0:9] == voyage_ob.departure_time[0:9] and new_voyage_object.destination == voyage_ob.destination:
+                if int(voyage_ob.return_flight_num[-1]) > highest_number:
+                    highest_number = int(voyage_ob.return_flight_num[-1])
+        highest_number += 1
+        outbound_flight_num = outbound_flight_num + str(highest_number)
+        highest_number = int(highest_number)
+        highest_number += 1
+        return_flight_num = return_flight_num + str(highest_number)
+        new_voyage_object.outbound_flight_num = outbound_flight_num
+        new_voyage_object.return_flight_num = return_flight_num
+
+        return new_voyage_object
+
 
     def calculate_return_departure_time(self, new_voyage_object): #Þetta þarf að reikna return departure time, sem er einni klst meira en arrival_time
         return_departure_time = ""
