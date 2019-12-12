@@ -11,7 +11,7 @@ class UpdateIO:
     def update_emergency_contact(self, update_contact):               
         ''' Updates an emergency contact for a certain country'''
         destionations_list = GetIO().load_all_destinations()
-        with open("filename.csv", "w", encoding= "utf8" newline="") as csvfile:
+        with open("filename.csv", "w", encoding= "utf8", newline="") as csvfile:
             fieldnames = ["country", "airport", "flightDurFromIce", "DistFromIce", "ContactName", "ContactPhoneNR"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
