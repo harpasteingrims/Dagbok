@@ -39,7 +39,6 @@ class EmployeesUI():
         action_str = ""
 
         while True:
-    
             print(self.LENGTH_STAR * "*")
             print("EMPLOYEES MENU\n")
             print("1 Print overview of all employees")
@@ -63,7 +62,6 @@ class EmployeesUI():
             elif action_str == "b":
                 return
 
-    
     def show_pilot_or_crew_menu(self, staff_str):
         """ Prints either the menu and calls appropriate functions or prints Invalid action"""
 
@@ -95,7 +93,6 @@ class EmployeesUI():
             elif action_str == "b":
                 return
 
-
     def show_overview_of_all_employees(self):
         """This prints the overview of all employees"""
 
@@ -116,7 +113,6 @@ class EmployeesUI():
 
         if action_str == "b":
             return 
-
 
     def show_either_crew_or_pilots_overview(self, staff_str):
         """ Prints the overview of either """
@@ -142,7 +138,6 @@ class EmployeesUI():
         
         if action_str == "b":
             return
-
 
     def get_input_name_and_common_name_list(self, staff_str):
         
@@ -201,9 +196,9 @@ class EmployeesUI():
             print(staff_ob.print_info_new_line())
     
             print(f"\n1 {staff_ob.name}'s flight schedule")
-            print(f"2 Edit {staff_ob.name} address")
-            print(f"3 Edit {staff_ob.name} mobile number")
-            print(f"4 Edit {staff_ob.name} email")
+            print(f"2 Edit {staff_ob.name}'s address")
+            print(f"3 Edit {staff_ob.name}'s mobile number")
+            print(f"4 Edit {staff_ob.name}'s email")
             print("B Back\n")
 
             action_str = self.choose_action(["1","2","3","4","b"])
@@ -224,7 +219,6 @@ class EmployeesUI():
 
             elif action_str == "b":
                 return
-
 
     def show_flight_schedule_of_employee(self, staff_ob):
         """Calls a class that makes a list of their voyages and prints it"""
@@ -271,7 +265,6 @@ class EmployeesUI():
 
             if action_str == "b":
                 return
-        
 
     def show_employee_edit_form(self, staff_ob, number):
         """This prints the edit form for an employee"""
@@ -314,7 +307,6 @@ class EmployeesUI():
         print(f"{staff_ob.name}'s information successfully changed")
         
         return
-
 
     def check_action_edit_form(self, staff_ob, number, new_info):
         
@@ -360,9 +352,9 @@ class EmployeesUI():
         """ This prints the create a pilot form """
 
         print(self.LENGTH_STAR * "*")
-        print(f"CREATE A NEW {staff_str}\n")
+        print(f"CREATE A NEW {staff_str.upper()}\n")
         
-        print("\nB Back\nC Continue\n")
+        print("B Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
         while action_str == False:
             action_str = self.choose_action(["b", "c"])
@@ -462,14 +454,14 @@ class EmployeesUI():
             return valid_check
 
     def get_name(self):
-        name = input("\nEnter full name: ").lower()
+        name = input("Enter full name: ").lower()
         name_check = self.llapi.check_name(name)
         
         if name_check:
             return name_check
             
         else:
-            print("\nInvalid name\n")
+            print("\nInvalid name")
             return name_check
 
 
@@ -531,8 +523,8 @@ class EmployeesUI():
     
 
     def get_email(self):
-        email = input("Enter email: ")
-        email_check = self.llapi.check_email(email).lower()
+        email = input("\nEnter email: ")
+        email_check = self.llapi.check_email(email)
 
         if email_check:
             return email_check
