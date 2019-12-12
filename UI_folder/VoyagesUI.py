@@ -258,7 +258,7 @@ class VoyagesUI():
         print(f"\n\n* Pick a number for {staff_str.lower()} *")
         
         chosen_ob = self.get_a_number(available_employess_ob_list)
-        print(len(available_employess_ob_list))
+        #print(len(available_employess_ob_list))
         
         while chosen_ob == False:
             chosen_ob = self.get_a_number(available_employess_ob_list)
