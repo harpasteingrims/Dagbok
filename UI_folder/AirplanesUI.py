@@ -60,7 +60,6 @@ class AirplanesUI():
         if action_str == "b":
             return
 
-
     def show_create_airplane_form(self):
         """This prints the create an airplane form"""
 
@@ -74,12 +73,21 @@ class AirplanesUI():
         
         if action_str == "b":
             return
-        elif actin_str == "c":
+        elif action_str == "c":
 
             airplane_id = self.get_airplane_id()
+            while airplane_id == False:
+                airplane_id = self.get_airplane_id()
             airplane_type = self.get_airplane_type()
+            while airplane_type == False:
+                airplane_type = self.get_airplane_type()
             manufacturer = self.get_manufacturer()
+            while manufacturer == False:
+                manufacturer = self.get_manufacturer()
             seat_amount = self.get_seat_amount()
+            while seat_amount == False:
+                seat_amount = self.get_seat_amount()
+
             
             print("\nS Save \nB Back\n")
 
@@ -98,21 +106,25 @@ class AirplanesUI():
             elif action_str == "b":
                 return
     
-
     def get_airplane_id(self):
         airplane_id = input("Enter airplane ID: ")
         airplane_id_check = self.llapi.check_airplane_id(airplane_id)
 
         if airplane_id_check:
             return airplane_id_check
-
         else:
             print("\nInvalid airplane ID")
-            self.get_airplane_id()
+            return airplane_id_check
 
     def get_airplane_type(self):
         airplane_type = input("Enter airplane type: ")
-        return airplane_type
+        airplane_type_check = self.llapi.check_airplane_type(airplane_type)
+
+        if airplane_type_check:
+            return airplane_type_check
+        else:
+            print("\nInvalid airplane type")
+            return airplane_type_check
 
     def get_manufacturer(self):
         manufacturer = input("Enter manufacturer: ")
@@ -123,7 +135,7 @@ class AirplanesUI():
 
         else:
             print("\nInvalid manufacturer")
-            self.get_manufacturer()
+            return manufacturer_check
 
     def get_seat_amount(self):
         seat_amount = input("Enter seat amount: ")
@@ -134,4 +146,4 @@ class AirplanesUI():
 
         else:
             print("\nInvalid seat amount")
-            self.get_seat_amount()
+            return seat_amount_check
