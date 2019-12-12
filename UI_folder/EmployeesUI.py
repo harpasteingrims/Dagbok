@@ -407,7 +407,7 @@ class EmployeesUI():
                     new_staff_object = CabinCrewModel(ssn, name, "Cabin crew", rank, address, mobile_number, email)
                     self.llapi.create_new_cabin_crew(new_staff_object)
 
-                print(f"{staff_str.capitalice()} {new_staff_object.name} successfully created\n")
+                print(f"{staff_str.capitalize()} {new_staff_object.name} successfully created\n")
                 return
             
             elif action_str == "b":
