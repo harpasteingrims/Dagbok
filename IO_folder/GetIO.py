@@ -137,6 +137,7 @@ class GetIO():
 
         for flights in flights_list:
             if counter % 2 != 0:
+                outbound_flight_num = flights.flight_number
                 departure_time = flights.departure_time
                 destination = flights.arriving_at
                 aircraftID = flights.aircraftID
@@ -148,8 +149,9 @@ class GetIO():
 
                 counter += 1
             elif counter % 2 == 0:
+                return_flight_num = flights.flight_number
                 arrival_time = flights.arrival_time
-                voyage = VoyagesModel(departure_time, destination, aircraftID, arrival_time, crew_list)
+                voyage = VoyagesModel(departure_time, destination, aircraftID, arrival_time, crew_list,outbound_flight_num,return_flight_num)
                 voyages_list.append(voyage)
 
                 counter += 1

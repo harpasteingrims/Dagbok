@@ -132,6 +132,7 @@ class GetVoyagesLL():
         highest_number = 0
         for voyage_ob in voyage_list:
             if new_voyage_object.departure_time[0:9] == voyage_ob.departure_time[0:9] and new_voyage_object.destination == voyage_ob.destination:
+                
                 if int(voyage_ob.return_flight_num[-1]) > highest_number:
                     highest_number = int(voyage_ob.return_flight_num[-1])
         highest_number += 1
