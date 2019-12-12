@@ -19,21 +19,7 @@ class IAADUI():
             print("Invalid action!")
             return False
 
-    def show_enter_date_menu(self):
-        """This prints the menu for choosing date to get information about""" 
-
-        print()
-        print(self.LENGTH_STAR * "*")
-        print("INFORMATION ABOUT A DAY\n")
-        iaad_date = self.get_iaad_date()
-        while iaad_date == False:
-            iaad_date = self.get_iaad_date()
-
-        self.show_IAAD_menu(iaad_date)
-        """ This prints out, input date """
-        return iaad_date
-
-    def show_IAAD_menu(self, iaad_date):
+    def show_IAAD_menu(self):
         """This prints the employee menu"""
     
         action_str = ""
@@ -52,41 +38,52 @@ class IAADUI():
                 action_str = self.choose_action(["1","2","3","4","b"])
 
             if action_str == "1":
-                self.show_available_employees(iaad_date)
+                self.show_available_employees()
 
             elif action_str == "2":
-                self.show_unavailable_employees(iaad_date)
+                self.show_unavailable_employees()
             
             elif action_str == "3":
-                self.show_enter_time_menu_voyage(iaad_date)
+                self.show_voyages_status()
 
             elif action_str == "4":
-                self.show_enter_time_menu_airplane(iaad_date)
+                self.show_airplane_status()
 
             elif action_str == "b":
                 return
+
+    def show_enter_date_menu(self):
+        """This prints the menu for choosing date to get information about""" 
+
+        print()
+        iaad_date = self.get_iaad_date()
+        while iaad_date == False:
+            iaad_date = self.get_iaad_date()
+        """ This prints out, input date """
+        return iaad_date
 
     def show_enter_time_menu_airplane(self, iaad_date):
         time = self.get_iaad_time()
         while time == False:
             time = self.get_iaad_time()
         date_new = iaad_date + "T" + time
-        #date_new = str(datetime.datetime(int(iaad_date[0:4]), int(iaad_date[5:7]), int(iaad_date[8:10]), int(time[0:2]), int(time[3:5]), int(time[6:8])))
-        print(date_new)
-        self.show_airplane_status(date_new)
+        return date_new
 
-    def show_available_employees(self, user_input_date):
-        """This prints the available employees from a certain day"""
+    def show_available_employees(self):
+        """This prints the available employees for a certain day"""
 
         print(self.LENGTH_STAR * "*")
         print("AVAILABLE EMPLOYEES")
 
-        available_employees_list = self.llapi.get_available_emp_by_date(user_input_date)
+        iaad_date = self.show_enter_date_menu()
+        print(iaad_date)
+
+        available_employees_list = self.llapi.get_available_emp_by_date(iaad_date)
         for employee_ob in available_employees_list:
             print(f"\nName: {employee_ob.name}, rank: {employee_ob.rank}")
 
-        parsed_input_date= dateutil.parser.parse(user_input_date)
-        print(f"\nNAN AIR has {len(available_employees_list)} avaliable employees on {parsed_input_date.day}/{parsed_input_date.month}/{parsed_input_date.year}")
+        parsed_iaad_date= dateutil.parser.parse(iaad_date)
+        print(f"\nNAN AIR has {len(available_employees_list)} avaliable employees on {parsed_iaad_date.day}/{parsed_iaad_date.month}/{parsed_iaad_date.year}")
         print("\nB Back\n")
        
         action_str = self.choose_action(["b"])
@@ -96,21 +93,22 @@ class IAADUI():
         if action_str == "b":
             return
 
-    def show_unavailable_employees(self, user_input_date): #Hérna þurfa að fylgja til hvaða áfangastaði starfsmennirnar eru að fara
+    def show_unavailable_employees(self): #Hérna þurfa að fylgja til hvaða áfangastaði starfsmennirnar eru að fara
         """This prints the unavailable employees on a certain day"""
 
         print(self.LENGTH_STAR * "*")
         print("UNAVAILABLE EMPLOYEES\n")
 
-        unavailable_employees_list = self.llapi.get_unavailable_emp_by_date(user_input_date)
-        for employee_elem in unavailable_employees_list:
-            
-            if employee_elem != []:
-                print(f"\nName: {employee_elem[0]}, destination: {employee_elem[1]}")
-                parsed_input_date = dateutil.parser.parse(user_input_date)
-                print(f"\nNAN AIR has {len(unavailable_employees_list)} uavaliable employees on {parsed_input_date.day}/{parsed_input_date.month}/{parsed_input_date.year}")
-            else:
-                print("There are no unavailable employees for that day")
+        iaad_date = self.show_enter_date_menu()
+
+        unavailable_employees_list = self.llapi.get_unavailable_emp_by_date(iaad_date)
+        parsed_iaad_date = dateutil.parser.parse(iaad_date)
+        print(f"\nNAN AIR has {len(unavailable_employees_list)} unavaliable employees on {parsed_iaad_date.day}/{parsed_iaad_date.month}/{parsed_iaad_date.year}")
+        if unavailable_employees_list != []:
+            for employee_elem in unavailable_employees_list:
+                print(f"\nName: {employee_elem[0]}, Destination: {employee_elem[1]}")
+        else:
+            print("There are no unavailable employees for that day")
 
         print("\nB Back\n")
 
@@ -121,18 +119,21 @@ class IAADUI():
         if action_str == "b":
             return
 
-    def show_airplane_status(self, user_input_date):
+    def show_airplane_status(self):
         """This prints the status of airplanes on a certain day"""
 
         print(self.LENGTH_STAR * "*")
         print("AIRPLANE STATUS\n")
 
-        airplane_status = self.llapi.get_airplane_status_by_date(user_input_date)
+        iaad_date = self.show_enter_date_menu()
+        iaad_date_time = self.show_enter_time_menu_airplane(iaad_date)
+
+        airplane_status = self.llapi.get_airplane_status_by_date(iaad_date_time)
+
         counter = 1
-        
         if airplane_status != []:
             for airplane_elem in airplane_status:
-                    print(f"\n{counter}.\nDestination: {airplane_elem[0]} \nAirplane name: {airplane_elem[1]} \nAirplane type: {airplane_elem[2]} \nSeat amount: {airplane_elem[3]} \nFlight number: {airplane_elem[4]} \nNext available time: {airplane_elem[5]}")
+                    print(f"\n{counter}.\nAirplane ID: {airplane_elem[1]} \nAirplane type: {airplane_elem[2]}\nDestination: {airplane_elem[0]} \nSeat amount: {airplane_elem[3]} \nFlight number: {airplane_elem[4]} \nNext available time: {airplane_elem[5]}")
                     counter += 1
 
         else:
@@ -147,13 +148,19 @@ class IAADUI():
         if action_str == "b":
             return
 
-    def show_voyages_status(self, user_input_date):
+    def show_voyages_status(self):
         """This prints the status of a voyage on a certain day"""
 
         print(self.LENGTH_STAR * "*")
         print("VOYAGE STATUS\n")
+
+        print("Enter date from")
+        iaad_date_to = self.show_enter_date_menu()
+        print("\nEnter date to")
+        iaad_date_from = self.show_enter_date_menu()
+        print()
         
-        voyage_status = self.llapi.get_voyages_status_by_date(user_input_date)
+        voyage_status = self.llapi.get_voyages_status_by_date(iaad_date_to, iaad_date_from)
         print(voyage_status)
 
         print()

@@ -61,7 +61,7 @@ class UImanager():
                 self.airplanes.show_airplane_menu()
 
             elif action_str == "5":
-                self.iaad.show_enter_date_menu()
+                self.iaad.show_IAAD_menu()
 
             elif action_str == "q":
                 break
