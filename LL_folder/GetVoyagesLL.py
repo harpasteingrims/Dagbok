@@ -128,7 +128,7 @@ class GetVoyagesLL():
                 dest_ID = str(destination_ob.destiID)
         outbound_flight_num = outbound_flight_num + dest_ID
         return_flight_num = return_flight_num + dest_ID
-        voyage_list = self.ioapi.get_all_voyages_list
+        voyage_list = self.list_all_voyages()
         highest_number = 0
         for voyage_ob in voyage_list:
             if new_voyage_object.departure_time[0:9] == voyage_ob.departure_time[0:9] and new_voyage_object.destination == voyage_ob.destination:
