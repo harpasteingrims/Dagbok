@@ -320,7 +320,7 @@ class VoyagesUI():
         if ob_item:
             return ob_item
         else:
-            print("Invalid number")
+            print("Invalid number!")
             return ob_item
 
     def get_year_month_day_voy(self): #Checkar hvort þetta sé á réttu formi og hvort þetta séu int tölur
@@ -343,5 +343,5 @@ class VoyagesUI():
         if time_check:
             return time_check
         else:
-            print("\nInvalid time\n")
+            print("\nInvalid time!\n")
             return time_check
