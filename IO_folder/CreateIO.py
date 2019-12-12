@@ -10,7 +10,7 @@ import os
 
 class CreateIO():
     def store_pilot(self, new_pilot):
-        with open('./csv_files/Pilots.csv', 'a', newline = "\n") as openfile:
+        with open('./csv_files/Pilots.csv', 'a', newline = "") as openfile:
             fieldnames = ["ssn", "name", "role", "rank", "plane license", "address", "mobile_number", "email"]
             writer = csv.DictWriter(openfile, fieldnames = fieldnames)
             writer.writerow({"ssn": new_pilot.ssn,"name": " " + new_pilot.name,"role": " " + new_pilot.role,"rank": " " + new_pilot.rank,"plane license": " " + new_pilot.license_type,"address": " " + new_pilot.address,"mobile_number": " " + new_pilot.mobile_number,"email": " " + new_pilot.email})
