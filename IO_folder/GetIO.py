@@ -31,7 +31,6 @@ class GetIO():
         pilot_list = []
         counter = 1
         for line in pilot_file:
-            line = line.strip()
             if counter == 1:
                 counter += 1
             else:

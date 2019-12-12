@@ -60,6 +60,6 @@ class UpdateIO:
 
         for elem in cabincrew_list:
             if elem.ssn == update_cabincrew.ssn:
-                self.createio.store_pilot(update_cabincrew)
+                self.createio.store_cabincrew(update_cabincrew)
             else:
-                self.createio.store_pilot(elem)
+                self.createio.store_cabincrew(elem)
