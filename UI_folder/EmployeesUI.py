@@ -162,13 +162,13 @@ class EmployeesUI():
             
             if len(common_named_staff_list) == 1:
                 staff_ob = common_named_staff_list[0]
-                print()
+                print(staff_ob.print_info_new_line())
 
             else: 
                 counter = 1
                 for staff_ob in common_named_staff_list:
 
-                    print(staff_ob.print_info_in_line())
+                    print(staff_ob.print_info_new_line())
                     counter += 1
                 staff_ob = self.get_input_number(common_named_staff_list)
 
@@ -176,7 +176,7 @@ class EmployeesUI():
             print()
             print(self.LENGTH_STAR * "*")
             print(f"{staff_ob.name.upper()}'S INFO\n")
-            print(staff_ob.print_info_in_line())
+            print(staff_ob.print_info_new_line())
     
             print(f"\n1 {staff_ob.name}'s flight schedule")
             print(f"2 Edit {staff_ob.name} address")
