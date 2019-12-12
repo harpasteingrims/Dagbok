@@ -201,6 +201,9 @@ class LLAPI():
     def check_iaad_time(self, time):
         return self.inputcheckll.check_iaad_time(time)
 
+    def check_iaad_voyage_date(self, date):
+        return self.inputcheckll.check_iaad_voyage_date(date)
+
     """OTHER"""
 
     def check_date_interval(self, date_from, date_to):
