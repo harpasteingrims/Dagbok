@@ -203,6 +203,9 @@ class LLAPI():
 
     """OTHER"""
 
+    def check_date_interval(self, date_from, date_to):
+        return self.inputcheckll.check_date_interval(date_from, date_to)
+
     def check_date(self, date):
         return self.inputcheckll.check_date(date)
 

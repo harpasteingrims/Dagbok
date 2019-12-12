@@ -218,8 +218,23 @@ class InputCheckLL():
         except ValueError:
             return False
 
+    def check_iaad_voyage_date(self, date):
+        """Fær dag á formi 2019-11-18 og skilar honum ef hann er valid á datetime formi"""
+        try:
+            valid_date = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), 00, 00, 0).isoformat()
+            return valid_date
+        except ValueError:
+            return False
+
     """CHECKING INPUT FOR OTHER"""
-    
+
+    def check_date_interval(self, date_from, date_to):
+        """Fær tvær dagsetningar á formi datetime og athugar hvort seinni dagsetningin sé ekki örugglega á eftir þeirri fyrri"""
+        if date_from <= date_to:
+            return True
+        else:
+            return False
+
     def check_date(self, date):
         """Fær dag á formi 2019-11-18 og skilar honum ef hann er valid á formi 2019-11-18"""
         try:

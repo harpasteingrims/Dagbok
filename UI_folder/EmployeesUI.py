@@ -236,12 +236,16 @@ class EmployeesUI():
             return
 
         elif action_str == "c":
-            date_from = self.get_date_from()
-            while date_from == False:
+            #valid_interval == ""
+            valid_interval = False
+            while valid_interval != True:
                 date_from = self.get_date_from()
-            date_to = self.get_date_to()
-            while date_to == False:
+                while date_from == False:
+                    date_from = self.get_date_from()
                 date_to = self.get_date_to()
+                while date_to == False:
+                    date_to = self.get_date_to()
+                valid_interval = self.get_valid_interval(date_from, date_to)
 
             flights_on_asked_time = self.llapi.get_employee_schedule_by_date(staff_ob, date_from, date_to)
             
@@ -441,6 +445,14 @@ class EmployeesUI():
             print("\nInvalid date\n")
             return date_check
 
+    def get_valid_interval(self, date_from, date_to):
+        valid_check = self.llapi.check_date_interval(date_from, date_to)
+        if valid_check == True:
+            return valid_check
+        else:
+            print("\nInvalid interval\n")
+            return valid_check
+
     def get_name(self):
         name = input("\nEnter full name: ").lower()
         name_check = self.llapi.check_name(name)
@@ -454,7 +466,7 @@ class EmployeesUI():
 
 
     def get_pilot_rank(self):
-        rank = input("\nEnter number for either \n1 Captain \n2 Copilot\n: ")
+        rank = input("\nEnter number for either \n1 Captain \n2 Copilot\nEnter: ")
         rank_check = self.llapi.check_pilot_rank(rank)
         
         if rank_check:
@@ -465,7 +477,7 @@ class EmployeesUI():
             return rank_check
 
     def get_cabin_crew_rank(self):
-        rank = input("\nEnter number for either \n1 Flight Service Manager \n2 Flight Attendant\n: ")
+        rank = input("\nEnter number for either \n1 Flight Service Manager \n2 Flight Attendant\nEnter: ")
         rank_check = self.llapi.check_crew_member_rank(rank)
 
         if rank_check:
