@@ -16,7 +16,7 @@ class VoyagesUI():
             
         else:
             print("Invalid action!")
-            self.choose_action(valid_list)
+            return False
 
     
     def show_voyage_menu(self):
@@ -34,6 +34,8 @@ class VoyagesUI():
             print("B Back\n")
 
             action_str = self.choose_action(["1","2","3","b"])
+            while action_str == False:
+                action_str = self.choose_action(["1", "2", "3", "4", "5","q"])
 
             if action_str == "1":
                 self.show_voyage_overview()
@@ -57,6 +59,8 @@ class VoyagesUI():
         print("\nB Back\n")
 
         action_str = self.choose_action(["b"])
+        while action_str == False:
+                action_str = self.choose_action(["1", "2", "3", "4", "5","q"])
 
         if action_str == "b":
             return
@@ -69,6 +73,8 @@ class VoyagesUI():
         print(self.LENGTH_STAR*"*")
         print("CREATE A VOYAGE \n\n1 See common voyages\n2 Create a voyage manually\nB Back\n")
         action_str = self.choose_action(["1", "2", "b"])
+        while action_str == False:
+                action_str = self.choose_action(["1", "2", "3", "4", "5","q"])
 
         if action_str == "1":
             self.show_see_common()
@@ -85,6 +91,8 @@ class VoyagesUI():
         
         print("\nB Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
+        while action_str == False:
+                action_str = self.choose_action(["1", "2", "3", "4", "5","q"])
         if action_str == "b":
             return
 
@@ -107,6 +115,8 @@ class VoyagesUI():
         print("INPUT DEPARTURE DATE AND ARIPLANE ID")
         print("\nB Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
+        while action_str == False:
+                action_str = self.choose_action(["1", "2", "3", "4", "5","q"])
         if action_str == "b":
             return
         
@@ -184,6 +194,8 @@ class VoyagesUI():
         print("\n1 Assign crew to voyage\nS Save\nB Back\n")
 
         action_str = self.choose_action(["1", "s", "b"])
+        while chosen_voyage_elem == -1:
+            chosen_voyage_elem = self.choose_a_number(common_voyages_list)
 
         if action_str == "1" or action_str == "s":
             arrival_time = 0 #format fyrir date time
@@ -200,7 +212,7 @@ class VoyagesUI():
         elif action_str == "b":
             return
 
-    def go_through_av_employee_list(self, staff_str, number = 0):
+    def go_through_av_employee_list(self, staff_str, voyage_date, number = 0):
 
         available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
         counter = 1
@@ -238,16 +250,18 @@ class VoyagesUI():
 
         print("\nB Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
+        while chosen_voyage_elem == -1:
+            chosen_voyage_elem = self.choose_a_number(common_voyages_list)
         if action_str == "b":
             return
 
         available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
        
-        captain_ob = self.go_through_av_employee_list("Captain")
-        copilot_ob = self.go_through_av_employee_list("Copilot")
-        senior_cabincrew_member_ob = self.go_through_av_employee_list("Flight Service Manager")
-        cabincrew_member_1_ob = self.go_through_av_employee_list("Flight Attendant", 1)
-        cabincrew_member_2_ob = self.choose_a_number("Flight Attendant", 2)
+        captain_ob = self.go_through_av_employee_list("Captain", voyage_date)
+        copilot_ob = self.go_through_av_employee_list("Copilot", voyage_date)
+        senior_cabincrew_member_ob = self.go_through_av_employee_list("Flight Service Manager", voyage_date)
+        cabincrew_member_1_ob = self.go_through_av_employee_list("Flight Attendant",voyage_date, 1)
+        cabincrew_member_2_ob = self.choose_a_number("Flight Attendant", voyage_date, 2)
             
         crew_list = [captain_ob, copilot_ob, senior_cabincrew_member_ob, cabincrew_member_1_ob, cabincrew_member_2_ob]
         updated_voyage_ob = VoyagesModel(voyage_ob.departure_time, voyage_ob.destination, voyage_ob.aircraftID, voyage_ob.arrival_time, crew_list)

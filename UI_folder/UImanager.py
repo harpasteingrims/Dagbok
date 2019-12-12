@@ -27,7 +27,7 @@ class UImanager():
             
         else:
             print("Invalid action!")
-            self.choose_action(valid_list)
+            return False
             
     
     def mainmenuUI(self):    
@@ -45,7 +45,9 @@ class UImanager():
             print("Q Quit\n")
     
             action_str = self.choose_action(["1", "2", "3", "4", "5","q"])
-        
+            while action_str == False:
+                action_str = self.choose_action(["1", "2", "3", "4", "5","q"])
+
             if action_str == "1":
                 self.employees.show_employee_menu()
 
