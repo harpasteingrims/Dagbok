@@ -30,8 +30,12 @@ class CreateIO():
             writer.writerow("planeID": new_airplane.planeID, "airplane_type": new_airplane.airplane_type, "manufacturer": new_airplane.manufacturer, "seat_amount": new_airplane.seat_amount)
 
     def store_destination(self, new_destination):
-        with open('./csv_files/Destinations.csv', 'a', newline = None) as f:
-            f.write(new_destination.to_csv_string())
+        with open('./csv_files/Destinations.csv', 'a', newline = "") as openfile:
+            fieldnames = ["planeID", "airplane_type", "manufacturer", "seat_amount"]
+            country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID 
+            writer = csv.DictWriter(openfile, fieldnames = fieldnames)
+            self, planeID, airplane_type, manufacturer, seat_amount
+            writer.writerow("planeID": new_airplane.planeID, "airplane_type": new_airplane.airplane_type, "manufacturer": new_airplane.manufacturer, "seat_amount": new_airplane.seat_amount)
 
     def store_voyage(self, new_voyage):
         with open('./csv_files/Flights.csv', 'a', newline = None) as f:
