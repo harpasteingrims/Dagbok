@@ -102,15 +102,15 @@ class IAADUI():
         print(self.LENGTH_STAR * "*")
         print("UNAVAILABLE EMPLOYEES\n")
 
-        unavailable_employess = self.llapi.get_unavailable_emp_by_date(user_input_date)
-        for employee_elem in unavailable_employess:
+        unavailable_employees_list = self.llapi.get_unavailable_emp_by_date(user_input_date)
+        for employee_elem in unavailable_employees_list:
             
-            if unavailable_employess != []:
+            if employee_elem != []:
                 print(f"\nName: {employee_elem[0]}, destination: {employee_elem[1]}")
                 parsed_input_date = dateutil.parser.parse(user_input_date)
-                print(f"\nNAN AIR has {len(available_employees_list)} uavaliable employees on {parsed_input_date.day}/{parsed_input_date.month}/{parsed_input_date.year}")
+                print(f"\nNAN AIR has {len(unavailable_employees_list)} uavaliable employees on {parsed_input_date.day}/{parsed_input_date.month}/{parsed_input_date.year}")
             else:
-                print("There are no unavailable employess for that day")
+                print("There are no unavailable employees for that day")
 
         print("\nB Back\n")
 

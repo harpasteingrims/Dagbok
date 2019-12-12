@@ -11,7 +11,7 @@ class UpdateIO:
     def update_emergency_contact(self, update_contact):               
         ''' Updates an emergency contact for a certain country'''
         destionations_list = GetIO().load_all_destinations()
-        with open("filename.csv", "w", newline="") as csvfile:
+        with open("filename.csv", "w", encoding= "utf8", newline="") as csvfile:
             fieldnames = ["country", "airport", "flightDurFromIce", "DistFromIce", "ContactName", "ContactPhoneNR"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
@@ -25,7 +25,7 @@ class UpdateIO:
     def update_voyage(self, voyage_object):                    
         '''Updates a voyage'''
         flights_list = GetIO.load_all_voyages(self)
-        with open("./csv_files/Flights.csv","w", newline="") as csvfile:
+        with open("./csv_files/Flights.csv","w", encoding= "utf8", newline="") as csvfile:
             fieldnames = ["flightNumber", " departingFrom", " arrivingAt", " departure", " arrival", " aircraftID", " captain", " copilot", " fsm", " fa1", " fa2"] 
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
@@ -39,7 +39,7 @@ class UpdateIO:
     def update_pilot(self, update_pilot):
         ''' Updates a pilot '''
         pilot_list = GetIO.load_all_pilots(self)
-        with open("./csv_files/Pilots.csv","w",newline="") as csvfile:
+        with open("./csv_files/Pilots.csv","w", encoding= "utf8", newline="") as csvfile:
             fieldnames = ["ssn", " name", " role" ," rank" , " plane license" ," address" , " mobile number" , " email\n"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
@@ -53,7 +53,7 @@ class UpdateIO:
         
     def update_cabincrew(self, update_cabincrew):
         cabincrew_list = GetIO.load_all_cabincrew(self)
-        with open("./csv_files/CabinCrew.csv","w", newline="") as csvfile:
+        with open("./csv_files/CabinCrew.csv","w", encoding= "utf8", newline="") as csvfile:
             fieldnames = [" ssn", " name", " role", " rank", " address", " mobile number", " email\n"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
