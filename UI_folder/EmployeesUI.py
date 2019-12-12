@@ -142,7 +142,7 @@ class EmployeesUI():
     def get_input_name_and_common_name_list(self, staff_str):
         
         input_name = input(f"Enter name of {staff_str}: ").lower() 
-        print()   
+        print()
 
         if staff_str == self.PILOT:
             common_named_staff_list = self.llapi.get_common_named_pilots(input_name)
@@ -190,7 +190,7 @@ class EmployeesUI():
                 
                 staff_ob = self.get_input_number(common_named_staff_list)
 
-            print()
+            
             print(self.LENGTH_STAR * "*")
             print(f"{staff_ob.name.upper()}'S INFO\n")
             print(staff_ob.print_info_new_line())
@@ -304,7 +304,7 @@ class EmployeesUI():
                     new_email = self.get_email()
                 success = self.check_action_edit_form(staff_ob, number, new_email)
         
-        print(f"{staff_ob.name}'s information successfully changed")
+        print(f"\n{staff_ob.name}'s information successfully changed!")
         
         return
 
@@ -407,7 +407,7 @@ class EmployeesUI():
                     new_staff_object = CabinCrewModel(ssn, name, "Cabin crew", rank, address, mobile_number, email)
                     self.llapi.create_new_cabin_crew(new_staff_object)
 
-                print(f"{staff_str.capitalize()} {new_staff_object.name} successfully created\n")
+                print(f"{staff_str.capitalize()} {new_staff_object.name} successfully created!\n")
                 return
             
             elif action_str == "b":

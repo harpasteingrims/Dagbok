@@ -25,7 +25,6 @@ class VoyagesUI():
         action_str = ""
 
         while True:
-            print()
             print(self.LENGTH_STAR * "*")
             print("VOYAGE MENU\n")
             print("1 Print overview of voyages")
@@ -77,7 +76,6 @@ class VoyagesUI():
     def show_create_voyage_menu(self):
         """This prints the menu for create a voyage"""
         
-        print()
         print(self.LENGTH_STAR*"*")
         print("CREATE A VOYAGE \n\n1 See common voyages\n2 Create a voyage manually\nB Back\n")
         action_str = self.choose_action(["1", "2", "b"])
@@ -98,15 +96,17 @@ class VoyagesUI():
         print("SEE COMMON VOYAGES")
         
         print("\nB Back\nC Continue\n")
+        
         action_str = self.choose_action(["b", "c"])
         while action_str == False:
             action_str = self.choose_action(["b", "c"])
         if action_str == "b":
             return
-        
+    
         elif action_str == "c":
 
             common_voyages_list = self.llapi.get_common_voyages()
+            print("Common voyages:\n")
             counter = 1
             for voyage_elem in common_voyages_list:
                 print(f"\n{counter} {voyage_elem[0]}, {voyage_elem[1][:-1]}")
@@ -141,10 +141,11 @@ class VoyagesUI():
             departure_year, departure_month,  departure_day = date.split("-")
             departure_date = datetime.datetime(int(departure_year), int(departure_month), int(departure_day), int(departure_hour), int(departure_minute), int(departure_second)).isoformat()
             
+            print("\nAvaliable airplanes on date:")
             available_airplanes_list = self.llapi.get_available_airplanes_by_date(departure_date)
             chosen_airplane_id = self.print_objects_in_ob_list(available_airplanes_list)
             
-            print("\n* Voyage successfully created *")
+            print("* Voyage successfully created *")
             arrival_time = 0
             new_voyage = VoyagesModel(departure_date, chosen_voyage_elem[0], chosen_airplane_id, arrival_time)
             self.llapi.calculate_outbound_arriv_time(new_voyage)
@@ -239,7 +240,7 @@ class VoyagesUI():
         available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
         counter = 1
 
-        print(f"\nAvaliable {staff_str.lower()}s\n")
+        print(f"\nAvaliable {staff_str.lower()}s:")
         for employee_ob in available_employess_ob_list:
             if employee_ob.rank == staff_str:
                 print(employee_ob.print_available(counter))
@@ -329,7 +330,7 @@ class VoyagesUI():
         if date_check:
             return date_check
         else:
-            print("Invalid date")
+            print("Invalid date!")
             return date_check
 
     def get_hour_minute_voy(self, voyage_year, voyage_month, voyage_day): #Checkar hvort þetta sé á réttu formi og hvort þetta séu int tölur, checkar einnig hvort það sé flug á þessum tíma
