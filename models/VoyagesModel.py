@@ -9,10 +9,10 @@ class VoyagesModel():
         self.crew_list = crew_list
 
     def to_csv_string(self):
-        return f"\n{self.departure_time}, {self.arrival_time}, {self.destination}, {self.aircraftID}"
+        return f"\r\n{self.departure_time}, {self.arrival_time}, {self.destination}, {self.aircraftID}"
  
     def print_voy_out(self, counter):
-        return f"\n{counter} {self.departure_time}, {self.destination}, {self.aircraftID}"
+        return f"\r\n{counter} {self.departure_time}, {self.destination}, {self.aircraftID}"
     
     def assign_crew_to_voyage(self, captain, copilot, fsm, fa1, fa2): #Held að crewið myndi verða hér listi af listum, en þurfum að hafa það bara sem lista
         staff_list = [captain, copilot, fsm, fa1, fa2]

@@ -15,7 +15,7 @@ class FlightsModel():
     #Þurfum að bæta virkni hér við
 
     def to_csv_string(self):
-        return f"\n{self.departure_time}, {self.arriving_at}, {self.aircraftID}"
+        return f"\r\n{self.departure_time}, {self.arriving_at}, {self.aircraftID}"
     
     def assign_crew_to_voyage(self, captain, copilot, fsm, fa1, fa2):
         staff_list = [captain, copilot, fsm, fa1, fa2]
@@ -23,4 +23,4 @@ class FlightsModel():
         return self.crew_list
 
     def to_csv_string_crew(self):
-        return f"\n{self.departure_time}, {self.arriving_at}, {self.aircraftID}, {self.captain}, {self.copilot}, {self.fsm}, {self.fa1}, {self.fa2}"
+        return f"\r\n{self.departure_time}, {self.arriving_at}, {self.aircraftID}, {self.captain}, {self.copilot}, {self.fsm}, {self.fa1}, {self.fa2}"
