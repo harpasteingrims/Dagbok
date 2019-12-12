@@ -99,7 +99,7 @@ class LLAPI():
         pass    
 
     def create_new_voyage(self, new_voyage_object):
-        return self.ioapi.create_voyage(new_voyage_object)
+        return self.ioapi.create_voyage(outbound_flight, return_flight)
 
     def create_new_common_voyage(self, common_voyage_object):
         #HÉR Á EFTIR AÐ VINNA
