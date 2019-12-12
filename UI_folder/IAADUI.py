@@ -16,7 +16,7 @@ class IAADUI():
             
         else:
             print("Invalid action!")
-            self.choose_action(valid_list)
+            return False
 
     def show_enter_date_menu(self):
         """This prints the menu for choosing date to get information about""" 
@@ -46,6 +46,8 @@ class IAADUI():
             print("B Back\n")
             
             action_str = self.choose_action(["1","2","3","b"])
+            while action_str == False:
+                action_str = self.choose_action(["1", "2", "3", "b"])
 
             if action_str == "1":
                 self.show_available_employees(iaad_date)
@@ -81,6 +83,8 @@ class IAADUI():
         print("\nB Back")
        
         action_str = self.choose_action(["b"])
+        while action_str == False:
+            action_str = self.choose_action(["b"])
 
         if action_str == "b":
             return
@@ -99,6 +103,8 @@ class IAADUI():
         print("\nB Back")
 
         action_str = self.choose_action(["b"])
+        while action_str == False:
+            action_str = self.choose_action(["b"])
 
         if action_str == "b":
             return
@@ -124,6 +130,8 @@ class IAADUI():
         print("\nB Back")
 
         action_str = self.choose_action(["b"])
+        while action_str == False:
+            action_str = self.choose_action(["b"])
 
         if action_str == "b":
             return

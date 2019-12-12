@@ -110,7 +110,7 @@ class EmployeesUI():
 
         action_str = self.choose_action(["b"])
         while action_str == False:
-                action_str = self.choose_action(["b"])
+            action_str = self.choose_action(["b"])
 
         if action_str == "b":
             return 
@@ -135,7 +135,7 @@ class EmployeesUI():
 
         action_str = self.choose_action(["b"])
         while action_str == False:
-                action_str = self.choose_action(["b"])
+            action_str = self.choose_action(["b"])
         
         if action_str == "b":
             return
@@ -217,7 +217,7 @@ class EmployeesUI():
         print("\nB Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
         while action_str == False:
-                action_str = self.choose_action(["c", "b"])
+            action_str = self.choose_action(["c", "b"])
         if action_str == "b":
             return
 
@@ -259,7 +259,7 @@ class EmployeesUI():
         print("\nB Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
         while action_str == False:
-                action_str = self.choose_action(["c", "b"])
+            action_str = self.choose_action(["c", "b"])
         if action_str == "b":
             return
         elif action_str == "c":
@@ -292,7 +292,7 @@ class EmployeesUI():
         print("\nS Save \nB Back\n")
         action_str = self.choose_action(["s","b"])
         while action_str == False:
-                action_str = self.choose_action(["s", "b"])
+            action_str = self.choose_action(["s", "b"])
 
         if action_str == "s" and number == 1:
 
@@ -336,7 +336,7 @@ class EmployeesUI():
         print("\nB Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
         while action_str == False:
-                action_str = self.choose_action(["c", "b"])
+            action_str = self.choose_action(["c", "b"])
         if action_str == "b":
             return
         elif action_str == "c":
