@@ -1,4 +1,5 @@
 import datetime
+from datetime import timedelta
 import dateutil.parser
 class VoyagesModel():
     def __init__(self, departure_time, destination, aircraftID, arrival_time = "", crew_list = [], outbound_flight_num = "", return_flight_num = "", return_departure_time = "", return_arrival_time = "", departure_dest = "Keflavik"):
