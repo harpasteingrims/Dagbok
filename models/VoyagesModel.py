@@ -8,7 +8,7 @@ class VoyagesModel():
         self.arrival_time = arrival_time #leiðréttið ef þetta er vitlaust gert - Hallmar
         self.crew_list = crew_list
 
-    def csv_voyage_to_string(self):
+    def to_csv_string(self):
         return f"{self.departure_time}, {self.arrival_time}, {self.destination}, {self.aircraftID}"
  
     def print_voy_out(self, counter):
