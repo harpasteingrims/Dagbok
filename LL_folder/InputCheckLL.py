@@ -210,7 +210,7 @@ class InputCheckLL():
     """CHECKING INPUT FOR IAAD"""
 
     def check_iaad_time(self, time):
-    """Fær tíma á formi 00:00:00 og skilar honum ef hann er valid á formi 00:00:00"""
+        """Fær tíma á formi 00:00:00 og skilar honum ef hann er valid á formi 00:00:00"""
 
         try:
             valid_time = datetime.datetime(2019, 1, 1, int(time[0]), int(time[1]), 0).isoformat()
@@ -221,7 +221,7 @@ class InputCheckLL():
     """CHECKING INPUT FOR OTHER"""
     
     def check_date(self, date):
-    """Fær dag á formi 2019-11-18 og skilar honum ef hann er valid á formi 2019-11-18"""
+        """Fær dag á formi 2019-11-18 og skilar honum ef hann er valid á formi 2019-11-18"""
         try:
             valid_date = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), 00, 00, 0).isoformat()
             return valid_date[0:10]
@@ -239,4 +239,3 @@ class InputCheckLL():
                 return False
         except ValueError:
             return False
-
