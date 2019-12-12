@@ -31,6 +31,8 @@ class AirplanesUI():
             print("B Back\n")
             
             action_str = self.choose_action(["1","2","b"])
+            while action_str == False:
+                action_str = self.choose_action(["1", "2", "b"])
 
             if action_str  == "1":
                 self.show_airplane_overview()
@@ -52,6 +54,8 @@ class AirplanesUI():
         print("\nB Back\n")
 
         action_str = self.choose_action(["b"])
+        while action_str == False:
+                action_str = self.choose_action(["b"])
 
         if action_str == "b":
             return
@@ -65,28 +69,34 @@ class AirplanesUI():
 
         print("\nB Back\nC Continue\n")
         action_str = self.choose_action(["b", "c"])
+        while action_str == False:
+                action_str = self.choose_action(["c", "b"])
+        
         if action_str == "b":
             return
+        elif actin_str == "c":
 
-        airplane_id = self.get_airplane_id()
-        airplane_type = self.get_airplane_type()
-        manufacturer = self.get_manufacturer()
-        seat_amount = self.get_seat_amount()
-        
-        print("\nS Save \nB Back\n")
+            airplane_id = self.get_airplane_id()
+            airplane_type = self.get_airplane_type()
+            manufacturer = self.get_manufacturer()
+            seat_amount = self.get_seat_amount()
+            
+            print("\nS Save \nB Back\n")
 
-        action_str = self.choose_action(["s","b"])
+            action_str = self.choose_action(["s","b"])
+            while action_str == False:
+                action_str = self.choose_action(["s", "b"])
 
-        if action_str == "s":
-            #Takes the info and adds it to the airplane list
-           
-            new_airplane_object = AirplanesModel(airplane_id, airplane_type, manufacturer, seat_amount)
-            self.llapi.create_new_airplane(new_airplane_object)
-            print(f"Airplane {new_airplane_object, airplane_id} successfully created\n")
-            return
+            if action_str == "s":
+                #Takes the info and adds it to the airplane list
+            
+                new_airplane_object = AirplanesModel(airplane_id, airplane_type, manufacturer, seat_amount)
+                self.llapi.create_new_airplane(new_airplane_object)
+                print(f"Airplane {new_airplane_object, airplane_id} successfully created\n")
+                return
 
-        elif action_str == "b":
-            return
+            elif action_str == "b":
+                return
     
 
     def get_airplane_id(self):
