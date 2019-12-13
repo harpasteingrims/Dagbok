@@ -211,6 +211,7 @@ class DestinationsUI():
 
             if action_str == "s":
                 chosen_destination_ob = DestinationsModel(chosen_destination_ob.country, chosen_destination_ob.airport, chosen_destination_ob.flight_dur_from_Ice, chosen_destination_ob.dist_from_Ice, chosen_destination_ob.contact_name, new_emergency_num, chosen_destination_ob.destiID)
+                self.llapi.update_new_emerg_contact(chosen_destination_ob)
                 print(f"Emergency contact of {chosen_destination_ob.country} information successfully changed")
                 return
 
