@@ -224,7 +224,7 @@ Vika 2: 02.12 - 06.12
             -Nína: Vinna í GetEmployeeLL og tengir við LLAPI í employee
             -Harpa: Vinna í AirplaneLL og DestinationsLL
             -Hildur: Reyna að vinna í createLL og tengja klasa í UI
-            -Hallmar: kúka
+            -Hallmar: Æla
         -Ákváðum að halda afmælið hennar Viktoríu annað hvort á laugardaginn eða sunnudaginn. Erum að hugsa spilakvöld og borða saman kvöldmat. Sjáum til hvernig stemningin verður að fara niðr'í bæ.
 
 06.12.2019 

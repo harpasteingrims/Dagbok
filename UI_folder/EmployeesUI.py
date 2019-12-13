@@ -84,7 +84,7 @@ class EmployeesUI():
             return 
 
     def show_pilot_or_crew_menu(self, staff_str):
-        """ Prints either the menu and calls appropriate functions or prints Invalid action"""
+        """Prints either the menu and calls appropriate functions or prints invalid action"""
 
         while True:
             print(self.LENGTH_STAR * "*")
@@ -115,7 +115,7 @@ class EmployeesUI():
                 return
 
     def show_either_crew_or_pilots_overview(self, staff_str):
-        """ Prints the overview of either """
+        """Prints the overview of either cabin crew or pilots"""
         
         print(self.LENGTH_STAR * "*")
         print(f"OVERVIEW OF {staff_str.upper()}S")
@@ -140,7 +140,7 @@ class EmployeesUI():
             return
 
     def show_enter_name_to_search(self, staff_str):
-        """ This prints the search for a pilot window """
+        """This prints the search for a pilot/cabin crew member window"""
          
         print(self.LENGTH_STAR * "*")
         print(f"SEARCH FOR A {staff_str.upper()}\n")
@@ -186,7 +186,7 @@ class EmployeesUI():
 
             action_str = self.choose_action(["1","2","3","4","b"])
             while action_str == False:
-                action_str = self.choose_action(["1", "2", "3", "4" "b"])
+                action_str = self.choose_action(["1","2","3","4","b"])
             
             if action_str == "1":
                 self.show_flight_schedule_of_employee(staff_ob)
@@ -204,28 +204,31 @@ class EmployeesUI():
                 return
 
     def get_input_name_and_common_name_list(self, staff_str):
+        """Asks user for a name and returns a list of individuals that match the name"""
         
         input_name = input(f"Enter name of {staff_str}: ").lower() 
         print()
 
         if staff_str == self.PILOT:
             common_named_staff_list = self.llapi.get_common_named_pilots(input_name)
-
+    
         elif staff_str == self.CREW:
             common_named_staff_list = self.llapi.get_common_named_crew_members(input_name)
 
         else: 
             return False
 
-        return common_named_staff_list, input_name
+        return common_named_staff_list
 
     def show_flight_schedule_of_employee(self, staff_ob):
         """Calls a class that makes a list of their voyages and prints it"""
         print("Continue to pick dates")
         print("\nB Back\nC Continue\n")
+
         action_str = self.choose_action(["b", "c"])
         while action_str == False:
             action_str = self.choose_action(["b", "c"])
+
         if action_str == "b":
             return
 
@@ -244,7 +247,7 @@ class EmployeesUI():
             flights_on_asked_time = self.llapi.get_employee_schedule_by_date(staff_ob, date_from, date_to)
             
             counter = 1
-            if len(flights_on_asked_time) < 1:
+            if len(flights_on_asked_time) == 0:
                 print(f"\n{staff_ob.name} has no flights on selected period")
 
             else:
@@ -252,7 +255,6 @@ class EmployeesUI():
                 print(f"{staff_ob.name.upper()}'S FLIGHT SCHEDULE")
                 
                 for flight_ob in flights_on_asked_time:
-                    
                     print(flight_ob.print_schedule(counter))
                     counter += 1
 
@@ -271,39 +273,31 @@ class EmployeesUI():
         print(self.LENGTH_STAR * "*")
         print(f"EDIT {staff_ob.role.upper()}\n")
 
-        print("B Back\nC Continue\n")
-        action_str = self.choose_action(["b", "c"])
-        while action_str == False:
-            action_str = self.choose_action(["b", "c"])
-        if action_str == "b":
-            return
-        elif action_str == "c":
-
-            if number == 1:
-                print(self.LENGTH_STAR * "*")
-                print(f"You are changing {staff_ob.name}´s address\nThe current address is: {staff_ob.address}")
+        if number == 1:
+            print(self.LENGTH_STAR * "*")
+            print(f"You are changing {staff_ob.name}´s address\nThe current address is: {staff_ob.address}")
+            new_address = self.get_address()
+            while new_address == False:
                 new_address = self.get_address()
-                while new_address == False:
-                    new_address = self.get_address()
-                success = self.check_action_edit_form(staff_ob, number, new_address)
+            self.check_action_edit_form(staff_ob, number, new_address)
 
-            elif number == 2:
-                print(self.LENGTH_STAR * "*")
-                print(f"You are changing {staff_ob.name}´s mobile number\nThe current mobile number is: {staff_ob.mobile_number}")
-                new_mobile_number = self.get_mobile_number()
-                while new_mobile_number == False:
-                    new_mobile_number = self.get_mobile_number
-                success = self.check_action_edit_form(staff_ob, number, new_mobile_number)
-            
-            elif number == 3:
-                print(self.LENGTH_STAR * "*")
-                print(f"You are changing {staff_ob.name}´s email\nThe current the email is: {staff_ob.email}")
-                new_email = self.get_email()
-                while new_email == False:
-                    new_email = self.get_email()
-                success = self.check_action_edit_form(staff_ob, number, new_email)
+        elif number == 2:
+            print(self.LENGTH_STAR * "*")
+            print(f"You are changing {staff_ob.name}´s mobile number\nThe current mobile number is: {staff_ob.mobile_number}")
+            new_mobile_number = self.get_mobile_number()
+            while new_mobile_number == False:
+                new_mobile_number = self.get_mobile_number
+            self.check_action_edit_form(staff_ob, number, new_mobile_number)
         
-        print(f"\n{staff_ob.name}'s information successfully changed!")
+        elif number == 3:
+            print(self.LENGTH_STAR * "*")
+            print(f"You are changing {staff_ob.name}´s email\nThe current the email is: {staff_ob.email}")
+            new_email = self.get_email()
+            while new_email == False:
+                new_email = self.get_email()
+            self.check_action_edit_form(staff_ob, number, new_email)
+    
+        print(f"\n{staff_ob.name}'s information successfully changed!\n")
         
         return
 
@@ -314,38 +308,30 @@ class EmployeesUI():
         while action_str == False:
             action_str = self.choose_action(["s", "b"])
 
-        if action_str == "s" and number == 1:
-
-            if staff_ob.role == self.PILOT.capitalize():
-                updated_staff_ob = PilotsModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.license_type, new_info, staff_ob.mobile_number, staff_ob.email)
-            else:
-                updated_staff_ob = CabinCrewModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, new_info, staff_ob.mobile_number, staff_ob.email)
+        if action_str == "s":
+            if number == 1:
+                if staff_ob.role == self.PILOT.capitalize():
+                    updated_staff_ob = PilotsModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.license_type, new_address, staff_ob.mobile_number, staff_ob.email)
+                else:
+                    updated_staff_ob = CabinCrewModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, new_address, staff_ob.mobile_number, staff_ob.email)
+            elif number == 2:
+                if staff_ob.role == self.PILOT.capitalize():
+                    updated_staff_ob = PilotsModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.license_type, staff_ob.address, new_info, staff_ob.email)
+                else:
+                    updated_staff_ob = CabinCrewModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.address, new_info, staff_ob.email)
+            elif number == 3:
+                if staff_ob.role == self.PILOT.capitalize():
+                    updated_staff_ob = PilotsModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.license_type, staff_ob.address, staff_ob.mobile_number, new_info)
+                else:
+                    updated_staff_ob = CabinCrewModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.address, staff_ob.mobile_number, new_info)
             
-        elif action_str == "s" and number == 2:
-
-            if staff_ob.role == self.PILOT.capitalize():
-                updated_staff_ob = PilotsModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.license_type, staff_ob.address, new_info, staff_ob.email)
+            if updated_staff_ob.role == self.PILOT.capitalize():
+                self.llapi.update_new_pilot_information(updated_staff_ob)
             else:
-                updated_staff_ob = CabinCrewModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.address, new_info, staff_ob.email)
-        
-        elif action_str == "s" and number == 3:
+                self.llapi.update_new_crew_member_information(updated_staff_ob)
 
-            if staff_ob.role == self.PILOT.capitalize():
-                updated_staff_ob = PilotsModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.license_type, staff_ob.address, staff_ob.mobile_number, new_info)
-            else:
-                updated_staff_ob = CabinCrewModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.address, staff_ob.mobile_number, new_info)
-        
         elif action_str == "b":
             return
-
-
-        if updated_staff_ob.role == self.PILOT.capitalize():
-
-            return self.llapi.update_new_pilot_information(updated_staff_ob)
-
-        else:
-            return self.llapi.update_new_crew_member_information(updated_staff_ob)
-        
 
     def show_create_form(self, staff_str):
         """ This prints the create a pilot form """
