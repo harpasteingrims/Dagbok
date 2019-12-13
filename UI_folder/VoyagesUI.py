@@ -73,7 +73,7 @@ class VoyagesUI():
 
         if action_str == "b":
             return
-    
+
     def show_create_voyage_menu(self):
         """Prints the menu for create a voyage"""
         
