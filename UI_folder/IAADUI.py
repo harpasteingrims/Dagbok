@@ -25,8 +25,8 @@ class IAADUI():
         action_str = ""
 
         while True:
-            print()
             print(self.LENGTH_STAR * "*")
+            print("INFORMATION ABOUT A DAY\n")
             print("1 Available employees")
             print("2 Unavailable employees")
             print("3 Status of voyages")

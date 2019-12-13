@@ -16,30 +16,6 @@ class AirplanesUI():
         else:
             print("Invalid action!")
             return False
-        
-    def show_airplane_menu(self):
-        """This prints the airplane menu"""
-
-        action_str = ""
-
-        while True:
-            print()
-            print(self.LENGTH_STAR * "*")
-            print("AIRPLANE MENU\n")
-            print("1 Print overview of all airplanes")
-            print("2 Create a new airplane")
-            print("B Back\n")
-            
-            action_str = self.choose_action(["1","2","b"])
-            while action_str == False:
-                action_str = self.choose_action(["1", "2", "b"])
-
-            if action_str  == "1":
-                self.show_airplane_overview()
-            elif action_str == "2":
-                self.show_create_airplane_form()
-            elif action_str == "b":
-                return
 
     def get_input_number(self, ob_list):
         """Asks user for a number, sends to InputCheck and then returns it"""
@@ -57,9 +33,32 @@ class AirplanesUI():
             else:
                 print("\nInvalid input!")
                 self.get_input_number(ob_list)
+        
+    def show_airplane_menu(self):
+        """Prints the airplane menu"""
+
+        action_str = ""
+
+        while True:
+            print(self.LENGTH_STAR * "*")
+            print("AIRPLANE MENU\n")
+            print("1 Print overview of all airplanes")
+            print("2 Create a new airplane")
+            print("B Back\n")
+            
+            action_str = self.choose_action(["1","2","b"])
+            while action_str == False:
+                action_str = self.choose_action(["1", "2", "b"])
+
+            if action_str  == "1":
+                self.show_airplane_overview()
+            elif action_str == "2":
+                self.show_create_airplane_form()
+            elif action_str == "b":
+                return
 
     def show_airplane_overview(self):
-        """This prints the overview of all airplanes"""
+        """Prints the overview of all airplanes"""
 
         print(self.LENGTH_STAR * "*")
         print("OVERVIEW OF AIRPLANES")
@@ -74,16 +73,16 @@ class AirplanesUI():
 
         chosen_ob = self.get_input_number(airplanes_ob_list)
         while chosen_ob == False:
-            chosen_ob = get_input_number(airplanes_ob_list)
+            chosen_ob = self.get_input_number(airplanes_ob_list)
         
         if chosen_ob == "Back":
             return 
         
         elif chosen_ob:
             self.list_pilots_with_licence_of_picked_airplane(chosen_ob)
-       
 
     def list_pilots_with_licence_of_picked_airplane(self, chosen_airplane_ob):
+        """Prints a list of pilots that have a license for selected airplane type"""
 
         all_pilots_list = self.llapi.get_pilot_overview()
         print(f"\nOVERVIEW OF PILOTS WITH A {chosen_airplane_ob.airplane_type.upper()} LICENSE ")
@@ -105,7 +104,7 @@ class AirplanesUI():
             return
 
     def show_create_airplane_form(self):
-        """This prints the create an airplane form"""
+        """Prints the create an airplane form"""
 
         print(self.LENGTH_STAR * "*")
         print("CREATE A NEW AIRPLANE")
@@ -139,8 +138,6 @@ class AirplanesUI():
                 action_str = self.choose_action(["s", "b"])
 
             if action_str == "s":
-                #Takes the info and adds it to the airplane list
-            
                 new_airplane_object = AirplanesModel(airplane_id, airplane_type, manufacturer, seat_amount)
                 self.llapi.create_new_airplane(new_airplane_object)
                 print(f"Airplane {new_airplane_object.planeID} successfully created\n")
@@ -149,6 +146,8 @@ class AirplanesUI():
             elif action_str == "b":
                 return
     
+    """The get methods below ask the user for a certain input, sends it to InputCheck and then returns it"""
+
     def get_airplane_id(self):
         print("L for letter, n for number")
         airplane_id = input("Enter airplane ID {LL-nnn}: ")
