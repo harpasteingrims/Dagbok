@@ -164,7 +164,7 @@ class DestinationsUI():
             destinations_ob_list = self.llapi.get_destination_overview()
             self.print_desti_list(1)
             chosen_destination_ob = self.get_input_number(destinations_ob_list)
-            print("\n" + "*"*self.LENGTH_STAR)
+            print("\n" + "*" * self.LENGTH_STAR)
             print(f"EDIT {chosen_destination_ob.country.upper()}, {chosen_destination_ob.airport.upper()}'S INFO")
             #print(chosen_destination_ob.print_emergency())
                 

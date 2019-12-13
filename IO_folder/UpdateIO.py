@@ -12,12 +12,12 @@ class UpdateIO:
         ''' Updates an emergency contact for a certain country'''
         destionations_list = GetIO().load_all_destinations()
         with open("filename.csv", "w", encoding= "utf8", newline="") as csvfile:
-            fieldnames = ["country", "airport", "flightDurFromIce", "DistFromIce", "ContactName", "ContactPhoneNR"]
+            fieldnames = ["country", "airport", "flightDurFromIce", "DistFromIce", "ContactName", "ContactPhoneNR". "ID"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
 
         for elem in destionations_list:
-            if elem.airport == update_contact.airport:
+            if elem.destiID == update_contact.destiID:
                 self.createio.store_destiantions(update_contact)
             else:    
                 self.createio.store_destiantions(elem)
