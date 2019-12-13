@@ -77,7 +77,7 @@ class VoyagesUI():
         """This prints the menu for create a voyage"""
         
         print(self.LENGTH_STAR*"*")
-        print("CREATE A VOYAGE \n\n1 See common voyages\n2 Create a voyage manually\nB Back\n")
+        print("CREATE A VOYAGE \n\n1 See/create common voyages\n2 Create a voyage manually\nB Back\n")
         action_str = self.choose_action(["1", "2", "b"])
         while action_str == False:
                 action_str = self.choose_action(["1", "2", "b"])
@@ -93,7 +93,7 @@ class VoyagesUI():
         """This prints all the common voyages"""
         
         print(self.LENGTH_STAR * "*")
-        print("SEE COMMON VOYAGES")
+        print("SEE/CREATE COMMON VOYAGES")
         
         print("\nB Back\nC Continue\n")
         
@@ -109,7 +109,7 @@ class VoyagesUI():
             print("Common voyages:\n")
             counter = 1
             for voyage_elem in common_voyages_list:
-                print(f"\n{counter} {voyage_elem[0]}, {voyage_elem[1][:-1]}")
+                print(f"\n{counter} Destination: {voyage_elem[0]}, time: {voyage_elem[1][0:]}")
                 counter += 1
             chosen_voyage_elem = self.get_a_number(common_voyages_list)
             while chosen_voyage_elem == -1:
@@ -144,15 +144,25 @@ class VoyagesUI():
             print("\nAvaliable airplanes on date:")
             available_airplanes_list = self.llapi.get_available_airplanes_by_date(departure_date)
             chosen_airplane_id = self.print_objects_in_ob_list(available_airplanes_list)
+
+            print("\nS Save\nB Back\n")
+
+            action_str = self.choose_action(["s", "b"])
+            while action_str == False:
+                action_str = self.choose_action(["s", "b"])
+
+            if action_str == "b":
+                return
+            elif action_str == "s":
             
-            print("\n* Voyage successfully created *\n")
-            arrival_time = 0
-            new_voyage = VoyagesModel(departure_date, chosen_voyage_elem[0], chosen_airplane_id, arrival_time)
-            self.llapi.calculate_outbound_arriv_time(new_voyage)
-            self.llapi.calculate_flight_number(new_voyage)
-            self.llapi.calculate_return_depart_time(new_voyage)
-            self.llapi.calculate_return_arriv_time(new_voyage)
-            self.llapi.create_new_voyage(new_voyage)
+                print("\n* Voyage successfully created *\n")
+                arrival_time = 0
+                new_voyage = VoyagesModel(departure_date, chosen_voyage_elem[0], chosen_airplane_id, arrival_time)
+                self.llapi.calculate_outbound_arriv_time(new_voyage)
+                self.llapi.calculate_flight_number(new_voyage)
+                self.llapi.calculate_return_depart_time(new_voyage)
+                self.llapi.calculate_return_arriv_time(new_voyage)
+                self.llapi.create_new_voyage(new_voyage)
 
 
     def print_objects_in_ob_list(self, ob_list):
@@ -262,12 +272,21 @@ class VoyagesUI():
             cabincrew_member_2_ob = self.process_employee_list("Flight Attendant", avail_fa_list, "")
             if cabincrew_member_1_ob == cabincrew_member_2_ob:
                 cabincrew_member_2_ob = self.process_employee_list("Flight Attendant", avail_fa_list, "Can´t pick the same flight attendant, please pick another one :)\n")
-                    
-            crew_list = [captain_ob.ssn, copilot_ob.ssn, senior_cabincrew_member_ob.ssn, cabincrew_member_1_ob.ssn, cabincrew_member_2_ob.ssn]
-            updated_voyage_ob = VoyagesModel(voyage_ob.departure_time, voyage_ob.destination, voyage_ob.aircraftID, voyage_ob.arrival_time, crew_list, voyage_ob.outbound_flight_num, voyage_ob.return_flight_num, voyage_ob.return_departure_time, voyage_ob.return_arrival_time)
-            self.llapi.update_voyage(updated_voyage_ob)
             
-            print("Staff assigned to voyage!")
+            print("\nS Save\nB Back\n")
+
+            action_str = self.choose_action(["s", "b"])
+            while action_str == False:
+                action_str = self.choose_action(["s", "b"])
+
+            if action_str == "b":
+                return
+            elif action_str == "s":
+                crew_list = [captain_ob.ssn, copilot_ob.ssn, senior_cabincrew_member_ob.ssn, cabincrew_member_1_ob.ssn, cabincrew_member_2_ob.ssn]
+                updated_voyage_ob = VoyagesModel(voyage_ob.departure_time, voyage_ob.destination, voyage_ob.aircraftID, voyage_ob.arrival_time, crew_list, voyage_ob.outbound_flight_num, voyage_ob.return_flight_num, voyage_ob.return_departure_time, voyage_ob.return_arrival_time)
+                self.llapi.update_voyage(updated_voyage_ob)
+                
+                print("Staff assigned to voyage!")
 
 
     def process_employee_list(self, staff_rank, employee_ob_list, message_str):

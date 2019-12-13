@@ -44,7 +44,7 @@ class AirplanesUI():
     def get_input_number(self, ob_list):
         """ Gets an number from user and checks if it is right """
         
-        chosen_number = input("\nChoose a number \nB for back\n\nEnter here: ")
+        chosen_number = input("\nChoose action\nB for back\n\nEnter here: ")
         if chosen_number == "b" or chosen_number == "B":
             return "Back"
         
