@@ -57,11 +57,10 @@ class DestinationsUI():
                 self.show_create_desti_form()
 
             elif action_str == "3":
-                self.show_edit_country_menu()
+                self.show_edit_desti_menu()
 
             elif action_str == "b":
                 return
-
 
     def show_destination_overview(self):
         """This prints the overview of all destinations"""
@@ -80,7 +79,6 @@ class DestinationsUI():
 
         if action_str == "b":
             return
-        
 
     def show_create_desti_form(self):
         """ This prints the create a destination form"""
@@ -149,7 +147,7 @@ class DestinationsUI():
             counter += 1
         return counter
 
-    def show_edit_country_menu(self):
+    def show_edit_desti_menu(self):
         """This prints the emergency contact menu"""
 
         print("*"*self.LENGTH_STAR)
@@ -168,7 +166,7 @@ class DestinationsUI():
             chosen_destination_ob = self.get_input_number(destinations_ob_list)
             print("\n" + "*"*self.LENGTH_STAR)
             print(f"EDIT {chosen_destination_ob.country.upper()}, {chosen_destination_ob.airport.upper()}'S INFO")
-            print(chosen_destination_ob.print_emergency())
+            #print(chosen_destination_ob.print_emergency())
                 
             print(f"\n1 Edit {chosen_destination_ob.country.capitalize()}, {chosen_destination_ob.airport.capitalize()}'s contact name")
             print(f"2 Edit {chosen_destination_ob.country.capitalize()}, {chosen_destination_ob.airport.capitalize()}'s contact number")
@@ -178,41 +176,49 @@ class DestinationsUI():
             while action_str == False:
                 action_str = self.choose_action(["1","2","b"])
 
-            if action_str == "1":
+            self.show_edit_desti_form(action_str, chosen_destination_ob)
+
+    def show_edit_desti_form(self, action_str, chosen_destination_ob):
+
+        if action_str == "1":
+            new_name = self.get_contact()
+            while new_name == False:
                 new_name = self.get_contact()
-                while new_name == False:
-                    new_name = self.get_contact()
 
-                print("S Save \nB Back\n")
+            print("S Save \nB Back\n")
+            action_str = self.choose_action(["b","s"])
+            while action_str == False:
                 action_str = self.choose_action(["b","s"])
-                while action_str == False:
-                    action_str = self.choose_action(["b","s"])
 
-                if action_str == "s":
-                    chosen_destination_ob = DestinationsModel(chosen_destination_ob.country, chosen_destination_ob.airport, chosen_destination_ob.flight_dur_from_Ice, chosen_destination_ob.dist_from_Ice, new_name, chosen_destination_ob.contact_phone_number, chosen_destination_ob.destiID)
-                    print(f"Emergency contact of {chosen_destination_ob.country} information successfully changed")
-                    return
+            if action_str == "s":
+                chosen_destination_ob = DestinationsModel(chosen_destination_ob.country, chosen_destination_ob.airport, chosen_destination_ob.flight_dur_from_Ice, chosen_destination_ob.dist_from_Ice, new_name, chosen_destination_ob.contact_phone_number, chosen_destination_ob.destiID)
+                self.llapi.update_new_emerg_contact(chosen_destination_ob)
+                print(f"Emergency contact of {chosen_destination_ob.country} information successfully changed")
+                return
 
-                elif action_str == "b":
-                    return
+            elif action_str == "b":
+                return
 
-            elif action_str == "2":
+        elif action_str == "2":
+            new_emergency_num = self.get_contact_number()
+            while new_emergency_num == False:
                 new_emergency_num = self.get_contact_number()
-                while new_emergency_num == False:
-                    new_emergency_num = self.get_contact_number()
-        
-                print("S Save \nB Back\n")
+    
+            print("S Save \nB Back\n")
+            action_str = self.choose_action(["b","s"])
+            while action_str == False:
                 action_str = self.choose_action(["b","s"])
-                while action_str == False:
-                    action_str = self.choose_action(["b","s"])
 
-                if action_str == "s":
-                    chosen_destination_ob = DestinationsModel(chosen_destination_ob.country, chosen_destination_ob.airport, chosen_destination_ob.flight_dur_from_Ice, chosen_destination_ob.dist_from_Ice, chosen_destination_ob.contact_name, new_emergency_num, chosen_destination_ob.destiID)
-                    print(f"Emergency contact of {chosen_destination_ob.country} information successfully changed")
-                    return
+            if action_str == "s":
+                chosen_destination_ob = DestinationsModel(chosen_destination_ob.country, chosen_destination_ob.airport, chosen_destination_ob.flight_dur_from_Ice, chosen_destination_ob.dist_from_Ice, chosen_destination_ob.contact_name, new_emergency_num, chosen_destination_ob.destiID)
+                print(f"Emergency contact of {chosen_destination_ob.country} information successfully changed")
+                return
 
-                elif action_str == "b":
-                    return
+            elif action_str == "b":
+                return
+
+        elif action_str == "b":
+            return
 
     def get_country(self):
         country = input("Enter country: ")

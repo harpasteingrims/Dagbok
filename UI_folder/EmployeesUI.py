@@ -62,6 +62,27 @@ class EmployeesUI():
             elif action_str == "b":
                 return
 
+    def show_overview_of_all_employees(self):
+        """This prints the overview of all employees"""
+
+        print("OVERVIEW OF EMPLOYEES\n")
+
+        employees_ob_list = self.llapi.get_employee_overview() #Hérna kallar hann í fall í llapanum sem heitir get_employee_overview sem returnar lista yfir alla starfsmenn
+        
+        for employee_ob in employees_ob_list:
+            print(employee_ob.print_info_in_line("*"))
+                
+        print(f"\nNAN AIR has {len(employees_ob_list)} employees")
+
+        print("\nB Back\n")
+
+        action_str = self.choose_action(["b"])
+        while action_str == False:
+            action_str = self.choose_action(["b"])
+
+        if action_str == "b":
+            return 
+
     def show_pilot_or_crew_menu(self, staff_str):
         """ Prints either the menu and calls appropriate functions or prints Invalid action"""
 
@@ -93,27 +114,6 @@ class EmployeesUI():
             elif action_str == "b":
                 return
 
-    def show_overview_of_all_employees(self):
-        """This prints the overview of all employees"""
-
-        print("OVERVIEW OF EMPLOYEES\n")
-
-        employees_ob_list = self.llapi.get_employee_overview() #Hérna kallar hann í fall í llapanum sem heitir get_employee_overview sem returnar lista yfir alla starfsmenn
-        
-        for employee_ob in employees_ob_list:
-            print(employee_ob.print_info_in_line("*"))
-                
-        print(f"\nNAN AIR has {len(employees_ob_list)} employees")
-
-        print("\nB Back\n")
-
-        action_str = self.choose_action(["b"])
-        while action_str == False:
-            action_str = self.choose_action(["b"])
-
-        if action_str == "b":
-            return 
-
     def show_either_crew_or_pilots_overview(self, staff_str):
         """ Prints the overview of either """
         
@@ -139,23 +139,6 @@ class EmployeesUI():
         if action_str == "b":
             return
 
-    def get_input_name_and_common_name_list(self, staff_str):
-        
-        input_name = input(f"Enter name of {staff_str}: ").lower() 
-        print()
-
-        if staff_str == self.PILOT:
-            common_named_staff_list = self.llapi.get_common_named_pilots(input_name)
-
-        elif staff_str == self.CREW:
-            common_named_staff_list = self.llapi.get_common_named_crew_members(input_name)
-
-        else: 
-            return False
-
-        return common_named_staff_list, input_name
-
-
     def show_enter_name_to_search(self, staff_str):
         """ This prints the search for a pilot window """
          
@@ -172,11 +155,11 @@ class EmployeesUI():
 
         elif action_str == "c":
         
-            common_named_staff_list, input_name = self.get_input_name_and_common_name_list(staff_str)
+            common_named_staff_list = self.get_input_name_and_common_name_list(staff_str)
             
             while common_named_staff_list == False:
                 print(f"{staff_str} does not exist!\n")
-                common_named_staff_list, input_name = self.get_input_name_and_common_name_list(staff_str)
+                common_named_staff_list = self.get_input_name_and_common_name_list(staff_str)
             
             if len(common_named_staff_list) == 1:
                 staff_ob = common_named_staff_list[0]
@@ -219,6 +202,22 @@ class EmployeesUI():
 
             elif action_str == "b":
                 return
+
+    def get_input_name_and_common_name_list(self, staff_str):
+        
+        input_name = input(f"Enter name of {staff_str}: ").lower() 
+        print()
+
+        if staff_str == self.PILOT:
+            common_named_staff_list = self.llapi.get_common_named_pilots(input_name)
+
+        elif staff_str == self.CREW:
+            common_named_staff_list = self.llapi.get_common_named_crew_members(input_name)
+
+        else: 
+            return False
+
+        return common_named_staff_list, input_name
 
     def show_flight_schedule_of_employee(self, staff_ob):
         """Calls a class that makes a list of their voyages and prints it"""
