@@ -235,38 +235,6 @@ class VoyagesUI():
             elif action_str == "b":
                 return
 
-    def process_employee_list(self, staff_str, voyage_date, number = 0):
-
-        available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
-        counter = 1
-
-        print(f"\nAvaliable {staff_str.lower()}s:")
-        for employee_ob in available_employess_ob_list:
-            if employee_ob.rank == staff_str:
-                print(employee_ob.print_available(counter))
-                counter += 1
-
-        if staff_str == "Flight Service Manager":
-            staff_str = "Senior cabin crew member"
-
-        elif staff_str == "Flight Attendant" and number == 1:
-            staff_str = "Flight attendant #1"
-
-        elif staff_str == "Flight Attendant" and number == 2:
-            staff_str = "Flight attendant #2"
-        
-        
-        print(f"\n\n* Pick a number for {staff_str.lower()} *")
-        
-        chosen_ob = self.get_a_number(available_employess_ob_list)
-        #print(len(available_employess_ob_list))
-        
-        while chosen_ob == False:
-            chosen_ob = self.get_a_number(available_employess_ob_list)
-
-        return chosen_ob
-
-
     def show_assign_staff_form(self, voyage_date, voyage_ob):
         """This prints the form to assign a staff to a voyage"""
         
@@ -282,19 +250,43 @@ class VoyagesUI():
             return
         elif action_str == "c":
 
-            available_employess_ob_list = self.llapi.get_available_emp_by_date(voyage_date)
-        
-            captain_ob = self.process_employee_list("Captain", voyage_date)
-            copilot_ob = self.process_employee_list("Copilot", voyage_date)
-            senior_cabincrew_member_ob = self.process_employee_list("Flight Service Manager", voyage_date)
-            cabincrew_member_1_ob = self.process_employee_list("Flight Attendant",voyage_date, 1)
-            cabincrew_member_2_ob = self.process_employee_list("Flight Attendant", voyage_date, 2)
-                
+            available_employees_ob_list = self.llapi.get_available_emp_by_rank(voyage_date)
+            avail_captain_list = available_employees_ob_list[0]
+            avail_copilot_list = available_employees_ob_list[1]
+            avail_fsm_list = available_employees_ob_list[2]
+            avail_fa_list = available_employees_ob_list[3]
+
+            captain_ob = self.process_employee_list("Captain", avail_captain_list, "")
+            copilot_ob = self.process_employee_list("Copilot", avail_copilot_list, "")
+            senior_cabincrew_member_ob = self.process_employee_list("Flight Service Manager", avail_fsm_list, "")
+            cabincrew_member_1_ob = self.process_employee_list("Flight Attendant",avail_fa_list, "")
+            cabincrew_member_2_ob = self.process_employee_list("Flight Attendant", avail_fa_list, "")
+            if cabincrew_member_1_ob == cabincrew_member_2_ob:
+                cabincrew_member_2_ob = self.process_employee_list("Flight Attendant", avail_fa_list, "Can´t pick the same flight attendant, please pick another one :)\n")
+                    
             crew_list = [captain_ob.ssn, copilot_ob.ssn, senior_cabincrew_member_ob.ssn, cabincrew_member_1_ob.ssn, cabincrew_member_2_ob.ssn]
             updated_voyage_ob = VoyagesModel(voyage_ob.departure_time, voyage_ob.destination, voyage_ob.aircraftID, voyage_ob.arrival_time, crew_list, voyage_ob.outbound_flight_num, voyage_ob.return_flight_num, voyage_ob.return_departure_time, voyage_ob.return_arrival_time)
             self.llapi.update_voyage(updated_voyage_ob)
-        
+            
             print("Staff assigned to voyage!")
+
+
+    def process_employee_list(self, staff_rank, employee_ob_list, message_str):
+
+        counter = 1
+        print(f"\nAvaliable {staff_rank.lower()}s:")
+        for employee_ob in employee_ob_list:
+            print(f"\n{counter} {employee_ob.name} {employee_ob.rank}")
+            counter += 1
+
+        print(f"\n\n{message_str}* Pick a number for {staff_rank.lower()} *")
+
+        chosen_ob = self.get_a_number(employee_ob_list)
+        
+        while chosen_ob == False:
+            chosen_ob = self.get_a_number(employee_ob_list)
+
+        return chosen_ob
 
 
     def show_not_staffed_voyages(self):

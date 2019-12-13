@@ -95,17 +95,20 @@ class LLAPI():
     def get_unavailable_time_for_voyage(self, voyage_year, voyage_month, voyage_day):
         return self.getvoyages.list_unavailable_voyage_time(voyage_year, voyage_month, voyage_day)
 
-    def get_numbered_common_voyage_dict(self):
-        pass    
+    #def get_numbered_common_voyage_dict(self):
+        #pass
+        
+    def get_available_emp_by_rank(self, user_input_date):
+        return self.getiaad.list_available_emp_by_rank(user_input_date)
 
     def create_new_voyage(self, new_voyage_object):
         return self.ioapi.create_voyage(new_voyage_object)
 
-    def create_new_common_voyage(self, common_voyage_object):
+    #def create_new_common_voyage(self, common_voyage_object):
         #HÉR Á EFTIR AÐ VINNA
-        common_voyage_object = []
-        voyage_list = self.ioapi.get_all_voyages_list()
-        return common_voyage_list
+        #common_voyage_object = []
+        #voyage_list = self.ioapi.get_all_voyages_list()
+        #return common_voyage_list
     
     def update_voyage(self, updated_voyage_ob):
         return self.ioapi.update_voyage(updated_voyage_ob)

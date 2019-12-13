@@ -38,6 +38,25 @@ class GetIAAD():
 
         return unavailable_emp_name_list
 
+    def list_available_emp_by_rank(self, user_input_date):
+        available_emp_list = self.list_available_emp_by_date(user_input_date)
+        unmanned_captain_list = []
+        unmanned_copilot_list = []
+        unmanned_fsm_list = []
+        unmanned_fa_list = []
+        for employee_ob in available_emp_list:
+            if employee_ob.rank == "Captain":
+                unmanned_captain_list.append(employee_ob)
+            elif employee_ob.rank == "Copilot":
+                unmanned_copilot_list.append(employee_ob)
+            elif employee_ob.rank == "Flight Service Manager":
+                unmanned_fsm_list.append(employee_ob)
+            elif employee_ob.rank == "Flight Attendant":
+                unmanned_fa_list.append(employee_ob)
+
+        return (unmanned_captain_list, unmanned_copilot_list, unmanned_fsm_list, unmanned_fa_list)
+            
+
 
     def list_airplane_status_by_date(self, user_input_date):
         """Returns a list of airplanes sorted by available and unavailable"""
