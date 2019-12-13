@@ -43,13 +43,15 @@ class UpdateIO:
             writer.writeheader()
 
         for elem in pilot_list:
-            if elem.ssn == update_pilot.ssn:
+            if elem.ssn == update_pilot.ssn:#finds the employee we want
                 self.createio.store_pilot(update_pilot)
                 
             else:
                 self.createio.store_pilot(elem)
         
     def update_cabincrew(self, update_cabincrew):
+        """writes the updated info on cabincrew in csv"""
+        
         cabincrew_list = GetIO.load_all_cabincrew(self)
         with open("./csv_files/CabinCrew.csv","w", encoding= "utf8", newline="") as csvfile:
             fieldnames = ["ssn", " name", " role", " rank", " address", " mobile number", "email"]
@@ -57,7 +59,7 @@ class UpdateIO:
             writer.writeheader()
 
         for elem in cabincrew_list:
-            if elem.ssn == update_cabincrew.ssn:
+            if elem.ssn == update_cabincrew.ssn:#finds the employee we want
                 self.createio.store_cabincrew(update_cabincrew)
-            else:
+            else:#writes everything else as it was
                 self.createio.store_cabincrew(elem)

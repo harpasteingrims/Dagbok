@@ -12,6 +12,8 @@ from models.FlightsModel import FlightsModel
 class GetIO():
 
     def load_all_employees(self):
+        """returns a list of both pilot and cabincrew objects from CabinCrew.csv and Pilots.csv"""
+
         all_employee_list = []
 
         if len(all_employee_list) == 0:
@@ -24,6 +26,8 @@ class GetIO():
             return all_employee_list
      
     def load_all_pilots(self):
+        """returns a list of pilot objects from Pilots.csv"""
+
         pilot_file = open("./csv_files/Pilots.csv","r", encoding= "utf8")
 
         pilot_list = []
@@ -42,6 +46,8 @@ class GetIO():
         return pilot_list
 
     def load_all_cabincrew(self):
+        """returns a list of cabincrew object from CabinCrew.csv"""
+
         crew_file = open("./csv_files/CabinCrew.csv","r", encoding= "utf8")
         
         cabincrew_list = []
@@ -61,6 +67,7 @@ class GetIO():
         
     def load_all_airplanes(self):
         '''Retrieves airplanes and sends to Get LL'''
+
         airplane_file = open("./csv_files/Aircraft.csv", "r", encoding= "utf8")
 
         airplane_list = []
@@ -68,7 +75,7 @@ class GetIO():
         for line in airplane_file:
             line = line.strip()
             if counter == 1:
-                counter += 1
+                counter += 1 #to skip the header
             else:
                 planeID, airplane_type, manufacturer, seat_amount = line.split(", ")
                 airplane = AirplanesModel(planeID, airplane_type, manufacturer, seat_amount)
@@ -79,6 +86,8 @@ class GetIO():
         return airplane_list
 
     def load_all_destinations(self):
+        """returns a list of destination objects from Destinations.csv"""
+
         dest_file = open("./csv_files/Destinations.csv", "r", encoding= "utf8")
 
         destination_list = []
@@ -86,7 +95,7 @@ class GetIO():
         for line in dest_file:
             line = line.strip()
             if counter == 1:
-                counter += 1
+                counter += 1 #to skip the header
             else:
                 country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID = line.split(", ")
                 destination = DestinationsModel(country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID)
@@ -98,6 +107,8 @@ class GetIO():
         return destination_list  
     
     def load_all_voyages(self):
+        """returns a list of voyage objects from Flights.csv"""
+
         flights_with_crew_file = open("./csv_files/Flights.csv","r", encoding= "utf8")
         flights_list = []
         voyages_list = []
@@ -155,6 +166,8 @@ class GetIO():
         return voyages_list
 
     def load_all_flights(self):
+        """returns a list of Flight objects from Flights.csv"""
+
         flights_with_crew_file = open("./csv_files/Flights.csv","r", encoding= "utf8")
         flights_list = []
         
@@ -176,7 +189,7 @@ class GetIO():
                     fsm = line[8]
                     fa1 = line[9]
                     fa2 = line[10]
-                except IndexError:
+                except IndexError: #if flight has no crew variables become empty strings
                     aircraft_ID = ""
                     captain = ""
                     copilot = ""                    
