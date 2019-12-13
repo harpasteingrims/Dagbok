@@ -67,7 +67,7 @@ class EmployeesUI():
 
         print("OVERVIEW OF EMPLOYEES\n")
 
-        employees_ob_list = self.llapi.get_employee_overview() #Hérna kallar hann í fall í llapanum sem heitir get_employee_overview sem returnar lista yfir alla starfsmenn
+        employees_ob_list = self.llapi.get_employee_overview()
         
         for employee_ob in employees_ob_list:
             print(employee_ob.print_info_in_line("*"))
@@ -121,7 +121,7 @@ class EmployeesUI():
         print(f"OVERVIEW OF {staff_str.upper()}S")
         
         if staff_str == self.PILOT:
-            staff_ob_list = self.llapi.get_pilot_overview() # Calls the class that makes a list of all pilots and prints it
+            staff_ob_list = self.llapi.get_pilot_overview()
         
         elif staff_str == self.CREW:
             staff_ob_list = self.llapi.get_cabin_crew_overview()
@@ -222,6 +222,7 @@ class EmployeesUI():
 
     def show_flight_schedule_of_employee(self, staff_ob):
         """Prints the flight schedule of a selected employee"""
+
         print("Continue to pick dates")
         print("\nB Back\nC Continue\n")
 
@@ -302,6 +303,7 @@ class EmployeesUI():
         return
 
     def check_action_edit_form(self, staff_ob, number, new_info):
+        """Receives changes info from the edit menu and sends it too LLAPI where it then goes on to change in the csv file"""
         
         print("\nS Save \nB Back\n")
         action_str = self.choose_action(["s","b"])
@@ -397,6 +399,8 @@ class EmployeesUI():
             elif action_str == "b":
                 return
         
+    """The get methods below ask the user for a certain input, sends it to InputCheck and then returns it"""
+
     def get_date_from(self):
         print(self.LENGTH_STAR * "*")
         print("Enter date from\n")
@@ -448,7 +452,6 @@ class EmployeesUI():
             print("\nInvalid name!")
             return name_check
 
-
     def get_pilot_rank(self):
         rank = input("\nEnter number for either \n1 Captain \n2 Copilot\nEnter: ")
         rank_check = self.llapi.check_pilot_rank(rank)
@@ -493,7 +496,6 @@ class EmployeesUI():
             print("\nInvalid address!")
             return address_check
 
-
     def get_mobile_number(self):
         mobile_number = input("\nEnter mobile number: ")
         mobile_number_check = self.llapi.check_mobile_number(mobile_number)
@@ -504,7 +506,6 @@ class EmployeesUI():
         else:
             print("\nInvalid mobile_number!")
             return mobile_number_check
-    
 
     def get_email(self):
         email = input("\nEnter email: ")
