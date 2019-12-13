@@ -99,18 +99,6 @@ class InputCheckLL():
         except ValueError:
             return False
 
-    def check_dates(self, date):
-        """Receives the day and time in a list and returns it in a datetime form if it's valid"""
-
-        if len(date[0]) == 4:   #Fyrsta stakið er árið, það verður að koma á formi fjögurra stafa því annars bætir datetime 0 við og úr verður algjört bull
-            try:
-                valid_date = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), int(date[3]), int(date[4]), int(date[5])).isoformat()
-                return valid_date
-            except ValueError:
-                return False
-        else:
-            return False
-
     """CHECKING INPUT FOR VOYAGES"""
     
     def check_time(self, date, unavailable_time_list):
@@ -253,6 +241,18 @@ class InputCheckLL():
             try:
                 valid_date = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), 00, 00, 0).isoformat()
                 return valid_date[0:10]
+            except ValueError:
+                return False
+        else:
+            return False
+
+    def check_dates(self, date):
+        """Receives the day and time in a list and returns it in a datetime form if it's valid"""
+
+        if len(date[0]) == 4:   #Fyrsta stakið er árið, það verður að koma á formi fjögurra stafa því annars bætir datetime 0 við og úr verður algjört bull
+            try:
+                valid_date = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), int(date[3]), int(date[4]), int(date[5])).isoformat()
+                return valid_date
             except ValueError:
                 return False
         else:
