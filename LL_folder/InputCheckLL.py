@@ -86,7 +86,7 @@ class InputCheckLL():
             return False
 
     def check_dates(self, date):
-        """Fær dag og tíma á formi lista og skila á datetime formi ef hann er valid"""
+        """Fær dag og tíma á formi lista og skilar á datetime formi ef hann er valid"""
         if len(date[0]) == 4:   #Fyrsta stakið er árið, það verður að koma á formi fjögurra stafa því annars bætir datetime 0 við og úr verður algjört bull
             try:
                 valid_date = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), int(date[3]), int(date[4]), int(date[5])).isoformat()
@@ -220,11 +220,14 @@ class InputCheckLL():
             return False
 
     def check_date(self, date):
-        """Fær dag á formi 2019-11-18 og skilar honum ef hann er valid á formi 2019-11-18"""
-        try:
-            valid_date = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), 00, 00, 0).isoformat()
-            return valid_date[0:10]
-        except ValueError:
+        """Fær dag og tíma á formi lista og skilar honum ef hann er valid á formi 2019-11-18"""
+        if len(date[0]) == 4:
+            try:
+                valid_date = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), 00, 00, 0).isoformat()
+                return valid_date[0:10]
+            except ValueError:
+                return False
+        else:
             return False
 
     def check_input_number(self, chosen_number, ob_list):

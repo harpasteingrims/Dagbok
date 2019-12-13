@@ -8,7 +8,8 @@ class VoyagesUI():
         self.llapi = llapi
     
     def choose_action(self, valid_list):
-        """This lets you choose an action and sends the action to check if the action is valid"""
+        """Gets a list of valid actions and asks the user for an action and if the action is in the valid actions it returns it else it returns False"""
+        
         action_str = input("Choose action: ").lower()
         print()
         
@@ -21,7 +22,7 @@ class VoyagesUI():
 
     
     def show_voyage_menu(self):
-        """This prints the voyage menu"""
+        """Prints the voyage menu"""
 
         action_str = ""
 
@@ -54,7 +55,7 @@ class VoyagesUI():
                 return
 
     def show_voyage_overview(self):
-        """This prints the overview of all voyages"""
+        """Prints the overview of all voyages"""
         
         print(self.LENGTH_STAR*"*")
         print("OVERVIEW OF VOYAGES")
@@ -73,9 +74,8 @@ class VoyagesUI():
         if action_str == "b":
             return
     
-
     def show_create_voyage_menu(self):
-        """This prints the menu for create a voyage"""
+        """Prints the menu for create a voyage"""
         
         print(self.LENGTH_STAR*"*")
         print("CREATE A VOYAGE \n\n1 See/create common voyages\n2 Create a voyage manually\nB Back\n")
@@ -91,7 +91,7 @@ class VoyagesUI():
             return
 
     def show_see_common(self):
-        """This prints all the common voyages"""
+        """Prints all the common voyages"""
         
         print(self.LENGTH_STAR * "*")
         print("SEE/CREATE COMMON VOYAGES")
@@ -120,7 +120,7 @@ class VoyagesUI():
             return chosen_voyage_elem
 
     def show_create_a_common_voyage_form(self, chosen_voyage_elem):
-        """This creates a voyage from the common voyages but with a new date and a new id"""
+        """Creates a voyage from the common voyages but with a new date and a new id"""
         
         print(self.LENGTH_STAR * "*")
         print("INPUT DEPARTURE DATE AND ARIPLANE ID")
@@ -165,9 +165,9 @@ class VoyagesUI():
                 self.llapi.calculate_return_arriv_time(new_voyage)
                 self.llapi.create_new_voyage(new_voyage)
 
-
     def print_objects_in_ob_list(self, ob_list):
-        """This prints the object in a certain object list"""
+        """Prints the object in a certain object list"""
+
         counter = 1
         for element_ob in ob_list: 
                 print(f"\n{counter} {element_ob}")
@@ -180,7 +180,7 @@ class VoyagesUI():
         return info_list
 
     def show_create_manually_form(self): #Lista upp alla áfangastaði, allar tímasetningar sem eru uppteknar og allar flugvélar sem eru lausar
-        """This prints the create a voyage manually form and lets you create a voyage"""
+        """Prints the create a voyage manually form and lets you create a voyage"""
         
         print(self.LENGTH_STAR * "*")
         print("CREATE A VOYAGE MANUALLY")
@@ -247,7 +247,7 @@ class VoyagesUI():
                 return
 
     def show_assign_staff_form(self, voyage_date, voyage_ob):
-        """This prints the form to assign a staff to a voyage"""
+        """Prints the form to assign a staff to a voyage"""
         
         print(self.LENGTH_STAR * "*")
         print("ASSIGN CREW TO VOYAGES")
@@ -290,9 +290,8 @@ class VoyagesUI():
                 
                 print("Staff assigned to voyage!")
 
-
     def process_employee_list(self, staff_rank, employee_ob_list, message_str):
-        """This prints out all the available employees for a certain flight"""
+        """Prints out all the available employees for a certain flight"""
 
         counter = 1
         print(f"\nAvaliable {staff_rank.lower()}s:")
@@ -309,9 +308,8 @@ class VoyagesUI():
 
         return chosen_ob
 
-
     def show_not_staffed_voyages(self):
-        """This prints all the not fully staffed voyages"""
+        """Prints all the not fully staffed voyages"""
         
         print(self.LENGTH_STAR * "*")
         print("NOT FULLY STAFFED VOYAGES")
@@ -326,11 +324,10 @@ class VoyagesUI():
             voyage_ob = self.get_a_number(not_staffed_ob_list)
         self.show_assign_staff_form(voyage_ob.departure_time, voyage_ob)
 
-    def get_a_number(self, ob_list):
-        """This lets you choose a number and returns the object assigned to that number"""
+    """The get methods below ask the user for a certain input, sends it to InputCheck and then returns it"""
 
+    def get_a_number(self, ob_list):
         chosen_number = input("\nChoose a number: ")
-        print()
         ob_item = self.llapi.check_chosen_number(chosen_number, ob_list)
         if ob_item:
             return ob_item
@@ -339,8 +336,6 @@ class VoyagesUI():
             return ob_item
 
     def get_year_month_day_voy(self):
-        """This lets you input year, month and day and returns it if it is valid"""
-
         voyage_year = input("Enter year (yyyy): ")
         voyage_month = input("Enter month (mm): ")
         voyage_day = input("Enter day (dd): ")
@@ -349,11 +344,11 @@ class VoyagesUI():
         if date_check:
             return date_check
         else:
-            print("Invalid date!")
+            print("\nInvalid date!\n")
             return date_check
 
     def get_hour_minute_voy(self, voyage_year, voyage_month, voyage_day):
-        """This lets you input hour and minute and returns it if it is valid"""
+        voyage_hour = input("Enter hour (hh): ")
         voyage_minute = input("Enter minute (mm): ")
         date = [voyage_year, voyage_month, voyage_day, voyage_hour, voyage_minute]
         time_check = self.llapi.check_time(date, voyage_year, voyage_month, voyage_day)

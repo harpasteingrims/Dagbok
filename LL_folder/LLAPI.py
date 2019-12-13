@@ -50,9 +50,6 @@ class LLAPI():
     def check_license_type(self, license_type_num, airplane_list):
         return self.inputcheckll.check_license_type(license_type_num, airplane_list)
 
-    def check_dates(self, date):
-        return self.inputcheckll.check_dates(date)
-
     """ PILOTS """
 
     def get_pilot_overview(self):
@@ -119,9 +116,6 @@ class LLAPI():
     def check_time(self, date, voyage_year, voyage_month, voyage_day):
         unavailable_time_list = self.get_unavailable_time_for_voyage(voyage_year, voyage_month, voyage_day)
         return self.inputcheckll.check_time(date, unavailable_time_list)
-
-    def check_dates(self, date):
-        return self.inputcheckll.check_dates(date)
 
     """DESTINATIONS"""
 
@@ -205,6 +199,9 @@ class LLAPI():
 
     def check_date(self, date):
         return self.inputcheckll.check_date(date)
+
+    def check_dates(self, date):
+        return self.inputcheckll.check_dates(date)
 
     def check_chosen_number(self, chosen_number, ob_list):
         return self.inputcheckll.check_input_number(chosen_number, ob_list)
