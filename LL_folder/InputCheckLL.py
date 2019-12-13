@@ -217,6 +217,7 @@ class InputCheckLL():
 
     def check_iaad_voyage_date(self, date):
         """Receives the date in a list and returns it in a datetime format if it's valid"""
+        
         if len(date[0]) == 4:
             try:
                 valid_date = datetime.datetime(int(date[0]), int(date[1]), int(date[2]), 00, 00, 0).isoformat()
