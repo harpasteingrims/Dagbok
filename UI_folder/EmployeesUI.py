@@ -158,7 +158,7 @@ class EmployeesUI():
             common_named_staff_list = self.get_input_name_and_common_name_list(staff_str)
             
             while common_named_staff_list == False:
-                print(f"{staff_str} does not exist!\n")
+                print(f"{staff_str.capitalize()} does not exist!\n")
                 common_named_staff_list = self.get_input_name_and_common_name_list(staff_str)
             
             if len(common_named_staff_list) == 1:
