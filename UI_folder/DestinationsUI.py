@@ -182,46 +182,38 @@ class DestinationsUI():
 
         if action_str == "1":
             print(self.LENGTH_STAR * "*")
-            print(f"You are changing {chosen_destination_ob.country.capitalize()}, {chosen_destination_ob.airport.capitalize()}'s contact name\nThe current address is: {chosen_destination_ob.contact_name}")
+            print(f"You are changing {chosen_destination_ob.country.capitalize()}, {chosen_destination_ob.airport.capitalize()}'s contact name\nThe current address is: {chosen_destination_ob.contact_name}\n")
             new_name = self.get_contact()
             while new_name == False:
                 new_name = self.get_contact()
-
-            print("S Save \nB Back\n")
-            action_str = self.choose_action(["b","s"])
-            while action_str == False:
-                action_str = self.choose_action(["b","s"])
-
-            if action_str == "s":
-                chosen_destination_ob = DestinationsModel(chosen_destination_ob.country, chosen_destination_ob.airport, chosen_destination_ob.flight_dur_from_Ice, chosen_destination_ob.dist_from_Ice, new_name, chosen_destination_ob.contact_phone_number, chosen_destination_ob.destiID)
-                self.llapi.update_new_emerg_contact(chosen_destination_ob)
-                print(f"Emergency contact of {chosen_destination_ob.country} information successfully changed")
-                return
-
-            elif action_str == "b":
-                return
+            self.check_action_edit_form(chosen_destination_ob, action_str, new_name)
 
         elif action_str == "2":
             print(self.LENGTH_STAR * "*")
-            print(f"You are changing {chosen_destination_ob.country.capitalize()}, {chosen_destination_ob.airport.capitalize()}'s emergency phone number\nThe current address is: {chosen_destination_ob.contact_phone_number}")
+            print(f"You are changing {chosen_destination_ob.country.capitalize()}, {chosen_destination_ob.airport.capitalize()}'s emergency phone number\nThe current address is: {chosen_destination_ob.contact_phone_number}\n")
             new_emergency_num = self.get_contact_number()
             while new_emergency_num == False:
                 new_emergency_num = self.get_contact_number()
-    
-            print("S Save \nB Back\n")
-            action_str = self.choose_action(["b","s"])
-            while action_str == False:
-                action_str = self.choose_action(["b","s"])
+            self.check_action_edit_form(chosen_destination_ob, action_str, new_emergency_num)
 
-            if action_str == "s":
-                chosen_destination_ob = DestinationsModel(chosen_destination_ob.country, chosen_destination_ob.airport, chosen_destination_ob.flight_dur_from_Ice, chosen_destination_ob.dist_from_Ice, chosen_destination_ob.contact_name, new_emergency_num, chosen_destination_ob.destiID)
-                self.llapi.update_new_emerg_contact(chosen_destination_ob)
-                print(f"Emergency contact of {chosen_destination_ob.country} information successfully changed")
-                return
+        elif action_str == "b":
+            return
 
-            elif action_str == "b":
-                return
+    def check_action_edit_form(self, chosen_destination_ob, number, new_info):
+        
+        print("\nS Save \nB Back\n")
+        action_str = self.choose_action(["s","b"])
+        while action_str == False:
+            action_str = self.choose_action(["s", "b"])
 
+        if action_str == "s":
+            if number == "1":
+                updated_destination = DestinationsModel(chosen_destination_ob.country, chosen_destination_ob.airport, chosen_destination_ob.flight_dur_from_Ice, chosen_destination_ob.dist_from_Ice, new_info, chosen_destination_ob.contact_phone_number, chosen_destination_ob.destiID)
+            elif number == "2":
+                updated_destination = DestinationsModel(chosen_destination_ob.country, chosen_destination_ob.airport, chosen_destination_ob.flight_dur_from_Ice, chosen_destination_ob.dist_from_Ice, chosen_destination_ob.contact_name, new_info, chosen_destination_ob.destiID)
+            print(f"Emergency contact of {chosen_destination_ob.country} information successfully changed\n")
+            self.llapi.update_new_emerg_contact(updated_destination)
+        
         elif action_str == "b":
             return
 

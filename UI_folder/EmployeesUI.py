@@ -21,7 +21,7 @@ class EmployeesUI():
             return False
 
     def get_input_number(self, ob_list):
-        """ Gets an number from user and checks if it is right """
+        """Gets an number from user and sends to input check"""
         
         chosen_number = input("\nChoose a number: ")
         chosen_object = self.llapi.check_chosen_number(chosen_number, ob_list)
@@ -34,7 +34,7 @@ class EmployeesUI():
             self.get_input_number(ob_list)
 
     def show_employee_menu(self):
-        """This prints the employee menu"""
+        """Prints the employee menu"""
     
         action_str = ""
 
@@ -63,7 +63,7 @@ class EmployeesUI():
                 return
 
     def show_overview_of_all_employees(self):
-        """This prints the overview of all employees"""
+        """Prints the overview of all employees"""
 
         print("OVERVIEW OF EMPLOYEES\n")
 
@@ -84,7 +84,7 @@ class EmployeesUI():
             return 
 
     def show_pilot_or_crew_menu(self, staff_str):
-        """Prints either the menu and calls appropriate functions or prints invalid action"""
+        """Prints either the pilot or cabin crew menu"""
 
         while True:
             print(self.LENGTH_STAR * "*")
@@ -140,7 +140,7 @@ class EmployeesUI():
             return
 
     def show_enter_name_to_search(self, staff_str):
-        """This prints the search for a pilot/cabin crew member window"""
+        """Prints the search for a pilot/cabin crew member window"""
          
         print(self.LENGTH_STAR * "*")
         print(f"SEARCH FOR A {staff_str.upper()}\n")
@@ -221,7 +221,7 @@ class EmployeesUI():
         return common_named_staff_list
 
     def show_flight_schedule_of_employee(self, staff_ob):
-        """Calls a class that makes a list of their voyages and prints it"""
+        """Prints the flight schedule of a selected employee"""
         print("Continue to pick dates")
         print("\nB Back\nC Continue\n")
 
@@ -268,7 +268,7 @@ class EmployeesUI():
                 return
 
     def show_employee_edit_form(self, staff_ob, number):
-        """This prints the edit form for an employee"""
+        """Prints the edit form for a selected employee"""
 
         print(self.LENGTH_STAR * "*")
         print(f"EDIT {staff_ob.role.upper()}\n")
@@ -311,9 +311,9 @@ class EmployeesUI():
         if action_str == "s":
             if number == 1:
                 if staff_ob.role == self.PILOT.capitalize():
-                    updated_staff_ob = PilotsModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.license_type, new_address, staff_ob.mobile_number, staff_ob.email)
+                    updated_staff_ob = PilotsModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.license_type, new_info, staff_ob.mobile_number, staff_ob.email)
                 else:
-                    updated_staff_ob = CabinCrewModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, new_address, staff_ob.mobile_number, staff_ob.email)
+                    updated_staff_ob = CabinCrewModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, new_info, staff_ob.mobile_number, staff_ob.email)
             elif number == 2:
                 if staff_ob.role == self.PILOT.capitalize():
                     updated_staff_ob = PilotsModel(staff_ob.ssn, staff_ob.name, staff_ob.role, staff_ob.rank, staff_ob.license_type, staff_ob.address, new_info, staff_ob.email)
@@ -334,7 +334,7 @@ class EmployeesUI():
             return
 
     def show_create_form(self, staff_str):
-        """ This prints the create a pilot form """
+        """This prints the create a pilot form"""
 
         print(self.LENGTH_STAR * "*")
         print(f"CREATE A NEW {staff_str.upper()}\n")
@@ -384,7 +384,6 @@ class EmployeesUI():
 
             if action_str == "s":
                 if staff_str == self.PILOT:
-
                     new_staff_object = PilotsModel(ssn, name, "Pilot", rank, license_type, address, mobile_number, email)
                     self.llapi.create_new_pilot(new_staff_object)
 
@@ -397,7 +396,6 @@ class EmployeesUI():
             
             elif action_str == "b":
                 return
-        
         
     def get_date_from(self):
         print(self.LENGTH_STAR * "*")
