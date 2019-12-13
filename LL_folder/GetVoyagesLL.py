@@ -3,16 +3,17 @@ import dateutil.parser
 from datetime import timedelta
 from datetime import datetime
 from models.VoyagesModel import VoyagesModel
-
 class GetVoyagesLL():
     def __init__(self, ioapi):
         self.ioapi = ioapi
         self.voyages_list = []
 
     def list_all_voyages(self):
+        """This calls ioapi and gets a list of all voyages"""
         return self.ioapi.get_all_voyages_list()
 
     def list_all_voyages_overview(self):
+        """This adds information about the voyages and makes a list of it"""
         voyages_list = self.list_all_voyages()
         flights_list = self.ioapi.get_all_flights_list()
         all_voyage_list = []
@@ -20,7 +21,7 @@ class GetVoyagesLL():
         date_time_now = now.strftime("%Y-%m-%dT%H:%M:%S")
         i = 0
         for voyage_ob in voyages_list:
-            if voyage_ob.departure_time == flights_list[i].departure_time:
+            if voyage_ob.departure_time == flights_list[i].departure_time: #Checking the status of the voyage based on the time in the flight list
                 if date_time_now < flights_list[i].departure_time:
                     flight_status = "Not started"
                 elif flights_list[i].departure_time <= date_time_now <= flights_list[i].arrival_time:
@@ -44,6 +45,7 @@ class GetVoyagesLL():
         return all_voyage_list
 
     def list_not_staffed_voyages(self):
+        """This lists not staffed_voyages"""
 
         voyages_list = self.list_all_voyages()
         unmanned_list = []
@@ -54,6 +56,7 @@ class GetVoyagesLL():
         return unmanned_list
 
     def list_all_common_voyages(self):
+        """This finds all the common voyages and puts it in a list"""
 
         voyages_list = self.list_all_voyages()
         counter = 0
@@ -65,7 +68,7 @@ class GetVoyagesLL():
                 parsed_date_voyage = dateutil.parser.parse(voyage_object.departure_time)
                 if [voyage_object.destination, parsed_date_voyage.hour, parsed_date_voyage.minute] == [destination, parsed_date.hour, parsed_date.minute]:
                     counter += 1
-            if counter > 1:
+            if counter > 1: #If a voyage with the same destination and same flight time appears in the list, it is a common voyage
                 departure_time = str(parsed_date.hour) + ":" + str(parsed_date.minute) + ":00"
                 if [destination, departure_time] not in common_voyages_list:
                     common_voyages_list.append([destination, departure_time])
@@ -74,6 +77,7 @@ class GetVoyagesLL():
         return common_voyages_list
 
     def list_unavailable_voyage_time(self, voyage_year, voyage_month, voyage_day):
+        """This makes a list of all unavailable times for a voyages based on a year, month and day that are given"""
 
         voyages_list = self.list_all_voyages()
         unavailable_voyage_time_list = []
@@ -85,6 +89,8 @@ class GetVoyagesLL():
         return unavailable_voyage_time_list
 
     def list_schedule_employee_by_date(self, employee_ob, date_from, date_to):
+        """This makes a list of all the voyages object from a date to another date"""
+
         voyages_list = self.list_all_voyages()
         
         all_flights_of_employee = []
@@ -102,6 +108,7 @@ class GetVoyagesLL():
         return flights_on_asked_time
 
     def calculate_outbound_arrival_time(self, new_voyage_object):
+        """This calculates the outbound arrival time and uses it for the arrival time for a voyage"""
         
         arrival_time = ""
         departure_time = new_voyage_object.departure_time
@@ -120,6 +127,8 @@ class GetVoyagesLL():
         return new_voyage_object
 
     def calculate_flight_num(self, new_voyage_object):
+        """This calculates both the outbound flight number and the return flight number"""
+
         outbound_flight_num = "NA"
         return_flight_num = "NA"
         destination_list = self.ioapi.get_destination_list()
@@ -147,6 +156,8 @@ class GetVoyagesLL():
         return new_voyage_object
 
     def calculate_return_departure_time(self, new_voyage_object):
+        """This calculates the return departure time for a voyage based on the flight duration for a certain """
+
         return_departure_time = ""
         arrival_time = new_voyage_object.arrival_time
         parsed_arrival_time = dateutil.parser.parse(arrival_time)
@@ -157,6 +168,8 @@ class GetVoyagesLL():
         return new_voyage_object
 
     def calculate_return_arrival_time(self, new_voyage_object):
+        """This calculates the arrival time for a new voyage"""
+        
         return_arrival_time = ""
         return_departure_time = new_voyage_object.return_departure_time
         parsed_return_departure_time = dateutil.parser.parse(return_departure_time)
