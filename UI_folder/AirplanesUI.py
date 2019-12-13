@@ -42,18 +42,18 @@ class AirplanesUI():
                 return
 
     def get_input_number(self, ob_list):
-        """ Gets an number from user and checks if it is right """
+        """Asks user for a number, sends to InputCheck and then returns it"""
+
+        chosen_number = input("\nB Back\n\nSee pilots with a particular airplane license\nChoose number for airplane type: ").lower()
         
-        chosen_number = input("\nChoose action\nB for back\n\nEnter here: ")
-        if chosen_number == "b" or chosen_number == "B":
-            return "Back"
+        if chosen_number == "b":
+            return
         
         else:
             chosen_object = self.llapi.check_chosen_number(chosen_number, ob_list)
-            
+        
             if chosen_object:
                 return chosen_object
-
             else:
                 print("\nInvalid input!")
                 self.get_input_number(ob_list)
@@ -86,10 +86,14 @@ class AirplanesUI():
     def list_pilots_with_licence_of_picked_airplane(self, chosen_airplane_ob):
 
         all_pilots_list = self.llapi.get_pilot_overview()
-        print(f"\nOVERVIEW OF PILOTS WITH LICENCE FOR {chosen_airplane_ob.airplane_type} ")
+        print(f"\nOVERVIEW OF PILOTS WITH A {chosen_airplane_ob.airplane_type.upper()} LICENSE ")
+        valid_pilots = []
         for pilot_ob in all_pilots_list:
             if chosen_airplane_ob.airplane_type == pilot_ob.license_type:
+                valid_pilots.append(pilot_ob)
                 print(pilot_ob.print_available())
+        if valid_pilots == []:
+            print(f"\nThere are no pilots that have a {chosen_airplane_ob.airplane_type} license ")
 
         print("\nB Back\n")
 

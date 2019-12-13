@@ -408,4 +408,21 @@ Vika 2: 02.12 - 06.12
         -Stöðuritið
         
     Samantekt:
-        -
+        -Klukkan er 18:00 og nú hefst síðasti kvöldfundurinn. 
+        -Harpa: Lagaði stóra vandamálið, Lagaði update destinations, Lagaði að aðeins þeir flugmenn sem hafa leyfi á ákveðna flugvél að birtast á voyage með réttindi á vélina í ferðinni, Dúllerí
+        -Nína: Skrifaði handritið fyrir myndbandið og talaði inn á það. Skýrsluvinna. Kröfulisti.
+        -Viktoría: Öll notkunartilvikin, skrifaði í útskýringar á kóða. Lagfæringar á stöðuriti. 
+        -Hallmar: Kláraði klasaritið, skrifaði útskýringar á kóða og skrám.
+        -Hildur: 
+
+        Lokaplan:
+            -Hildur sér um að skila öllu heila klabbinu inn á canvas en Harpa gæti þurft að skila myndbandinu. 
+            -Harpa klárarmyndbandið, kommentar í voyagesui, getvoyages, getiaadll.
+            -Harpa skrifar um voyages og airplanes í skýrslunni. Bæta inn hlutverkaheitum í myndræn use cases.
+            -Nína fer á tónleika með Friðriki Dór og Jóni Jónssyni. Klára að skrifa um employeesui, employeesll, destinationsui í skýrslu og kommenta í kóða. Les yfir eftir það.
+            -Hildur les yfir alla skýrsluna
+            -Viktoría fer yfir hvort megi bæta við einhverju í notendahópagreiningu, endurgert stöðurit og skrifar um notkunartilvik og stöðuritið í skýrsluna.
+            -Hallmar sér um að búa til klasarit fyrir modelklasana, skrifar um klasaritin í skýrsluna og breytingar á því.
+            -!!ALLIR AÐ GERA JAFNINGJAMAT OG SJÁLFSMAT!!
+
+#GLEÐILEG JÓL#
