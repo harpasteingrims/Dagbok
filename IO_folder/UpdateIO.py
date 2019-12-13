@@ -41,7 +41,7 @@ class UpdateIO:
         
         pilot_list = GetIO.load_all_pilots(self)
         with open("./csv_files/Pilots.csv","w", encoding= "utf8", newline="") as csvfile:
-            fieldnames = ["ssn", " name", " role" ,"rank" , "plane license" ,"address" , "mobile number" , "email"]
+            fieldnames = ["ssn", " name", " role" ," rank" , " plane license" ," address" , " mobile number" , " email"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
 
