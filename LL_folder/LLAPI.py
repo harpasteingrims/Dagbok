@@ -95,8 +95,8 @@ class LLAPI():
     def get_unavailable_time_for_voyage(self, voyage_year, voyage_month, voyage_day):
         return self.getvoyages.list_unavailable_voyage_time(voyage_year, voyage_month, voyage_day)
         
-    def get_available_emp_by_rank(self, user_input_date):
-        return self.getiaad.list_available_emp_by_rank(user_input_date)
+    def get_available_emp_by_rank(self, user_input_date, voyage_ob):
+        return self.getiaad.list_available_emp_by_rank(user_input_date, voyage_ob)
 
     def create_new_voyage(self, new_voyage_object):
         return self.ioapi.create_voyage(new_voyage_object)

@@ -8,6 +8,7 @@ class VoyagesUI():
         self.llapi = llapi
     
     def choose_action(self, valid_list):
+        """This lets you choose an action and sends the action to check if the action is valid"""
         action_str = input("Choose action: ").lower()
         print()
         
@@ -166,6 +167,7 @@ class VoyagesUI():
 
 
     def print_objects_in_ob_list(self, ob_list):
+        """This prints the object in a certain object list"""
         counter = 1
         for element_ob in ob_list: 
                 print(f"\n{counter} {element_ob}")
@@ -178,7 +180,7 @@ class VoyagesUI():
         return info_list
 
     def show_create_manually_form(self): #Lista upp alla áfangastaði, allar tímasetningar sem eru uppteknar og allar flugvélar sem eru lausar
-        """This prints the create a voyage manually form"""
+        """This prints the create a voyage manually form and lets you create a voyage"""
         
         print(self.LENGTH_STAR * "*")
         print("CREATE A VOYAGE MANUALLY")
@@ -212,7 +214,7 @@ class VoyagesUI():
                 voyage_date = self.get_hour_minute_voy(voyage_year, voyage_month, voyage_day)
                 
             print("\n* Airports *")
-            airports = self.llapi.get_airport_overview() #Þetta prentar alla áfangastaði, þetta þarf að vera númerað
+            airports = self.llapi.get_airport_overview()
             voyage_airport = self.print_objects_in_ob_list(airports)
             
             print("\n* Airplane *")
@@ -226,7 +228,7 @@ class VoyagesUI():
                 action_str = self.choose_action(["1", "s", "b"])
 
             if action_str == "1" or action_str == "s":
-                arrival_time = 0 #format fyrir date time
+                arrival_time = 0
                 new_voyage = VoyagesModel(voyage_date, voyage_airport, voyage_airplane, arrival_time)
                 self.llapi.calculate_outbound_arriv_time(new_voyage)
                 self.llapi.calculate_flight_number(new_voyage)
@@ -259,7 +261,7 @@ class VoyagesUI():
             return
         elif action_str == "c":
 
-            available_employees_ob_list = self.llapi.get_available_emp_by_rank(voyage_date)
+            available_employees_ob_list = self.llapi.get_available_emp_by_rank(voyage_date, voyage_ob)
             avail_captain_list = available_employees_ob_list[0]
             avail_copilot_list = available_employees_ob_list[1]
             avail_fsm_list = available_employees_ob_list[2]
@@ -290,6 +292,7 @@ class VoyagesUI():
 
 
     def process_employee_list(self, staff_rank, employee_ob_list, message_str):
+        """This prints out all the available employees for a certain flight"""
 
         counter = 1
         print(f"\nAvaliable {staff_rank.lower()}s:")
@@ -312,10 +315,10 @@ class VoyagesUI():
         
         print(self.LENGTH_STAR * "*")
         print("NOT FULLY STAFFED VOYAGES")
-        not_staffed_ob_list = self.llapi.get_not_staffed_voyages() #Þessi listi þarf að vera númeraður
+        not_staffed_ob_list = self.llapi.get_not_staffed_voyages()
         counter = 1
         for voyage_ob in not_staffed_ob_list:
-            print(voyage_ob.print_voy_out(counter))#Pæling að gera þetta öðruvísi með númerin
+            print(voyage_ob.print_voy_out(counter))
             counter += 1
         
         voyage_ob = self.get_a_number(not_staffed_ob_list)
@@ -324,6 +327,8 @@ class VoyagesUI():
         self.show_assign_staff_form(voyage_ob.departure_time, voyage_ob)
 
     def get_a_number(self, ob_list):
+        """This lets you choose a number and returns the object assigned to that number"""
+
         chosen_number = input("\nChoose a number: ")
         print()
         ob_item = self.llapi.check_chosen_number(chosen_number, ob_list)
@@ -333,7 +338,9 @@ class VoyagesUI():
             print("Invalid number!")
             return ob_item
 
-    def get_year_month_day_voy(self): #Checkar hvort þetta sé á réttu formi og hvort þetta séu int tölur
+    def get_year_month_day_voy(self):
+        """This lets you input year, month and day and returns it if it is valid"""
+
         voyage_year = input("Enter year (yyyy): ")
         voyage_month = input("Enter month (mm): ")
         voyage_day = input("Enter day (dd): ")
@@ -345,8 +352,8 @@ class VoyagesUI():
             print("Invalid date!")
             return date_check
 
-    def get_hour_minute_voy(self, voyage_year, voyage_month, voyage_day): #Checkar hvort þetta sé á réttu formi og hvort þetta séu int tölur, checkar einnig hvort það sé flug á þessum tíma
-        voyage_hour = input("Enter hour (hh): ")
+    def get_hour_minute_voy(self, voyage_year, voyage_month, voyage_day):
+        """This lets you input hour and minute and returns it if it is valid"""
         voyage_minute = input("Enter minute (mm): ")
         date = [voyage_year, voyage_month, voyage_day, voyage_hour, voyage_minute]
         time_check = self.llapi.check_time(date, voyage_year, voyage_month, voyage_day)
