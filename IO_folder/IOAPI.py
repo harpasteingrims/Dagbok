@@ -41,7 +41,6 @@ class IOAPI():
     def update_emergency_contact(self, updated_contact):  
         return self.updateio.update_emergency_contact(updated_contact)
 
-
     """ AIRPLANES """
 
     def get_airplane_list(self):
@@ -49,7 +48,6 @@ class IOAPI():
          
     def create_airplane(self, new_airplane):
         return self.createio.store_airplane(new_airplane)
-
 
     """ VOYAGES """
 

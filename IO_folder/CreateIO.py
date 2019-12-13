@@ -18,7 +18,6 @@ class CreateIO():
             fieldnames = ["ssn", "name", "role", "rank", "address", "mobile number", "email"]
             writer = csv.DictWriter(openfile, fieldnames = fieldnames)
             writer.writerow({"ssn": new_cabincrew.ssn, "name": " " + new_cabincrew.name, "role": " " + new_cabincrew.role, "rank": " " + new_cabincrew.rank, "address": " " + new_cabincrew.address, "mobile number": " " + new_cabincrew.mobile_number, "email": " " + new_cabincrew.email})
-
         
     def store_airplane(self, new_airplane):
         with open('./csv_files/Aircraft.csv', 'a', newline = "") as openfile:

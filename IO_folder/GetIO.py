@@ -10,7 +10,6 @@ from models.VoyagesModel import VoyagesModel
 from models.FlightsModel import FlightsModel
 
 class GetIO():
-
     def load_all_employees(self):
         all_employee_list = []
 
