@@ -145,7 +145,7 @@ class VoyagesUI():
             available_airplanes_list = self.llapi.get_available_airplanes_by_date(departure_date)
             chosen_airplane_id = self.print_objects_in_ob_list(available_airplanes_list)
             
-            print("\n* Voyage successfully created *")
+            print("\n* Voyage successfully created *\n")
             arrival_time = 0
             new_voyage = VoyagesModel(departure_date, chosen_voyage_elem[0], chosen_airplane_id, arrival_time)
             self.llapi.calculate_outbound_arriv_time(new_voyage)
@@ -200,8 +200,7 @@ class VoyagesUI():
             voyage_date = self.get_hour_minute_voy(voyage_year, voyage_month, voyage_day)
             while voyage_date == False:
                 voyage_date = self.get_hour_minute_voy(voyage_year, voyage_month, voyage_day)
-            #voyage_date = datetime.datetime(int(voyage_year), int(voyage_month), int(voyage_day), int(voyage_hour), int(voyage_minute), 0).isoformat()
-            
+                
             print("\n* Airports *")
             airports = self.llapi.get_airport_overview() #Þetta prentar alla áfangastaði, þetta þarf að vera númerað
             voyage_airport = self.print_objects_in_ob_list(airports)
@@ -227,9 +226,9 @@ class VoyagesUI():
 
                 if action_str == "1":
                     self.show_assign_staff_form(voyage_date, new_voyage)
-                    print("\n* Voyage successfully created *")
+                    print("\n* Voyage successfully created *\n")
                 elif action_str == "s":
-                    print("\n* Voyage successfully created *")
+                    print("\n* Voyage successfully created *\n")
                     return
 
             elif action_str == "b":
@@ -312,7 +311,7 @@ class VoyagesUI():
         if ob_item:
             return ob_item
         else:
-            print("Invalid number")
+            print("Invalid number!")
             return ob_item
 
     def get_year_month_day_voy(self): #Checkar hvort þetta sé á réttu formi og hvort þetta séu int tölur
@@ -335,5 +334,5 @@ class VoyagesUI():
         if time_check:
             return time_check
         else:
-            print("\nInvalid time\n")
+            print("\nInvalid time!\n")
             return time_check

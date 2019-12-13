@@ -385,3 +385,27 @@ Vika 2: 02.12 - 06.12
             -Hallmar: 1 klst. cod og bjór. Klára klasaritið.
             -Viktoría: Uppfæra use cases
             -Harpa: Taka upp video.
+
+13.12.2019
+    Áætlun: Í dag er föstudagurinn þrettándi og jafnframt lokadagsur verkefnisins. Nú getur þetta aðeins farið á tvo vegu; annars vegar gætum við klárað verkefnið með glæsibrag, en hins vegar gætu örlög föstudagsins þrettánda stuðlað að því að eitthvað stórvægilegt kemur upp á og allt fer í steik. Hildur fór í bakaríið og keypti köku handa hóp 2 og skreytti. Þeir eru svo góðir þessir strákar. Harpa tók upp myndbandið í gærkvöldi en það gekk ekki hnökralaust fyrir sig. Hinir unnu í skýrslunni en Hildur uppgötvaði tvö dáldið stór vandamál í forritinu sem þó hafa ekki áhrif á myndbandið. Annars vegar vandamál með íslenska stafi í skrám, og hins vegar margþætt vandamál með assign crew to staff. Við lögum það í dag.
+
+    Hallmar Orri:
+        -Skýrsluvinna
+        -Debugging
+        -Uppfæra klasarit
+    Harpa:
+        -Laga stóru vandamálin
+        -Edit-a myndbandið
+    Hildur:
+        -Laga stóru vandamálið
+        -Fínpússun kóða
+    Nína Margrét:
+        -Tala inn á myndbandið
+        -Skýrsluvinna
+    Viktoría Inga:
+        -Skýrsluvinna
+        -Use cases
+        -Stöðuritið
+        
+    Samantekt:
+        -
