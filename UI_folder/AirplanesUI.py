@@ -20,7 +20,7 @@ class AirplanesUI():
     def get_input_number(self, ob_list):
         """Asks user for a number, sends to InputCheck and then returns it"""
 
-        chosen_number = input("\nB Back\n\nSee pilots with a particular airplane license\nChoose number for airplane type: ").lower()
+        chosen_number = input("\nB Back\n\nSee pilots with a particular airplane license\nChoose number for airplane type or back: ").lower()
         
         if chosen_number == "b":
             return
