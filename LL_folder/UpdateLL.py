@@ -1,4 +1,3 @@
-
 class UpdateLL():
     def __init__(self, ioapi):
         self.ioapi = ioapi
@@ -14,4 +13,3 @@ class UpdateLL():
     
     def update_voyages(self, updated_voyage_ob):
         return self.ioapi.update_voyage(updated_voyage_ob)
-        
