@@ -200,8 +200,7 @@ class VoyagesUI():
             voyage_date = self.get_hour_minute_voy(voyage_year, voyage_month, voyage_day)
             while voyage_date == False:
                 voyage_date = self.get_hour_minute_voy(voyage_year, voyage_month, voyage_day)
-            #voyage_date = datetime.datetime(int(voyage_year), int(voyage_month), int(voyage_day), int(voyage_hour), int(voyage_minute), 0).isoformat()
-            
+                
             print("\n* Airports *")
             airports = self.llapi.get_airport_overview() #Þetta prentar alla áfangastaði, þetta þarf að vera númerað
             voyage_airport = self.print_objects_in_ob_list(airports)
