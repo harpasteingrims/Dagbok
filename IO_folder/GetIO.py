@@ -108,7 +108,7 @@ class GetIO():
         counter = 1
         for line in flights_with_crew_file:
             line = line.strip().split(", ")
-            if counter == 1:
+            if counter == 1: # to skip the first line in file
                 counter += 1
             else:   
                 try:
@@ -123,7 +123,7 @@ class GetIO():
                     fsm = line[8]
                     fa1 = line[9]
                     fa2 = line[10]
-                except IndexError:
+                except IndexError: #so we can read the whole file, not just manned flights
                     captain = ""
                     copilot = ""                    
                     fsm = ""
@@ -133,14 +133,14 @@ class GetIO():
                 flights_list.append(flight_with_crew)
 
         i = 0
-        for j in range(len(flights_list)//2):
+        for j in range(len(flights_list)//2): #here we use the flights to create a voyage obj
             outbound_flight_num = flights_list[i].flight_number
             departure_time = flights_list[i].departure_time
             destination = flights_list[i].arriving_at
             aircraftID = flights_list[i].aircraftID
             return_flight_num = flights_list[i+1].flight_number
             arrival_time = flights_list[i].arrival_time
-            departure_dest = flights_list[i+1].arriving_at
+            departure_dest = flights_list[i+1].arriving_at #i+1 is used so we differentiate between the 1st flight and 2nd flight in a voyage
             return_departure_time = flights_list[i+1].departure_time
             return_arrival_time = flights_list[i+1].arrival_time
             if flights_list[i].captain == "":
@@ -158,63 +158,6 @@ class GetIO():
 
         return voyages_list
 
-
-    def load_all_voyages_with_crew(self):
-        flights_with_crew_file = open("./csv_files/Flights.csv","r", encoding= "utf8")
-        flights_list = []
-        voyages_list = []
-
-        counter = 1
-        for line in flights_with_crew_file:
-            line = line.strip().split(", ")
-            if counter == 1:
-                counter += 1
-            else:   
-                try:
-                    flight_number = line[0]  
-                    departing_from = line[1]
-                    arriving_at = line[2]
-                    departure_time = line[3]
-                    arrival_time = line[4]
-                    aircraft_ID = line[5]    
-                    captain = line[6]
-                    copilot = line[7]
-                    fsm = line[8]
-                    fa1 = line[9]
-                    fa2 = line[10]
-                except IndexError:
-                    aircraft_ID = ""
-                    captain = ""
-                    copilot = ""                    
-                    fsm = ""
-                    fa1 = ""
-                    fa2 = ""
-                #flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2 = line.split(", ")
-                flight_with_crew = FlightsModel(flight_number, departing_from, arriving_at, departure_time, arrival_time, aircraft_ID, captain, copilot, fsm, fa1, fa2)
-                flights_list.append(flight_with_crew)
-
-        counter = 1
-
-        for flights in flights_list:
-            if counter % 2 != 0:
-                departure_time = flights.departure_time
-                destination = flights.arriving_at
-                aircraftID = flights.aircraftID
-                crew_list = [flights.captain, flights.copilot, flights.fsm, flights.fa1, flights.fa2]
-
-
-                counter += 1
-            elif counter % 2 == 0:
-                arrival_time = flights.arrival_time
-                voyage = VoyagesModel(departure_time, arrival_time, destination, aircraftID, crew_list)
-                voyages_list.append(voyage)
-
-                counter += 1
-
-
-        flights_with_crew_file.close()
-
-        return voyages_list
 
     def load_all_flights(self):
         flights_with_crew_file = open("./csv_files/Flights.csv","r", encoding= "utf8")
