@@ -8,6 +8,7 @@ class DestinationsUI():
         self.llapi = llapi
     
     def choose_action(self, valid_list):
+        """Gets a list of valid actions and asks the user for an action and if the action is in the valid actions it returns it else it returns False"""
         action_str = input("Choose action: ").lower()
         print()
         
@@ -30,7 +31,6 @@ class DestinationsUI():
         else:
             print("\nInvalid input!")
             self.get_input_number(ob_list)
-
 
     def show_destination_menu(self):
         """Prints the destination menu"""
@@ -81,7 +81,7 @@ class DestinationsUI():
             return
 
     def show_create_desti_form(self):
-        """Prints the create a destination form"""
+        """Prints the create a destination form and calls the methods to get the information it needs"""
 
         print("*" * self.LENGTH_STAR)
         print("CREATE A NEW DESTINATION\n")

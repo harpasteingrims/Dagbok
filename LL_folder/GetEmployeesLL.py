@@ -25,6 +25,8 @@ class GetEmployeesLL():
         return self.ioapi.get_list_of_all_cabin_crew()
 
     def find_common_named_pilots(self, name):
+        """ Finds the common named pilots in the pilot object list and retunes the common named list """
+
         common_pilot_names = []
         
         pilot_list = self.list_all_pilots()
@@ -44,6 +46,8 @@ class GetEmployeesLL():
     """ CABIN CREW """
 
     def find_common_named_cabincrew(self,name):
+        """ Finds the common named cabin crew members in the pilot object list and retunes the common named list """
+        
         common_crew_names = []
         cabin_crew_list = self.list_all_cabin_crew()
         
@@ -59,14 +63,3 @@ class GetEmployeesLL():
 
         else:
             return False
-
-    def list_info_about_cabincrew_by_name(self, name):
-
-        cabin_crew_list = self.list_all_cabin_crew()
-
-        for cabin_crew_object in cabin_crew_list:
-            if cabin_crew_object.name == name:
-                return cabin_crew_object
-
-        
-   

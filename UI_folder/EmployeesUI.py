@@ -10,6 +10,8 @@ class EmployeesUI():
         self.llapi = llapi
 
     def choose_action(self, valid_list):
+        """Gets a list of valid actions and asks the user for an action and if the action is in the valid actions it returns it else it returns False"""
+        
         action_str = input("Choose action: ").lower()
         print()
         
@@ -84,7 +86,7 @@ class EmployeesUI():
             return 
 
     def show_pilot_or_crew_menu(self, staff_str):
-        """Prints either the pilot or cabin crew menu"""
+        """Gets a string of either Pilot or Cabin crew and prints either the pilot or cabin crew menu after which string it gets"""
 
         while True:
             print(self.LENGTH_STAR * "*")
@@ -115,7 +117,7 @@ class EmployeesUI():
                 return
 
     def show_either_crew_or_pilots_overview(self, staff_str):
-        """Prints the overview of either cabin crew or pilots"""
+        """Gets a string of either Pilot or Cabin crew and prints either the pilot or cabin crew overview after which string it gets"""
         
         print(self.LENGTH_STAR * "*")
         print(f"OVERVIEW OF {staff_str.upper()}S")
@@ -140,7 +142,7 @@ class EmployeesUI():
             return
 
     def show_enter_name_to_search(self, staff_str):
-        """Prints the search for a pilot/cabin crew member window"""
+        """Gets a string of either Pilot or Cabin crew and Prints the search for a pilot/cabin crew member window"""
          
         print(self.LENGTH_STAR * "*")
         print(f"SEARCH FOR A {staff_str.upper()}\n")
@@ -157,6 +159,7 @@ class EmployeesUI():
         
             common_named_staff_list = self.get_input_name_and_common_name_list(staff_str)
             
+            # If the list is emty it gets False
             while common_named_staff_list == False:
                 print(f"{staff_str.capitalize()} does not exist!\n")
                 common_named_staff_list = self.get_input_name_and_common_name_list(staff_str)
@@ -336,7 +339,7 @@ class EmployeesUI():
             return
 
     def show_create_form(self, staff_str):
-        """This prints the create a pilot form"""
+        """Prints the create form for an employee and calls the methods to get the information it needs"""
 
         print(self.LENGTH_STAR * "*")
         print(f"CREATE A NEW {staff_str.upper()}\n")
