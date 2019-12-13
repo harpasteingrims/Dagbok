@@ -6,6 +6,8 @@ class GetIAAD():
         self.ioapi = ioapi
 
     def list_available_emp_by_date(self, user_input_date):
+        """This lists all available employees for a ceratain date"""
+
         employee_list = self.ioapi.get_list_of_all_employees()
         available_employees_list = []
         for employee_ob in employee_list:
@@ -20,6 +22,8 @@ class GetIAAD():
         return available_employees_list
 
     def list_unavailable_emp_by_date(self, user_input_date):
+        """This lists all unavailable employees for a certain date"""
+
         voyage_list = self.ioapi.get_all_voyages_list()
         employee_list = self.ioapi.get_list_of_all_employees()
         unavailable_emp_ssn_list = []
@@ -39,6 +43,8 @@ class GetIAAD():
         return unavailable_emp_name_list
 
     def list_available_emp_by_rank(self, user_input_date, voyage_ob):
+        """This lists all available employees by their rank"""
+
         available_emp_list = self.list_available_emp_by_date(user_input_date)
         airplane_list = self.ioapi.get_airplane_list()
         unstaffed_captain_list = []
@@ -48,7 +54,7 @@ class GetIAAD():
         for employee_ob in available_emp_list:
             for airplane_ob in airplane_list:
                 if employee_ob.rank == "Captain":
-                    if airplane_ob.airplane_type == employee_ob.license_type and airplane_ob.planeID == voyage_ob.aircraftID:
+                    if airplane_ob.airplane_type == employee_ob.license_type and airplane_ob.planeID == voyage_ob.aircraftID: #This makes sure that the pilots have a license for that airplane type
                         unstaffed_captain_list.append(employee_ob)
                 elif employee_ob.rank == "Copilot":
                     if airplane_ob.airplane_type == employee_ob.license_type and airplane_ob.planeID == voyage_ob.aircraftID:
@@ -61,7 +67,8 @@ class GetIAAD():
         return (unstaffed_captain_list, unstaffed_copilot_list, unstaffed_fsm_list, unstaffed_fa_list)
             
     def list_airplane_status_by_date(self, user_input_date):
-        """Returns a list of airplanes sorted by available and unavailable"""
+        """This lists all airplanes that are flying on a certain date"""
+
         voyage_list = self.ioapi.get_all_voyages_list()
         airplane_list = self.ioapi.get_airplane_list()
         flights_list = self.ioapi.get_all_flights_list()
@@ -77,13 +84,13 @@ class GetIAAD():
         i = 0
         if flights_on_day_list != []:
             for j in range(len(flights_on_day_list)//2):
-                if flights_on_day_list[i].departure_time <= user_input_date <= flights_on_day_list[i+1].arrival_time:
+                if flights_on_day_list[i].departure_time <= user_input_date <= flights_on_day_list[i+1].arrival_time: #Checking what flight is flying on the user input date
                     for airplane_ob in airplane_list:
                         if flights_on_day_list[i].aircraftID == airplane_ob.planeID:
                             airplane_name = airplane_ob.planeID
                             airplane_type = airplane_ob.airplane_type
                             airplane_seat_amount = airplane_ob.seat_amount
-                    if flights_on_day_list[i].departure_time <= user_input_date <= flights_on_day_list[i].arrival_time:
+                    if flights_on_day_list[i].departure_time <= user_input_date <= flights_on_day_list[i].arrival_time: #Finding out if the flight is going from Iceland or to Iceland
                         flight_number = flights_on_day_list[i].flight_number
                     elif flights_on_day_list[i+1].departure_time <= user_input_date <= flights_on_day_list[i+1].arrival_time:
                         flight_number = flights_on_day_list[i+1].flight_number
@@ -95,7 +102,7 @@ class GetIAAD():
                     while available_airplane_date == "":
                         for voyage_ob in voyage_list:
                             parsed_voyage_date = dateutil.parser.parse(voyage_ob.departure_time)
-                            if [parsed_input_date.year, parsed_input_date.month, (parsed_input_date.day+counter)] == [parsed_voyage_date.year, parsed_voyage_date.month, parsed_voyage_date.day]:
+                            if [parsed_input_date.year, parsed_input_date.month, (parsed_input_date.day+counter)] == [parsed_voyage_date.year, parsed_voyage_date.month, parsed_voyage_date.day]: #Finding out when the airplane is next available
                                 if flights_on_day_list[i].aircraftID != voyage_ob.aircraftID:
                                     available_airplane_date = str(parsed_voyage_date.day) + "." + str(parsed_voyage_date.month) + "." + str(parsed_voyage_date.year) + " 00:00:00"
                                     break
@@ -110,7 +117,8 @@ class GetIAAD():
         return airplane_status_list
 
     def list_voyages_status_by_date(self, user_input_date_from, user_input_date_to):
-        """Returns a list of voyages on that day sorted by complete, arrived, in air and not started"""
+        """This lists all voyages for either a day or a week depending on the user input date and prints if it is fully staffed or not"""
+
         voyage_list = self.ioapi.get_all_voyages_list()
         voyage_list_date = []
        
