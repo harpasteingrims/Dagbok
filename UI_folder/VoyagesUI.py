@@ -145,7 +145,7 @@ class VoyagesUI():
             available_airplanes_list = self.llapi.get_available_airplanes_by_date(departure_date)
             chosen_airplane_id = self.print_objects_in_ob_list(available_airplanes_list)
             
-            print("\n* Voyage successfully created *")
+            print("\n* Voyage successfully created *\n")
             arrival_time = 0
             new_voyage = VoyagesModel(departure_date, chosen_voyage_elem[0], chosen_airplane_id, arrival_time)
             self.llapi.calculate_outbound_arriv_time(new_voyage)
@@ -227,9 +227,9 @@ class VoyagesUI():
 
                 if action_str == "1":
                     self.show_assign_staff_form(voyage_date, new_voyage)
-                    print("\n* Voyage successfully created *")
+                    print("\n* Voyage successfully created *\n")
                 elif action_str == "s":
-                    print("\n* Voyage successfully created *")
+                    print("\n* Voyage successfully created *\n")
                     return
 
             elif action_str == "b":
