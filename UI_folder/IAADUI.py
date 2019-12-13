@@ -140,35 +140,6 @@ class IAADUI():
         if action_str == "b":
             return
 
-    def show_airplane_status(self):
-        """This prints the status of airplanes on a certain day"""
-
-        print(self.LENGTH_STAR * "*")
-        print("AIRPLANE STATUS\n")
-
-        iaad_date = self.show_enter_date_menu()
-        iaad_date_time = self.show_enter_time_menu_airplane(iaad_date)
-
-        airplane_status = self.llapi.get_airplane_status_by_date(iaad_date_time)
-
-        counter = 1
-        if airplane_status != []:
-            for airplane_elem in airplane_status:
-                    print(f"\n{counter}.\nAirplane ID: {airplane_elem[1]} \nAirplane type: {airplane_elem[2]}\nDestination: {airplane_elem[0]} \nSeat amount: {airplane_elem[3]} \nFlight number: {airplane_elem[4]} \nNext available time: {airplane_elem[5]}")
-                    counter += 1
-
-        else:
-            print("\nNo airplane is flying at this time")
-
-        print("\nB Back\n")
-
-        action_str = self.choose_action(["b"])
-        while action_str == False:
-            action_str = self.choose_action(["b"])
-
-        if action_str == "b":
-            return
-
     def show_voyages_status(self):
         """This prints the status of a voyage on a certain day"""
 
@@ -208,6 +179,35 @@ class IAADUI():
         action_str = self.choose_action(["b"])
         while action_str == False:
             action_str = self.choose_action(["b"])
+
+    def show_airplane_status(self):
+        """This prints the status of airplanes on a certain day"""
+
+        print(self.LENGTH_STAR * "*")
+        print("AIRPLANE STATUS\n")
+
+        iaad_date = self.show_enter_date_menu()
+        iaad_date_time = self.show_enter_time_menu_airplane(iaad_date)
+
+        airplane_status = self.llapi.get_airplane_status_by_date(iaad_date_time)
+
+        counter = 1
+        if airplane_status != []:
+            for airplane_elem in airplane_status:
+                    print(f"\n{counter}.\nAirplane ID: {airplane_elem[1]} \nAirplane type: {airplane_elem[2]}\nDestination: {airplane_elem[0]} \nSeat amount: {airplane_elem[3]} \nFlight number: {airplane_elem[4]} \nNext available time: {airplane_elem[5]}")
+                    counter += 1
+
+        else:
+            print("\nNo airplane is flying at this time")
+
+        print("\nB Back\n")
+
+        action_str = self.choose_action(["b"])
+        while action_str == False:
+            action_str = self.choose_action(["b"])
+
+        if action_str == "b":
+            return
 
     def get_iaad_date(self):
         iaad_year = input("Enter year (yyyy): ")
