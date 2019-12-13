@@ -5,9 +5,6 @@ class AirplanesModel():
         self.airplane_type = airplane_type
         self.manufacturer = manufacturer
         self.seat_amount = seat_amount
-    
-    def to_csv_string(self):
-        return f"\n{self.planeID}, {self.airplane_type}, {self.manufacturer}, {self.seat_amount}"
 
     def print_out_line(self, in_front_str):
         return f"\n{in_front_str} {self.planeID}, {self.airplane_type}, {self.manufacturer}, {self.seat_amount}"

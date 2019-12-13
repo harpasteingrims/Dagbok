@@ -22,10 +22,8 @@ class GetIO():
             all_employee_list = pilot_list + cabincrew_list
 
             return all_employee_list
-
-        
+     
     def load_all_pilots(self):
-        
         pilot_file = open("./csv_files/Pilots.csv","r", encoding= "utf8")
 
         pilot_list = []
@@ -44,7 +42,6 @@ class GetIO():
         return pilot_list
 
     def load_all_cabincrew(self):
-
         crew_file = open("./csv_files/CabinCrew.csv","r", encoding= "utf8")
         
         cabincrew_list = []
@@ -153,11 +150,9 @@ class GetIO():
 
             i += 2
 
-
         flights_with_crew_file.close()
 
         return voyages_list
-
 
     def load_all_flights(self):
         flights_with_crew_file = open("./csv_files/Flights.csv","r", encoding= "utf8")
@@ -188,7 +183,6 @@ class GetIO():
                     fsm = ""
                     fa1 = ""
                     fa2 = ""
-                #flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2 = line.split(", ")
                 flight_with_crew = FlightsModel(flight_number,departing_from,arriving_at,departure_time,arrival_time,aircraft_ID,captain,copilot,fsm,fa1,fa2)
                 flights_list.append(flight_with_crew)
 

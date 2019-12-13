@@ -56,8 +56,6 @@ class GetIAAD():
 
         return (unmanned_captain_list, unmanned_copilot_list, unmanned_fsm_list, unmanned_fa_list)
             
-
-
     def list_airplane_status_by_date(self, user_input_date):
         """Returns a list of airplanes sorted by available and unavailable"""
         voyage_list = self.ioapi.get_all_voyages_list()

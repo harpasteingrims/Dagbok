@@ -118,7 +118,7 @@ class GetVoyagesLL():
 
         return new_voyage_object
 
-    def calculate_flight_num(self, new_voyage_object): #Þetta þarf að reikna bæði outbound flight num og return flight num
+    def calculate_flight_num(self, new_voyage_object):
         outbound_flight_num = "NA"
         return_flight_num = "NA"
         destination_list = self.ioapi.get_destination_list()
@@ -145,8 +145,7 @@ class GetVoyagesLL():
 
         return new_voyage_object
 
-
-    def calculate_return_departure_time(self, new_voyage_object): #Þetta þarf að reikna return departure time, sem er einni klst meira en arrival_time
+    def calculate_return_departure_time(self, new_voyage_object):
         return_departure_time = ""
         arrival_time = new_voyage_object.arrival_time
         parsed_arrival_time = dateutil.parser.parse(arrival_time)
@@ -156,7 +155,7 @@ class GetVoyagesLL():
 
         return new_voyage_object
 
-    def calculate_return_arrival_time(self, new_voyage_object): #Þetta þarf að reikna return arrival time sem er svipað og hitt fallið
+    def calculate_return_arrival_time(self, new_voyage_object):
         return_arrival_time = ""
         return_departure_time = new_voyage_object.return_departure_time
         parsed_return_departure_time = dateutil.parser.parse(return_departure_time)

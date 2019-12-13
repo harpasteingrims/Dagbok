@@ -5,8 +5,6 @@ class UpdateIO:
     def __init__(self, createio, getio):
         self.createio = createio
         self.getio = getio
-
-        # ef við viljum að update noti get til að updatea
         
     def update_emergency_contact(self, update_contact):               
         ''' Updates an emergency contact for a certain country'''

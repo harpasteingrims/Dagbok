@@ -21,7 +21,7 @@ class LLAPI():
     """ EMPLOYEES """
 
     def get_employee_overview(self):
-        return self.getemployees.list_all_employees() #Þetta kallar á klasann getemployees og fallið þar inni sem nær í alla employees
+        return self.getemployees.list_all_employees()
     
     def get_employee_schedule_by_date(self, name, date_from, date_to):
         return self.getvoyages.list_schedule_employee_by_date(name, date_from, date_to)
@@ -94,9 +94,6 @@ class LLAPI():
 
     def get_unavailable_time_for_voyage(self, voyage_year, voyage_month, voyage_day):
         return self.getvoyages.list_unavailable_voyage_time(voyage_year, voyage_month, voyage_day)
-
-    #def get_numbered_common_voyage_dict(self):
-        #pass
         
     def get_available_emp_by_rank(self, user_input_date):
         return self.getiaad.list_available_emp_by_rank(user_input_date)
@@ -104,12 +101,6 @@ class LLAPI():
     def create_new_voyage(self, new_voyage_object):
         return self.ioapi.create_voyage(new_voyage_object)
 
-    #def create_new_common_voyage(self, common_voyage_object):
-        #HÉR Á EFTIR AÐ VINNA
-        #common_voyage_object = []
-        #voyage_list = self.ioapi.get_all_voyages_list()
-        #return common_voyage_list
-    
     def update_voyage(self, updated_voyage_ob):
         return self.ioapi.update_voyage(updated_voyage_ob)
     
@@ -129,12 +120,12 @@ class LLAPI():
         unavailable_time_list = self.get_unavailable_time_for_voyage(voyage_year, voyage_month, voyage_day)
         return self.inputcheckll.check_time(date, unavailable_time_list)
 
-    def check_date(self, date):
-        return self.inputcheckll.check_date(date)
+    def check_dates(self, date):
+        return self.inputcheckll.check_dates(date)
 
     """DESTINATIONS"""
 
-    def get_destination_overview(self): #Þessi listi þarf að vera númeraður
+    def get_destination_overview(self):
         return self.getdestinations.list_all_destinations()
 
     def get_airport_overview(self):
@@ -166,11 +157,11 @@ class LLAPI():
     def get_airplanes_overview(self):
         return self.getairplanes.list_all_airplanes()
 
-    def get_available_airplanes_by_date(self, voyage_date): #Þessi listi þarf að vera númeraður
+    def get_available_airplanes_by_date(self, voyage_date):
         return self.getairplanes.list_available_airplanes_by_date(voyage_date)
 
     def get_airplanes_for_UI(self):
-        return self.getairplanes.get_airplane_list()
+        return self.getairplanes.get_airplane_type_list()
 
     def create_new_airplane(self, new_airplane_object):
         return self.ioapi.create_airplane(new_airplane_object)

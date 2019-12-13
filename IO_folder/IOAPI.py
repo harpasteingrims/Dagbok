@@ -22,19 +22,15 @@ class IOAPI():
         return self.getio.load_all_cabincrew()
     
     def create_pilot(self, new_pilot):
-        
         return self.createio.store_pilot(new_pilot)
     
     def update_pilot(self, updated_pilot):
-        
         return self.updateio.update_pilot(updated_pilot)
 
     def create_cabincrew(self, new_cabincrew):
-
         return self.createio.store_cabincrew(new_cabincrew)
 
     def update_cabincrew(self, updated_cabincrew_ob):
-
         return self.updateio.update_cabincrew(updated_cabincrew_ob)
 
     """ DESTINATIONS """
@@ -74,5 +70,3 @@ class IOAPI():
         
     def create_voyage(self, new_voyage):
         return self.createio.store_voyage(new_voyage)
-    
-    
