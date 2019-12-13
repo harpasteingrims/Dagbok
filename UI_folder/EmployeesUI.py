@@ -21,7 +21,7 @@ class EmployeesUI():
             return False
 
     def get_input_number(self, ob_list):
-        """Gets an number from user and sends to input check"""
+        """Asks user for a number, sends to InputCheck and then returns it"""
         
         chosen_number = input("\nChoose a number: ")
         chosen_object = self.llapi.check_chosen_number(chosen_number, ob_list)

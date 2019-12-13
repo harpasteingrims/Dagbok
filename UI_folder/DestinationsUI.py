@@ -19,7 +19,7 @@ class DestinationsUI():
             return False
             
     def get_input_number(self, ob_list):
-        """ Gets an number from user and checks if it is right """
+        """Gets a number from user and checks if it is right """
         
         chosen_number = input("\nChoose a number: ")
         chosen_object = self.llapi.check_chosen_number(chosen_number, ob_list)
@@ -121,8 +121,6 @@ class DestinationsUI():
                 action_str = self.choose_action(["b", "s"])
             
             if action_str == "s":
-                #Takes the info and adds it to the destination list
-                
                 new_destination_object = DestinationsModel(country, airport, flight_duration, distance, contact, contact_number, str(destiID))
                 self.llapi.create_new_destination(new_destination_object)
                 
@@ -134,7 +132,7 @@ class DestinationsUI():
 
     def print_desti_list(self, str_infront):
         
-        destinations_ob_list = self.llapi.get_destination_overview() #Hérna kallar hann í fall í llapanum sem heitir get_destinations_overview sem returnar lista yfir alla áfangastaði
+        destinations_ob_list = self.llapi.get_destination_overview()
         
         counter = 0
         for desti_ob in destinations_ob_list:
@@ -166,7 +164,6 @@ class DestinationsUI():
             chosen_destination_ob = self.get_input_number(destinations_ob_list)
             print("\n" + "*" * self.LENGTH_STAR)
             print(f"EDIT {chosen_destination_ob.country.upper()}, {chosen_destination_ob.airport.upper()}'S INFO")
-            #print(chosen_destination_ob.print_emergency())
                 
             print(f"\n1 Edit {chosen_destination_ob.country.capitalize()}, {chosen_destination_ob.airport.capitalize()}'s contact name")
             print(f"2 Edit {chosen_destination_ob.country.capitalize()}, {chosen_destination_ob.airport.capitalize()}'s contact number")
