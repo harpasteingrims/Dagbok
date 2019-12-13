@@ -15,7 +15,6 @@ class GetAirplanesLL():
         airplane_list = self.list_all_airplanes()
         voyage_list = self.ioapi.get_all_voyages_list()
         
-        
         # First it goes through the voyage list to find and make a list of the airplanes that are not avaliable 
         unavailable_airplane_list = []
         for voyage_ob in voyage_list:

@@ -3,6 +3,7 @@ import dateutil.parser
 from datetime import timedelta
 from datetime import datetime
 from models.VoyagesModel import VoyagesModel
+
 class GetVoyagesLL():
     def __init__(self, ioapi):
         self.ioapi = ioapi
@@ -171,4 +172,3 @@ class GetVoyagesLL():
         new_voyage_object.return_arrival_time = return_arrival_time
 
         return new_voyage_object
-    

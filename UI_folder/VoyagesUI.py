@@ -350,7 +350,7 @@ class VoyagesUI():
     def get_hour_minute_voy(self, voyage_year, voyage_month, voyage_day):
         voyage_hour = input("Enter hour (hh): ")
         voyage_minute = input("Enter minute (mm): ")
-        date = [voyage_year, voyage_month, voyage_day, voyage_hour, voyage_minute]
+        date = [voyage_year, voyage_month, voyage_day, voyage_hour, voyage_minute, "00"]
         time_check = self.llapi.check_time(date, voyage_year, voyage_month, voyage_day)
         if time_check:
             return time_check
