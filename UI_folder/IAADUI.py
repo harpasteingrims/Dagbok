@@ -124,10 +124,12 @@ class IAADUI():
 
         unavailable_employees_list = self.llapi.get_unavailable_emp_by_date(iaad_date)
         parsed_iaad_date = dateutil.parser.parse(iaad_date)
-        print(f"\nNAN AIR has {len(unavailable_employees_list)} unavaliable employees on {parsed_iaad_date.day}/{parsed_iaad_date.month}/{parsed_iaad_date.year}")
         if unavailable_employees_list != []:
+            print(f"\nNAN AIR has {len(unavailable_employees_list)} unavaliable employees on {parsed_iaad_date.day}/{parsed_iaad_date.month}/{parsed_iaad_date.year}")
             for employee_elem in unavailable_employees_list:
                 print(f"\nName: {employee_elem[0]}, Destination: {employee_elem[1]}")
+        else:
+            print(f"\nThere are no employees working on {parsed_iaad_date.day}/{parsed_iaad_date.month}/{parsed_iaad_date.year}")
 
         print("\nB Back\n")
 
