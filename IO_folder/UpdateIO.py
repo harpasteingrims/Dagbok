@@ -8,6 +8,7 @@ class UpdateIO:
         
     def update_emergency_contact(self, update_contact):               
         ''' Updates an emergency contact for a certain country'''
+
         destionations_list = GetIO.load_all_destinations(self)
         with open("./csv_files/Destinations.csv", "w", encoding= "utf8", newline="") as csvfile:
             fieldnames = ["country", "airport", "flightDurFromIce", "DistFromIce", "ContactName", "ContactPhoneNR", "ID"]
@@ -22,6 +23,7 @@ class UpdateIO:
 
     def update_voyage(self, voyage_object):                    
         '''Updates a voyage'''
+
         voyages_list = GetIO.load_all_voyages(self)
         with open("./csv_files/Flights.csv","w", encoding= "utf8", newline="") as csvfile:
             fieldnames = ["flightNumber", "departingFrom", "arrivingAt", "departure", "arrival", "aircraftID", "captain", "copilot", " fsm", "fa1", "fa2"] 
@@ -36,6 +38,7 @@ class UpdateIO:
 
     def update_pilot(self, update_pilot):
         ''' Updates a pilot '''
+        
         pilot_list = GetIO.load_all_pilots(self)
         with open("./csv_files/Pilots.csv","w", encoding= "utf8", newline="") as csvfile:
             fieldnames = ["ssn", " name", " role" ,"rank" , "plane license" ,"address" , "mobile number" , "email"]
@@ -51,7 +54,7 @@ class UpdateIO:
         
     def update_cabincrew(self, update_cabincrew):
         """writes the updated info on cabincrew in csv"""
-        
+
         cabincrew_list = GetIO.load_all_cabincrew(self)
         with open("./csv_files/CabinCrew.csv","w", encoding= "utf8", newline="") as csvfile:
             fieldnames = ["ssn", " name", " role", " rank", " address", " mobile number", "email"]
@@ -62,4 +65,4 @@ class UpdateIO:
             if elem.ssn == update_cabincrew.ssn:#finds the employee we want
                 self.createio.store_cabincrew(update_cabincrew)
             else:#writes everything else as it was
-                self.createio.store_cabincrew(elem)
+                self.createio.store_cabincrew(elem) 
