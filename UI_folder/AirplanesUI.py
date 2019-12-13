@@ -23,7 +23,6 @@ class AirplanesUI():
         action_str = ""
 
         while True:
-            print()
             print(self.LENGTH_STAR * "*")
             print("AIRPLANE MENU\n")
             print("1 Print overview of all airplanes")
