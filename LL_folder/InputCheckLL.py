@@ -1,10 +1,7 @@
-from models.PilotsModel import PilotsModel
-from UI_folder.EmployeesUI import EmployeesUI
-from datetime import datetime , timedelta
 import datetime
 
 class InputCheckLL():
-    '''Subclass of LLAPI that is designed to create something and error checking the input'''
+    """Subclass of LLAPI that is designed to create something and error checking the input"""
     
     def __init__(self, ioapi, llapi):
         self.ioapi = ioapi
@@ -13,12 +10,14 @@ class InputCheckLL():
     """CHECKING INPUT FOR EMPLOYEES"""
 
     def check_name(self, name):
+        """Receives a string and returns it if it's valid with every word capitalized"""
         if len(name.split()) > 1 and name.replace(" ", "").isalpha() and len(name) < 40:
             return name.title()
         else: 
             return False
 
     def check_pilot_rank(self, rank):
+        """Receives a string and returns the appropriate term for the selected role if the input is valid"""
         if rank == "1":
             rank = "Captain"
             return rank
