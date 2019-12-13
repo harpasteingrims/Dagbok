@@ -19,7 +19,7 @@ class DestinationsUI():
             return False
             
     def get_input_number(self, ob_list):
-        """Gets a number from user and checks if it is right """
+        """Asks user for a number, sends to InputCheck and then returns it"""
         
         chosen_number = input("\nChoose a number: ")
         chosen_object = self.llapi.check_chosen_number(chosen_number, ob_list)
@@ -33,7 +33,7 @@ class DestinationsUI():
 
 
     def show_destination_menu(self):
-        """This prints the destination menu"""
+        """Prints the destination menu"""
 
         action_str = ""
 
@@ -63,7 +63,7 @@ class DestinationsUI():
                 return
 
     def show_destination_overview(self):
-        """This prints the overview of all destinations"""
+        """Prints the overview of all destinations"""
 
         print("*"*self.LENGTH_STAR)
         print("OVERVIEW OF DESTINATIONS")
@@ -81,7 +81,7 @@ class DestinationsUI():
             return
 
     def show_create_desti_form(self):
-        """ This prints the create a destination form"""
+        """Prints the create a destination form"""
 
         print("*" * self.LENGTH_STAR)
         print("CREATE A NEW DESTINATION\n")
@@ -131,6 +131,7 @@ class DestinationsUI():
                 return
 
     def print_desti_list(self, str_infront):
+        """Prints the overview of destinations either with * in front of or counter depending on whether you want to just see the overview or select a destination to edit"""
         
         destinations_ob_list = self.llapi.get_destination_overview()
         
@@ -176,6 +177,7 @@ class DestinationsUI():
             self.show_edit_desti_form(chosen_destination_ob, action_str)
 
     def show_edit_desti_form(self, chosen_destination_ob, action_str):
+        """Prints the edit destination form"""
 
         if action_str == "1":
             print(self.LENGTH_STAR * "*")
@@ -197,6 +199,7 @@ class DestinationsUI():
             return
 
     def check_action_edit_form(self, chosen_destination_ob, number, new_info):
+        """Receives changes info from the edit menu and sends it too LLAPI where it then goes on to change in the csv file"""
         
         print("\nS Save \nB Back\n")
         action_str = self.choose_action(["s","b"])
@@ -214,6 +217,8 @@ class DestinationsUI():
         elif action_str == "b":
             return
 
+    """The get methods below ask the user for a certain input, sends it to InputCheck and then returns it"""
+    
     def get_country(self):
         country = input("Enter country: ")
         country_check = self.llapi.check_country(country)
