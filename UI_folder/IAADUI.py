@@ -118,7 +118,7 @@ class IAADUI():
         """This prints the unavailable employees on a certain day"""
 
         print(self.LENGTH_STAR * "*")
-        print("UNAVAILABLE EMPLOYEES\n")
+        print("UNAVAILABLE EMPLOYEES")
 
         iaad_date = self.show_enter_date_menu()
 
@@ -128,8 +128,6 @@ class IAADUI():
         if unavailable_employees_list != []:
             for employee_elem in unavailable_employees_list:
                 print(f"\nName: {employee_elem[0]}, Destination: {employee_elem[1]}")
-        else:
-            print("There are no unavailable employees for that day")
 
         print("\nB Back\n")
 
