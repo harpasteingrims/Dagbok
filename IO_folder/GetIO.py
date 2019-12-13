@@ -91,7 +91,7 @@ class GetIO():
             if counter == 1:
                 counter += 1
             else:
-                country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID = line.replace(", ", ",").split(",")
+                country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID = line.split(", ")
                 destination = DestinationsModel(country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID)
                 destination_list.append(destination)
                 

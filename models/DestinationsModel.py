@@ -1,5 +1,5 @@
 class DestinationsModel():
-    def __init__(self, country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID ):
+    def __init__(self, country, airport, flight_dur_from_Ice, dist_from_Ice, contact_name, contact_phone_number, destiID):
         self.country = country
         self.airport = airport
         self.flight_dur_from_Ice = flight_dur_from_Ice
