@@ -10,15 +10,12 @@ class IOAPI():
 
     """ EMPLOYEES """
     def get_list_of_all_employees(self):
-        """ Calls the class get to get a list of all employees """
         return self.getio.load_all_employees()
 
     def get_list_of_all_pilots(self):
-        """ Calls the class get to get a list of all pilots """
         return self.getio.load_all_pilots()
 
     def get_list_of_all_cabin_crew(self):
-        """ Calls the class to get a list of the whole cabin crew """
         return self.getio.load_all_cabincrew()
     
     def create_pilot(self, new_pilot):
@@ -36,7 +33,6 @@ class IOAPI():
     """ DESTINATIONS """
 
     def get_destination_list(self):
-        """ Calls the get class to get a list of all destinations """
         return self.getio.load_all_destinations()
     
     def create_destination(self, new_destination):
@@ -49,7 +45,6 @@ class IOAPI():
     """ AIRPLANES """
 
     def get_airplane_list(self):
-        """ Calls the get class to get a list of all airplanes """
         return self.getio.load_all_airplanes()
          
     def create_airplane(self, new_airplane):
@@ -59,7 +54,6 @@ class IOAPI():
     """ VOYAGES """
 
     def get_all_voyages_list(self):
-        """ Calls the Get class to get a list of all voyagess """
         return self.getio.load_all_voyages()
 
     def get_all_flights_list(self):
